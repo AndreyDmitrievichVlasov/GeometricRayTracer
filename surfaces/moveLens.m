@@ -1,3 +1,6 @@
+
+%% Двигает  линзу в координату position
+%% сдвиг происходит относительно первой поерхности
 function [ Lens ] = moveLens( Lens,position)
 %MOVELENSE Summary of this function goes here
 %   Detailed explanation goes here

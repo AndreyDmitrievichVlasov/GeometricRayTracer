@@ -3,8 +3,8 @@ function [ x_spot,y_spot,colors,angleSize] = drawSpotDiagram(fig_handler,quad_,r
 %   Detailed explanation goes here
 %     fig_handler=figure('Units', 'centimeters', 'pos',  [0 0 dimension(1) dimension(2)]);
 %     axis vis3d 
-    set(fig_handler,'DefaultAxesFontSize',10,'DefaultAxesFontName','Times New Roman');
-    set(fig_handler,'DefaultTextFontSize',10,'DefaultTextFontName','Times New Roman');
+%     set(fig_handler,'DefaultAxesFontSize',10,'DefaultAxesFontName','Times New Roman');
+%     set(fig_handler,'DefaultTextFontSize',10,'DefaultTextFontName','Times New Roman');
    tic
     [x_spot,y_spot,colors,angleSize]=spotDiagram(quad_,rays);
    toc
