@@ -2,7 +2,7 @@ function [ rays ] = paraxialSpot( r0, R)
 %LED Summary of this function goes here
 %   Detailed explanation goes here
 % R=1;
-N=20;
+N=121;
 RGB=[630 510 450]*10^-6;
 RGB_colors=[[1 0 0];
             [0 1 0];
@@ -32,7 +32,7 @@ rays=[];
     end
 else
     rho=linspace(R(1),R(2),N);
-    phi=linspace(0,2*pi,N);
+    phi=linspace(0,2*pi*(N-1)/N,N);
     rays=[];
     for k=1:3
         for i=1:N
