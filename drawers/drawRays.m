@@ -38,9 +38,9 @@ function drawRaysIn2015b(rays)
         hold off;
     else
         hold on;
-       if length(rays)>=1024
+       if length(rays)>=250
            
-        for i=1:1024%createIndexes(length(rays))
+        for i=1:250%createIndexes(length(rays))
             idx=1+randi(length(rays)-1);
             r_start=rays(idx,1:3);
             r_end=rays(idx,1:3)+rays(idx,4:6)*(rays(idx,8)-rays(i,7));
@@ -78,7 +78,7 @@ function drawRaysInOlderVersions(rays)
         hold off;
     else
         hold on;
-        if length(rays)>1024
+        if length(rays)>250
               for i=createIndexes(size((rays),1))
                         r_start=rays(i,1:3);
                         r_end=rays(i,1:3)+rays(i,4:6)*(rays(i,8)-rays(i,7));
