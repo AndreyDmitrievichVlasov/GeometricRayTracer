@@ -26,7 +26,7 @@ fig_1=figure(1);
 axis vis3d 
 view([0 0])
 % количество лучей 121^2 рисовать только на свой страх и риск
-% drawRays(fig_1,raysIn);
+drawRays(fig_1,raysIn);
 % drawRays(fig_1,rays_middle);
 % drawRays(fig_1,raysOut);
 % drawRays(fig_1,raysReflected1);
@@ -43,7 +43,7 @@ fig_2=figure(2);
 [~,~,~,~]=drawSpotDiagram(fig_2,detector,raysReflected2);
 
 fig_3 = figure(3);
-[ intensity,x ,y ] = quadIntencity(detector,raysReflected2,100,100);
+[ intensity,x ,y ] = quadIntencity(detector,raysReflected2,200,200);
 imagesc(x,y,intensity);
 colorbar;
 axis equal;
