@@ -46,10 +46,16 @@ if length(r_2)==3
    back_surf = convertQuad2Ellipsoid( back_surf,r_2(1),r_2(2),r_2(3));
 end
 
-
+rI=Materials('silica');
 lens=struct('frontSurface',front_surf,'backSurface',back_surf,'tickness',tickness,'aperture',aperture,'material',...
-                'silica','materialDispersion',@(lam)(1.44),'type','lens');
+                rI,'materialDispersion',@(lam)(dispersionLaw(lam, rI.refractionIndexData)),'type','lens');
 
 
+end
+function n = dispersionLaw(lam, Ndata)
+lam=lam/1000;% all units are nanometers
+n    =    sqrt(1 + Ndata(1)*lam.^2./(lam.^2-Ndata(2)^2)...
+                 + Ndata(3)*lam.^2./(lam.^2-Ndata(4)^2)+...
+                   Ndata(5)*lam.^2./(lam.^2-Ndata(6)^2));
 end
 
