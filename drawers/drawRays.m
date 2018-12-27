@@ -31,8 +31,8 @@ function drawRaysIn2015b(rays)
                 r_start=rays(idx).r0;
                 r_end=rays(idx).r0+rays(i).e*(rays(idx).tEnd-rays(idx).tStart);
                 plot3([r_start(1) r_end(1)],...
-                      [r_start(2) r_end(2)],...
-                      [r_start(3) r_end(3)],'Color',rays(idx).color,'LineWidth',1.2);
+                          [r_start(2) r_end(2)],...
+                          [r_start(3) r_end(3)],'Color',rays(idx).color,'LineWidth',1.2);
              end
       end
         hold off;
@@ -44,9 +44,9 @@ function drawRaysIn2015b(rays)
             idx=1+randi(length(rays)-1);
             r_start=rays(idx,1:3);
             r_end=rays(idx,1:3)+rays(idx,4:6)*(rays(idx,8)-rays(i,7));
-            plot3([r_start(1) r_end(1)],...
-                  [r_start(2) r_end(2)],...
-                  [r_start(3) r_end(3)],'Color',rays(idx,11:13),'LineWidth',1.2);
+            plot3( [r_start(1) r_end(1)],...
+                      [r_start(2) r_end(2)],...
+                      [r_start(3) r_end(3)],'Color',rays(idx,11:13),'LineWidth',1.2);
         end
            
         
@@ -91,8 +91,8 @@ function drawRaysInOlderVersions(rays)
                         r_start=rays(i,1:3);
                         r_end=rays(i,1:3)+rays(i,4:6)*(rays(i,8)-rays(i,7));
                         plot3([r_start(1) r_end(1)],...
-                              [r_start(2) r_end(2)],...
-                              [r_start(3) r_end(3)],'Color',rays(i,11:13),'LineWidth',1.2,'LineSmooth','on');
+                                  [r_start(2) r_end(2)],...
+                                  [r_start(3) r_end(3)],'Color',rays(i,11:13),'LineWidth',1.2,'LineSmooth','on');
                     end
         end
         hold off;

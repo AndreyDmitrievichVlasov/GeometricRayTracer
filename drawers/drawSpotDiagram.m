@@ -20,10 +20,10 @@ function [ x_spot,y_spot,colors,angleSize] = drawSpotDiagram(fig_handler,quad_,r
             plot(x_spot(i),y_spot(i),'+','color',colors(i,:));
         end
     end
-    plot([-quad_.L/2 quad_.L/2   quad_.L/2 -quad_.L/2 -quad_.L/2],...
-         [quad_.H/2 quad_.H/2 -quad_.H/2 -quad_.H/2  quad_.H/2],'k','LineWidth',1.5);
-    xlim([-1.1*quad_.L/2 1.1*quad_.L/2]);
-    ylim([-1.1*quad_.H/2 1.1*quad_.H/2]);
+    plot([-quad_.L/2 quad_.L/2   quad_.L/2 -quad_.L/2 -quad_.L/2]+quad_.position(1),...
+           [quad_.H/2 quad_.H/2 -quad_.H/2 -quad_.H/2  quad_.H/2]+quad_.position(2),'k','LineWidth',1.5);
+    xlim([-1.1*quad_.L/2 1.1*quad_.L/2]+quad_.position(1));
+    ylim([-1.1*quad_.H/2 1.1*quad_.H/2]+quad_.position(2));
     hold off;
     grid on;
     axis equal;

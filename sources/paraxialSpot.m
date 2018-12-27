@@ -5,8 +5,8 @@ function [ rays ] = paraxialSpot( r0, R)
 N=10;
 RGB=[630 510 450]*10^-6;
 RGB_colors=[[1 0 0];
-            [0 1 0];
-            [0 0 1]];
+                    [0 1 0];
+                    [0 0 1]];
 if length(R)==1
 x=-R:2*R/(N-1):R;
 y=-R:2*R/(N-1):R;
@@ -23,7 +23,7 @@ rays=[];
                    % 80 град.
                    rho=x(i)^2+y(j)^2;
                    if  rho<=R^2
-                       intensity=exp( -(rho)/(pi/16)^2);
+                       intensity=1;%exp( -(rho)/(pi/16)^2);
                        rays=[rays; [r0+[x(i) y(j) 0],[0 0 1],0,1.0,RGB(k), intensity,RGB_colors(k,:)*intensity]];
                    end
                 end
