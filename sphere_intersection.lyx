@@ -2387,11 +2387,144 @@ cos\theta=\left(\vec{Z},\vec{e}_{0}-\vec{Y}\left(\vec{Y},\vec{e}_{0}\right)\righ
 \end_layout
 
 \begin_layout Section
+Алгоритм трассировки на дифракционной решётке выполненой на поверхности
+ второго порядка
+\end_layout
+
+\begin_layout Standard
+Рассмотрим участок дифракционной решётки в точке перечечения луча
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{r}\left(t\right)=\vec{e}_{0}t+\vec{r}_{0}
+\]
+
+\end_inset
+
+и поверхности:
+\begin_inset Formula 
+\[
+\vec{r}^{T}M\vec{r}=0.
+\]
+
+\end_inset
+
+Обозначим эту точку за 
+\begin_inset Formula $\vec{\rho}_{0}$
+\end_inset
+
+.
+ Пусть теперь изменение высоты поверхности наблюдается вдоль оси 
+\begin_inset Formula $Oz$
+\end_inset
+
+, а штрихи нанесены вдоль оси 
+\begin_inset Formula $oX.$
+\end_inset
+
+Будем рассматривать случай, когда расстояние между соседними штрихами на
+ поверхности постоянно.
+ в точке
+\begin_inset Formula $\vec{\rho}_{0}$
+\end_inset
+
+.
+ Определим нормаль к поверхности.:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{N}\left(\vec{\rho}_{0}\right).
+\]
+
+\end_inset
+
+Плоскость где будет проходить отклонение луча будет лежать на векторах
+\begin_inset Formula $\vec{N}\left(\vec{\rho}_{0}\right)$
+\end_inset
+
+ и 
+\begin_inset Formula $\vec{X}$
+\end_inset
+
+.
+ Для определения угла отклонения необходим ещё вектор:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{N}_{x}=\vec{X}-\vec{N}\left(\vec{N},\vec{X}\right);
+\]
+
+\end_inset
+
+и вектр перпендикулярный двум предыдущим (т.к.
+ предыдущие вектора единичной длины, то они не нормируются):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{N}_{y}=\left[\vec{N}\left(\vec{\rho}_{0}\right);\vec{N}_{x}\right].
+\]
+
+\end_inset
+
+Комбинируя последние три вектора в матрицу вида (
+\begin_inset Formula $\vec{N}\left(\vec{\rho}_{0}\right)=\vec{N}_{z}$
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+M_{tbn}=\left[\begin{array}{c}
+\vec{N}_{x}\\
+\vec{N}_{y}\\
+\vec{N}_{z}
+\end{array}\right],
+\]
+
+\end_inset
+
+получаем так называемую тангент-битаншент-нормаль матрицу, которая по сути
+ является локальным базисом для поиска дфракционного отклонения.
+ Поизк изменения луча практически ничем не отличается от изложенного в предудуще
+м пункте, за исключением того, что для каждой точки пересечения луча и поверхнос
+ти необходимо будет найти 
+\begin_inset Formula $M_{tbn},$
+\end_inset
+
+после чего перевести направление падения луча в в пространстов 
+\begin_inset Formula $M_{tbn}$
+\end_inset
+
+, т.е.:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{e}_{0}'=M_{tbn}\vec{e}_{0}.
+\]
+
+\end_inset
+
+остальные действия идентичны предыдущему пункту.
+\end_layout
+
+\begin_layout Section
 Трассировка луча в анизотропной среде
 \end_layout
 
 \begin_layout Standard
-Анизатропная среда предполагает зависимость для показателя преломления следующег
+Анизотропная среда предполагает зависимость для показателя преломления следующег
 о вида:
 \end_layout
 
