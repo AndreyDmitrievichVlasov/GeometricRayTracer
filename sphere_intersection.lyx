@@ -2252,7 +2252,7 @@ cos\theta=\left(\vec{Z},\vec{e}_{0}-\vec{Y}\left(\vec{Y},\vec{e}_{0}\right)\righ
 
 \begin_layout Standard
 Теперь, нам нужно найти угл дфифракции и построить новый вектор направления,
- а для этого перепишим уравнение ДГ, учтя последний вывод:
+ а для этого перепишим уравнение ДР, учтя последний вывод:
 \end_layout
 
 \begin_layout Standard
@@ -2457,7 +2457,7 @@ cos\theta=\left(\vec{Z},\vec{e}_{0}-\vec{Y}\left(\vec{Y},\vec{e}_{0}\right)\righ
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\vec{N}_{x}=\vec{X}-\vec{N}\left(\vec{N},\vec{X}\right);
+\vec{N}_{x}=\vec{X}-\vec{N}\left(\vec{N},\vec{X}\right)\text{,}
 \]
 
 \end_inset
@@ -2484,11 +2484,7 @@ cos\theta=\left(\vec{Z},\vec{e}_{0}-\vec{Y}\left(\vec{Y},\vec{e}_{0}\right)\righ
 \begin_layout Standard
 \begin_inset Formula 
 \[
-M_{tbn}=\left[\begin{array}{c}
-\vec{N}_{x}\\
-\vec{N}_{y}\\
-\vec{N}_{z}
-\end{array}\right],
+M_{tbn}=\left[\vec{N}_{x},\vec{N}_{y},\vec{N}_{z}\right],
 \]
 
 \end_inset

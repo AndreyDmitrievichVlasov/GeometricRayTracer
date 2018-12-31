@@ -31,12 +31,14 @@ function drawQuadIn2015b(quad_)
           [r_0(2) r_0(2)+0.25*(quad_.H+quad_.L)*quad_.TBN(2,3)],...
           [r_0(3) r_0(3)+0.25*(quad_.H+quad_.L)*quad_.TBN(3,3)],...
           'b','lineWidth',1);
-
-        if strcmp(quad_.extraDataType,'flatDG');
+        elemType = quad_.extraDataType;
+        if strcmp(elemType,'flatDG')||strcmp(elemType,'sphereDG')||strcmp(elemType,'ellipsoidDG')||strcmp(elemType,'paraboloidDG');
             plot3(quad_.extraData.direction(1,:),quad_.extraData.direction(2,:),quad_.extraData.direction(3,:),...
                  'g--','lineWidth',0.75);
         end
-        if strcmp(quad_.extraDataType,'sphere')||strcmp(quad_.extraDataType,'ellipsoid')||strcmp(quad_.extraDataType,'paraboloid')
+%         description=quad_.extraDataType((quad_.extraDataType-2):length(quad_.extraDataType));
+        if strcmp(elemType,'sphere')||strcmp(elemType,'ellipsoid')||strcmp(elemType,'paraboloid')||...
+           strcmp(elemType,'sphereDG')||strcmp(elemType,'ellipsoidDG')||strcmp(elemType,'paraboloidDG')
             plotCurveIn3D(quad_.extraData.arc_x,quad_.rotationMatrix,quad_.position,0);
             plotCurveIn3D(quad_.extraData.arc_y,quad_.rotationMatrix,quad_.position,0);
             plotCurveIn3D(quad_.extraData.arc_xy,quad_.rotationMatrix,quad_.position,0);

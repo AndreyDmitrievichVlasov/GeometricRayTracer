@@ -64,6 +64,14 @@ function normal_ = ellipsoidalNormalArray(point,position,rotM, A,B,C)
      normal_(:,3)=normal_(:,3)./rho;
 end
 
+function normal = sphericalNormalArray(point,ref_point)
+     normal = zeros(size(point));
+     rho    = sqrt((point(:,1)-ref_point(:,1)).^2+ (point(:,2)-ref_point(:,2)).^2+( point(:,3)-ref_point(:,3)).^2);
+     normal(:,1)=(point(:,1)-ref_point(:,1))./rho;
+     normal(:,2)=(point(:,2)-ref_point(:,2))./rho;
+     normal(:,3)=(point(:,3)-ref_point(:,3))./rho;
+end
+
 function rays_out=Refract(rays_in,normal,material_1,material_2)
     if isstruct(rays_in)
         rays_out = refract_struct(rays_in,normal,material_1,material_2);
@@ -72,14 +80,6 @@ function rays_out=Refract(rays_in,normal,material_1,material_2)
     end
 end
 
-
-function normal = sphericalNormalArray(point,ref_point)
-     normal = zeros(size(point));
-     rho    = sqrt((point(:,1)-ref_point(:,1)).^2+ (point(:,2)-ref_point(:,2)).^2+( point(:,3)-ref_point(:,3)).^2);
-     normal(:,1)=(point(:,1)-ref_point(:,1))./rho;
-     normal(:,2)=(point(:,2)-ref_point(:,2))./rho;
-     normal(:,3)=(point(:,3)-ref_point(:,3))./rho;
-end
 function rays_out = refract_array(rays_in,normal,material_1,material_2)
 %     for i=1:length(rays_in)   
      %    1   2    3    4     5    6        7     8                         9              10  11 12 13

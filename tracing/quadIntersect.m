@@ -4,12 +4,14 @@ function [ rays  ] = quadIntersect( quad_,rays )
   if strcmp(quad_.extraDataType,'flatDG')
       rays=flatIntersection(quad_,rays);
   end
-  if strcmp(quad_.extraDataType,'sphere')||strcmp(quad_.extraDataType,'ellipsoid')||strcmp(quad_.extraDataType,'paraboloid')
+  if strcmp(quad_.extraDataType,'sphere')||strcmp(quad_.extraDataType,'ellipsoid')||strcmp(quad_.extraDataType,'paraboloid')||...
+          strcmp(quad_.extraDataType,'sphereDG')||strcmp(quad_.extraDataType,'ellipsoidDG')||strcmp(quad_.extraDataType,'paraboloidDG')
       rays=Intersection(quad_,rays);
   else
        rays=flatIntersection(quad_,rays); 
   end
 end
+
 function rays=flatIntersection(quad_,rays)
     if isstruct(rays)
          for i=1:length(rays)

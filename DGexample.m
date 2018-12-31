@@ -9,7 +9,7 @@ clear all; close all;clc;initEnvio();
 
 [ DG_flat] =  flatQuad( 4,4,[0 0 0],[0 0 1]);
 
-DG_flat=convertQuad2DG(DG_flat,0.01,1,0);
+DG_flat=convertQuad2DG(DG_flat,0.01,1,0,25);
 
 LED_source=paraxialSpot([0 0 0],1);
 
