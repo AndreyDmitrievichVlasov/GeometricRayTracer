@@ -7,11 +7,13 @@ clear all; close all;clc;initEnvio();
 
 [ lens ] = moveLens( lens,[0 0 0]);
 
-[ DG_flat] =  flatQuad( 4,4,[0 0 0],[0 0 -1]);
+[ DG_flat] =  flatQuad( 4,4,[0 0 0],[0 0 -2]);
 
-DG_flat=convertQuad2DG(DG_flat,0.032, 1, 0, 10^10);
+DG_flat=convertQuad2DG(DG_flat,0.032, 1, 0, -10);
 
-LED_source=paraxialSpot([0 0 0],1);
+LED_source=paraxialSpot([0 0 -5],1);
+
+% [ rays_out ,rays_difracted]= difractionFromQuadZemax(DG_flat,LED_source);
 
 [ rays_out ,rays_difracted]= difractionFromQuad(DG_flat,LED_source);
 
