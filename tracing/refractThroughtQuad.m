@@ -91,12 +91,21 @@ function rays_out = refract_array(rays_in,normal,material_1,material_2)
         
         rays_out(:,8)=1;
         n_=normal(rays_out(:,1:3));
+        
+        mat_1 = material_1(rays_in(:,9));
+        
+        mat_2 = material_2(rays_in(:,9));
+        
         dir_by_n_=rays_in(:,4).*n_(:,1)+rays_in(:,5).*n_(:,2)+rays_in(:,6).*n_(:,3);
-        material_part=( sqrt(  (material_2(rays_in(:,9)).^2-material_1(rays_in(:,9)).^2)./...
-                                       (dir_by_n_).^2+1  ) - 1 ).*(dir_by_n_);
-        rays_out(:,4)=rays_in(:,4)+material_part.*n_(:,1);
-        rays_out(:,5)=rays_in(:,5)+material_part.*n_(:,2);
-        rays_out(:,6)=rays_in(:,6)+material_part.*n_(:,3);
+        
+        dir_by_n_=dir_by_n_.*mat_1;
+        
+        material_part=(sqrt( ( mat_2.^2-mat_1.^2 )./(dir_by_n_).^2 + 1  ) - 1 ).*(dir_by_n_);
+                                     
+        rays_out(:,4)=rays_in(:,4).*mat_1+material_part.*n_(:,1);
+        rays_out(:,5)=rays_in(:,5).*mat_1+material_part.*n_(:,2);
+        rays_out(:,6)=rays_in(:,6).*mat_1+material_part.*n_(:,3);
+        
         normalaizer=sqrt(rays_out(:,4).^2+rays_out(:,5).^2+rays_out(:,6).^2);
         rays_out(:,4)=rays_out(:,4)./normalaizer;
         rays_out(:,5)=rays_out(:,5)./normalaizer;

@@ -1,0 +1,2568 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1cm
+\topmargin 2cm
+\rightmargin 1cm
+\bottommargin 1.5cm
+\headheight 0cm
+\headsep 0cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Основы трейсинга лучей
+\end_layout
+
+\begin_layout Section
+Описание луча в изотропной среде
+\end_layout
+
+\begin_layout Standard
+Луч задан параметрически в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\vec{r}=\vec{\rho}_{0}+\vec{e}t
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Здесь
+\begin_inset Formula $\vec{\rho}_{0}$
+\end_inset
+
+ - радиус-ветор точки начала луча; 
+\begin_inset Formula $\vec{e}$
+\end_inset
+
+ - вектор направления луча (для упрощения в дальнейшем будем считать, что
+ 
+\begin_inset Formula $\left(\vec{e},\vec{e}\right)=1$
+\end_inset
+
+); 
+\begin_inset Formula $t$
+\end_inset
+
+ - параметр, определяющий длинну луча.
+ Такая запись справедлива только для изотропных сред! 
+\end_layout
+
+\begin_layout Section
+Пересесчение с плосокстью
+\end_layout
+
+\begin_layout Standard
+Уравнение плосоксти (
+\begin_inset Formula $\left(\vec{a},\vec{b}\right)$
+\end_inset
+
+ - скалярное произведение ):
+\begin_inset Formula 
+\[
+\left(\vec{n},\left(\vec{r}-\vec{r}_{0}\right)\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Здесь 
+\begin_inset Formula $\vec{n}$
+\end_inset
+
+- вектор нормали к плоскости; 
+\begin_inset Formula $\vec{r}_{0}$
+\end_inset
+
+- радиус вектор через который плоскость проходит.
+\end_layout
+
+\begin_layout Standard
+Что бы нати точку пересечения:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\vec{n},\left(\vec{\rho}_{0}+\vec{e}t-\vec{r}_{0}\right)\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\vec{n},\vec{e}\right)t=\left(\vec{n},\vec{r}_{0}-\vec{\rho}_{0}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+t=\frac{\left(\vec{n},\vec{r}_{0}-\vec{\rho}_{0}\right)}{\left(\vec{n},\vec{e}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В том случае, если 
+\begin_inset Formula 
+\[
+\vec{\rho}_{0}=[0,0,0]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\vec{r}=\vec{e}t
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Имеем:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+t=\frac{\left(\vec{n},\vec{r}_{0}\right)}{\left(\vec{n},\vec{e}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Преобразование координат 
+\end_layout
+
+\begin_layout Standard
+Двольно просто искать пересечение лучей с геометрическими объетами,находящимися
+ в начале кординат.
+ Например, для плосокости удобно сделать так, что бы вектор нормали к ней
+ совпал с осью z.
+ Сама плоскость проходит через оси Ox и Oy.
+ Ось вращения сферических поверхностей так же должна совпадать с Oz, но
+ есть нюанс связанный со знаком кривизны поверхности:
+\end_layout
+
+\begin_layout Standard
+1)Если кривизна поверхности отрицательна, то координаты центра сверы в будут:
+\begin_inset Formula $\left[0,0,-R\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2)Если кривизна поверхности положительна, то координаты центра сверы в будут:
+\begin_inset Formula $\left[0,0,R\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Пускай собственный базис поверхности состоит из трёх векторов: 
+\begin_inset Formula $\vec{t}$
+\end_inset
+
+ - тангент; 
+\begin_inset Formula $\vec{b}$
+\end_inset
+
+ - битангент; 
+\begin_inset Formula $\vec{n}$
+\end_inset
+
+ - нормаль, которая совпадает с осью Z.
+\end_layout
+
+\begin_layout Standard
+В виде матриц это может быть записано следующим образом:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{c}
+\vec{t}\\
+\vec{b}\\
+\vec{n}
+\end{array}\right]=\left[\begin{array}{ccc}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Что бы задать поверхности ориентацию базис нужно умножить на матрицу поворота
+ и сдвига.
+\end_layout
+
+\begin_layout Standard
+Матрица поворота состоит иза произведения трёх матриц для поворота по отдельным
+ осям:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+M_{rot}\left(\alpha,\beta,\gamma\right)=M_{rot}^{x}\left(\alpha\right)M_{rot}^{y}\left(\beta\right)M_{rot}^{z}\left(\gamma\right)=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\left(\begin{array}{ccc}
+1 & 0 & 0\\
+0 & cos\left(\alpha\right) & -sin\left(\alpha\right)\\
+0 & sin\left(\alpha\right) & cos\left(\alpha\right)
+\end{array}\right)\left(\begin{array}{ccc}
+cos\left(\beta\right) & 0 & sin\left(\beta\right)\\
+0 & 1 & 0\\
+-sin\left(\beta\right) & 0 & cos\left(\beta\right)
+\end{array}\right)\left(\begin{array}{ccc}
+cos\left(\gamma\right) & -sin\left(\gamma\right) & 0\\
+sin\left(\gamma\right) & cos\left(\gamma\right) & 0\\
+0 & 0 & 1
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Оперировать будем четырёхмерными матрицами, поетому матрицу поворота модифицируе
+м следующим образом:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+M_{rotation}\left(\alpha,\beta,\gamma\right)=\left[\begin{array}{cc}
+M_{rot}\left(\alpha,\beta,\gamma\right) & 0\\
+0 & 1
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Стоит отметить замечательное свойство такой матрицы:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+M_{rotation}\left(\alpha,\beta,\gamma\right)^{-1}=M_{rotation}\left(\alpha,\beta,\gamma\right)^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Выбор четырёхмерных матриц целесообразен тем, что мы можем записать матрицу
+ сдвига в следующем виде:
+\begin_inset Formula 
+\[
+M_{shift}\left(\vec{r}\right)=\left(\begin{array}{cccc}
+1 & 0 & 0 & r_{x}\\
+0 & 1 & 0 & r_{y}\\
+0 & 0 & 1 & r_{z}\\
+0 & 0 & 0 & 1
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Тем самым все преобразования над лучами мы сведём к матричным преобразованиям.
+\end_layout
+
+\begin_layout Standard
+Вектора, которые будут подвергаться преобрахзованиям должны удовлетворять
+ следующим условиям :
+\end_layout
+
+\begin_layout Standard
+Если вектор задаёт положение в пространстве, то он имеет следующий вид:
+\begin_inset Formula 
+\[
+\vec{r}=\left(r_{x},r_{y},r_{z},1\right);
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Если вектор задаёт направление , то:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{e}=\left(e_{x},e_{y},e_{z},0\right);
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Лекго убедиться в том, что вектор направления инвариантен относительно сдвига.
+\end_layout
+
+\begin_layout Standard
+Получается, что для произвольного аналитически заданного геометрического
+ объека, который находится в точке 
+\begin_inset Formula $\vec{r}_{0}$
+\end_inset
+
+и ориентирован углами 
+\begin_inset Formula $\left(\alpha,\beta,\gamma\right)$
+\end_inset
+
+точки пересечения лучей ищутся по следующему алгоритму:
+\end_layout
+
+\begin_layout Standard
+1) Мы должны перейти собственную ситему координат объекта, преобразовав
+ начала и напраления лучей:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{r}'=\left[\left(\begin{array}{cc}
+\left[\begin{array}{c}
+\vec{t}\\
+\vec{b}\\
+\vec{n}
+\end{array}\right] & 0\\
+0 & 1
+\end{array}\right)M_{rotation}\left(\alpha,\beta,\gamma\right)\right]M_{shift}\left(\vec{r}\right)\left(\vec{r},0\right)^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{e}'=\left[\left(\begin{array}{cc}
+\left[\begin{array}{c}
+\vec{t}\\
+\vec{b}\\
+\vec{n}
+\end{array}\right] & 0\\
+0 & 1
+\end{array}\right)M_{rotation}\left(\alpha,\beta,\gamma\right)\right]M_{shift}\left(\vec{e}\right)\left(\vec{e},0\right)^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Поворот инвареантен относительно сдвига, поэтому:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{e}'=\left[\left(\begin{array}{cc}
+\left[\begin{array}{c}
+\vec{t}\\
+\vec{b}\\
+\vec{n}
+\end{array}\right] & 0\\
+0 & 1
+\end{array}\right)M_{rotation}\left(\alpha,\beta,\gamma\right)\right]\left(\vec{e},0\right)^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Определить точки пересечения лучей с поверхностью.
+ Параметрическая запись в этом случае очень удобна тем, что длина луча от
+ начала до пересечения с поверхностью инвариантна относительно поворота
+ и сдвига.
+ Длина луча, как было указано ранее, является значением параметра
+\begin_inset Formula $t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Пересечение луча со сферой
+\end_layout
+
+\begin_layout Standard
+Луч задан параметрически в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\vec{r}=\vec{r}_{0}+\vec{e}t
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Сфера задана в виеде :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left(\vec{\rho}-\vec{\rho}_{0},\vec{\rho}-\vec{\rho}_{0}\right)=R^{2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Что бы найти точку пересечения нам надо подставить 1 в 2:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\vec{r}_{0}+\vec{e}t-\vec{\rho}_{0},\vec{r}_{0}+\vec{e}t-\vec{\rho}_{0}\right)=R^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Перезапишм это всё в виде от t:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(r_{x}+e_{x}t-\rho_{x}\right)^{2}+\left(r_{y}+e_{y}t-\rho_{y}\right)^{2}+\left(r_{z}+e_{y}t-\rho_{z}\right)^{2}=R^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(r_{x}+e_{x}t-\rho_{x}\right)^{2}+\left(r_{y}+e_{y}t-\rho_{y}\right)^{2}+\left(r_{z}+e_{y}t-\rho_{z}\right)^{2}=R^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+r_{x}^{2}+2r_{x}\left(e_{x}t-\rho_{x}\right)+\left(e_{x}t-\rho_{x}\right)^{2}+r_{y}^{2}+2r_{y}\left(e_{y}t-\rho_{y}\right)+\left(e_{y}t-\rho_{y}\right)^{2}+r_{z}^{2}+2r_{z}\left(e_{z}t-\rho_{z}\right)+\left(e_{z}t-\rho_{z}\right)^{2}=R^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+r_{x}^{2}+2r_{x}e_{x}t-2r_{x}\rho_{x}+e_{x}^{2}t^{2}-2te_{x}\rho_{x}+\rho_{x}^{2}+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++r_{y}^{2}+2r_{y}e_{y}t-2r_{y}\rho_{y}+e_{y}^{2}t^{2}-2te_{y}\rho_{y}+\rho_{y}^{2}+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++r_{z}^{2}+2r_{z}e_{z}t-2r_{z}\rho_{z}+e_{z}^{2}t^{2}-2te_{z}\rho_{z}+\rho_{z}^{2}=R^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(e_{x}^{2}+e_{y}^{2}+e_{z}^{2}\right)t^{2}+2t\left(r_{x}e_{x}-e_{x}\rho_{x}+r_{y}e_{y}-e_{y}\rho_{y}+r_{z}e_{z}-e_{z}\rho_{z}\right)+\left(r_{x}-\rho_{x}\right)^{2}+\left(r_{y}-\rho_{y}\right)^{2}+\left(r_{z}-\rho_{z}\right)^{2}=R^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Последнее выражение можно записать компактно в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\vec{e},\vec{e}\right)t^{2}+2t\left(\vec{r}_{0}-\vec{\rho_{0}},\vec{e}\right)+\left(\vec{r}_{0}-\vec{\rho}_{0},\vec{r}_{0}-\vec{\rho}_{0}\right)-R^{2}=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В таком случае:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+t_{1,2}=\frac{\left(\vec{r}_{0}-\vec{\rho_{0}},\vec{e}\right)\pm\sqrt{\left(\vec{r}_{0}-\vec{\rho_{0}},\vec{e}\right)^{2}-\left(\vec{e},\vec{e}\right)\left(\left(\vec{r}_{0}-\vec{\rho}_{0},\vec{r}_{0}-\vec{\rho}_{0}\right)-R^{2}\right)}}{\left(\vec{e},\vec{e}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Так как:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\vec{e},\vec{e}\right)=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+t_{1,2}=\left(\vec{r}_{0}-\vec{\rho_{0}},\vec{e}\right)\pm\sqrt{\left(\vec{r}_{0}-\vec{\rho_{0}},\vec{e}\right)^{2}-\left(\vec{r}_{0}-\vec{\rho}_{0},\vec{r}_{0}-\vec{\rho}_{0}\right)+R^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Если сфера находится в центре
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+t_{1,2}=\left(\vec{r}_{0},\vec{e}\right)\pm\sqrt{\left(\vec{r}_{0},\vec{e}\right)^{2}-\left(\left(\vec{r}_{0},\vec{r}_{0}\right)-R^{2}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Луч пересечёт сферу только в случае 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\vec{r}_{0}-\vec{\rho_{0}},\vec{e}\right)^{2}-\left(\left(\vec{r}_{0}-\vec{\rho}_{0},\vec{r}_{0}-\vec{\rho}_{0}\right)-R^{2}\right)\geq0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Если луч пересекает сферу, то для нормали в точках пересечения имеем два
+ варианта:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{n}=\frac{\vec{r}\left(t_{1,2}\right)-\vec{\rho}_{0}}{\left\Vert \vec{r}\left(t_{1,2}\right)-\vec{\rho}_{0}\right\Vert }
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Если у нас выпуклая поверхность, то 
+\begin_inset Formula 
+\[
+\left(\vec{n},\vec{e}\right)>0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Если вогнутая, то 
+\begin_inset Formula 
+\[
+\left(\vec{n},\vec{e}\right)\text{<}0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Пересечения луча элипсойдом
+\end_layout
+
+\begin_layout Standard
+Луч задан параметрически в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\vec{r}=\vec{r}_{0}+\vec{e}t
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+x=x_{0}+e_{x}t\\
+y=y_{0}+e_{y}t\\
+z=z_{0}+e_{z}t
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Эдипс задан в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{\left(x-\rho_{x}\right)^{2}}{a^{2}}+\frac{\left(y-\rho_{y}\right)^{2}}{b^{2}}+\frac{\left(z-\rho_{z}\right)^{2}}{c^{2}}=1
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\left(x_{0}+e_{x}t-\rho_{x}\right)^{2}}{a^{2}}+\frac{\left(y_{0}+e_{y}t-\rho_{y}\right)^{2}}{b^{2}}+\frac{\left(z_{0}+e_{z}t-\rho_{z}\right)^{2}}{c^{2}}=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{x_{0}^{2}+2x_{0}\left(e_{x}t-\rho_{x}\right)+\left(e_{x}t-\rho_{x}\right)^{2}}{a^{2}}+\frac{y_{0}^{2}+2y_{0}\left(e_{y}t-\rho_{y}\right)+\left(e_{y}t-\rho_{y}\right)^{2}}{b^{2}}+\frac{z_{0}^{2}+2z_{0}\left(e_{z}t-\rho_{z}\right)+\left(e_{z}t-\rho_{z}\right)^{2}}{c^{2}}=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{x_{0}^{2}+2x_{0}e_{x}t-2x_{0}\rho_{x}+e_{x}^{2}t^{2}-2e_{x}\rho_{x}t+\rho_{x}^{2}}{a^{2}}+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++\frac{y_{0}^{2}+2y_{0}e_{y}t-2y_{0}\rho_{y}+e_{y}^{2}t^{2}-2e_{y}\rho_{y}t+\rho_{y}^{2}}{b^{2}}+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++\frac{z_{0}^{2}+2z_{0}e_{z}t-2z_{0}\rho_{z}+e_{z}^{2}t^{2}-2e_{z}\rho_{z}t+\rho_{z}^{2}}{c^{2}}=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Сгруппируем 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{e_{x}^{2}t^{2}+2\left(x_{0}e_{x}-e_{x}\rho_{x}\right)t+\rho_{x}^{2}-2x_{0}\rho_{x}+x_{0}^{2}}{a^{2}}+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++\frac{e_{y}^{2}t^{2}+2\left(y_{0}e_{y}-e_{y}\rho_{y}\right)t+\rho_{y}^{2}-2y_{0}\rho_{y}+y_{0}^{2}}{b^{2}}+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++\frac{e_{z}^{2}t^{2}+2\left(z_{0}e_{z}-e_{z}\rho_{z}\right)t+\rho_{z}^{2}-2z_{0}\rho_{z}+z_{0}^{2}}{c^{2}}=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ещё раз упростим:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{e_{x}^{2}t^{2}+2\left(x_{0}e_{x}-e_{x}\rho_{x}\right)t+\left(\rho_{x}-x_{0}\right)^{2}}{a^{2}}+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++\frac{e_{y}^{2}t^{2}+2\left(y_{0}e_{y}-e_{y}\rho_{y}\right)t+\left(\rho_{y}-y_{0}\right)^{2}}{b^{2}}+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++\frac{e_{z}^{2}t^{2}+2\left(z_{0}e_{z}-e_{z}\rho_{z}\right)t+\left(\rho_{z}-z_{0}\right)^{2}}{c^{2}}=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+внесем параметр t:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\frac{e_{x}^{2}}{a^{2}}+\frac{e_{y}^{2}}{b^{2}}+\frac{e_{z}^{2}}{c^{2}}\right)t^{2}+2t\left(\frac{\left(x_{0}e_{x}-e_{x}\rho_{x}\right)}{a^{2}}+\frac{\left(y_{0}e_{y}-e_{y}\rho_{y}\right)}{b^{2}}+\frac{\left(z_{0}e_{z}-e_{z}\rho_{z}\right)}{c^{2}}\right)+\frac{\left(\rho_{x}-x_{0}\right)^{2}}{a^{2}}+\frac{\left(\rho_{y}-y_{0}\right)^{2}}{b^{2}}+\frac{\left(\rho_{z}-z_{0}\right)^{2}}{c^{2}}=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Умножим всё на 
+\begin_inset Formula $\left(abc\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\left(bc\right)^{2}e_{x}^{2}+\left(ac\right)^{2}e_{y}^{2}+\left(ab\right)^{2}e_{z}^{2}\right)t^{2}+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++2t\left(\left(bc\right)^{2}\left(x_{0}e_{x}-e_{x}\rho_{x}\right)+\left(ac\right)^{2}\left(y_{0}e_{y}-e_{y}\rho_{y}\right)+\left(ab\right)^{2}\left(z_{0}e_{z}-e_{z}\rho_{z}\right)\right)+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++\left(bc\right)^{2}\left(\rho_{x}-x_{0}\right)^{2}+\left(ac\right)^{2}\left(\rho_{y}-y_{0}\right)^{2}+\left(ab\right)^{2}\left(\rho_{z}-z_{0}\right)^{2}=\left(abc\right)^{2}
+\]
+
+\end_inset
+
+Введём диагональную матрицу:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+M_{abc}=\left[\begin{array}{ccc}
+bc & 0 & 0\\
+0 & ac & 0\\
+0 & 0 & ab
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Тогда последнее выражение можно легко и компактно записать в следующем виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(M_{abc}\vec{e}^{T};M_{abc}\vec{e}^{T}\right)t^{2}+2t\left(M_{abc}\vec{e}^{T};M_{abc}\left(\vec{r}-\vec{\rho}_{0}\right)^{T}\right)+\left(M_{abc}\left(\vec{r}-\vec{\rho}_{0}\right)^{T};M_{abc}\left(\vec{r}-\vec{\rho}_{0}\right)^{T}\right)-\left(abc\right)^{2}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Получили обычное квадратное уравнение для которого 
+\begin_inset Formula 
+\[
+D=4\left[\left(M_{abc}\vec{e}^{T};M_{abc}\left(\vec{r}-\vec{\rho}_{0}\right)^{T}\right)^{2}-\left(M_{abc}\vec{e}^{T};M_{abc}\vec{e}^{T}\right)\left(\left(M_{abc}\left(\vec{r}-\vec{\rho}_{0}\right)^{T};M_{abc}\left(\vec{r}-\vec{\rho}_{0}\right)^{T}\right)-\left(abc\right)^{2}\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+t_{1,2}=\frac{-\left(M_{abc}\vec{e}^{T};M_{abc}\left(\vec{r}-\vec{\rho}_{0}\right)^{T}\right)\pm}{}...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\pm\sqrt{\left(M_{abc}\vec{e}^{T};M_{abc}\left(\vec{r}-\vec{\rho}_{0}\right)^{T}\right)^{2}-\left(M_{abc}\vec{e}^{T};M_{abc}\vec{e}^{T}\right)\left(\left(M_{abc}\left(\vec{r}-\vec{\rho}_{0}\right)^{T};M_{abc}\left(\vec{r}-\vec{\rho}_{0}\right)^{T}\right)-\left(abc\right)^{2}\right)}}{\left(M_{abc}\vec{e}^{T};M_{abc}\vec{e}^{T}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Пересечения луча параболойдом
+\end_layout
+
+\begin_layout Standard
+Луч задан параметрически в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\vec{r}=\vec{r}_{0}+\vec{e}t
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+x=x_{0}+e_{x}t\\
+y=y_{0}+e_{y}t\\
+z=z_{0}+e_{z}t
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Параболоид задан в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{\left(x-\rho_{x}\right)^{2}}{a^{2}}\pm\frac{\left(y-\rho_{y}\right)^{2}}{b^{2}}+\left(z-\rho_{z}\right)=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Подставим запись луча в уравнение параболойда
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\left(x_{0}+e_{x}t-\rho_{x}\right)^{2}}{a^{2}}\pm\frac{\left(y_{0}+e_{y}t-\rho_{y}\right)^{2}}{b^{2}}+\left(z_{0}+e_{z}t-\rho_{z}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Раскроем скобки:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{x_{0}^{2}+2x_{0}\left(e_{x}t-\rho_{x}\right)+\left(e_{x}t-\rho_{x}\right)^{2}}{a^{2}}\pm\frac{y_{0}^{2}+2y_{0}\left(e_{y}t-\rho_{x}\right)+\left(e_{y}t-\rho_{y}\right)^{2}}{b^{2}}+\left(z_{0}+e_{z}t-\rho_{z}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{x_{0}^{2}+2x_{0}e_{x}t-2x_{0}\rho_{x}+e_{x}^{2}t^{2}-2e_{x}\rho_{x}t+\rho_{x}^{2}}{a^{2}}\pm\frac{x_{0}^{2}+2y_{0}e_{y}t-2y_{0}\rho_{y}+e_{y}^{2}t^{2}-2e_{y}\rho_{y}t+\rho_{y}^{2}}{b^{2}}+\left(z_{0}+e_{z}t-\rho_{z}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Группируем слогаемые:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{e_{x}^{2}t^{2}+2\left(x_{0}e_{x}-e_{x}\rho_{x}\right)t+\left(x_{0}-\rho_{x}\right)^{2}}{a^{2}}\pm..
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\pm\frac{e_{y}^{2}t^{2}+2\left(y_{0}e_{y}-e_{y}\rho_{y}\right)t+\left(y_{0}-\rho_{y}\right)^{2}}{b^{2}}+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++\left(z_{0}+e_{z}t-\rho_{z}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Умножим всё на 
+\begin_inset Formula $\left(ab\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+b^{2}e_{x}^{2}t^{2}+2b^{2}\left(x_{0}e_{x}-e_{x}\rho_{x}\right)t+b^{2}\left(x_{0}-\rho_{x}\right)^{2}\pm..
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\pm a^{2}e_{y}^{2}t^{2}\pm2a^{2}\left(y_{0}e_{y}-e_{y}\rho_{y}\right)t\pm a^{2}\left(y_{0}-\rho_{y}\right)^{2}+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++\left(z_{0}+e_{z}t-\rho_{z}\right)\left(ab\right)^{2}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ещё раз группируем:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(b^{2}e_{x}^{2}\pm a^{2}e_{y}^{2}\right)t^{2}+2\left(b^{2}\left(x_{0}e_{x}-e_{x}\rho_{x}\right)\pm a^{2}\left(y_{0}e_{y}-e_{y}\rho_{y}\right)+\left(ab\right)^{2}e_{z}\right)t+b^{2}\left(x_{0}-\rho_{x}\right)^{2}\pm a^{2}\left(y_{0}-\rho_{y}\right)^{2}+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++\left(z_{0}\left(ab\right)^{2}-\left(ab\right)^{2}\rho_{z}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Для простоты введём подстановку:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A=\left(b^{2}e_{x}^{2}\pm a^{2}e_{y}^{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+B=2\left(b^{2}\left(x_{0}e_{x}-e_{x}\rho_{x}\right)\pm a^{2}\left(y_{0}e_{y}-e_{y}\rho_{y}\right)+\left(ab\right)^{2}e_{z}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C=b^{2}\left(x_{0}-\rho_{x}\right)^{2}\pm a^{2}\left(y_{0}-\rho_{y}\right)^{2}+\left(z_{0}\left(ab\right)^{2}-\left(ab\right)^{2}\rho_{z}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Учитывая, что 
+\begin_inset Formula $\rho=\{0,0,0\}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+B=2\left(b^{2}x_{0}e_{x}\pm a^{2}y_{0}e_{y}+\left(ab\right)^{2}e_{z}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C=b^{2}x_{0}^{2}\pm a^{2}y_{0}^{2}+z_{0}\left(ab\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Поверхности второго порядка:
+\end_layout
+
+\begin_layout Standard
+Общее уравнение таких поверхностей :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{cccc}
+x & y & z & 1\end{array}\right]\left[\begin{array}{cccc}
+a_{11} & a_{12} & a_{13} & a_{14}\\
+a_{21} & a_{22} & a_{23} & a_{24}\\
+a_{31} & a_{32} & a_{33} & a_{34}\\
+a_{41} & a_{42} & a_{43} & a_{44}
+\end{array}\right]\left[\begin{array}{c}
+x\\
+y\\
+z\\
+1
+\end{array}\right]=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Это квадратичная форма в которой можно отделить квадратичную часть от линейной
+ следующим образом:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{cccc}
+x & y & z & 1\end{array}\right]\left[\begin{array}{c}
+a_{11}x+a_{12}y+a_{13}z+a_{14}\\
+a_{21}x+a_{22}y+a_{23}z+a_{24}\\
+a_{31}x+a_{32}y+a_{33}z+a_{34}\\
+a_{41}x+a_{42}y+a_{43}z+a_{44}
+\end{array}\right]=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{c}
+x\left(a_{11}x+a_{12}y+a_{13}z+a_{14}\right)+...\\
+y\left(a_{21}x+a_{22}y+a_{23}z+a_{24}\right)+...\\
+z\left(a_{31}x+a_{32}y+a_{33}z+a_{34}\right)+...\\
+\left(a_{41}x+a_{42}y+a_{43}z+a_{44}\right)
+\end{array}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{c}
+a_{11}x^{2}+a_{12}xy+a_{13}xz+xa_{14}+...\\
+a_{21}yx+a_{22}y^{2}+a_{23}yz+ya_{24}+...\\
+a_{31}zx+a_{32}zy+a_{33}z^{2}+za_{34}+...\\
+a_{41}x+a_{42}y+a_{43}z+a_{44}
+\end{array}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{ccc}
+x & y & z\end{array}\right]\left[\begin{array}{ccc}
+a_{11} & a_{12} & a_{13}\\
+a_{21} & a_{22} & a_{23}\\
+a_{31} & a_{32} & a_{33}
+\end{array}\right]\left[\begin{array}{c}
+x\\
+y\\
+z
+\end{array}\right]+\left(\left[\begin{array}{ccc}
+a_{14} & a_{24} & a_{34}\end{array}\right]+\left[\begin{array}{ccc}
+a_{41} & a_{42} & a_{43}\end{array}\right]\right)\left[\begin{array}{c}
+x\\
+y\\
+z
+\end{array}\right]+a_{44}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Введйм обозначения:
+\begin_inset Formula 
+\[
+\left[\begin{array}{c}
+x\\
+y\\
+z
+\end{array}\right]=\vec{r}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{ccc}
+a_{11} & a_{12} & a_{13}\\
+a_{21} & a_{22} & a_{23}\\
+a_{31} & a_{32} & a_{33}
+\end{array}\right]=A
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{ccc}
+a_{14} & a_{24} & a_{34}\end{array}\right]+\left[\begin{array}{ccc}
+a_{41} & a_{42} & a_{43}\end{array}\right]=\vec{B}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Тогда мы можем записать в общем виде уравнение поверхности:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{r}^{T}A\vec{r}+\vec{B}\vec{r}+a_{44}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Подставляя в качестве 
+\begin_inset Formula $\vec{r}=\vec{r}_{0}+\vec{e}t$
+\end_inset
+
+ в последнее уравнение можно легко определить точку пересечения с поверхностью
+ следуюущим образом:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\vec{r}_{0}+\vec{e}t\right)^{T}A\left(\vec{r}_{0}+\vec{e}t\right)+\vec{B}\left(\vec{r}_{0}+\vec{e}t\right)+a_{44}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\left(\vec{r}_{0}+\vec{e}t\right)^{T};A\vec{r}_{0}+A\vec{e}t\right)+\left(\vec{B},\vec{r}_{0}\right)+\left(\vec{B},\vec{e}\right)t+a_{44}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\left(\vec{r}_{0}+\vec{e}t\right)^{T};A\vec{r}_{0}\right)+\left(\left(\vec{r}_{0}+\vec{e}t\right)^{T};A\vec{e}t\right)+\left(\vec{B},\vec{r}_{0}\right)+\left(\vec{B},\vec{e}\right)t+a_{44}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\vec{r}_{0}^{T},A\vec{r}_{0}\right)+\left(\vec{e}^{T},A\vec{r}_{0}\right)t+\left(\vec{r}_{0}^{T},A\vec{e}\right)t+\left(\vec{e}^{T},A\vec{e}\right)t^{2}+\left(\vec{B},\vec{r}_{0}\right)+\left(\vec{B},\vec{e}\right)t+a_{44}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В результате получим квадратное уравнение относительно параметра 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\vec{e}^{T},A\vec{e}\right)t^{2}+\left(\left(\vec{e}^{T},A\vec{r}_{0}\right)+\left(\vec{r}_{0}^{T},A\vec{e}\right)+\left(\vec{B},\vec{e}\right)\right)t+\left(\vec{B},\vec{r}_{0}\right)+\left(\vec{r}_{0}^{T},A\vec{r}_{0}\right)+a_{44}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Решим его относительно 
+\begin_inset Formula $t$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+D=\left(\left(\vec{e}^{T},A\vec{r}_{0}\right)+\left(\vec{r}_{0}^{T},A\vec{e}\right)+\left(\vec{B},\vec{e}\right)\right)^{2}-4\left(\vec{e}^{T},A\vec{e}\right)\left(\left(\vec{B},\vec{r}_{0}\right)+\left(\vec{r}_{0}^{T},A\vec{r}_{0}\right)+a_{44}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ну...
+ тут вообще видно, что хрен мы там чего сократим, поэтому не буду ничо решать,
+ я итак уже в таком виде всё запрограммировал.
+\end_layout
+
+\begin_layout Section
+Нормаль к поверхности второго порядка
+\end_layout
+
+\begin_layout Standard
+В общем виде нормалью к поверхности, заданной неявно:
+\begin_inset Formula 
+\[
+F\left(\vec{r}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{n}\left(\vec{r}\right)=\frac{dF\left(\vec{r}\right)}{d\vec{r}}=\left\{ \frac{\partial F\left(x,y,z\right)}{\partial x},\frac{\partial F\left(x,y,z\right)}{\partial y},\frac{\partial F\left(x,y,z\right)}{\partial z}\right\} 
+\]
+
+\end_inset
+
+При дифференцировании, например, по x читаем, что y и z константы.
+ Воспользуемся квадратичной формой 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F\left(x,y,z\right)=\left[\begin{array}{cccc}
+x & y & z & 1\end{array}\right]\left[\begin{array}{cccc}
+a_{11} & a_{12} & a_{13} & a_{14}\\
+a_{21} & a_{22} & a_{23} & a_{24}\\
+a_{31} & a_{32} & a_{33} & a_{34}\\
+a_{41} & a_{42} & a_{43} & a_{44}
+\end{array}\right]\left[\begin{array}{c}
+x\\
+y\\
+z\\
+1
+\end{array}\right]=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{c}
+=a_{11}x^{2}+a_{12}xy+a_{13}xz+xa_{14}+...\\
+\,\,\,\,\,\,a_{21}yx+a_{22}y^{2}+a_{23}yz+ya_{24}+...\\
+\,\,\,\,\,a_{31}zx+a_{32}zy+a_{33}z^{2}+za_{34}+...\\
+a_{41}x+a_{42}y+a_{43}z+a_{44}=
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F\left(x,y,z\right)=x^{2}a_{11}+y^{2}a_{22}+z^{2}a_{33}+xy\left(a_{12}+a_{21}\right)+xz\left(a_{13}+a_{31}\right)+x\left(a_{14}+a_{41}\right)+yz\left(a_{32}+a_{23}\right)+y\left(a_{42}+a_{24}\right)+z\left(a_{43}+a_{43}\right)+a_{44}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Продифференцируем полседнее выражение по х:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial F\left(x,y,z\right)}{\partial x}=2xa_{11}+y\left(a_{12}+a_{21}\right)+z\left(a_{13}+a_{31}\right)+\left(a_{14}+a_{41}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Производная в матричном виде (
+\begin_inset Formula $\frac{d}{dx}\left(UV\right)=U\frac{dV}{dx}+V\frac{dU}{dx}$
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial x}\left[\left[\begin{array}{cccc}
+x & y & z & 1\end{array}\right]\left[\begin{array}{c}
+a_{11}x+a_{12}y+a_{13}z+a_{14}\\
+a_{21}x+a_{22}y+a_{23}z+a_{24}\\
+a_{31}x+a_{32}y+a_{33}z+a_{34}\\
+a_{41}x+a_{42}y+a_{43}z+a_{44}
+\end{array}\right]\right]=\left[\left[\begin{array}{cccc}
+1 & 0 & 0 & 0\end{array}\right]\left[\begin{array}{c}
+a_{11}x+a_{12}y+a_{13}z+a_{14}\\
+a_{21}x+a_{22}y+a_{23}z+a_{24}\\
+a_{31}x+a_{32}y+a_{33}z+a_{34}\\
+a_{41}x+a_{42}y+a_{43}z+a_{44}
+\end{array}\right]\right]+\left[\left[\begin{array}{cccc}
+x & y & z & 1\end{array}\right]\left[\begin{array}{c}
+a_{11}\\
+a_{21}\\
+a_{31}\\
+a_{41}
+\end{array}\right]\right]=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+a_{11}x+a_{12}y+a_{13}z+a_{14}+a_{11}x+a_{21}y+a_{13}z+a_{41}=2xa_{11}+y\left(a_{12}+a_{21}\right)+z\left(a_{13}+a_{31}\right)+\left(a_{14}+a_{41}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Получили формулу 9.
+\end_layout
+
+\begin_layout Standard
+Аналогично для 
+\begin_inset Formula $x$
+\end_inset
+
+ и 
+\begin_inset Formula $y$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial y}\left[\left[\begin{array}{cccc}
+x & y & z & 1\end{array}\right]\left[\begin{array}{c}
+a_{11}x+a_{12}y+a_{13}z+a_{14}\\
+a_{21}x+a_{22}y+a_{23}z+a_{24}\\
+a_{31}x+a_{32}y+a_{33}z+a_{34}\\
+a_{41}x+a_{42}y+a_{43}z+a_{44}
+\end{array}\right]\right]=\left[\left[\begin{array}{cccc}
+0 & 1 & 0 & 0\end{array}\right]\left[\begin{array}{c}
+a_{11}x+a_{12}y+a_{13}z+a_{14}\\
+a_{21}x+a_{22}y+a_{23}z+a_{24}\\
+a_{31}x+a_{32}y+a_{33}z+a_{34}\\
+a_{41}x+a_{42}y+a_{43}z+a_{44}
+\end{array}\right]\right]+\left[\left[\begin{array}{cccc}
+x & y & z & 1\end{array}\right]\left[\begin{array}{c}
+a_{12}\\
+a_{22}\\
+a_{32}\\
+a_{42}
+\end{array}\right]\right]=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=2ya_{22}+x\left(a_{12}+a_{21}\right)+z\left(a_{23}+a_{32}\right)+\left(a_{24}+a_{42}\right);
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial y}\left[\left[\begin{array}{cccc}
+x & y & z & 1\end{array}\right]\left[\begin{array}{c}
+a_{11}x+a_{12}y+a_{13}z+a_{14}\\
+a_{21}x+a_{22}y+a_{23}z+a_{24}\\
+a_{31}x+a_{32}y+a_{33}z+a_{34}\\
+a_{41}x+a_{42}y+a_{43}z+a_{44}
+\end{array}\right]\right]=\left[\left[\begin{array}{cccc}
+0 & 0 & 1 & 0\end{array}\right]\left[\begin{array}{c}
+a_{11}x+a_{12}y+a_{13}z+a_{14}\\
+a_{21}x+a_{22}y+a_{23}z+a_{24}\\
+a_{31}x+a_{32}y+a_{33}z+a_{34}\\
+a_{41}x+a_{42}y+a_{43}z+a_{44}
+\end{array}\right]\right]+\left[\left[\begin{array}{cccc}
+x & y & z & 1\end{array}\right]\left[\begin{array}{c}
+a_{13}\\
+a_{23}\\
+a_{33}\\
+a_{43}
+\end{array}\right]\right]=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=2za_{33}+x\left(a_{13}+a_{31}\right)+y\left(a_{23}+a_{32}\right)+\left(a_{34}+a_{43}\right);
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Итого, вектором нормали (НЕ НОРМИРОВАННЫМ!) для поверзности втого порядка
+ в точке 
+\begin_inset Formula $\vec{r}_{0}$
+\end_inset
+
+будет:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{N}\left(\vec{r}_{0}\right)=\left\{ \begin{array}{c}
+2x_{0}a_{11}+y_{0}\left(a_{12}+a_{21}\right)+z_{0}\left(a_{13}+a_{31}\right)+\left(a_{14}+a_{41}\right)\\
+2y_{0}a_{22}+x_{0}\left(a_{12}+a_{21}\right)+z_{0}\left(a_{23}+a_{32}\right)+\left(a_{24}+a_{42}\right)\\
+2z_{0}a_{33}+x_{0}\left(a_{13}+a_{31}\right)+y_{0}\left(a_{23}+a_{32}\right)+\left(a_{34}+a_{43}\right)
+\end{array}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Поледнее выражение можно записать компактнее, для этого введём обозначения:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A_{low}=\left[\begin{array}{cccc}
+a_{11} & 0 & 0 & 0\\
+a_{21} & a_{22} & 0 & 0\\
+a_{31} & a_{32} & a_{33} & 0\\
+a_{41} & a_{42} & a_{43} & 0
+\end{array}\right];A_{up}=\left[\begin{array}{cccc}
+a_{11} & a_{12} & a_{13} & a_{14}\\
+0 & a_{22} & a_{23} & a_{24}\\
+0 & 0 & a_{33} & a_{34}\\
+0 & 0 & 0 & 0
+\end{array}\right]
+\]
+
+\end_inset
+
+Тогда нормаль:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{n}\left(\vec{r}_{0}\right)=\frac{A_{low}\left\{ \vec{r}_{0},1\right\} ^{T}+A_{up}\left\{ \vec{r}_{0},1\right\} ^{T}}{\left\Vert A_{low}\left\{ \vec{r}_{0},1\right\} ^{T}+A_{up}\left\{ \vec{r}_{0},1\right\} ^{T}\right\Vert },\,\,\,\left\Vert \vec{n}\left(\vec{r}_{0}\right)\right\Vert =1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Здесь 
+\begin_inset Formula $\left\{ \vec{r}_{0},1\right\} ^{T}$
+\end_inset
+
+- четырёхмерный вектор - столбец, первые три компаненты которого являются
+ координатами точки в которой мы ищем нормаль, а четвёртая единица.
+\end_layout
+
+\begin_layout Section
+Частные случаи поверхностей
+\end_layout
+
+\begin_layout Subsection
+Сфера
+\end_layout
+
+\begin_layout Standard
+Для сферы, которая находится в начале координат, уравнение поверхности будет
+ иметь вид:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{cccc}
+x & y & z & 1\end{array}\right]\left[\begin{array}{cccc}
+\frac{1}{R^{2}} & 0 & 0 & 0\\
+0 & \frac{1}{R^{2}} & 0 & 0\\
+0 & 0 & \frac{1}{R^{2}} & 0\\
+0 & 0 & 0 & -1
+\end{array}\right]\left[\begin{array}{c}
+x\\
+y\\
+z\\
+1
+\end{array}\right]=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Элипсод
+\end_layout
+
+\begin_layout Standard
+Для элипсоида,находегося в начале координат, уравнение поверхности будет
+ иметь вид:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{cccc}
+x & y & z & 1\end{array}\right]\left[\begin{array}{cccc}
+\frac{1}{a^{2}} & 0 & 0 & 0\\
+0 & \frac{1}{b^{2}} & 0 & 0\\
+0 & 0 & \frac{1}{c^{2}} & 0\\
+0 & 0 & 0 & -1
+\end{array}\right]\left[\begin{array}{c}
+x\\
+y\\
+z\\
+1
+\end{array}\right]=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Гиперболоид
+\end_layout
+
+\begin_layout Standard
+Однополостный гиперболоид:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{cccc}
+x & y & z & 1\end{array}\right]\left[\begin{array}{cccc}
+\frac{1}{a^{2}} & 0 & 0 & 0\\
+0 & \frac{1}{b^{2}} & 0 & 0\\
+0 & 0 & -\frac{1}{c^{2}} & 0\\
+0 & 0 & 0 & -1
+\end{array}\right]\left[\begin{array}{c}
+x\\
+y\\
+z\\
+1
+\end{array}\right]=0
+\]
+
+\end_inset
+
+Двуполостный гиперболоид:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{cccc}
+x & y & z & 1\end{array}\right]\left[\begin{array}{cccc}
+-\frac{1}{a^{2}} & 0 & 0 & 0\\
+0 & -\frac{1}{b^{2}} & 0 & 0\\
+0 & 0 & \frac{1}{c^{2}} & 0\\
+0 & 0 & 0 & -1
+\end{array}\right]\left[\begin{array}{c}
+x\\
+y\\
+z\\
+1
+\end{array}\right]=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Параболоид
+\end_layout
+
+\begin_layout Standard
+Эллиптический параболоид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{cccc}
+x & y & z & 1\end{array}\right]\left[\begin{array}{cccc}
+\frac{1}{a^{2}} & 0 & 0 & 0\\
+0 & \frac{1}{b^{2}} & 0 & 0\\
+0 & 0 & 0 & \frac{1}{2}\\
+0 & 0 & \frac{1}{2} & 0
+\end{array}\right]\left[\begin{array}{c}
+x\\
+y\\
+z\\
+1
+\end{array}\right]=0
+\]
+
+\end_inset
+
+Гиперболический параболоид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{cccc}
+x & y & z & 1\end{array}\right]\left[\begin{array}{cccc}
+\frac{1}{a^{2}} & 0 & 0 & 0\\
+0 & -\frac{1}{b^{2}} & 0 & 0\\
+0 & 0 & 0 & -\frac{1}{2}\\
+0 & 0 & -\frac{1}{2} & 0
+\end{array}\right]\left[\begin{array}{c}
+x\\
+y\\
+z\\
+1
+\end{array}\right]=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Алгоритм трассировки луча на отражающей поверхности
+\end_layout
+
+\begin_layout Standard
+При трассировке лучей через какую-либо поверхность необходимо сделать три
+ шага:
+\end_layout
+
+\begin_layout Standard
+1) Найти точки пересечения для падающих на поверхность лучей и отсеять те
+ лучи, которые ее не пересекают.
+\end_layout
+
+\begin_layout Standard
+2) Определеить геометрические и физические (например, нормаль и коэффициент
+ преломления) свойства поверхности в точках, где ее пересекают лучи.
+\end_layout
+
+\begin_layout Standard
+3) Создать новые лучи, колличество воторых равно количеству той части исходных
+ лучей, которые пересекли поверхность.
+ Посчитать углы отклонения и установить для каждого луча в качестве 
+\begin_inset Formula $r_{0}$
+\end_inset
+
+координаты точки пересечения с поверхностью.
+ 
+\end_layout
+
+\begin_layout Standard
+Направление отражённого луча задаётся формулой: 
+\begin_inset Formula 
+\[
+\vec{e}'=\vec{e}-2\left(\vec{e},\vec{n}\right)\vec{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Алгоритм трассировки луча на преломляющей поверхности
+\end_layout
+
+\begin_layout Standard
+Алгоритм аналогичен предудщему, с той лишь разницей, чо теперь направление
+ луча будет задано формулой:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{e}'=\vec{e}+\left(\sqrt{\frac{n_{2}^{2}-n_{1}^{2}}{\left(\vec{e},\vec{n}\right)^{2}}+1}-1\right)\left(\vec{e},\vec{n}\right)\vec{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Здесь 
+\begin_inset Formula $n_{1}$
+\end_inset
+
+-коэффициент преломления перед поверхностью,
+\begin_inset Formula $n_{2}$
+\end_inset
+
+-коэффициент преломления после поверхности,
+\end_layout
+
+\begin_layout Section
+Алгоритм трассировки на плосокой дифракционной решётке
+\end_layout
+
+\begin_layout Standard
+Запишем уравнение ДР 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+sin\theta+sin\alpha=\frac{n\lambda}{d},
+\]
+
+\end_inset
+
+где 
+\begin_inset Formula $\theta$
+\end_inset
+
+-угол падения; 
+\begin_inset Formula $\alpha$
+\end_inset
+
+- угол дифракции, 
+\begin_inset Formula $n$
+\end_inset
+
+ - порядок дифракции, 
+\begin_inset Formula $\lambda$
+\end_inset
+
+-длина волны, 
+\begin_inset Formula $d$
+\end_inset
+
+ - плотность штрихов.
+ Пусть штрихи идут перпенидкулярно оси 
+\begin_inset Formula $X$
+\end_inset
+
+, а нормалью к поверхности решётки является ось 
+\begin_inset Formula $Z$
+\end_inset
+
+, тогда отклонение луча, связанное с дифракцией бдет происходить в плоскости
+ 
+\begin_inset Formula $XoZ$
+\end_inset
+
+.
+ Выразим из уравнения ДР значения углов дифракции и падения через вектор
+ направления падения луча.
+ Луч:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{r}\left(t\right)=\vec{e}_{0}t+\vec{r}_{0}.
+\]
+
+\end_inset
+
+Чтобы определить угол между проецией луча на плоскость
+\begin_inset Formula $XoZ$
+\end_inset
+
+ и нормалью к поверхности ДР необходимо сперва найти проекцию:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{e}_{0,Prj\left(XoZ\right)}=\vec{e}_{0}-\vec{Y}\left(\vec{Y},\vec{e}_{0}\right),
+\]
+
+\end_inset
+
+после,ввиду того,ч то все вектора единичной длинны, косинус угла между интересую
+щими нас векторами м.б.
+ записан в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+cos\theta=\left(\vec{Z},\vec{e}_{0}-\vec{Y}\left(\vec{Y},\vec{e}_{0}\right)\right)=\left(\vec{\left(0,0,1\right)},\vec{\left(e_{x},e_{y}e_{z}\right)}-\vec{\left(0,1,0\right)}\left(e_{y}\right)\right)=e_{z}.
+\]
+
+\end_inset
+
+Последнее выражение вообще говоря очевидно хотябы из того, что вектор направлени
+я луча явлется совокуностью направляющих косинусов, что мы, собственно,
+ и получили.
+ 
+\end_layout
+
+\begin_layout Standard
+Теперь, нам нужно найти угл дфифракции и построить новый вектор направления,
+ а для этого перепишим уравнение ДР, учтя последний вывод:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sqrt{1-e_{z}^{2}}+sin\alpha=\frac{n\lambda}{d},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\alpha=acos\left(\frac{n\lambda}{d}-\sqrt{1-e_{z}^{2}}\right).
+\]
+
+\end_inset
+
+Очевидно, что одного только нового значения угла направления недостаточно,
+ но так как в плоскости 
+\begin_inset Formula $XoZ$
+\end_inset
+
+ мы только отклоняем векор в нужном направлении, его длина не меняется.
+ Длиной вектора является длина прокции 
+\begin_inset Formula $\vec{e}_{0}$
+\end_inset
+
+на плоскость 
+\begin_inset Formula $XoY$
+\end_inset
+
+, поэтому:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\Vert \vec{e}_{0,Prj\left(XoZ\right)}\right\Vert =\sqrt{\left(\vec{e}_{0}-\vec{Y}\left(\vec{Y},\vec{e}_{0}\right),\vec{e}_{0}-\vec{Y}\left(\vec{Y},\vec{e}_{0}\right)\right)}=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\sqrt{\left(\vec{\left(e_{x},e_{y}e_{z}\right)}-\vec{\left(0,1,0\right)}\left(e_{y}\right),\vec{\left(e_{x},e_{y}e_{z}\right)}-\vec{\left(0,1,0\right)}\left(e_{y}\right)\right)}=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\sqrt{\left(\vec{\left(e_{x},0,e_{z}\right)},\vec{\left(e_{x},0,e_{z}\right)}\right)}=\sqrt{e_{x}^{2}+e_{z}^{2}}=\rho_{XoZ}.
+\]
+
+\end_inset
+
+Последний вывод опять же очевиден.
+ Теперь не сложно выразить компаненты нового вектора направления в плосоксти
+ 
+\begin_inset Formula $XoZ$
+\end_inset
+
+ :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{e}_{1}=\left(cos\alpha\rho_{XoZ},0,sin\alpha\rho_{XoZ}\right).
+\]
+
+\end_inset
+
+Последняя компанента м.б.
+ выражена из условия единичной длины вктора: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{e}_{1}=\left(cos\alpha\rho_{XoZ},\sqrt{1-\left(sin\alpha\rho_{XoZ}\right)^{2}-\left(cos\alpha\rho_{XoZ}\right)^{2}},sin\alpha\rho_{XoZ}\right)=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(cos\alpha\rho_{XoZ},\sqrt{1-\left(\left(sin\alpha\right)^{2}+\left(cos\alpha\right)^{2}\right)\rho_{XoZ}^{2}},sin\alpha\rho_{XoZ}\right)=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\left(cos\alpha\rho_{XoZ},\sqrt{1-\rho_{XoZ}^{2}},sin\alpha\rho_{XoZ}\right)=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\left(cos\alpha\rho_{XoZ},e_{y},sin\alpha\rho_{XoZ}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Алгоритм трассировки на дифракционной решётке выполненой на поверхности
+ второго порядка
+\end_layout
+
+\begin_layout Standard
+Рассмотрим участок дифракционной решётки в точке перечечения луча
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{r}\left(t\right)=\vec{e}_{0}t+\vec{r}_{0}
+\]
+
+\end_inset
+
+и поверхности:
+\begin_inset Formula 
+\[
+\vec{r}^{T}M\vec{r}=0.
+\]
+
+\end_inset
+
+Обозначим эту точку за 
+\begin_inset Formula $\vec{\rho}_{0}$
+\end_inset
+
+.
+ Пусть теперь изменение высоты поверхности наблюдается вдоль оси 
+\begin_inset Formula $Oz$
+\end_inset
+
+, а штрихи нанесены вдоль оси 
+\begin_inset Formula $oX.$
+\end_inset
+
+Будем рассматривать случай, когда расстояние между соседними штрихами на
+ поверхности постоянно.
+ в точке
+\begin_inset Formula $\vec{\rho}_{0}$
+\end_inset
+
+.
+ Определим нормаль к поверхности.:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{N}\left(\vec{\rho}_{0}\right).
+\]
+
+\end_inset
+
+Плоскость где будет проходить отклонение луча будет лежать на векторах
+\begin_inset Formula $\vec{N}\left(\vec{\rho}_{0}\right)$
+\end_inset
+
+ и 
+\begin_inset Formula $\vec{X}$
+\end_inset
+
+.
+ Для определения угла отклонения необходим ещё вектор:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{N}_{x}=\vec{X}-\vec{N}\left(\vec{N},\vec{X}\right);
+\]
+
+\end_inset
+
+и вектр перпендикулярный двум предыдущим (т.к.
+ предыдущие вектора единичной длины, то они не нормируются):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{N}_{y}=\left[\vec{N}\left(\vec{\rho}_{0}\right);\vec{N}_{x}\right].
+\]
+
+\end_inset
+
+Комбинируя последние три вектора в матрицу вида (
+\begin_inset Formula $\vec{N}\left(\vec{\rho}_{0}\right)=\vec{N}_{z}$
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+M_{tbn}=\left[\begin{array}{c}
+\vec{N}_{x}\\
+\vec{N}_{y}\\
+\vec{N}_{z}
+\end{array}\right],
+\]
+
+\end_inset
+
+получаем так называемую тангент-битаншент-нормаль матрицу, которая по сути
+ является локальным базисом для поиска дфракционного отклонения.
+ Поизк изменения луча практически ничем не отличается от изложенного в предудуще
+м пункте, за исключением того, что для каждой точки пересечения луча и поверхнос
+ти необходимо будет найти 
+\begin_inset Formula $M_{tbn},$
+\end_inset
+
+после чего перевести направление падения луча в в пространстов 
+\begin_inset Formula $M_{tbn}$
+\end_inset
+
+, т.е.:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{e}_{0}'=M_{tbn}\vec{e}_{0}.
+\]
+
+\end_inset
+
+остальные действия идентичны предыдущему пункту.
+\end_layout
+
+\begin_layout Section
+Трассировка луча в анизотропной среде
+\end_layout
+
+\begin_layout Standard
+Анизотропная среда предполагает зависимость для показателя преломления следующег
+о вида:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+n=n\left(\vec{r}\right).
+\]
+
+\end_inset
+
+Допустим, что среда у нас ограничена поверхностью второго порядка с матрицей
+ 
+\begin_inset Formula $A$
+\end_inset
+
+, тогда градиент этого выражения для поверхности, взятый в выбранной точке
+ 
+\begin_inset Formula $\vec{r}_{0}$
+\end_inset
+
+будет ненормированной нормалью
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{N}=\left(\vec{\nabla},\left(\vec{r}_{0}^{T}A\vec{r}_{0}\right)\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Приближенный метод определения освещённости
+\end_layout
+
+\end_body
+\end_document
