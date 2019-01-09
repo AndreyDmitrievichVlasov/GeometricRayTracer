@@ -139,10 +139,6 @@
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 Здесь 
 \begin_inset Formula $\vec{n}$
 \end_inset
@@ -152,10 +148,7 @@
 \end_inset
 
 - радиус вектор через который плоскость проходит.
-\end_layout
-
-\begin_layout Standard
-Что бы нати точку пересечения:
+ Что бы нати точку пересечения:
 \end_layout
 
 \begin_layout Standard
@@ -188,10 +181,6 @@ t=\frac{\left(\vec{n},\vec{r}_{0}-\vec{\rho}_{0}\right)}{\left(\vec{n},\vec{e}\r
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 В том случае, если 
 \begin_inset Formula 
 \[
@@ -211,10 +200,6 @@ t=\frac{\left(\vec{n},\vec{r}_{0}-\vec{\rho}_{0}\right)}{\left(\vec{n},\vec{e}\r
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 Имеем:
 \end_layout
 
@@ -2076,6 +2061,53 @@ z\\
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Конус
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{cccc}
+x & y & z & 1\end{array}\right]\left[\begin{array}{cccc}
+\frac{1}{a^{2}} & 0 & 0 & 0\\
+0 & \frac{1}{b^{2}} & 0 & 0\\
+0 & 0 & -\frac{1}{c^{2}} & 0\\
+0 & 0 & 0 & 0
+\end{array}\right]\left[\begin{array}{c}
+x\\
+y\\
+z\\
+1
+\end{array}\right]=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Или без учёта однородных координат:
+\begin_inset Formula 
+\[
+\left[\begin{array}{ccc}
+x & y & z\end{array}\right]\left[\begin{array}{ccc}
+\frac{1}{a^{2}} & 0 & 0\\
+0 & \frac{1}{b^{2}} & 0\\
+0 & 0 & -\frac{1}{c^{2}}
+\end{array}\right]\left[\begin{array}{c}
+x\\
+y\\
+z
+\end{array}\right]=0
+\]
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Section

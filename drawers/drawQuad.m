@@ -36,8 +36,8 @@ function drawQuadIn2015b(quad_)
             plot3(quad_.extraData.direction(1,:),quad_.extraData.direction(2,:),quad_.extraData.direction(3,:),...
                  'g--','lineWidth',0.75);
         end
-%         description=quad_.extraDataType((quad_.extraDataType-2):length(quad_.extraDataType));
-        if strcmp(elemType,'sphere')||strcmp(elemType,'ellipsoid')||strcmp(elemType,'paraboloid')||...
+%         description=quad_.extraDataType((quad_.extraDataType-2):length(quad_.extraDataType));conus
+        if strcmp(elemType,'sphere')||strcmp(elemType,'ellipsoid')||strcmp(elemType,'paraboloid')||strcmp(elemType,'conus')||...
            strcmp(elemType,'sphereDG')||strcmp(elemType,'ellipsoidDG')||strcmp(elemType,'paraboloidDG')
             plotCurveIn3D(quad_.extraData.arc_x,quad_.rotationMatrix,quad_.position,0);
             plotCurveIn3D(quad_.extraData.arc_y,quad_.rotationMatrix,quad_.position,0);
@@ -71,12 +71,18 @@ function drawQuadInOlderVersions(quad_)
             plot3(quad_.extraData.direction(1,:),quad_.extraData.direction(2,:),quad_.extraData.direction(3,:),...
                  'g--','lineSmooth','on','lineWidth',0.75);
         end
-        if strcmp(quad_.extraDataType,'sphere')||strcmp(quad_.extraDataType,'ellipsoid')||strcmp(quad_.extraDataType,'paraboloid')
-             plotCurveIn3D(quad_.extraData.arc_x,quad_.rotationMatrix,quad_.position,1);
-             plotCurveIn3D(quad_.extraData.arc_y,quad_.rotationMatrix,quad_.position,1);
-             plotCurveIn3D(quad_.extraData.arc_xy,quad_.rotationMatrix,quad_.position,1);
+         elemType = quad_.extraDataType;
+        if strcmp(elemType,'flatDG')||strcmp(elemType,'sphereDG')||strcmp(elemType,'ellipsoidDG')||strcmp(elemType,'paraboloidDG');
+            plot3(quad_.extraData.direction(1,:),quad_.extraData.direction(2,:),quad_.extraData.direction(3,:),...
+                 'g--','lineSmooth','on','lineWidth',0.75);
         end
- 
+%         description=quad_.extraDataType((quad_.extraDataType-2):length(quad_.extraDataType));
+        if strcmp(elemType,'sphere')||strcmp(elemType,'ellipsoid')||strcmp(elemType,'paraboloid')||strcmp(elemType,'conus')||...
+           strcmp(elemType,'sphereDG')||strcmp(elemType,'ellipsoidDG')||strcmp(elemType,'paraboloidDG')
+            plotCurveIn3D(quad_.extraData.arc_x,quad_.rotationMatrix,quad_.position,0);
+            plotCurveIn3D(quad_.extraData.arc_y,quad_.rotationMatrix,quad_.position,0);
+            plotCurveIn3D(quad_.extraData.arc_xy,quad_.rotationMatrix,quad_.position,0);
+        end
 
         hold off;
 end

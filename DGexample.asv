@@ -9,13 +9,13 @@ clear all; close all;clc;initEnvio();
 
 [ DG_flat] =  flatQuad( 4,4,[0 0 0],[0 0 -2]);
 
-DG_flat=convertQuad2DG(DG_flat,0.032, 1, 0, -100);
+DG_flat=convertQuad2DG(DG_flat,0.032, -1, 0, -10);
 
 LED_source=paraxialSpot([0 0 -5],1);
 
 % [ rays_out ,rays_difracted]= difractionFromQuadZemax(DG_flat,LED_source);
 
-[ rays_out ,rays_difracted]= difractionFromQuadZemax(DG_flat,LED_source);
+[ rays_out ,rays_difracted]= difractionFromQuad(DG_flat,LED_source);
 
 [ rays_in, rays_middle, rays_out_] = traceThroughtLens( lens, rays_difracted);
 % [ rays_in, rays_middle, rays_out_] = traceThroughtLens( lens, LED_source);
