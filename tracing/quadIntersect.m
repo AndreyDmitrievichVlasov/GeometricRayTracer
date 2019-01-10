@@ -5,7 +5,8 @@ function [ rays  ] = quadIntersect( quad_,rays )
       rays=flatIntersection(quad_,rays);
   end
   if strcmp(quad_.extraDataType,'sphere')||strcmp(quad_.extraDataType,'ellipsoid')||strcmp(quad_.extraDataType,'paraboloid')||...
-          strcmp(quad_.extraDataType,'sphereDG')||strcmp(quad_.extraDataType,'ellipsoidDG')||strcmp(quad_.extraDataType,'paraboloidDG')
+          strcmp(quad_.extraDataType,'sphereDG')||strcmp(quad_.extraDataType,'ellipsoidDG')||strcmp(quad_.extraDataType,'paraboloidDG')||...
+          strcmp(quad_.extraDataType,'conus')
       rays=Intersection(quad_,rays);
   else
        rays=flatIntersection(quad_,rays); 

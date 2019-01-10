@@ -1,7 +1,0 @@
-clear all; close all;clc;initEnvio();
-%%чтобы перейти к определению функции,необходимо поставить курсор сразу после имени этой функции и нажать ctrl+D 
-[ detector] =  flatQuad( 0.25,0.25,[0 0 0],[0.25 0 17]);
-
-[conus] =  convertQuad2Conus();
-
-LED_source=paraxialSpot([0 0 -5],1);
