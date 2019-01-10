@@ -81,9 +81,9 @@ end
 function normal = conusNormalArray(point,ref_point, A,B,C)
      normal = zeros(size(point));
   
-     normal(:,1) =  normal(:,1)-ref_point(1);
-     normal(:,2) =  normal(:,2)-ref_point(2);
-     normal(:,3) =  normal(:,3)-ref_point(3);
+     normal(:,1) =  point(:,1)-ref_point(1);
+     normal(:,2) =  point(:,2)-ref_point(2);
+     normal(:,3) =  point(:,3)-ref_point(3);
   
      
 %      normal(:,:) = point-ref_point;
@@ -91,7 +91,7 @@ function normal = conusNormalArray(point,ref_point, A,B,C)
      normal(:,2) =  2*normal(:,2)/B^2;
      normal(:,3) = -2*normal(:,3)/C^2;
 
-         rho=sum(normal.*normal,2);
+         rho=sqrt(sum(normal.*normal,2));
 
      normal(:,1) =  normal(:,1)./rho;
      normal(:,2) =  normal(:,2)./rho;

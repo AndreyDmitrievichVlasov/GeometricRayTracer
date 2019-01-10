@@ -22,7 +22,7 @@ function [ lens ] = getAxicon( aperture,tickness,A,B,C)
 %GETLENS Summary of this function goes here
 %   Detailed explanation goes here
 front_surf = flatQuad( 2*aperture,2*aperture,[0 0 0],[0 0 0]);
-front_surf=convertQuad2Conus(front_surf, A,B,0);
+front_surf=convertQuad2Sphere(front_surf, 10^10);
 back_surf  = flatQuad( 2*aperture,2*aperture,[0 0 0],[0 0 tickness]);
 
 back_surf=convertQuad2Conus(back_surf, A,B,C);
