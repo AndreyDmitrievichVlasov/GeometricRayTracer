@@ -27,7 +27,7 @@ rays_in=quadIntersect(quad_,rays_in);
     
     if strcmp(quad_.extraDataType,'conus')
         ref_point=quad_.position-(quad_.TBN*[0 0 quad_.extraData.C]')';
-        normal=@(point)(conusNormalArray(point,ref_point,quad_.extraData.A,quad_.extraData.B));
+        normal=@(point)(conusNormalArray(point,ref_point,quad_.extraData.A,quad_.extraData.B,quad_.extraData.C));
         rays_out=Refract(rays_in,normal,material_1,material_2);
     end
     
@@ -78,12 +78,26 @@ function normal = sphericalNormalArray(point,ref_point)
      normal(:,3)=(point(:,3)-ref_point(:,3))./rho;
 end
 
-function normal = conusNormalArray(point,ref_point)
+function normal = conusNormalArray(point,ref_point, A,B,C)
      normal = zeros(size(point));
-     rho    = sqrt((point(:,1)-ref_point(:,1)).^2+ (point(:,2)-ref_point(:,2)).^2+( point(:,3)-ref_point(:,3)).^2);
-     normal(:,1)=(point(:,1)-ref_point(:,1))./rho;
-     normal(:,2)=(point(:,2)-ref_point(:,2))./rho;
-     normal(:,3)=(point(:,3)-ref_point(:,3))./rho;
+  
+     normal(:,1) =  normal(:,1)-ref_point(1);
+     normal(:,2) =  normal(:,2)-ref_point(2);
+     normal(:,3) =  normal(:,3)-ref_point(3);
+  
+     
+%      normal(:,:) = point-ref_point;
+     normal(:,1) =  2*normal(:,1)/A^2;
+     normal(:,2) =  2*normal(:,2)/B^2;
+     normal(:,3) = -2*normal(:,3)/C^2;
+
+         rho=sum(normal.*normal,2);
+
+     normal(:,1) =  normal(:,1)./rho;
+     normal(:,2) =  normal(:,2)./rho;
+     normal(:,3) =  normal(:,3)./rho;
+%      normal=normal./rho;
+       
 end
 
 function rays_out=Refract(rays_in,normal,material_1,material_2)
