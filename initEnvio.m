@@ -1,18 +1,18 @@
-function [f] = initEnvio( windows )
+function initEnvio( windows )
 %INITENVIO Summary of this function goes here
 %   Detailed explanation goes here
  %% ������� �1 (��� ������� � �������� �������� ���������� �������� ��� ������� ������ ��� ���� ������ clear all, � ��� �� ����� ������ ��������)
-clear all; close all;
-if windows~=false
+%clear all; close all;
+if windows
  opengl hardware
-endif 
+end 
 % opengl info
 % opengl software
 if windows
  folder_separator='\';
 else
  folder_separator='/';
-endif
+end
 addpath([pwd strcat(folder_separator,'drawers')]);
 addpath([pwd strcat(folder_separator,'sources')]);
 addpath([pwd strcat(folder_separator,'surfaces')]);

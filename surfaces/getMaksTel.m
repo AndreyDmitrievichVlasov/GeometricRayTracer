@@ -1,22 +1,3 @@
-function [ mir ] = getMirror(aperture,r,orient,pos)
-% getZer - orient - orientation, pos - position
-surf = flatQuad( 2*aperture,2*aperture,orient,pos);
-
-if length(r)==1
-    surf = convertQuad2Sphere(surf,r);
-end
-if length(r)==2
-    surf = convertQuad2Paraboloid(surf,r(1),r(2));
-end
-if length(r)==3
-    surf = convertQuad2Ellipsoid( surf,r(1),r(2),r(3));
-end
-
-mir=struct('Surface',surf,'aperture',aperture,'type','mirror');
-
-end
-
-
 % returns Maksutov telescope
 function [ telmaks ] = getMaksTel(maprad,rmm,r1m,r2m,mthick,dist,distsec,secaprad,rsec)
 % origin is at the center of main mirror
@@ -37,6 +18,7 @@ function [ telmaks ] = getMaksTel(maprad,rmm,r1m,r2m,mthick,dist,distsec,secapra
 
 lam=550/1000; % wavelength in micrometers
 
+rI=Materials('silica');
 n=dispersionLaw(lam, rI.refractionIndexData); % let's hope it works...
 
 fm = 1/((n-1)*(1/r1m-1/r2m));
@@ -50,7 +32,7 @@ b=rsec*rimd/(rsec-2*rimd)-distsec;
 % vynos teleskopa
 
 menisc=getLens(maprad,mthick,r1m,r2m);
-menisc=moveLens(menisc,[0 0 dist]);
+menisc=moveLens(menisc,[0 0 -dist-mthick]);
 
 mm=getMirror(mmaprad,rmm,[0 0 0],[0 0 0]);
 % getMirror(aperture,r,orient,pos)
@@ -72,7 +54,7 @@ end
 % have b - where detector should be placed
 
 % telmaks=struct(maprad,rmm,r1m,r2m,mthick,dist,distsec,secaprad,rsec,n);
-telmaks=struct('menisc',menisc,'mmirror',mm,'smirror',sm,'vynos',b, ...
+telmaks=struct('menisc',menisc,'mmirror',mm,'smirror',sm,'b',b, ...
     'type','MaksTel');
 
 end

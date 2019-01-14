@@ -6,9 +6,9 @@ initEnvio(windows);
 % graphics_toolkit gnuplot;
 
 telescope=getMaksTel(90,-700,-400,-250,20,200,-200,10,-200);
-% function [ telmaks ] = getMaksTel(maprad,rmm,r1m,r2m,mthick,dist,distsec,secaprad,rsec)
+% function [ telmaks ] = getMaksTel(maprad,rmm,r1m,r2m,mthick,dist,distsec,secaprad,rsec,n)
 
-detector = flatQuad(100,100,[0 0 0],[0 0 telescope.b]);
+detector = flatQuad( 0.25,0.25,[0 0 0],[0 0 telescope.b]);
 raysIn=paraxialSpot([0 0 -10],[0 45]);
 
 [ raysIn, raysOut ] = traceThroughMaksTel( telescope, raysIn);
@@ -19,8 +19,8 @@ raysOut = quadIntersect(detector,raysOut);
 if windows
 
  fig_1=figure(1);
- axis vis3d 
- view([0 0])
+axis vis3d 
+view([0 0])
 
 % ���������� ����� 121^2 �������� ������ �� ���� ����� � ����
 % drawRays(fig_1,raysIn);
@@ -33,35 +33,19 @@ if windows
 %drawQuad(fig_1,bigMirror);
 %drawQuad(fig_1,smalMirror);
 
- drawMaksTel(fig_1,telescope);
- drawQuad(fig_1,detector);
- grid on;
-end
+drawMaksTel(fig_1,telescope);
+drawQuad(fig_1,detector);
+grid on;
+
+fig_2=figure(2,'visible','off');
+
+[~,~,~,~]=drawSpotDiagram(fig_2,detector,raysOut);
+print(fig_2,'-deps','-color','images/MaksTelf2.eps');
 
 
-% if windows 
-%  fig_2=figure(2);
-% else   
-%  fig_2=figure(2,'visible','off');
-% end
-% 
-% [~,~,~,~]=drawSpotDiagram(fig_2,detector,raysOut);
-% 
-% if ~windows
-%  print(fig_2,'-deps','-color','images/MaksTelf2.eps');
-% end
-% 
-% 
-% if windows 
-%  fig_3 = figure(3);
-% else    
-%  fig_3 = figure(3,'visible','off');
-% end 
-% [ intensity,x ,y ] = quadIntencity(detector,raysOut,100,100);
-% imagesc(x,y,intensity);
-% colorbar;
-% axis equal;
-% if ~windows
-%  print(fig_3,'-deps','-color','images/MaksTelfig3.eps');
-% end
-
+fig_3 = figure(3,'visible','off');
+[ intensity,x ,y ] = quadIntencity(detector,raysOut,100,100);
+imagesc(x,y,intensity);
+colorbar;
+axis equal;
+print(fig_3,'-deps','-color','images/MaksTelfig3.eps');
