@@ -1,5 +1,5 @@
 % returns Maksutov telescope
-function [ telmaks ] = getMaksTel(maprad,rmm,r1m,r2m,mthick,dist,distsec,secaprad,rsec)
+function [ telmaks ] = getMaksTel(maprad,rmm,r1m,r2m,mthick,dist,argdistsec,secaprad,argrsec)
 % origin is at the center of main mirror
 %getMaksTel - returns Maksutov telescope
 %  maprad - menisc aperture radius, rmm - radius of main mirror
@@ -16,20 +16,38 @@ function [ telmaks ] = getMaksTel(maprad,rmm,r1m,r2m,mthick,dist,distsec,secapra
 % exit;
 %end
 
+if argdistsec>0
+ napyl=false;
+ distsec=argdistsec;
+ rsec=argrsec;
+else
+ napyl=true;
+% that would mean that secondary mirror is at the top of menisc
+ distsec=dist;
+ rsec=r2m;
+end
+
 lam=550/1000; % wavelength in micrometers
 
 rI=Materials('silica');
-n=dispersionLaw(lam, rI.refractionIndexData); % let's hope it works...
+rI2=rI;
+n=dispersionLaw(lam, rI2.refractionIndexData); % let's hope it works...
 
 fm = 1/((n-1)*(1/r1m-1/r2m));
 % focal length of the menisc
 distmfm=dist-fm;
 mmaprad = -distmfm*maprad/fm; % this doesn't take into account vignetting
-rim=rmm*distmfm/(2*distmfm-rmm);
+rim=abs(rmm)*distmfm/(2*distmfm-abs(rmm));
 % distance from mm image to mm
+if rim<0
+ fprintf('Error: 2*distmfm=%.3f<abd(rmm)=%.3f \n',2*distmfm,abs(rmm));
+end
 rimd=rim-distsec;
-b=rsec*rimd/(rsec-2*rimd)-distsec;
+b=abs(rsec)*rimd/(abs(rsec)-2*rimd)-distsec;
 % vynos teleskopa
+if abs(rsec)<2*rimd
+ fprintf('Error: abs(rsec)=%.2f<2*rimd=%.2f \n',abs(rsec),2*rimd)
+end
 
 menisc=getLens(maprad,mthick,r1m,r2m);
 menisc=moveLens(menisc,[0 0 -dist-mthick]);
@@ -38,12 +56,7 @@ mm=getMirror(mmaprad,rmm,[0 0 0],[0 0 0]);
 % getMirror(aperture,r,orient,pos)
 
 % sm is a secondary mirror
-if distsec>0 
- sm=getMirror(secaprad,rsec,[0 0 0],[0 0 -distsec]);
-else
- sm=getMirror(secaprad,r2m,[0 0 0],[0 0 -dist]);
-% in this case, secondary mirror is right on top of the second surface of the menisc
-end
+sm=getMirror(secaprad,rsec,[0 0 0],[0 0 -distsec]);
 
 %bigMirror= flatQuad( 90,90,[0 0 0],[0 0 150]);
 %smalMirror = flatQuad( 30,30,[0 0 0],[0 0 7]);
@@ -55,6 +68,6 @@ end
 
 % telmaks=struct(maprad,rmm,r1m,r2m,mthick,dist,distsec,secaprad,rsec,n);
 telmaks=struct('menisc',menisc,'mmirror',mm,'smirror',sm,'b',b, ...
-    'type','MaksTel');
+    'napyl',napyl,'type','MaksTel');
 
 end
