@@ -5,9 +5,9 @@ function [ rays  ] = quadIntersect( quad_,rays )
       rays=flatIntersection(quad_,rays);
   end
   if strcmp(quad_.extraDataType,'sphere')||strcmp(quad_.extraDataType,'ellipsoid')||strcmp(quad_.extraDataType,'paraboloid')||...
-          strcmp(quad_.extraDataType,'sphereDG')||strcmp(quad_.extraDataType,'ellipsoidDG')||strcmp(quad_.extraDataType,'paraboloidDG')||...
-          strcmp(quad_.extraDataType,'conus')
-      rays=Intersection(quad_,rays);
+     strcmp(quad_.extraDataType,'sphereDG')||strcmp(quad_.extraDataType,'ellipsoidDG')||strcmp(quad_.extraDataType,'paraboloidDG')||...
+     strcmp(quad_.extraDataType,'conus')
+     rays=Intersection(quad_,rays);
   else
        rays=flatIntersection(quad_,rays); 
   end
@@ -101,142 +101,6 @@ function rays=Intersection(quad_,rays)
    
 end
 
-
-
-function rays=sphereIntersection(quad_,rays)
-    if isstruct(rays)
-         for i=1:length(rays)
-
-            ray_dir  = quad_.TBN'*rays(i).e';
-            ray_pos = moveFromPoint(rays(i).r0,  quad_.position')';
-            ray_pos   = quad_.TBN'*ray_pos'+[0; 0; quad_.extraData.R];
-
-            b=ray_pos(1:3)'*ray_dir(1:3);
-            
-            D=(b)^2-ray_pos(1:3)'*ray_pos(1:3)+quad_.extraData.R^2;
-            t_1=-b+sqrt(D);
-            t_2=-b-sqrt(D);
-            
-            distance_1=norm(rays(i).r0+rays(i).e*t_1-quad_.position);
-            distance_2=norm(rays(i).r0+rays(i).e*t_2-quad_.position);
-            
-            if distance_1<distance_2
-                rays(i).tEnd= t_1 ;
-            else
-                rays(i).tEnd= t_2; 
-            end
-            
-         end
-    else
-          %    1   2    3    4     5    6        7     8                    9              10  11 12 13
-        % [r_1,r_2,r_3,e_1,e_2,e_3,START,END,WAVE_LENGTH, INTENSITY,  R,  G, B]
-            M_abc=[quad_.extraData.B*quad_.extraData.C  quad_.extraData.A*quad_.extraData.C quad_.extraData.A*quad_.extraData.B];
-            ray_dir       = zeros(size(rays(:,4:6)));
-            ray_pos      = zeros(size(rays(:,1:3)));
-            ray_pos_tmp      = zeros(size(rays(:,1:3)));
-            
-            TBN=quad_.TBN';
-            %направление луча в собственной системе координат поверхности
-            ray_dir(:,1) = M_abc(1)*(TBN(1,1)*rays(:,4) + TBN(1,2)*rays(:,5) + TBN(1,3)*rays(:,6)); 
-            ray_dir(:,2) = M_abc(2)*(TBN(2,1)*rays(:,4) + TBN(2,2)*rays(:,5) + TBN(2,3)*rays(:,6));
-            ray_dir(:,3) = M_abc(3)*(TBN(3,1)*rays(:,4) + TBN(3,2)*rays(:,5) + TBN(3,3)*rays(:,6));
-            %положение луча в собственной системе координат поверхности
-            ray_pos_tmp(:,1)=rays(:,1)-quad_.position(1);
-            ray_pos_tmp(:,2)=rays(:,2)-quad_.position(2);
-            ray_pos_tmp(:,3)=rays(:,3)-quad_.position(3);
-
-            ray_pos(:,1) = M_abc(1)*(TBN(1,1)*ray_pos_tmp(:,1) + TBN(1,2)*ray_pos_tmp(:,2) + TBN(1,3)*ray_pos_tmp(:,3)); 
-            ray_pos(:,2) = M_abc(2)*(TBN(2,1)*ray_pos_tmp(:,1) + TBN(2,2)*ray_pos_tmp(:,2) + TBN(2,3)*ray_pos_tmp(:,3));
-            ray_pos(:,3) = M_abc(3)*(TBN(3,1)*ray_pos_tmp(:,1) + TBN(3,2)*ray_pos_tmp(:,2) + TBN(3,3)*ray_pos_tmp(:,3)+quad_.extraData.C);
-
-            b=sum(ray_pos(:,1:3).*ray_dir(:,1:3),2);
-            dir=sum(ray_dir(:,1:3).*ray_dir(:,1:3),2);
-            D=(b).^2 - dir.*(sum(ray_pos(:,1:3).*ray_pos(:,1:3),2)-(quad_.extraData.A*quad_.extraData.B*quad_.extraData.C)^2);
- 
-            t_1=(-b+sqrt(D))./dir;
-            t_2=(-b-sqrt(D))./dir;
-            
-            distance_1 = sqrt((rays(:,1)+rays(:,4).*t_1-quad_.position(1)).^2+...
-                                      (rays(:,2)+rays(:,5).*t_1-quad_.position(2)).^2+...
-                                      (rays(:,3)+rays(:,6).*t_1-quad_.position(3)).^2);
-            distance_2 = sqrt((rays(:,1)+rays(:,4).*t_2-quad_.position(1)).^2+...
-                                      (rays(:,2)+rays(:,5).*t_2-quad_.position(2)).^2+...
-                                      (rays(:,3)+rays(:,6).*t_2-quad_.position(3)).^2);
-            
-            rays(:,8) = (distance_1<distance_2).*t_1+(distance_1>distance_2).*t_2;                     
-    end
-end
-
-function rays=paraboloidIntersection(quad_,rays)
-    if isstruct(rays)
-         for i=1:length(rays)
-
-            ray_dir  = quad_.TBN'*rays(i).e';
-            ray_pos = moveFromPoint(rays(i).r0,  quad_.position')';
-            ray_pos   = quad_.TBN'*ray_pos'+[0; 0; quad_.extraData.R];
-
-            b=ray_pos(1:3)'*ray_dir(1:3);
-            
-            D=(b)^2-ray_pos(1:3)'*ray_pos(1:3)+quad_.extraData.R^2;
-            t_1=-b+sqrt(D);
-            t_2=-b-sqrt(D);
-            
-            distance_1=norm(rays(i).r0+rays(i).e*t_1-quad_.position);
-            distance_2=norm(rays(i).r0+rays(i).e*t_2-quad_.position);
-            
-            if distance_1<distance_2
-                rays(i).tEnd= t_1 ;
-            else
-                rays(i).tEnd= t_2; 
-            end
-            
-         end
-    else
-          %    1   2    3    4     5    6        7     8                    9              10  11 12 13
-        % [r_1,r_2,r_3,e_1,e_2,e_3,START,END,WAVE_LENGTH, INTENSITY,  R,  G, B]
-            ray_dir       = zeros(size(rays(:,4:6)));
-            ray_pos      = zeros(size(rays(:,1:3)));
-            ray_pos_tmp      = zeros(size(rays(:,1:3)));
-            
-            TBN=quad_.TBN';
-            %направление луча в собственной системе координат поверхности
-            ray_dir(:,1) = (TBN(1,1)*rays(:,4) + TBN(1,2)*rays(:,5) + TBN(1,3)*rays(:,6)); 
-            ray_dir(:,2) = (TBN(2,1)*rays(:,4) + TBN(2,2)*rays(:,5) + TBN(2,3)*rays(:,6));
-            ray_dir(:,3) = (TBN(3,1)*rays(:,4) + TBN(3,2)*rays(:,5) + TBN(3,3)*rays(:,6));
-            %положение луча в собственной системе координат поверхности
-            ray_pos_tmp(:,1)=rays(:,1)-quad_.position(1);
-            ray_pos_tmp(:,2)=rays(:,2)-quad_.position(2);
-            ray_pos_tmp(:,3)=rays(:,3)-quad_.position(3);
-
-            ray_pos(:,1) = (TBN(1,1)*ray_pos_tmp(:,1) + TBN(1,2)*ray_pos_tmp(:,2) + TBN(1,3)*ray_pos_tmp(:,3)); 
-            ray_pos(:,2) = (TBN(2,1)*ray_pos_tmp(:,1) + TBN(2,2)*ray_pos_tmp(:,2) + TBN(2,3)*ray_pos_tmp(:,3));
-            ray_pos(:,3) = (TBN(3,1)*ray_pos_tmp(:,1) + TBN(3,2)*ray_pos_tmp(:,2) + TBN(3,3)*ray_pos_tmp(:,3)+quad_.extraData.C);
-
-            abc=[quad_.extraData.A quad_.extraData.B 1];
-
-            A=ray_dir(:,1).^2*abc(2)^2+sign(abc(2))*ray_dir(:,2).^2*abc(1)^2;
-            
-            B=2*(ray_pos(:,1).^2.*ray_dir(:,1)*abc(2)+sign(abc(2))*ray_pos(:,2).^2.*ray_dir(:,2)*abc(1)^2+...
-                 (abc(1)*abc(2))^2*ray_dir(:,3));
-            
-            C=ray_pos(:,1).^2*abc(2)^2+sign(abc(2))*ray_pos(:,2).^2*abc(1)^2+...
-              ray_pos(:,3)*(abc(1)*abc(2))^2;
-           
-            D=B.^2-4*A.*C;
-           
-            t_1=(-B+sqrt(D))./A/2;
-            t_2=(-B-sqrt(D))./A/2;
-            
-            distance_1 = sqrt((rays(:,1)+rays(:,4).*t_1-quad_.position(1)).^2+...
-                                      (rays(:,2)+rays(:,5).*t_1-quad_.position(2)).^2+...
-                                      (rays(:,3)+rays(:,6).*t_1-quad_.position(3)).^2);
-            distance_2 = sqrt((rays(:,1)+rays(:,4).*t_2-quad_.position(1)).^2+...
-                                      (rays(:,2)+rays(:,5).*t_2-quad_.position(2)).^2+...
-                                      (rays(:,3)+rays(:,6).*t_2-quad_.position(3)).^2);
-            
-            rays(:,8) = (distance_1<distance_2).*t_1+(distance_1>distance_2).*t_2;          
-    end
-end
 
 function vec = moveFromPoint(vec,Pos)
 % size(vec)

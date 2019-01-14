@@ -10,17 +10,17 @@ LED_source=paraxialSpot([0 0 0],1);
 % [ x,y,~,~] = spotDiagram( detector,rays_out);
 
 fig_1=figure(1);
-subplot(1,3,1)
+% subplot(1,3,1)
 axis vis3d 
 view([0 0])
 drawLens(fig_1,lens);
 drawQuad(fig_1,detector);
-drawRays(fig_1,[rays_in; rays_middle; rays_out]);
+drawRays(fig_1,[rays_in;rays_middle;rays_out]);
 grid on;
 
-handler1=subplot(1,3,2);
-[~,~,~,~]=drawSpotDiagram(handler1,detector,rays_out);
-handler2=subplot(1,3,3);
-[ intensity,x ,y ] = quadIntencity( detector,rays_out,30,30);
-imagesc(x,y,intensity);
-axis equal;
+% handler1=subplot(1,3,2);
+% [~,~,~,~]=drawSpotDiagram(handler1,detector,rays_out);
+% handler2=subplot(1,3,3);
+% [ intensity,x ,y ] = quadIntencity( detector,rays_out,30,30);
+% imagesc(x,y,intensity);
+% axis equal;

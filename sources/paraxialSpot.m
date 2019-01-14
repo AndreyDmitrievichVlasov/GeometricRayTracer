@@ -2,7 +2,7 @@ function [ rays ] = paraxialSpot( r0, R)
 %LED Summary of this function goes here
 %   Detailed explanation goes here
 % R=1;
-N=64;
+N=25;
 RGB=[630 510 450]/1000;%wavelength in micrometers
 RGB_colors=[[1 0 0];
                    [0 1 0];
@@ -16,7 +16,7 @@ rays=[];
         for i=1:N
             for j=1:N
                 h=((x(i)^2+y(j)^2));
-                     r0=[x(i)*0.5 y(j)*0.5 0.5*sqrt(R-h)];
+%                      r0=[x(i)*0.5 y(j)*0.5 0.5*sqrt(R-h)];
                    % интенсивность будем считать исходя из гауссовой диаграммы
                    % направленности, где вся энергия сосредоточена между -80 град и
                    % 80 град.
