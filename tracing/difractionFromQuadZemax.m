@@ -3,9 +3,9 @@ function [ rays_out ,rays_difracted] = difractionFromQuadZemax( quad_,rays )
 %   Detailed explanation goes here
 % предполагается, что нормаль к решёте всегда совпадает с осью Z в
 % собственно пространстве решётки
-if strcmp(quad_.extraDataType,'faltDG')
-    error('this surface can not be represented as DG');
-end
+% if strcmp(quad_.extraDataType,'faltDG')
+%     error('this surface can not be represented as DG');
+% end
 
  [ rays_out] = quadIntersect( quad_, rays);
 

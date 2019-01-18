@@ -2,7 +2,7 @@
 clear all; close all;clc;initEnvio();
 %%чтобы перейти к определению функции,необходимо поставить курсор сразу после имени этой функции и нажать ctrl+D 
 [ lens ] = getLens( 2.0, 4,  10, -10 );
-[ detector] =  flatQuad( 2,2,[0 0 0],[0 0 10]);
+[ detector] =  flatQuad( 2,2,[0 0 0],[0 0 16]);
 [ lens ] = moveLens( lens,[0 0 2]);
 LED_source=paraxialSpot([0 0 0],1);
 [ rays_in, rays_middle, rays_out ] = traceThroughtLens( lens, LED_source);

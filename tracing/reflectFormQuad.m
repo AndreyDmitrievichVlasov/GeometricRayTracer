@@ -2,33 +2,60 @@ function [ rays_out, rays_in  ] = reflectFormQuad( quad_, rays_in)
 %REFLECTFORMQUAD Summary of this function goes here
 %   Detailed explanation goes here
 
+% rays_in=quadIntersect(quad_,rays_in);
+%     if strcmp(quad_.extraDataType,'flat')
+%         normal=@(point)(quad_.ABCD(1:3));
+%         rays_out=Reflect(rays_in,normal);
+%     end
+%     if strcmp(quad_.extraDataType,'sphere')
+%         ref_point=quad_.position-(quad_.TBN*[0 0 quad_.extraData.R]')';
+%         normal=@(point)(ellipsoidalNormalArray(point,quad_.position,quad_.TBN',...
+%                                                                   quad_.extraData.A,quad_.extraData.B,...
+%                                                                   quad_.extraData.C));
+%         rays_out=Reflect(rays_in,normal);
+%     end
+%     if strcmp(quad_.extraDataType,'ellipsoid')
+%         ref_point=quad_.position-(quad_.TBN*[0 0 quad_.extraData.C]')';
+% %         ellipsoidalNormalArray(point,position,rotM, A,B,C)
+%         normal=@(point)(ellipsoidalNormalArray(point,quad_.position,quad_.TBN',...
+%                                                                   quad_.extraData.A,quad_.extraData.B,...
+%                                                                   quad_.extraData.C));
+%         rays_out=Reflect(rays_in,normal);
+%     end
+%     
+%     if strcmp(quad_.extraDataType,'paraboloid')
+%         ref_point=quad_.position-(quad_.TBN*[0 0 quad_.extraData.C]')';
+%         normal=@(point)(paraboloidalNormalArray(point,ref_point,quad_.extraData.A,quad_.extraData.B));
+%         rays_out=Reflect(rays_in,normal);
+%     end
 rays_in=quadIntersect(quad_,rays_in);
-    if strcmp(quad_.extraDataType,'flat')
+
+    if  strcmp(quad_.extraDataType,'flat')
         normal=@(point)(quad_.ABCD(1:3));
         rays_out=Reflect(rays_in,normal);
     end
     if strcmp(quad_.extraDataType,'sphere')
-        ref_point=quad_.position-(quad_.TBN*[0 0 quad_.extraData.R]')';
-        normal=@(point)(ellipsoidalNormalArray(point,quad_.position,quad_.TBN',...
-                                                                  quad_.extraData.A,quad_.extraData.B,...
-                                                                  quad_.extraData.C));
+       ref_point=quad_.position-(quad_.TBN*[0 0 quad_.extraData.R]')';
+        normal=@(point)(sphericalNormalArray(point,ref_point));
         rays_out=Reflect(rays_in,normal);
     end
     if strcmp(quad_.extraDataType,'ellipsoid')
-        ref_point=quad_.position-(quad_.TBN*[0 0 quad_.extraData.C]')';
-%         ellipsoidalNormalArray(point,position,rotM, A,B,C)
         normal=@(point)(ellipsoidalNormalArray(point,quad_.position,quad_.TBN',...
-                                                                  quad_.extraData.A,quad_.extraData.B,...
-                                                                  quad_.extraData.C));
+                                               quad_.extraData.A,quad_.extraData.B,...
+                                               quad_.extraData.C));
         rays_out=Reflect(rays_in,normal);
     end
-    
     if strcmp(quad_.extraDataType,'paraboloid')
         ref_point=quad_.position-(quad_.TBN*[0 0 quad_.extraData.C]')';
         normal=@(point)(paraboloidalNormalArray(point,ref_point,quad_.extraData.A,quad_.extraData.B));
-        rays_out=Reflect(rays_in,normal);
+         rays_out=Reflect(rays_in,normal);
     end
-
+    
+    if strcmp(quad_.extraDataType,'conus')
+        ref_point=quad_.position-(quad_.TBN*[0 0 quad_.extraData.C]')';
+        normal=@(point)(conusNormalArray(point,ref_point,quad_.extraData.A,quad_.extraData.B,quad_.extraData.C));
+         rays_out=Reflect(rays_in,normal);
+    end
 end
 
 
