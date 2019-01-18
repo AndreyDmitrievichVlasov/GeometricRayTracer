@@ -9,8 +9,6 @@ end
 
  [ rays_out] = quadIntersect( quad_, rays);
 
-
- 
     if  strcmp(quad_.extraDataType,'flatDG')
         normal=@(point)(quad_.ABCD(1:3));
         rays_difracted = Difract(rays_out, normal, quad_.extraData.orders, quad_.extraData.density);%
@@ -21,10 +19,9 @@ end
         rays_difracted = Difract(rays_out, normal, quad_.extraData.orders, quad_.extraData.density);%
     end
     if strcmp(quad_.extraDataType,'ellipsoidDG')
-%         ref_point=quad_.position-(quad_.TBN*[0 0 0.5*quad_.extraData.C]')';
         normal=@(point)(ellipsoidalNormalArray(point,quad_.position,quad_.TBN',...
-                                                                  quad_.extraData.A,quad_.extraData.B,...
-                                                                  quad_.extraData.C));
+                                                     quad_.extraData.A,quad_.extraData.B,...
+                                                     quad_.extraData.C));
         rays_difracted = Difract(rays_out, normal, quad_.extraData.orders, quad_.extraData.density);%
     end
     if strcmp(quad_.extraDataType,'paraboloidDG')

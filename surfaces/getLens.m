@@ -18,9 +18,55 @@
 %% Поверхности можно комбинировать. 
 
 
-function [ lens ] = getLens( aperture,tickness,r_1,r_2 )
+function [ lens ] = getLens(varargin)
+% aperture,tickness,r_1,r_2 
 %GETLENS Summary of this function goes here
 %   Detailed explanation goes here
+
+if isempty(varargin)
+     lens = initDefaultLens(25, 5,100,-100);
+end
+
+if length(varargin)==1
+     lens = initDefaultLens(varargin{1}, 5,100,-100);
+end
+
+if length(varargin)==2
+     lens = initDefaultLens(varargin{1}, varargin{2},100,-100);
+end
+
+
+if length(varargin)==3
+     lens = initDefaultLens(varargin{1}, varargin{2},varargin{3},varargin{3});
+end
+
+
+if length(varargin)==4
+     lens = initDefaultLens(varargin{1}, varargin{2},varargin{3},varargin{4});
+end
+
+if length(varargin)==5
+     lens = initDefaultLens(varargin{1}, varargin{2},varargin{3},varargin{4});
+     
+     if ischar(varargin{5})
+             rI=Materials(varargin{5});
+             lens.materialDispersion=@(lam)(dispersionLaw(lam, rI.refractionIndexData));
+             lens.material=rI;
+    % lens=struct('frontSurface',front_surf,'backSurface',back_surf,'tickness',tickness,'aperture',aperture,'material',...
+    %                 rI,'materialDispersion',@(lam)(dispersionLaw(lam, rI.refractionIndexData)),'type','lens');
+     else
+        disp('Incorrect material definition. Default material will be applied')
+     end
+ 
+
+end
+
+
+
+end
+
+function lens = initDefaultLens(aperture, tickness,r_1,r_2)
+
 front_surf = flatQuad( 2*aperture,2*aperture,[0 0 0],[0 0 0]);
 
 if length(r_1)==1
@@ -49,8 +95,6 @@ end
 rI=Materials('silica');
 lens=struct('frontSurface',front_surf,'backSurface',back_surf,'tickness',tickness,'aperture',aperture,'material',...
                 rI,'materialDispersion',@(lam)(dispersionLaw(lam, rI.refractionIndexData)),'type','lens');
-
-
 end
 function n = dispersionLaw(lam, Ndata)
 

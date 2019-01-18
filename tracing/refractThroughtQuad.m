@@ -14,7 +14,6 @@ rays_in=quadIntersect(quad_,rays_in);
         rays_out=Refract(rays_in,normal,material_1,material_2);
     end
     if strcmp(quad_.extraDataType,'ellipsoid')
-%         ref_point=quad_.position-(quad_.TBN*[0 0 0.5*quad_.extraData.C]')';
         normal=@(point)(ellipsoidalNormalArray(point,quad_.position,quad_.TBN',...
                                                                   quad_.extraData.A,quad_.extraData.B,...
                                                                   quad_.extraData.C));
@@ -25,6 +24,13 @@ rays_in=quadIntersect(quad_,rays_in);
         normal=@(point)(paraboloidalNormalArray(point,ref_point,quad_.extraData.A,quad_.extraData.B));
         rays_out=Refract(rays_in,normal,material_1,material_2);
     end
+    
+    if strcmp(quad_.extraDataType,'conus')
+        ref_point=quad_.position-(quad_.TBN*[0 0 quad_.extraData.C]')';
+        normal=@(point)(conusNormalArray(point,ref_point,quad_.extraData.A,quad_.extraData.B,quad_.extraData.C));
+        rays_out=Refract(rays_in,normal,material_1,material_2);
+    end
+    
 end
 
 
@@ -41,7 +47,7 @@ function normal = paraboloidalNormalArray(point,ref_point,A,B)
      normal(:,3)=normal(:,3)./rho;
 end
 function normal_ = ellipsoidalNormalArray(point,position,rotM, A,B,C)
-     normal = zeros(size(point));
+     normal_ = zeros(size(point));
         p_=zeros(size(point));
      point(:,1)=point(:,1)-position(1);%+v(1);
      point(:,2)=point(:,2)-position(2);%+v(2);
@@ -70,6 +76,28 @@ function normal = sphericalNormalArray(point,ref_point)
      normal(:,1)=(point(:,1)-ref_point(:,1))./rho;
      normal(:,2)=(point(:,2)-ref_point(:,2))./rho;
      normal(:,3)=(point(:,3)-ref_point(:,3))./rho;
+end
+
+function normal = conusNormalArray(point,ref_point, A,B,C)
+     normal = zeros(size(point));
+  
+     normal(:,1) =  point(:,1)-ref_point(1);
+     normal(:,2) =  point(:,2)-ref_point(2);
+     normal(:,3) =  point(:,3)-ref_point(3);
+  
+     
+%      normal(:,:) = point-ref_point;
+     normal(:,1) =  2*normal(:,1)/A^2;
+     normal(:,2) =  2*normal(:,2)/B^2;
+     normal(:,3) = -2*normal(:,3)/C^2;
+
+         rho=sqrt(sum(normal.*normal,2));
+
+     normal(:,1) =  normal(:,1)./rho;
+     normal(:,2) =  normal(:,2)./rho;
+     normal(:,3) =  normal(:,3)./rho;
+%      normal=normal./rho;
+       
 end
 
 function rays_out=Refract(rays_in,normal,material_1,material_2)
