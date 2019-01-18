@@ -2,7 +2,7 @@ function [ rays ] = paraxialSpot( r0, R)
 %LED Summary of this function goes here
 %   Detailed explanation goes here
 % R=1;
-N=25;
+N=16;
 RGB=[630 510 450]/1000;%wavelength in micrometers
 RGB_colors=[[1 0 0];
                    [0 1 0];
