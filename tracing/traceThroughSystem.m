@@ -4,36 +4,73 @@ function [ raysIn, raysMiddle, raysOut ] = traceThroughSystem( raysIn,varargin)
     if nargin==0
         raysMiddle=[];
         raysOut=[];
-    elseif nargin==1
-
     elseif nargin==2
-
+        [raysIn, raysMiddle, raysOut ] = traceAsArray(varargin{1},raysIn);
+    elseif nargin==3
+        [raysIn, raysMiddle, raysOut ] = traceByOrder(varargin{1},varargin{2},raysIn);
     end
 end
 % трассировка по указанном в orderSequence порядку лучей через элементы из
 % списка opticalElements
-function [raysIn, raysMiddle, raysOut ] = traceByOrder(opticalElements,orderSequence,raysIn)
+function [raysIn, raysMiddle, raysOut ] = traceByOrder(opticalElements,orderSequence,rays)
     if isempty(orderSequence)
-        [raysIn, raysMiddle, raysOut ] = traceAsArray(opticalElements,raysIn);
+        disp('WARRING: no sequence found');
+        [raysIn, raysMiddle, raysOut ] = traceAsArray(opticalElements,rays);
          return;
     end
     if isempty(opticalElements)
+         disp('WARRING: no elements to trace');
         raysMiddle=[]; raysOut=[];
         return;
     end
+         raysMiddle=[]; raysOut=[];raysIn=[];
+
+          [raysIn_, raysMiddle_, raysOut_ ] = traceThrough(opticalElements{orderSequence(1)}, rays);
+ 
+           raysMiddle = [raysMiddle; raysMiddle_];
+           raysIn    = [raysIn; raysIn_];
+           raysIn_=raysOut_;
+        
+        for i=2:length(orderSequence)-1
+              [raysIn_, raysMiddle_, raysOut_ ] = traceThrough(opticalElements{orderSequence(i)}, raysIn_);
+               raysMiddle = [raysMiddle; raysMiddle_;raysIn_];
+               raysIn_=raysOut_;
+        end
+        
+        [~, raysMiddle_, raysOut_ ] = traceThrough(opticalElements{orderSequence(length(orderSequence))}, raysIn_);
+
+                raysMiddle = [raysMiddle; raysMiddle_];
+                raysOut = [raysOut; raysOut_];
+
+        
 end
 
 % трассировка списка opticalElements в порядке следования элементов
 
-function [raysIn, raysMiddle, raysOut ] = traceAsArray(opticalElements,raysIn)
+function [raysIn, raysMiddle, raysOut ] = traceAsArray(opticalElements,rays)
     if isempty(opticalElements)
         raysMiddle=[]; raysOut=[];
         return;
     end
+    
+    raysMiddle=[]; raysOut=[];raysIn=[];
+  
+          [raysIn_, raysMiddle_, raysOut_ ] = traceThrough(opticalElements{1}, rays);
+ 
+           raysMiddle = [raysMiddle; raysMiddle_];
+           raysIn    = [raysIn; raysIn_];
+           raysIn_=raysOut_;
+        
+        for i=2:length(opticalElements)-1
+              [raysIn_, raysMiddle_, raysOut_ ] = traceThrough(opticalElements{i}, raysIn_);
+               raysMiddle = [raysMiddle; raysMiddle_;raysIn_];
+               raysIn_=raysOut_;
+        end
+        
+        [~, raysMiddle_, raysOut_ ] = traceThrough(opticalElements{length(opticalElements)}, raysIn_);
 
-    for i=1:length(opticalElements)
-        [raysIn, raysMiddle, raysOut ] = traceThrough(opticalElements{i},raysIn);
-    end
+                raysMiddle = [raysMiddle; raysMiddle_];
+                raysOut = [raysOut; raysOut_];
 end
 
 function [raysIn, raysMiddle, raysOut ] = traceThrough(opticalElement,raysIn)
@@ -46,17 +83,21 @@ function [raysIn, raysMiddle, raysOut ] = traceThrough(opticalElement,raysIn)
       return;
     end
 end
+
 function [raysIn ,raysOut]=processSurface(quadSurface,raysIn)
-l=length(quadSurface.extraDataType);
-    if strcmp(quadSurface.extraDataType(l-1:l),'DG')
-        [ raysIn ,raysOut] = difractionFromQuad(quadSurface,raysIn);
-        return;
-    elseif strcmp(quadSurface.type,'mirror')
+% l=length(quadSurface.extraDataType);
+    if ~isempty(quadSurface.extraDataType)
+        if strcmp(quadSurface.extraDataType,'sphereDG')||strcmp(quadSurface.extraDataType,'paraboloidDG')||...
+                strcmp(quadSurface.extraDataType,'ellipsoidDG')
+              [ raysIn ,raysOut] = difractionFromQuad(quadSurface,raysIn);
+              return;
+        end
+   elseif strcmp(quadSurface.type,'mirror')
         [raysOut,raysIn]=reflectFormQuad(quadSurface,raysIn);
         return;
     elseif strcmp(quadSurface.type,'surface')
-        [raysIn]=quadintersect(quadSurface,raysIn);
-        raysOut=[];
+        [raysIn]=quadIntersect(quadSurface,raysIn);
+        raysOut=raysIn;
         return;
     end
 end

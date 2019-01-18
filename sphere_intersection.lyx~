@@ -2073,7 +2073,7 @@ z\\
 \left[\begin{array}{cccc}
 x & y & z & 1\end{array}\right]\left[\begin{array}{cccc}
 \frac{1}{a^{2}} & 0 & 0 & 0\\
-0 & -\frac{1}{b^{2}} & 0 & 0\\
+0 & \frac{1}{b^{2}} & 0 & 0\\
 0 & 0 & -\frac{1}{c^{2}} & 0\\
 0 & 0 & 0 & 0
 \end{array}\right]\left[\begin{array}{c}
@@ -2087,6 +2087,27 @@ z\\
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Или без учёта однородных координат:
+\begin_inset Formula 
+\[
+\left[\begin{array}{ccc}
+x & y & z\end{array}\right]\left[\begin{array}{ccc}
+\frac{1}{a^{2}} & 0 & 0\\
+0 & \frac{1}{b^{2}} & 0\\
+0 & 0 & -\frac{1}{c^{2}}
+\end{array}\right]\left[\begin{array}{c}
+x\\
+y\\
+z
+\end{array}\right]=0
+\]
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Section
