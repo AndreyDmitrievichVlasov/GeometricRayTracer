@@ -9,11 +9,11 @@ clear all; close all;clc;initEnvio();
 [ lens3 ] = getLens( 2.0, 1,  -15, -15);
 [ lens3 ] = moveLens( lens3,[0 0 4]);
 
-[ detector] =  flatQuad( 0.2,0.2,[0 0 0],[0.28 0 19.5]);
+[ detector] =  flatQuad( 0.2,0.2,[0 0 0],[0*0.28 0 19.5]);
 
 
 schema={};
-sequensce=[5 1 2 3 4 ];
+sequensce=[1 2 3 4 ];
 schema{1}=lens1;
 schema{2}=lens2;
 schema{3}=lens3;
