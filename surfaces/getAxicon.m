@@ -16,9 +16,31 @@
 %% length(r_1) или length(r_2) = 3
 
 %% Поверхности можно комбинировать. 
+function [ lens ] = getAxicon(varargin)
+    if nargin==0
+            lens = createAxicon( 10,2,10,10,2);
+    elseif nargin==1
+            lens = createAxicon( varargin{1},2,10,10,2);
+    elseif nargin==2
+            lens = createAxicon( varargin{1},varargin{2},10,10,2);
+    elseif nargin==3
+              lens = createAxicon( varargin{1},varargin{2},varargin{3}(1),varargin{3}(2),varargin{3}(3));
+    elseif nargin==4
+            lens = createAxicon( varargin{1},varargin{2},varargin{3}(1),varargin{3}(2),varargin{3}(3));
+             if ischar(varargin{4})
+                 rI=Materials(varargin{4});
+                 lens.materialDispersion=@(lam)(dispersionLaw(lam, rI.refractionIndexData));
+                 lens.material=rI;
+             else
+                disp('Incorrect material definition. Default material will be applied')
+             end
+    end
+end
 
 
-function [ lens ] = getAxicon( aperture,tickness,A,B,C)
+
+
+function [ lens ] = createAxicon( aperture,tickness,A,B,C)
 %GETLENS Summary of this function goes here
 %   Detailed explanation goes here
 front_surf = flatQuad( 2*aperture,2*aperture,[0 0 0],[0 0 0]);
