@@ -134,3 +134,10 @@ rays_out=rays_in;
         rays_out(i).e=n_;%rays_in(i).e-2*(rays_in(i).e*n_')*n_;
     end
 end
+function normal = sphericalNormalArray(point,ref_point)
+     normal = zeros(size(point));
+     rho    = sqrt((point(:,1)-ref_point(:,1)).^2+ (point(:,2)-ref_point(:,2)).^2+( point(:,3)-ref_point(:,3)).^2);
+     normal(:,1)=(point(:,1)-ref_point(:,1))./rho;
+     normal(:,2)=(point(:,2)-ref_point(:,2))./rho;
+     normal(:,3)=(point(:,3)-ref_point(:,3))./rho;
+end
