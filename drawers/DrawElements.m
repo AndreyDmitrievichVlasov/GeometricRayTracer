@@ -2,6 +2,9 @@ function  DrawElements( fig_handler,Elements )
 %DRAWELEMENTS Summary of this function goes here
 %   Detailed explanation goes here
 
+set(fig_handler,'DefaultAxesFontSize',14,'DefaultAxesFontName','Times New Roman');
+set(fig_handler,'DefaultTextFontSize',14,'DefaultTextFontName','Times New Roman');
+
     if ~iscell(Elements)
         disp('Unknown data in lens drawer');
         return;
@@ -10,6 +13,8 @@ function  DrawElements( fig_handler,Elements )
            disp('No lens to draw');
            return;
     end
+    
+    
     
     for i=1:length(Elements)
         if isempty(Elements{i})

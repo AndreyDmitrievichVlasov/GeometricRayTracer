@@ -1,5 +1,5 @@
 clear all; close all;clc;
-windows=false;
+windows=1;
 initEnvio(windows);
 %all distances are expressed in mm
 
@@ -11,7 +11,7 @@ telescope=ttelescope; % this is to ensure Matlab compatibility
 % function [ telmaks ] = getMaksTel(maprad,rmm,r1m,r2m,mthick,dist,distsec,secaprad,rsec)
 fprintf('Vynos teleskopa %.3f mm\n',telescope.b);
 
-detector = flatQuad(0.25,0.25,[0 0 0],[0 0 telescope.b+100]);
+detector = flatQuad(0.25,0.25,[0 0 0],[0 0 telescope.b]);
 raysIn=paraxialSpot([0 0 -10],[0 45]);
 
 [ raysIn, raysOut ] = traceThroughMaksTel( telescope, raysIn);
@@ -43,7 +43,7 @@ end
 
 curt=clock();
 
-if(false)
+if(true)
  if windows 
   fig_2=figure(2);
    [~,~,~,~]=drawSpotDiagram(fig_2,detector,raysOut);

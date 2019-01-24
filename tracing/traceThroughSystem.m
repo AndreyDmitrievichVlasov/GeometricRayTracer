@@ -81,23 +81,35 @@ function [raysIn, raysMiddle, raysOut ] = traceThrough(opticalElement,raysIn)
     elseif strcmp(opticalElement.type,'lens')
       [ raysIn, raysMiddle, raysOut ] = traceThroughtLens( opticalElement, raysIn);
       return;
+    else
+        raysIn=[];
+        raysMiddle=[];
+        raysOut=[];
+        error('ERROR:Unknown elemenet in tracing task list');
+%         return;
     end
 end
 
 function [raysIn ,raysOut]=processSurface(quadSurface,raysIn)
 % l=length(quadSurface.extraDataType);
-    if ~isempty(quadSurface.extraDataType)
-        if strcmp(quadSurface.extraDataType,'sphereDG')||strcmp(quadSurface.extraDataType,'paraboloidDG')||...
-                strcmp(quadSurface.extraDataType,'ellipsoidDG')
-              [ raysIn ,raysOut] = difractionFromQuad(quadSurface,raysIn);
-              return;
-        end
-   elseif strcmp(quadSurface.type,'mirror')
+    if isempty(quadSurface.extraDataType)
+        [raysIn]=quadIntersect(quadSurface,raysIn);
+        raysOut=raysIn;
+        return;
+    end    
+   
+    
+   if  endWith(quadSurface.extraDataType, 'DG');%strcmp(endsWith(quadSurface.extraDataType),'DG')
+        [ raysIn ,raysOut] = difractionFromQuad(quadSurface,raysIn);
+         return;
+   elseif endWith(quadSurface.extraDataType,'mirror');%strcmp(quadSurface.type,'mirror')
+       disp(size(raysIn))
         [raysOut,raysIn]=reflectFormQuad(quadSurface,raysIn);
         return;
-    elseif strcmp(quadSurface.type,'surface')
+   else
         [raysIn]=quadIntersect(quadSurface,raysIn);
         raysOut=raysIn;
         return;
     end
 end
+
