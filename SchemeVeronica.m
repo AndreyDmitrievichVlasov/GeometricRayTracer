@@ -30,6 +30,8 @@ ofsett= 42.1577;
 
 [ detector] =  flatQuad( 0.5,0.5,[0 0 0],[0 2.5 position+ofsett*2 + 25]);
 
+[ slit] =  flatQuad( 11,11,[0 0 0],[0 0 -ofsett]);
+[ slit] =  convertQuad2Sphere(slit,10^10);
 schema={};
 
 sequensce=[ 1 2 3 4 5 6 7 8];
@@ -45,11 +47,13 @@ schema{7}=lens_1;
 
 
 schema{8}=detector;
+schema{9}=slit;
+
 % DG_flat =  flatQuad( 4,4,[0 0 1],[0 0 -1]);
 % DG_flat=convertQuad2DG(DG_flat,0.032, 1, 0, 10^10);
 % schema{5}=DG_flat;
 
-LED_source=paraxialSpot([0 0 -5],[4.9 5]);
+LED_source=paraxialSpot([0 0 -50],[4.9 5]);
 
 % as array
 % [ raysIn, raysMiddle, raysOut ] = traceThroughSystem( LED_source, schema);
@@ -62,8 +66,9 @@ axis vis3d
 view([0 0])
 DrawElements(fig_1,schema);
 drawRays(fig_1,[raysIn; ]);
-drawRays(fig_1,[raysMiddle; ]);
+drawRays(fig_1,[raysMiddle;]);
 drawRays(fig_1,[ raysOut]);
+% plot2svg('full_schema_.svg');
 % drawRays(fig_1,[rays_in; rays_middle; rays_out_]);
 grid on;
 % 

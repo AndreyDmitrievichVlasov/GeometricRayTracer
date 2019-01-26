@@ -1,4 +1,4 @@
-function [ rays_in, rays_out ] = traceThroughtMaksTel( MaksTel, rays_in )
+function [ rays_in, rays_out ] = traceThroughMaksTel( MaksTel, rays_in )
 %TRACETHROUGHTLENS Summary of this function goes here
 %   Detailed explanation goes here
  [rays_in,~,rays_a_m]=traceThroughtLens(MaksTel.menisc,rays_in);

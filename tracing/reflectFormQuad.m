@@ -30,28 +30,28 @@ function [ rays_out, rays_in  ] = reflectFormQuad( quad_, rays_in)
 %     end
 rays_in=quadIntersect(quad_,rays_in);
 
-    if  strcmp(quad_.extraDataType,'flat')
+    if  startWith(quad_.extraDataType,'flat')||strcmp(quad_.extraDataType,'')
         normal=@(point)(quad_.ABCD(1:3));
         rays_out=Reflect(rays_in,normal);
     end
-    if strcmp(quad_.extraDataType,'sphere')
+    if startWith(quad_.extraDataType,'sphere')
        ref_point=quad_.position-(quad_.TBN*[0 0 quad_.extraData.R]')';
         normal=@(point)(sphericalNormalArray(point,ref_point));
         rays_out=Reflect(rays_in,normal);
     end
-    if strcmp(quad_.extraDataType,'ellipsoid')
+    if startWith(quad_.extraDataType,'ellipsoid')
         normal=@(point)(ellipsoidalNormalArray(point,quad_.position,quad_.TBN',...
                                                quad_.extraData.A,quad_.extraData.B,...
                                                quad_.extraData.C));
         rays_out=Reflect(rays_in,normal);
     end
-    if strcmp(quad_.extraDataType,'paraboloid')
+    if startWith(quad_.extraDataType,'paraboloid')
         ref_point=quad_.position-(quad_.TBN*[0 0 quad_.extraData.C]')';
         normal=@(point)(paraboloidalNormalArray(point,ref_point,quad_.extraData.A,quad_.extraData.B));
          rays_out=Reflect(rays_in,normal);
     end
     
-    if strcmp(quad_.extraDataType,'conus')
+    if startWith(quad_.extraDataType,'conus')
         ref_point=quad_.position-(quad_.TBN*[0 0 quad_.extraData.C]')';
         normal=@(point)(conusNormalArray(point,ref_point,quad_.extraData.A,quad_.extraData.B,quad_.extraData.C));
          rays_out=Reflect(rays_in,normal);
@@ -133,4 +133,11 @@ rays_out=rays_in;
         n_=normal(rays_out(i).r0);
         rays_out(i).e=n_;%rays_in(i).e-2*(rays_in(i).e*n_')*n_;
     end
+end
+function normal = sphericalNormalArray(point,ref_point)
+     normal = zeros(size(point));
+     rho    = sqrt((point(:,1)-ref_point(:,1)).^2+ (point(:,2)-ref_point(:,2)).^2+( point(:,3)-ref_point(:,3)).^2);
+     normal(:,1)=(point(:,1)-ref_point(:,1))./rho;
+     normal(:,2)=(point(:,2)-ref_point(:,2))./rho;
+     normal(:,3)=(point(:,3)-ref_point(:,3))./rho;
 end

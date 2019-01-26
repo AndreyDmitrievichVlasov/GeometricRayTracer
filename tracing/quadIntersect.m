@@ -1,15 +1,11 @@
 function [ rays  ] = quadIntersect( quad_,rays )
 %QUADINTERSECT Summary of this function goes here
 %   Detailed explanation goes here
-  if strcmp(quad_.extraDataType,'flatDG')
+
+  if startWith(quad_.extraDataType,'flat')||strcmp(quad_.extraDataType,'')
       rays=flatIntersection(quad_,rays);
-  end
-  if strcmp(quad_.extraDataType,'sphere')||strcmp(quad_.extraDataType,'ellipsoid')||strcmp(quad_.extraDataType,'paraboloid')||...
-     strcmp(quad_.extraDataType,'sphereDG')||strcmp(quad_.extraDataType,'ellipsoidDG')||strcmp(quad_.extraDataType,'paraboloidDG')||...
-     strcmp(quad_.extraDataType,'conus')
-     rays=Intersection(quad_,rays);
   else
-       rays=flatIntersection(quad_,rays); 
+        rays=Intersection(quad_,rays);
   end
 end
 
