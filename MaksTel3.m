@@ -2,28 +2,24 @@ clear all; close all;clc;
 windows=0;
 initEnvio(windows);
 %all distances are expressed in mm
-
 % graphics_toolkit gnuplot;
 
-%telescope=getMaksTel(90,-700,-400,-250,20,200,-200,10,-200);
-ttelescope=getMaksTel(45,-435,-150,-300,20,200,-200,10,-200);
-telescope=ttelescope; % this is to ensure Matlab compatibility
-% function [ telmaks ] = getMaksTel(maprad,rmm,r1m,r2m,mthick,dist,distsec,secaprad,rsec)
-fprintf('Vynos teleskopa %.3f mm\n',telescope.b);
+% getMaksTel(maprad,rmm,r1m,r2m,mthick,dist,argdistsec,secaprad,argrsec)
+[schema,b]=getMaksTel(45,-435,-150,-300,20,200,-200,10,-200);
+fprintf('Vynos teleskopa %.3f mm\n',b);
 
-detector = flatQuad(10,10,[0 0 0],[0 0 telescope.b-27]);
+detector = flatQuad(10.5,10.5,[0 0 0],[0 0 b-27]);
 raysIn=paraxialSpot([0 0 -400],[10 45]);
 
-[ raysIn, raysOut ] = traceThroughMaksTel( telescope, raysIn);
+[ raysIn,raysMiddle,raysOut ] = traceThroughSystem(raysIn, schema);
 
 raysOut = quadIntersect(detector,raysOut);
 % allRays=[raysIn; rays_middle; raysOut; raysReflected1; raysReflected2];
 
 if windows
-
  fig_1=figure(1);
- axis vis3d 
- view([0 0])
+ axis vis3d;
+ view([0 0]);
 
 % ���������� ����� 121^2 �������� ������ �� ���� ����� � ����
 % drawRays(fig_1,raysIn);
@@ -43,7 +39,7 @@ end
 
 curt=clock();
 
-if false
+if(false)
  if windows 
   fig_2=figure(2);
    [~,~,~,~]=drawSpotDiagram(fig_2,detector,raysOut);
@@ -66,4 +62,4 @@ end
  axis equal;
  if ~windows
   print(fig_3,'-deps','-color',filename3);
- end
+ end 
