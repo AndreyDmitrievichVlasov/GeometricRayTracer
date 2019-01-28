@@ -1703,7 +1703,18 @@ a_{11}x+a_{12}y+a_{13}z+a_{14}\\
 a_{21}x+a_{22}y+a_{23}z+a_{24}\\
 a_{31}x+a_{32}y+a_{33}z+a_{34}\\
 a_{41}x+a_{42}y+a_{43}z+a_{44}
-\end{array}\right]\right]+\left[\left[\begin{array}{cccc}
+\end{array}\right]\right]+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++\left[\left[\begin{array}{cccc}
 x & y & z & 1\end{array}\right]\left[\begin{array}{c}
 a_{11}\\
 a_{21}\\
@@ -1759,7 +1770,18 @@ a_{11}x+a_{12}y+a_{13}z+a_{14}\\
 a_{21}x+a_{22}y+a_{23}z+a_{24}\\
 a_{31}x+a_{32}y+a_{33}z+a_{34}\\
 a_{41}x+a_{42}y+a_{43}z+a_{44}
-\end{array}\right]\right]+\left[\left[\begin{array}{cccc}
+\end{array}\right]\right]+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++\left[\left[\begin{array}{cccc}
 x & y & z & 1\end{array}\right]\left[\begin{array}{c}
 a_{12}\\
 a_{22}\\
@@ -1799,7 +1821,18 @@ a_{11}x+a_{12}y+a_{13}z+a_{14}\\
 a_{21}x+a_{22}y+a_{23}z+a_{24}\\
 a_{31}x+a_{32}y+a_{33}z+a_{34}\\
 a_{41}x+a_{42}y+a_{43}z+a_{44}
-\end{array}\right]\right]+\left[\left[\begin{array}{cccc}
+\end{array}\right]\right]+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++\left[\left[\begin{array}{cccc}
 x & y & z & 1\end{array}\right]\left[\begin{array}{c}
 a_{13}\\
 a_{23}\\
@@ -2419,8 +2452,11 @@ cos\theta=\left(\vec{Z},\vec{e}_{0}-\vec{Y}\left(\vec{Y},\vec{e}_{0}\right)\righ
 \end_layout
 
 \begin_layout Section
-Алгоритм трассировки на дифракционной решётке выполненой на поверхности
- второго порядка
+Алгоритм трассировки на дифракционной решётке выполненой
+\begin_inset Newline newline
+\end_inset
+
+ на поверхности второго порядка
 \end_layout
 
 \begin_layout Standard

@@ -16,7 +16,7 @@ else
 end
 % opengl info
 % opengl software
-
+addpath([pwd strcat(folder_separator,'GUI')]);
 addpath([pwd strcat(folder_separator,'drawers')]);
 addpath([pwd strcat(folder_separator,'sources')]);
 addpath([pwd strcat(folder_separator,'surfaces')]);
