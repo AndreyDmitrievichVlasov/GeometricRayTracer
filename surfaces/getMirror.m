@@ -12,6 +12,9 @@ if length(r)==3
     mir = convertQuad2Ellipsoid( mir,r(1),r(2),r(3));
 end
 
-%mir=struct('Surface',surf,'aperture',aperture,'type','mirror');
+%schema{2}.extraDataType = strcat(schema{2}.extraDataType,'_mirror') ;
+mir.extraDataType = strcat(mir.extraDataType,'_mirror') ;
+
+% fprintf('mir.extraDataType=%s\n',mir.extraDataType);
 
 end

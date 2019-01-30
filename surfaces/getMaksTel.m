@@ -1,5 +1,5 @@
 % returns Maksutov telescope
-function [ telmaks ] = getMaksTel(maprad,rmm,r1m,r2m,mthick,dist,argdistsec,secaprad,argrsec)
+function [ schema_makstel, b ] = getMaksTel(maprad,rmm,r1m,r2m,mthick,dist,argdistsec,secaprad,argrsec)
 % origin is at the center of main mirror
 %getMaksTel - returns Maksutov telescope
 %  maprad - menisc aperture radius, rmm - radius of main mirror
@@ -58,16 +58,12 @@ mm=getMirror(mmaprad,rmm,[0 0 0],[0 0 0]);
 % sm is a secondary mirror
 sm=getMirror(secaprad,rsec,[0 0 0],[0 0 -distsec]);
 
-%bigMirror= flatQuad( 90,90,[0 0 0],[0 0 150]);
-%smalMirror = flatQuad( 30,30,[0 0 0],[0 0 7]);
-%bigMirror=convertQuad2Sphere(bigMirror,-700);
-% smalMirror = convertQuad2Sphere(smalMirror,-400);
-%detector = flatQuad( 0.25,0.25,[0 0 0],[0 0 b]);
-% detector is not a part of the telescope. In the telescope structure, we
-% have b - where detector should be placed
+schema_makstel{1}=menisc;
+schema_makstel{2}=mm;
+schema_makstel{3}=sm;
 
 % telmaks=struct(maprad,rmm,r1m,r2m,mthick,dist,distsec,secaprad,rsec,n);
-telmaks=struct('menisc',menisc,'mmirror',mm,'smirror',sm,'b',b, ...
-    'napyl',napyl,'type','MaksTel');
+%telmaks=struct('menisc',menisc,'mmirror',mm,'smirror',sm,'b',b, ...
+%    'napyl',napyl,'type','MaksTel');
 
 end

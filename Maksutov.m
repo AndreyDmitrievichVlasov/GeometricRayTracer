@@ -21,7 +21,7 @@ axis vis3d
 view([0 0])
 
 DrawElements(f,schema);
-drawRays(f,[ raysIn;raysMiddle;raysOut]);
+drawRays(f,[raysIn;raysMiddle;raysOut]);
 grid on;
 
 % endWith
