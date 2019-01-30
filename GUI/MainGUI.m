@@ -12,12 +12,15 @@ choosenTableRow = 1;
 % Scema{1} = flatQuad( 0.25,0.25,[0 0 0],[0.25 0 17]);
 % scrsize= get( 0, 'Screensize' );
 scrsize = get( groot, 'Screensize' );
-fig_handler=figure('Units', 'pixels', 'pos',scrsize );
+scrsizefloat=scrsize;
+scrsizefloat(3:4)=[scrsize(3)/scrsize(4) 1];
+% disp(scrsize)
+fig_handler=figure('Units', 'pixels', 'pos', scrsize,'ToolBar','none' );
+% get(fig_handler)
 set(fig_handler,'DefaultAxesFontSize',10,'DefaultAxesFontName','Times New Roman');
 set(fig_handler,'DefaultTextFontSize',10,'DefaultTextFontName','Times New Roman');
 % set(fig_handler,'MenuBar',[]);
 % set(fig_handler,'ResizeFcn','on');
-
 
 % get(fig_handler)
 axis square 
@@ -25,30 +28,13 @@ axis off;
 hold on;
 
 % f = figure('Position', [10 10 900 250]);
+leftButtonsPannel = uipanel(fig_handler,'Title','Scene edit', 'Position',[0.005 0.005 0.127 1].*scrsizefloat);
 
-Table = uitable('Parent', fig_handler, 'Position', [10 10 410 scrsize(4)*0.8],'CellSelectionCallback', @(s,e)callback(e));
+rightButtonsPannel = uipanel(fig_handler,'Title','Trace results', 'Position',[0.23 0.005 0.4325 0.999].*scrsizefloat);
 
-appendButton =  uicontrol(fig_handler,'Style','pushbutton','String','Append element','Position',...
-    ([10 scrsize(4)*0.845 205 40]));
-set(appendButton,'Callback',@appendButtonCallbacfnc);
+%% Optical elements table
 
-
-removeButton = uicontrol(fig_handler,'Style','pushbutton','String', 'Remove element','Position',...
-    [215 scrsize(4)*0.845 205 40]);%removeButtonCallbacfnc
-set(removeButton,'Callback',@removeButtonCallbacfnc);
-
-traceButton = uicontrol(fig_handler,'Style','pushbutton','String', 'Trace!','Position',...
-    [10 scrsize(4)*0.845+40 410 40]);
-
-secuenseEditButton = uicontrol(fig_handler,'Style','pushbutton','String', 'Edit Sequence','Position',...
-    [10 scrsize(4)*0.845-40 205 40]);
-
-secuenseEditButton = uicontrol(fig_handler,'Style','togglebutton','String', 'Use Sequence','Position',...
-    [215 scrsize(4)*0.845-40 205 40]);
-
-% get(apendButton)
-
-% data = expandElementToCell(Scema);
+Table = uitable('Parent', leftButtonsPannel, 'Position', [10 10 410 scrsize(4)*0.79],'CellSelectionCallback', @(s,e)callback(e));
 
 set(Table,'ColumnFormat',{{'Surface','Mirror','TransparentDG','ReflectiveDG','Lens','Empty','SpotLight','PointLight','CustomLight','TestRay'}, [], [], [],[] })
 
@@ -60,7 +46,42 @@ set(Table,'ColumnName', {'Element type','Position','Rotation','Aperture','      
 
 set(Table,'CellEditCallback',@(s,e)elementTypeCB(s,e));
 
-% set(Table,'Data',data); 
+%% right buttons gorup
+appendButton =  uicontrol(leftButtonsPannel,'Style','pushbutton','String','Append element','Position',...
+    ([15 scrsize(4)*0.845 198 30]));
+set(appendButton,'Callback',@appendButtonCallbacfnc);
+
+
+removeButton = uicontrol(leftButtonsPannel,'Style','pushbutton','String', 'Remove element','Position',...
+    [215 scrsize(4)*0.845 198 30]);%removeButtonCallbacfnc
+set(removeButton,'Callback',@removeButtonCallbacfnc);
+
+traceButton = uicontrol(leftButtonsPannel,'Style','pushbutton','String', 'Trace!','Position',...
+    [15 scrsize(4)*0.845+30 399 30]);
+
+sequenseEditButton = uicontrol(leftButtonsPannel,'Style','pushbutton','String', 'Edit Sequence','Position',...
+    [15 scrsize(4)*0.845-30 198 30]);
+
+sequenseUseButton = uicontrol(leftButtonsPannel,'Style','togglebutton','String', 'Use Sequence','Position',...
+    [215 scrsize(4)*0.845-30 198 30]);
+%% Trasing results windows
+tracingResultsTabulatedPannel = uitabgroup(rightButtonsPannel,'Position',[0.01 0.01 0.99 0.99]);
+
+tracingView = uitab(tracingResultsTabulatedPannel,'Title','Tracing');
+
+tarcingAxis= axes('Parent',tracingView,'Position',[0.01 0.025 0.99 0.97],'Box','on');
+
+set(tarcingAxis,'ZGrid','on');set(tarcingAxis,'YGrid','on');set(tarcingAxis,'XGrid','on');
+
+spotView = uitab(tracingResultsTabulatedPannel,'Title','Spot diagramm');
+
+spotAxis= axes('Parent',spotView,'Position',[0.01 0.025 0.99 0.97],'Box','on');
+set(spotAxis,'ZGrid','on');set(spotAxis,'YGrid','on');set(spotAxis,'XGrid','on');
+
+illuminationView = uitab(tracingResultsTabulatedPannel,'Title','Illumination');
+
+illuminationAxis= axes('Parent',illuminationView,'Position',[0.01 0.025 0.99 0.97],'Box','on');
+set(illuminationAxis,'ZGrid','on');set(illuminationAxis,'YGrid','on');set(illuminationAxis,'XGrid','on');
 
 end
 
