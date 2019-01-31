@@ -28,9 +28,9 @@ axis off;
 hold on;
 
 % f = figure('Position', [10 10 900 250]);
-leftButtonsPannel = uipanel(fig_handler,'Title','Scene edit', 'Position',[0.005 0.005 0.127 1].*scrsizefloat);
+leftButtonsPannel = uipanel(fig_handler,'Title','Scene edit', 'Position',[0.005 0.005 0.127 0.995].*scrsizefloat);
 
-rightButtonsPannel = uipanel(fig_handler,'Title','Trace results', 'Position',[0.23 0.005 0.4325 0.999].*scrsizefloat);
+rightButtonsPannel = uipanel(fig_handler,'Title','Trace results', 'Position',[0.23 0.005 0.4325 0.995].*scrsizefloat);
 
 %% Optical elements table
 
@@ -44,17 +44,17 @@ set(Table,'ColumnEditable', [true, false, false, false]);
 
 set(Table,'ColumnName', {'Element type','Position','Rotation','Aperture','          '});
 
-set(Table,'CellEditCallback',@(s,e)elementTypeCB(s,e));
+set(Table,'CellEditCallback',@(s,e)CellEditCallBack(s,e));
 
 %% right buttons gorup
 appendButton =  uicontrol(leftButtonsPannel,'Style','pushbutton','String','Append element','Position',...
     ([15 scrsize(4)*0.845 198 30]));
-set(appendButton,'Callback',@appendButtonCallbacfnc);
+set(appendButton,'Callback',@appendButtonCallBack);
 
 
 removeButton = uicontrol(leftButtonsPannel,'Style','pushbutton','String', 'Remove element','Position',...
     [215 scrsize(4)*0.845 198 30]);%removeButtonCallbacfnc
-set(removeButton,'Callback',@removeButtonCallbacfnc);
+set(removeButton,'Callback',@removeButtonCallBack);
 
 traceButton = uicontrol(leftButtonsPannel,'Style','pushbutton','String', 'Trace!','Position',...
     [15 scrsize(4)*0.845+30 399 30]);
@@ -107,7 +107,8 @@ if ~isempty(eventData.Indices)
 end
 
 end
-function appendButtonCallbacfnc(s,e)
+
+function appendButtonCallBack(sender, event)
     global Scema;
     global Table;
     global chosenTableRow;
@@ -128,7 +129,7 @@ function appendButtonCallbacfnc(s,e)
     end
 end
 
-function removeButtonCallbacfnc(s,e)
+function removeButtonCallBack(sender, event)
 global Scema;
 global Table;
 global chosenTableRow;
@@ -161,55 +162,108 @@ end
     chosenTableRow=chosenTableRow-1;
 end
 
-function editSequenseCallbacfnc(hObject, eventdata, handles)
-% Callback
-end
-function useSequenseCallbacfnc(hObject, eventdata, handles)
+function editSequenseCallBack(sender, event)
 % Callback
 end
 
-function elementTypeCB(src, eventdata)%%src-table// eventdata
+function useSequenseCallBack(sender, event)
+% Callback
+end
 
-global Scema
-global chosenTableRow ;
-chosenTableRow = eventdata.Indices(1);
+function CellEditCallBack(sender, event)%%src-table// eventdata
 
-    if  eventdata.Indices(2) == 1               % check if column 2
-        if    strcmp(eventdata.NewData,'Surface')
-              set(src,'ColumnEditable', [true, true, true, true, false]);
-              assignTableElementDescription(src, eventdata.Indices(1), [{'Surface'} {'0 0 0'} {'0 0 0'} {'10 10'} {'Edit'}]);
-              Scema{eventdata.Indices(1)}=flatQuad( 10,10,[0 0 0],[0 0 0]);
-             
-        elseif strcmp(eventdata.NewData,'Mirror')
-               set(src,'ColumnEditable', [true, true, true, true, false]);
-               assignTableElementDescription(src, eventdata.Indices(1), [{'Mirror'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}])
-               Scema{eventdata.Indices(1)}=flatQuad( 10,10,[0 0 0],[0 0 0]);
-               Scema{eventdata.Indices(1)}.extraDataType = strcat(Scema{eventdata.Indices(1)}.extraDataType,'_mirror') ;
-              
-        elseif strcmp(eventdata.NewData,'TransparentDG')
-               set(src,'ColumnEditable', [true, true, true, true, false]);
-               assignTableElementDescription(src, eventdata.Indices(1), [{'TransparentDG'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]);
-               Scema{eventdata.Indices(1)}=flatQuad( 10,10,[0 0 0],[0 0 0]);
-               Scema{eventdata.Indices(1)}=convertQuad2DG( Scema{eventdata.Indices(1)},0.032, 1, 0, 10^10);
-             
-        elseif strcmp(eventdata.NewData,'ReflectiveDG')
-               set(src,'ColumnEditable', [true, true, true, true, false]);
-               assignTableElementDescription(src, eventdata.Indices(1), [{'ReflectiveDG'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]);
-               Scema{eventdata.Indices(1)}=flatQuad( 10,10,[0 0 0],[0 0 0]);
-               Scema{eventdata.Indices(1)}=convertQuad2DG( Scema{eventdata.Indices(1)},0.032, 1, 0, 10^10);
-             
-        elseif strcmp(eventdata.NewData,'Lens')
-               set(src,'ColumnEditable', [true, true, true, true, false]);
-               assignTableElementDescription(src, eventdata.Indices(1), [{'Lens'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]);
-               Scema{eventdata.Indices(1)}= getLens( 10, 5, 20, -20,'silica');
-             
-        elseif strcmp(eventdata.NewData,'Empty')
-               assignTableElementDescription(src, eventdata.Indices(1), [{'Empty'} {'-'} {'-'} {'-'} {'-'}]);
-               set(src,'ColumnEditable', [true, false, false, false, false]);
-               Scema{eventdata.Indices(1)}='Empty';
-        end
+global Scema;
+global chosenTableRow;
+chosenTableRow = event.Indices(1);
+     if  event.Indices(2) == 1               
+        elementTypeAssign(sender,event);
+     end
+     if  event.Indices(2) == 2               
+        elementPositionAssign(sender,event);
+     end
+     if  event.Indices(2) == 3               
+        elementRotationAssign(sender,event);
+     end
+     if  event.Indices(2) == 4              
+        elementMaterialAssign(sender,event);
+     end
+     
+end
+
+function elementPositionAssign(sender,event)
+    global Scema;
+    data = get(sender,'Data');
+    if  strcmp(event.PreviousData,data{event.Indices(1),event.Indices(2)})
+        return;
     end
-%     disp(Scema);
+         data{event.Indices(1),event.Indices(2)}=event.NewData;
+         set(sender,'Data',data);
+         if strcmp( Scema{event.Indices(1)}.type,'lens')
+             Scema{event.Indices(1)}=moveLens(Scema{event.Indices(1)},str2num(event.NewData));
+         else
+             Scema{event.Indices(1)}= moveQuad(Scema{event.Indices(1)},str2num(event.NewData));
+         end
+ 
+end
+
+function elementRotationAssign(sender,event)
+    global Scema;
+    data = get(sender,'Data');
+    if  ~strcmp(event.PreviousData,data{event.Indices(1),event.Indices(2)})
+	 return;
+    end
+         data{event.Indices(1),event.Indices(2)}=event.NewData;
+         set(sender,'Data',data);
+         if strcmp( Scema{event.Indices(1)}.type,'lens')
+             Scema{event.Indices(1)}=rotateLens(Scema{event.Indices(1)},str2num(event.NewData));
+         else
+             Scema{event.Indices(1)}= rotateQuad(Scema{event.Indices(1)},str2num(event.NewData));
+         end
+   
+end
+
+function elementMaterialAssign(sender,event)
+disp('material');
+end
+
+function elementTypeAssign(sender,event)
+global Scema;
+global chosenTableRow;
+%     if  event.Indices(2) == 1               % check if column 2
+        if    strcmp(event.NewData,'Surface')
+              set(sender,'ColumnEditable', [true, true, true, true, false]);
+              assignTableElementDescription(sender, event.Indices(1), [{'Surface'} {'0 0 0'} {'0 0 0'} {'10 10'} {'Edit'}]);
+              Scema{event.Indices(1)}=flatQuad( 10,10,[0 0 0],[0 0 0]);
+             
+        elseif strcmp(event.NewData,'Mirror')
+               set(sender,'ColumnEditable', [true, true, true, true, false]);
+               assignTableElementDescription(sender, event.Indices(1), [{'Mirror'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}])
+               Scema{event.Indices(1)}=flatQuad( 10,10,[0 0 0],[0 0 0]);
+               Scema{event.Indices(1)}.extraDataType = strcat(Scema{event.Indices(1)}.extraDataType,'_mirror') ;
+              
+        elseif strcmp(event.NewData,'TransparentDG')
+               set(sender,'ColumnEditable', [true, true, true, true, false]);
+               assignTableElementDescription(sender, event.Indices(1), [{'TransparentDG'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]);
+               Scema{event.Indices(1)}=flatQuad( 10,10,[0 0 0],[0 0 0]);
+               Scema{event.Indices(1)}=convertQuad2DG( Scema{event.Indices(1)},0.032, 1, 0, 10^10);
+             
+        elseif strcmp(event.NewData,'ReflectiveDG')
+               set(sender,'ColumnEditable', [true, true, true, true, false]);
+               assignTableElementDescription(sender, event.Indices(1), [{'ReflectiveDG'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]);
+               Scema{event.Indices(1)}=flatQuad( 10,10,[0 0 0],[0 0 0]);
+               Scema{event.Indices(1)}=convertQuad2DG( Scema{event.Indices(1)},0.032, 1, 0, 10^10);
+             
+        elseif strcmp(event.NewData,'Lens')
+               set(sender,'ColumnEditable', [true, true, true, true, false]);
+               assignTableElementDescription(sender, event.Indices(1), [{'Lens'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]);
+               Scema{event.Indices(1)}= getLens( 10, 5, 20, -20,'silica');
+             
+        elseif strcmp(event.NewData,'Empty')
+               assignTableElementDescription(src, event.Indices(1), [{'Empty'} {'-'} {'-'} {'-'} {'-'}]);
+               set(sender,'ColumnEditable', [true, false, false, false, false]);
+               Scema{event.Indices(1)}='Empty';
+        end
+%     end
 end
 
 function assignTableElementDescription(tableHandle, row, description)
@@ -222,8 +276,4 @@ function assignTableElementDescription(tableHandle, row, description)
              data(row ,:) = description;
              set(tableHandle,'Data',data);    
         end
-end
-
-function pos=positionConvert(xyLH)
-pos=[xyLH(1)-xyLH(3)/2 xyLH(2)-xyLH(4)/2 xyLH(1)+xyLH(3)/2 xyLH(2)+xyLH(4)/2];
 end
