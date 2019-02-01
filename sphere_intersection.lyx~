@@ -2452,8 +2452,11 @@ cos\theta=\left(\vec{Z},\vec{e}_{0}-\vec{Y}\left(\vec{Y},\vec{e}_{0}\right)\righ
 \end_layout
 
 \begin_layout Section
-Алгоритм трассировки на дифракционной решётке выполненой на поверхности
- второго порядка
+Алгоритм трассировки на дифракционной решётке выполненой
+\begin_inset Newline newline
+\end_inset
+
+ на поверхности второго порядка
 \end_layout
 
 \begin_layout Standard

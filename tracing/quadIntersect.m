@@ -27,7 +27,7 @@ end
 function rays=Intersection(quad_,rays)
 
           %    1   2    3    4     5    6        7     8                    9              10  11 12 13
-        % [r_1,r_2,r_3,e_1,e_2,e_3,START,END,WAVE_LENGTH, INTENSITY,  R,  G, B]
+          % [r_1,r_2,r_3,e_1,e_2,e_3,START,END,WAVE_LENGTH, INTENSITY,  R,  G, B]
             ray_dir      = zeros(size(rays(:,4:6)));
             ray_pos      = zeros(size(rays(:,1:3)));
             ray_dirA     = zeros(size(rays(:,4:6)));

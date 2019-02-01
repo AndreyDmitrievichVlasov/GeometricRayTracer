@@ -1582,12 +1582,6 @@ D=\left(\left(\vec{e}^{T},A\vec{r}_{0}\right)+\left(\vec{r}_{0}^{T},A\vec{e}\rig
 
 \end_layout
 
-\begin_layout Standard
-Ну...
- тут вообще видно, что хрен мы там чего сократим, поэтому не буду ничо решать,
- я итак уже в таком виде всё запрограммировал.
-\end_layout
-
 \begin_layout Section
 Нормаль к поверхности второго порядка
 \end_layout

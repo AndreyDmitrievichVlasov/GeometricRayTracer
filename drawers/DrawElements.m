@@ -1,9 +1,6 @@
-function  DrawElements( fig_handler,Elements )
+function  DrawElements( Elements, varargin )
 %DRAWELEMENTS Summary of this function goes here
 %   Detailed explanation goes here
-
-set(fig_handler,'DefaultAxesFontSize',14,'DefaultAxesFontName','Times New Roman');
-set(fig_handler,'DefaultTextFontSize',14,'DefaultTextFontName','Times New Roman');
 
     if ~iscell(Elements)
         disp('Unknown data in lens drawer');
@@ -24,10 +21,10 @@ set(fig_handler,'DefaultTextFontSize',14,'DefaultTextFontName','Times New Roman'
         if sum((strcmp(fieldnames(Elements{i}),'type')) )~=0
            %% Lenses
             if strcmp(Elements{i}.type,'lens')
-                  drawLens(fig_handler, Elements{i});
+                  drawLens(Elements{i},varargin);
                   continue;
             elseif strcmp(Elements{i}.type,'surface')
-                  drawQuad(fig_handler, Elements{i});
+                  drawQuad(Elements{i},varargin);
                   continue;
             else
                  disp('Element can be drawn');
