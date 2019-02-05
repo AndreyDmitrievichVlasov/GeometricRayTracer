@@ -13,8 +13,8 @@ fig_1=figure(1);
 % subplot(1,3,1)
 axis vis3d 
 view([0 0])
-drawLens(fig_1,lens);
-drawQuad(fig_1,detector);
+drawLens(lens);
+drawQuad(detector);
 drawRays(fig_1,[rays_in;rays_middle;rays_out]);
 grid on;
 

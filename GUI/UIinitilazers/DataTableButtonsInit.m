@@ -42,8 +42,8 @@ function appendButtonCallBack(sender, event)
          El{l+1}='Empty';
          GlobalSet('ElementsList',El);
          GlobalSet('ActiveTableRow',l+1);
-    
     end
+    displayUpdate(1);
 end
 
 function removeButtonCallBack(sender, event)
@@ -78,7 +78,7 @@ end
     GlobalSet('ElementsList',Scema);
     GlobalSet('ActiveTableRow',chosenTableRow-1);
     
-    
+    displayUpdate(1);   
     
 end
 
@@ -89,7 +89,6 @@ end
 function useSequenseCallBack(sender, event)
 % Callback
 end
-
 
 function assignTableElementDescription(tableHandle, row, description)
         data=get(tableHandle,'Data');

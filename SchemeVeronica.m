@@ -62,15 +62,13 @@ LED_source=paraxialSpot([0 0 -50],[4.9 5]);
 
 fig_1=figure();
 
-axis vis3d 
-view([0 0])
-DrawElements(fig_1,schema);
+
+DrawElements(schema);
 drawRays(fig_1,[raysIn; ]);
 drawRays(fig_1,[raysMiddle;]);
 drawRays(fig_1,[ raysOut]);
 % plot2svg('full_schema_.svg');
 % drawRays(fig_1,[rays_in; rays_middle; rays_out_]);
-grid on;
 % 
 fig_2=figure(2);
 [~,~,~,~]=drawSpotDiagram(fig_2,schema{8},raysOut);

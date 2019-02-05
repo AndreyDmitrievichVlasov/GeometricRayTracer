@@ -11,28 +11,40 @@ function  DrawElements( Elements, varargin )
            return;
     end
     
-    
-    
+if isempty(varargin)
+    handle=gca;
+else
+    handle=varargin{1};
+end
+
+view(handle,[0 0]);
+axis(handle,'vis3d');
+hold(handle,'on');
+set(handle,'BoxStyle','full','Box','on')
     for i=1:length(Elements)
         if isempty(Elements{i})
           continue;
         end
-        
+        if strcmp(Elements{i},'Empty')
+            continue;
+        end
         if sum((strcmp(fieldnames(Elements{i}),'type')) )~=0
            %% Lenses
-            if strcmp(Elements{i}.type,'lens')
-                  drawLens(Elements{i},varargin);
-                  continue;
-            elseif strcmp(Elements{i}.type,'surface')
-                  drawQuad(Elements{i},varargin);
-                  continue;
-            else
-                 disp('Element can be drawn');
-                 continue;
-            end
+           drawSingleElement(Elements{i},handle);
         else
              disp('Element can be drawn ')
         end
     end
+hold(handle,'on');
 end
 
+
+function drawSingleElement(Element,fig)
+            if strcmp(Element.type,'lens')
+                  drawLens(Element,fig);
+            elseif strcmp(Element.type,'surface')
+                  drawQuad(Element,fig);
+            else
+                 disp('Element can be drawn');
+            end
+end

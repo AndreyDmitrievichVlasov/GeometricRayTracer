@@ -31,12 +31,15 @@ function CellEditCallBack(sender, event)%%src-table// eventdata
 % chosenTableRow = GlobalSet('ActiveTableRow');
      if  event.Indices(2) == 1               
         elementTypeAssign(sender,event);
+           displayUpdate(1);
      end
      if  event.Indices(2) == 2               
         elementPositionAssign(sender,event);
+           displayUpdate(1);
      end
      if  event.Indices(2) == 3               
         elementRotationAssign(sender,event);
+           displayUpdate(1);
      end
      if  event.Indices(2) == 4              
         elementMaterialAssign(sender,event);
