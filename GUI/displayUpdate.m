@@ -1,7 +1,8 @@
 function  displayUpdate( display2update )
 %DISPLATUPDATE Summary of this function goes here
 %   Detailed explanation goes here
-cla(GlobalGet('TracingResutsAxis'));
+% cla(GlobalGet('TracingResutsAxis'),'data');
+delete(get(GlobalGet('TracingResutsAxis'),'children'));
         if display2update==1
              hold(GlobalGet('TracingResutsAxis'),'on');
              DrawElements(GlobalGet('ElementsList'),GlobalGet('TracingResutsAxis'));

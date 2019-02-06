@@ -56,11 +56,13 @@ chosenTableRow=GlobalGet('ActiveTableRow');
 data=get(Table,'Data');
 
 if isempty(data)
+    displayUpdate(1);
     return;
 end
 if 1 == size(data,1)
     set(GlobalGet('ElementsDataTable'),'Data',[]);
     GlobalSet('ElementsList',{});
+    displayUpdate(1)
     return;
 end
 

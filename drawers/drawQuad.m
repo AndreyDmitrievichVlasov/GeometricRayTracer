@@ -67,10 +67,10 @@ function drawQuadInOlderVersions(quad_,hanlde)
           [r_0(3) r_0(3)+0.25*(quad_.H+quad_.L)*quad_.TBN(3,3)],...
           'b','lineSmooth','on','lineWidth',1);
 
-        if strcmp(quad_.extraDataType,'flatDG')
-            plot3(hanlde,quad_.extraData.direction(1,:),quad_.extraData.direction(2,:),quad_.extraData.direction(3,:),...
-                 'g--','lineSmooth','on','lineWidth',1.75);
-        end
+%         if strcmp(quad_.extraDataType,'flatDG')
+%             plot3(hanlde,quad_.extraData.direction(1,:),quad_.extraData.direction(2,:),quad_.extraData.direction(3,:),...
+%                  'g--','lineSmooth','on','lineWidth',1.75);
+%         end
          elemType = quad_.extraDataType;
         if endWith(elemType,'DG')%strcmp(elemType,'flatDG')||strcmp(elemType,'sphereDG')||strcmp(elemType,'ellipsoidDG')||strcmp(elemType,'paraboloidDG');
             plot3(hanlde,quad_.extraData.direction(1,:),quad_.extraData.direction(2,:),quad_.extraData.direction(3,:),...

@@ -23,7 +23,6 @@ GlobalSet('ElementsDataTable',Table);
 end
 
 function CellEditCallBack(sender, event)%%src-table// eventdata
-
 % global Scema;
 % global chosenTableRow;
 % GlobalSet('ActiveTableRow',1);
@@ -49,7 +48,9 @@ end
 
 function elementPositionAssign(sender,event)
     Scema = GlobalGet('ElementsList');
+    
     data = get(sender,'Data');
+    
     if  strcmp(event.PreviousData,data{event.Indices(1),event.Indices(2)})
         return;
     end
@@ -69,17 +70,17 @@ function elementRotationAssign(sender,event)
     
     data = get(sender,'Data');
     
-    if  ~strcmp(event.PreviousData,data{event.Indices(1),event.Indices(2)})
-	 return;
+    if  strcmp(event.PreviousData,data{event.Indices(1),event.Indices(2)})
+         return;
     end
          data{event.Indices(1),event.Indices(2)}=event.NewData;
          set(sender,'Data',data);
          if strcmp( Scema{event.Indices(1)}.type,'lens')
-             Scema{event.Indices(1)}=rotateLens(Scema{event.Indices(1)},str2num(event.NewData));
+             Scema{event.Indices(1)}= rotateLens(Scema{event.Indices(1)},str2num(event.NewData));
          else
              Scema{event.Indices(1)}= rotateQuad(Scema{event.Indices(1)},str2num(event.NewData));
          end
-   
+    GlobalSet('ElementsList',Scema);
 end
 
 function elementMaterialAssign(sender,event)
@@ -115,7 +116,7 @@ function elementTypeAssign(sender,event)
         elseif strcmp(event.NewData,'Lens')
                set(sender,'ColumnEditable', [true, true, true, true, false]);
                assignTableElementDescription(sender, event.Indices(1), [{'Lens'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]);
-               Scema{event.Indices(1)}= getLens( 10, 5, 20, -20,'silica');
+               Scema{event.Indices(1)}= getLens( 10, 5, 50, -50,'silica');
              
         elseif strcmp(event.NewData,'Empty')
                assignTableElementDescription(sender, event.Indices(1), [{'Empty'} {'-'} {'-'} {'-'} {'-'}]);

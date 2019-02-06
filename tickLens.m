@@ -4,6 +4,9 @@ clear all; close all;clc;initEnvio();
 [ lens ] = getLens( 2.0, 4,  10, -10 );
 [ detector] =  flatQuad( 2,2,[0 0 0],[0 0 16]);
 [ lens ] = moveLens( lens,[0 0 2]);
+
+[ lens ] = rotateLens( lens,[0 0 0]);
+
 LED_source=paraxialSpot([0 0 0],1);
 [ rays_in, rays_middle, rays_out ] = traceThroughtLens( lens, LED_source);
 [  rays_out ] = quadIntersect( detector, rays_out);
@@ -13,8 +16,8 @@ fig_1=figure(1);
 % subplot(1,3,1)
 axis vis3d 
 view([0 0])
-drawLens(lens);
-drawQuad(detector);
+DrawElements({lens, detector});
+% drawQuad(detector);
 drawRays(fig_1,[rays_in;rays_middle;rays_out]);
 grid on;
 
