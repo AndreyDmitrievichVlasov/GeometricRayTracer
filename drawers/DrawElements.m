@@ -12,15 +12,15 @@ function  DrawElements( Elements, varargin )
     end
     
 if isempty(varargin)
-    handle=gca;
+    hndl=gca;
 else
-    handle=varargin{1};
+    hndl=varargin{1};
 end
 
-view(handle,[0 0]);
-axis(handle,'vis3d');
-hold(handle,'on');
-set(handle,'BoxStyle','full','Box','on')
+view(hndl,[0 0]);
+axis(hndl,'vis3d');
+hold(hndl,'on');
+% set(hndl,'BoxStyle','full','Box','on')
     for i=1:length(Elements)
         if isempty(Elements{i})
           continue;
@@ -30,12 +30,12 @@ set(handle,'BoxStyle','full','Box','on')
         end
         if sum((strcmp(fieldnames(Elements{i}),'type')) )~=0
            %% Lenses
-           drawSingleElement(Elements{i},handle);
+           drawSingleElement(Elements{i},hndl);
         else
              disp('Element can be drawn ')
         end
     end
-hold(handle,'on');
+hold(hndl,'on');
 end
 
 

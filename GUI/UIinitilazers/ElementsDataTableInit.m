@@ -18,16 +18,35 @@ set(Table,'ColumnName', {'Element type','Position','Rotation','Aperture','      
 
 set(Table,'CellEditCallback',@(s,e)CellEditCallBack(s,e));
 
+set(Table,'CellSelectionCallback',@(s,e)CellSelectionCallback(s,e));
 GlobalSet('ElementsDataTable',Table);
 
 end
 
+
+function CellSelectionCallback(sender, event)
+
+if numel(event.Indices)==0
+    return
+end
+ GlobalSet('ActiveTableRow',event.Indices(1));
+ col=ones(size(get(sender,'Data'),1),3);
+ col(event.Indices(1),:)=[0.8 0.8 1];
+ a=get(sender,'ColumnFormat')%ForegroundColor
+%  set(sender,'BackgroundColor',col);
+
+ %  set(sender,'BackgroundColor',[0.8 0.8 1;0.8 0.1 1]);
+end
 function CellEditCallBack(sender, event)%%src-table// eventdata
 % global Scema;
 % global chosenTableRow;
 % GlobalSet('ActiveTableRow',1);
 % GlobalSet('ElementsList',{});
-% chosenTableRow = GlobalSet('ActiveTableRow');
+% chosenTableRow =
+
+
+   
+ 
      if  event.Indices(2) == 1               
         elementTypeAssign(sender,event);
            displayUpdate(1);

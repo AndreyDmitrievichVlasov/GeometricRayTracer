@@ -3,24 +3,35 @@ function  DataTableButtonsInit( parent )
 %   Detailed explanation goes here
 scrsize = get( groot, 'Screensize' );
 % scrsizefloat(3:4)=[scrsize(3)/scrsize(4) 1];
+h=scrsize(4)*0.86;
+saveButton=  uicontrol(parent,'Style','pushbutton','String','Save','Position',[20 h+20 133 20]);
+saveAsButton=  uicontrol(parent,'Style','pushbutton','String','Save as','Position',[153.6 h+20 133 20]);
+loadButton=  uicontrol(parent,'Style','pushbutton','String','Load','Position',[286.7 h+20 133 20]);
+
+
+
+
+
+
+
 
 appendButton =  uicontrol(parent,'Style','pushbutton','String','Append element','Position',...
-    ([15 scrsize(4)*0.845 198 30]));
+    ([20 h 200 20]));
 set(appendButton,'Callback',@appendButtonCallBack);
 
 
 removeButton = uicontrol(parent,'Style','pushbutton','String', 'Remove element','Position',...
-    [215 scrsize(4)*0.845 198 30]);%removeButtonCallbacfnc
+    [220 h 200 20]);%removeButtonCallbacfnc
 set(removeButton,'Callback',@removeButtonCallBack);
 
 traceButton = uicontrol(parent,'Style','pushbutton','String', 'Trace!','Position',...
-    [15 scrsize(4)*0.845+30 399 30]);
+    [20 h-40 400 20]);
 
 sequenseEditButton = uicontrol(parent,'Style','pushbutton','String', 'Edit Sequence','Position',...
-    [15 scrsize(4)*0.845-30 198 30]);
+    [20 h-20 200 20]);
 
 sequenseUseButton = uicontrol(parent,'Style','togglebutton','String', 'Use Sequence','Position',...
-    [215 scrsize(4)*0.845-30 198 30]);
+    [220 h-20 200 20]);
 
 end
 

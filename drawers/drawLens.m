@@ -1,6 +1,6 @@
-function drawLens(Lens,handle)
-drawQuad(Lens.frontSurface,handle);
-drawQuad(Lens.backSurface,handle);
+function drawLens(Lens,hndl)
+drawQuad(Lens.frontSurface,hndl);
+drawQuad(Lens.backSurface,hndl);
 end_1=Lens.frontSurface.extraData.drawQuality;
 end_2=Lens.backSurface.extraData.drawQuality;
 t=Lens.tickness;
@@ -21,15 +21,15 @@ for i=1:2
     l_2_y(:,i)=Lens.frontSurface.rotationMatrix(1:3,1:3)*l_2_y(:,i)+Lens.frontSurface.position';
 end
     if strcmp(version('-release'),'2015b')
-        plot3(handle,l_1_x(1,:), l_1_x(2,:),l_1_x(3,:),'k','lineWidth',1);
-        plot3(handle,l_2_x(1,:), l_2_x(2,:),l_2_x(3,:),'k','lineWidth',1);
-        plot3(handle,l_1_y(1,:), l_1_y(2,:),l_1_y(3,:),'k','lineWidth',1);
-        plot3(handle,l_2_y(1,:), l_2_y(2,:),l_2_y(3,:),'k','lineWidth',1);
+        plot3(hndl,l_1_x(1,:), l_1_x(2,:),l_1_x(3,:),'k','lineWidth',1);
+        plot3(hndl,l_2_x(1,:), l_2_x(2,:),l_2_x(3,:),'k','lineWidth',1);
+        plot3(hndl,l_1_y(1,:), l_1_y(2,:),l_1_y(3,:),'k','lineWidth',1);
+        plot3(hndl,l_2_y(1,:), l_2_y(2,:),l_2_y(3,:),'k','lineWidth',1);
     else
-        plot3(handle,l_1_x(1,:), l_1_x(2,:),l_1_x(3,:),'k','lineWidth',1,'lineSmooth','on');
-        plot3(handle,l_2_x(1,:), l_2_x(2,:),l_2_x(3,:),'k','lineWidth',1,'lineSmooth','on');
-        plot3(handle,l_1_y(1,:), l_1_y(2,:),l_1_y(3,:),'k','lineWidth',1,'lineSmooth','on');
-        plot3(handle,l_2_y(1,:), l_2_y(2,:),l_2_y(3,:),'k','lineWidth',1,'lineSmooth','on');
+        plot3(hndl,l_1_x(1,:), l_1_x(2,:),l_1_x(3,:),'k','lineWidth',1,'lineSmooth','on');
+        plot3(hndl,l_2_x(1,:), l_2_x(2,:),l_2_x(3,:),'k','lineWidth',1,'lineSmooth','on');
+        plot3(hndl,l_1_y(1,:), l_1_y(2,:),l_1_y(3,:),'k','lineWidth',1,'lineSmooth','on');
+        plot3(hndl,l_2_y(1,:), l_2_y(2,:),l_2_y(3,:),'k','lineWidth',1,'lineSmooth','on');
 
     end
 end
