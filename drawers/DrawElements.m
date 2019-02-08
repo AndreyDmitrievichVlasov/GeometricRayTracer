@@ -32,7 +32,7 @@ hold(hndl,'on');
            %% Lenses
            drawSingleElement(Elements{i},hndl);
         else
-             disp('Element can be drawn ')
+             disp('Element can not be drawn ')
         end
     end
 hold(hndl,'on');
@@ -45,6 +45,6 @@ function drawSingleElement(Element,fig)
             elseif strcmp(Element.type,'surface')
                   drawQuad(Element,fig);
             else
-                 disp('Element can be drawn');
+                 disp('Element can not be drawn');
             end
 end

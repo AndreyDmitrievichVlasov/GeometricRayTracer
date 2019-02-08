@@ -1,5 +1,5 @@
 clear all; close all;clc;
-windows=0;
+windows=true;
 initEnvio(windows);
 %all distances are expressed in mm
 % graphics_toolkit gnuplot;
@@ -16,7 +16,7 @@ raysIn=paraxialSpot([0 0 -400],[10 45]);
 raysOut = quadIntersect(detector,raysOut);
 % allRays=[raysIn; rays_middle; raysOut; raysReflected1; raysReflected2];
 
-if windows
+if false
  fig_1=figure(1);
  axis vis3d;
  view([0 0]);
@@ -32,14 +32,14 @@ if windows
 %drawQuad(fig_1,bigMirror);
 %drawQuad(fig_1,smalMirror);
 
- drawMaksTel(fig_1,telescope);
+ DrawElements(schema,fig_1);
  drawQuad(fig_1,detector);
  grid on;
 end
 
 curt=clock();
 
-if(false)
+if(true)
  if windows 
   fig_2=figure(2);
    [~,~,~,~]=drawSpotDiagram(fig_2,detector,raysOut);
