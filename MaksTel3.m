@@ -8,7 +8,9 @@ initEnvio(windows);
 [schema,b]=getMaksTel(45,-435,-150,-300,20,200,-200,10,-200);
 fprintf('Vynos teleskopa %.3f mm\n',b);
 
-detector = flatQuad(10.5,10.5,[0 0 0],[0 0 b-27]);
+%detPos=b-27;
+detPos=0
+detector = flatQuad(5,5,[0 0 0],[0 0 detPos]);
 raysIn=paraxialSpot([0 0 -400],[10 45]);
 
 [ raysIn,raysMiddle,raysOut ] = traceThroughSystem(raysIn, schema);
