@@ -22,19 +22,20 @@ ofsett= 42.1577;
 [ lens_3 ] = getLens( 6, 2.952076, 18.389841, -79.683603,'SK16');
 [ lens_3 ] = moveLens( lens_3,[0 0 position+ofsett*2+2]);
 
+radialDG = flatQuad( 8,8,[0 0 0],[0 0 position+ofsett+1]);
+radialDG = convertQuad2RadialDG(radialDG,0.032, -1, 0, 10^10);
 
-
-[ axicon ] =getAxicon( 4, 2,[4 4 1],'SK16');% getLens( 4, 2, 10^10, 10^10,'SK16');%; 
+[ axicon ] =getLens( 4, 1, 10^10, 10^10,'SK16');%; getAxicon( 4, 2,[4 4 1],'SK16');% getLens( 4, 2, 10^10, 10^10,'SK16');%; 
 
 [ axicon ] = moveLens( axicon,[0 0 position+ofsett]);
 
-[ detector] =  flatQuad( 0.5,0.5,[0 0 0],[0 2.5 position+ofsett*2 + 25]);
+[ detector] =  flatQuad( 15,15,[0 0 0],[0 0 position+ofsett*2 + 25]);
 
 [ slit] =  flatQuad( 11,11,[0 0 0],[0 0 -ofsett]);
 [ slit] =  convertQuad2Sphere(slit,10^10);
 schema={};
 
-sequensce=[ 1 2 3 4 5 6 7 8];
+sequensce=[ 1 2 3 10 5 6 7 8];
 schema{1}=lens1;
 schema{2}=lens2;
 schema{3}=lens3;
@@ -48,6 +49,7 @@ schema{7}=lens_1;
 
 schema{8}=detector;
 schema{9}=slit;
+schema{10}=radialDG;
 
 % DG_flat =  flatQuad( 4,4,[0 0 1],[0 0 -1]);
 % DG_flat=convertQuad2DG(DG_flat,0.032, 1, 0, 10^10);
@@ -58,7 +60,7 @@ LED_source=paraxialSpot([0 0 -50],[4.9 5]);
 % as array
 % [ raysIn, raysMiddle, raysOut ] = traceThroughSystem( LED_source, schema);
 % as sequence
-[ raysIn, raysMiddle, raysOut ] = traceThroughSystem( LED_source, schema,sequensce);
+[ raysIn, raysMiddle, raysOut ] = traceThroughSystem(LED_source, schema,sequensce);
 
 fig_1=figure();
 
