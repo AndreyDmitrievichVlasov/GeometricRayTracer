@@ -5,8 +5,8 @@ function [ rays ] = paraxialSpot( r0, R)
 N=81;
 RGB=[630 510 450]/1000;%wavelength in micrometers
 RGB_colors=[[1 0 0];
-            [0 1 0];
-            [0 0 1]];
+             [0 1 0];
+             [0 0 1]];
 if length(R)==1
 x=-R:2*R/(N-1):R;
 y=-R:2*R/(N-1):R;
