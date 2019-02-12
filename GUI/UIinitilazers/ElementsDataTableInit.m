@@ -29,10 +29,10 @@ function CellSelectionCallback(sender, event)
 if numel(event.Indices)==0
     return
 end
- GlobalSet('ActiveTableRow',event.Indices(1));
- col=ones(size(get(sender,'Data'),1),3);
- col(event.Indices(1),:)=[0.8 0.8 1];
- a=get(sender,'ColumnFormat')%ForegroundColor
+%  GlobalSet('ActiveTableRow',event.Indices(1));
+%  col=ones(size(get(sender,'Data'),1),3);
+%  col(event.Indices(1),:)=[0.8 0.8 1];
+%  a=get(sender,'ColumnFormat')%ForegroundColor
 %  set(sender,'BackgroundColor',col);
 
  %  set(sender,'BackgroundColor',[0.8 0.8 1;0.8 0.1 1]);

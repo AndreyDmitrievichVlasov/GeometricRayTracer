@@ -2578,6 +2578,78 @@ M_{tbn}=\left[\vec{N}_{x},\vec{N}_{y},\vec{N}_{z}\right],
 \end_layout
 
 \begin_layout Section
+Радиальная дифракционная решётка
+\end_layout
+
+\begin_layout Standard
+Случай плоской решётки.
+ Луч задан в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{\rho}=\vec{\rho}_{0}+\vec{e}t
+\]
+
+\end_inset
+
+Уравнение плосоксти элемента(
+\begin_inset Formula $\left(\vec{a},\vec{b}\right)$
+\end_inset
+
+ - скалярное произведение ):
+\begin_inset Formula 
+\[
+\left(\vec{n},\left(\vec{r}-\vec{r}_{0}\right)\right)=0
+\]
+
+\end_inset
+
+Тогда расстояние от точки начала луча до точки пересечения с плоскостью:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+t=\frac{\left(\vec{n},\vec{r}_{0}-\vec{\rho}_{0}\right)}{\left(\vec{n},\vec{e}\right)}
+\]
+
+\end_inset
+
+Пусть точка 
+\begin_inset Formula $R_{0}$
+\end_inset
+
+- есть центр элемента, тогда базис, где будет происходить отклонение луча:
+ Нормаль:
+\begin_inset Formula 
+\[
+\text{\ensuremath{\vec{n}}}
+\]
+
+\end_inset
+
+Битангента:
+\begin_inset Formula 
+\[
+\vec{b}=\frac{\vec{\rho}-\vec{R}_{0}}{\left\Vert \vec{\rho}-\vec{R}_{0}\right\Vert }
+\]
+
+\end_inset
+
+Тангента:
+\begin_inset Formula 
+\[
+\vec{t}=\left[\vec{n},\vec{b}\right].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Трассировка луча в анизотропной среде
 \end_layout
 
