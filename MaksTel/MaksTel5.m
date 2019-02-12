@@ -1,5 +1,5 @@
 clear all; close all;clc;
-windows=true;
+windows=false;
 initEnvio(windows);
 %all distances are expressed in mm
 
@@ -30,7 +30,7 @@ end
 curt=clock();
 
 Npix=300
-defstring=sprintf('%.1f_%.1f_%.1f_%d_%d',detPos,b,detSize,Npix,curt(5));
+defstring=sprintf('%.1f_%.1f_%.1f_%d_%d_%d',detPos,b,detSize,Npix,curt(4),curt(5));
 % This is a string which is appended to all filenames
 % detPos - detector position, b - vynos,detSize - detectorSize, Npix - number of pixels, minutes
 

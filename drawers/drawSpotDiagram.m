@@ -27,7 +27,7 @@ function [ x_spot,y_spot,colors,angleSize] = drawSpotDiagram(fig_handler,quad_,r
     hold off;
     grid on;
     axis equal;
-    xlabel('x, [ m ]');
-    ylabel('y, [ m ]');
+    xlabel('x, [ mm ]');
+    ylabel('y, [ mm ]');
 end
 

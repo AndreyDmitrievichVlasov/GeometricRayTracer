@@ -11,26 +11,18 @@ if length(R)==1
 x=-R:2*R/(N-1):R;
 y=-R:2*R/(N-1):R;
 rays=[];
-
-    for k=1:3
-        for i=1:N
-            for j=1:N
-                h=((x(i)^2+y(j)^2));
-%                      r0=[x(i)*0.5 y(j)*0.5 0.5*sqrt(R-h)];
-                   % ������������� ����� ������� ������ �� ��������� ���������
-                   % ��������������, ��� ��� ������� ������������� ����� -80 ���� �
-                   % 80 ����.
-                   rho=x(i)^2+y(j)^2;
-                   if  rho<=R^2
-                       intensity=1;%exp( -(rho)/(pi/16)^2);
-                       rays=[rays; [r0+[x(i) y(j) 0],[0 0 1],0,1.0,RGB(k), intensity,RGB_colors(k,:)*intensity]];
-                   end
-           end
-        end
+intensity=1;
+for i=1:N
+   for j=1:N
+    rho=x(i)^2+y(j)^2;
+    if  rho<=R^2
+     for k=1:3
+      rays=[rays; [r0+[x(i) y(j) 0],[0 0 1],0,1.0,RGB(k), intensity,RGB_colors(k,:)*intensity]];
+     end
     end
+   end
+end
 else
-    x=-R(2):2*R(2)/(N-1):R(2);%linspace(R(1),R(2),N);
-    y=x;
     phi=linspace(0,2*pi*(N-1)/N,N);
     rho=linspace(R(1),R(2),N);
     
