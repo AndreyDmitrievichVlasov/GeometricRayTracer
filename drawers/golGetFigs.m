@@ -51,6 +51,6 @@ else
  print(fig_3,'-deps','-color',filename3);
 end 
 % raysOut,detPos,detSize,Npix,matlab,str
-printf('detPos=%.1f, str=%s, width=%.f\n',detPos,str,optWidth(raysOut,detPos,detSize))
+printf('detPos=%.1f, str=%s, width=%.f\n',detPos,str,optWidth(raysOutInt,detPos,detSize))
 
 end
