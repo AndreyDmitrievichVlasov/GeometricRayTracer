@@ -2,16 +2,21 @@ function [ raysIn, raysMiddle, raysOut ] = traceThroughSystem( raysIn,varargin)
 %TRACETHROUGHSYSTEM Summary of this function goes here
 %   Detailed explanation goes here
     if nargin==0
+        printf('No system and rays provided in traceThroughSystem\n');
         raysMiddle=[];
         raysOut=[];
     elseif nargin==2
         [raysIn, raysMiddle, raysOut ] = traceAsArray(varargin{1},raysIn);
     elseif nargin==3
         [raysIn, raysMiddle, raysOut ] = traceByOrder(varargin{1},varargin{2},raysIn);
+    else
+     printf('Wrong number of arguments in traceTrhoughSystem, it expects 2 or 3 arguments\n');
+     raysMiddle=[];
+     raysOut=[];       
     end
 end
-% трассировка по указанном в orderSequence порядку лучей через элементы из
-% списка opticalElements
+% пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ orderSequence пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ
+% пїЅпїЅпїЅпїЅпїЅпїЅ opticalElements
 function [raysIn, raysMiddle, raysOut ] = traceByOrder(opticalElements,orderSequence,rays)
     if isempty(orderSequence)
         disp('WARRING: no sequence found');
@@ -45,7 +50,7 @@ function [raysIn, raysMiddle, raysOut ] = traceByOrder(opticalElements,orderSequ
         
 end
 
-% трассировка списка opticalElements в порядке следования элементов
+% пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ opticalElements пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
 function [raysIn, raysMiddle, raysOut ] = traceAsArray(opticalElements,rays)
     if isempty(opticalElements)
@@ -103,7 +108,7 @@ function [raysIn ,raysOut]=processSurface(quadSurface,raysIn)
         [ raysIn ,raysOut] = difractionFromQuad(quadSurface,raysIn);
          return;
    elseif endWith(quadSurface.extraDataType,'mirror');%strcmp(quadSurface.type,'mirror')
-       disp(size(raysIn))
+%       disp(size(raysIn))
         [raysOut,raysIn]=reflectFormQuad(quadSurface,raysIn);
         return;
    else
