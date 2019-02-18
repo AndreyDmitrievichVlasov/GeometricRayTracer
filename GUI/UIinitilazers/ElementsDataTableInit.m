@@ -5,21 +5,42 @@ function  ElementsDataTableInit( parent )
 scrsize = get( groot, 'Screensize' );
 
 % scrsizefloat(3:4)=[scrsize(3)/scrsize(4) 1];
+ 
+javaColoredTableRender= ColoredFieldCellRenderer(java.awt.Color.white);
+
+javaColoredTableRender.setDisabled(true);
+
+GlobalSet('javaColoredTableRender',javaColoredTableRender);
 
 Table = uitable('Parent', parent, 'Position', [10 10 410 scrsize(4)*0.79]);
 
+headers = {'Element type', ...
+           '<html><center>Position<br /></center></html>', ...
+           '<html><center>Rotation<br /></center></html>', ...
+           '<html><center>Aperture<br /></center></html>', ...
+           '<html><center>Edit<br /></center></html>'};
+
+jScroll = findjobj(Table);
+
+jTable = jScroll.getViewport.getView;
+
+jTable.setAutoResizeMode(jTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);
+       
 set(Table,'ColumnFormat',{{'Surface','Mirror','TransparentDG','ReflectiveDG','Lens','Empty','SpotLight','PointLight','CustomLight','TestRay'}, [], [], [],[] })
 
 set(Table,'ColumnWidth', {'auto', 'auto', 'auto', 'auto','auto'});
 
 set(Table,'ColumnEditable', [true, false, false, false]);
 
-set(Table,'ColumnName', {'Element type','Position','Rotation','Aperture','          '});
+set(Table,'ColumnName', headers);
 
 set(Table,'CellEditCallback',@(s,e)CellEditCallBack(s,e));
 
 set(Table,'CellSelectionCallback',@(s,e)CellSelectionCallback(s,e));
+
 GlobalSet('ElementsDataTable',Table);
+
+set(Table,'BackgroundColor',[0.8 0.8 1]);
 
 end
 
@@ -29,6 +50,11 @@ function CellSelectionCallback(sender, event)
 if numel(event.Indices)==0
     return
 end
+JCRT=GlobalGet('javaColoredTableRender');
+JCRT.setCellFgColor(event.Indices(1)-1,0,java.awt.Color(1,0,0));  
+JCRT.setCellFgColor(event.Indices(1)-1,1,java.awt.Color(1,0,0));  
+JCRT.setCellFgColor(event.Indices(1)-1,2,java.awt.Color(1,0,0));  
+JCRT.setCellFgColor(event.Indices(1)-1,3,java.awt.Color(1,0,0));  
 %  GlobalSet('ActiveTableRow',event.Indices(1));
 %  col=ones(size(get(sender,'Data'),1),3);
 %  col(event.Indices(1),:)=[0.8 0.8 1];
@@ -43,7 +69,9 @@ function CellEditCallBack(sender, event)%%src-table// eventdata
 % GlobalSet('ActiveTableRow',1);
 % GlobalSet('ElementsList',{});
 % chosenTableRow =
-
+if numel(event.Indices)==0
+    return
+end
 
    
  

@@ -4,7 +4,11 @@ function  MainGUI( )
 close all; clc; clear all;
 
 addpath([cd '\UIinitilazers'])
+
+javaaddpath ([pwd '\GUI\UIinitilazers\ColoredFieldCellRenderer.zip']) ;
+
 GlobalSet('ActiveTableRow',1);
+
 GlobalSet('ElementsList',{});
 
 scrsize = get( groot, 'Screensize' );
@@ -22,20 +26,20 @@ fig_handler=figure('Units', 'pixels', 'pos', scrsize,'ToolBar','none' );
 % get(fig_handler)
 set(fig_handler,'DefaultAxesFontSize',10,'DefaultAxesFontName','Times New Roman');
 
-GlobalSet('LeftPannel',uipanel(fig_handler,'Title','Scene edit', 'Position',[0.005 0.005 0.127 0.995].*GlobalGet('ScreensizeFloat')));
+GlobalSet('Left_Pannel',uipanel(fig_handler,'Title','Scene edit', 'Position',[0.005 0.005 0.127 0.995].*GlobalGet('ScreensizeFloat')));
 
-GlobalSet('RightPannel',uipanel(fig_handler,'Title','Trace results', 'Position',[0.23 0.005 0.4325 0.995].*GlobalGet('ScreensizeFloat')));
+GlobalSet('Right_Pannel',uipanel(fig_handler,'Title','Trace results', 'Position',[0.23 0.005 0.4325 0.995].*GlobalGet('ScreensizeFloat')));
 
 %% Optical elements table % TODO : do optimisation in folowing functions
 
-ElementsDataTableInit( GlobalGet('LeftPannel') );
+ElementsDataTableInit( GlobalGet('Left_Pannel') );
 
 %% right buttons gorup
 
-DataTableButtonsInit( GlobalGet('LeftPannel') );
+DataTableButtonsInit( GlobalGet('Left_Pannel') );
 %% Tracing results windows
 
-ResultsDisplayInit( GlobalGet('RightPannel') );
+ResultsDisplayInit( GlobalGet('Right_Pannel') );
 
 
 end
