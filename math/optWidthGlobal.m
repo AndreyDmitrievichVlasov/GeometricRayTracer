@@ -1,6 +1,6 @@
 function width = optWidthGlobal(z)
-global raysOutMin;
+global MaksTelMatrMin;
 detSize=50;
 %printf('Length of raysOutMin=%d\n',length(raysOutMin));
-width=optWidth(raysOutMin,z,detSize);
+width=optWidth(MaksTelMatrMin{3},z,detSize);
 end
