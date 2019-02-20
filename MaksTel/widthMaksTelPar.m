@@ -1,25 +1,23 @@
-function [width,zf]=widthMaksTelPar(MaksTelPar,nrays,delta,full)
+function [width,zf]=widthMaksTelPar(MaksTelPar,nrays,delta)
 global raysOutMin;
+global absolutemax,absolutemin;
+global MaksTelMatrMin; % we store in in this the structure in order not to generate it every time
+% MaksTelMatrMin{1} - schema, MaksTelMatrMin{2} - matrix of that scheme. MaksTelMatrMin{3} - what is used to be called raysOutMin
+% raysOutMin is changed only together with 
 [mt,b]=getMaksTel(MaksTelPar(1),MaksTelPar(2),MaksTelPar(3),MaksTelPar(4),MaksTelPar(5),MaksTelPar(6),MaksTelPar(7),MaksTelPar(8),MaksTelPar(9)); 
 raysIn=paraxialSpotHom([0 0 -1000],[MaksTelPar(8) MaksTelPar(1)],nrays);
 [~,~,raysOut] = traceThroughSystem(raysIn,mt);
 deflam=0.55;
 [matr,newdir,firstvertex,lastvertex,zfmatr]=getMatrix(mt,deflam,1);
 printf('zfmatr=%.3f\n',zfmatr);
-if ~full
-% [width,zf]=[100,zfmatr];
- width=100;
- zf=zfmatr;
- return; 
-end
 raysOutMin=raysOut;
 delta=abs(delta); % just in case someone will supply negative delta
 defdelta=10;
 if delta<0.5
  delta=defdelta;
 end
-absolutemin=-100;
-absolutemax=1500;
+%absolutemin=-100;
+%absolutemax=1500;
 time_to_exit=0;
 if zfmatr>=absolutemin && zfmatr<absolutemax
  zmin=max(absolutemin,zfmatr-delta);
@@ -49,7 +47,7 @@ do
    time_to_exit=1;
   else
    if abs(zmin-absolutemin)<eps
-    printf('The optimal image is closer than absolutezmin=%.1f. Returning absolutezmin\n',absolutemin); 
+    printf('The optimal image is closer than absolutemin=%.1f. Returning absolutemin\n',absolutemin); 
     time_to_exit=1;
    else
     zmax=zmin;
