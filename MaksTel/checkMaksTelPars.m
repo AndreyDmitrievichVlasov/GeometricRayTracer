@@ -3,7 +3,7 @@ function same=checkMaksTelPars(mtp,mts)
 % mtp - Maksutov telescope parameters
 % mts - Maksutov telescope Scheme
 same=0;
-if isempty(mts) || isempty(mtp)
+if isempty(mts) || isempty(mtp) || length(mts)!=3
  same=0;
  return; 
 end

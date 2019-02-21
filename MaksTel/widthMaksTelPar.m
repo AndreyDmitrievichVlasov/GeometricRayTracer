@@ -1,6 +1,7 @@
 function [width,zf]=widthMaksTelPar(MaksTelPar,nrays,delta)
 global absolutemax;
 global absolutemin;
+global outfilename;
 global MaksTelMatrMin; % we store in in this the structure in order not to generate it every time
 % MaksTelMatrMin{1} - schema, MaksTelMatrMin{2} - matrix of that scheme. MaksTelMatrMin{3} - what is used to be called raysOutMin
 % raysOutMin is changed only together with 
@@ -14,6 +15,7 @@ if length(MaksTelMatrMin)>1 && checkMaksTelPars(MaksTelPar,MaksTelMatrMin{1})
   MaksTelMatrMin{3}=raysOut;
  end  
 else
+ dump_mtp(MaksTelPar);
  [mt,b]=getMaksTel(MaksTelPar(1),MaksTelPar(2),MaksTelPar(3),MaksTelPar(4),MaksTelPar(5),MaksTelPar(6),MaksTelPar(7),MaksTelPar(8),MaksTelPar(9)); 
  raysIn=paraxialSpotHom([0 0 -1000],[MaksTelPar(8) MaksTelPar(1)],nrays);
  [~,~,raysOut] = traceThroughSystem(raysIn,mt);
