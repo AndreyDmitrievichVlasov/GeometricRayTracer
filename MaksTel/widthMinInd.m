@@ -11,3 +11,5 @@ global minInd;
  end
  width=widthMaksTelPar(fillMinInd(pMinInd),30,10);
 end
+
+# [x2,obj2,info2,iter2,nf2,lambda2]=sqp([148.00   134.33  -200.00],@widthMinInd,[],@ineqMinInd,lb679,ub679);

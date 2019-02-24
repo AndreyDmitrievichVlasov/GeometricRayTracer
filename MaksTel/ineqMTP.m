@@ -9,7 +9,7 @@ function [retval]=ineqMTP(mtp)
   matr=MaksTelMatrMin{2};
   zf=schema{3}.position(3)-matr(1,1)/matr(2,1);
  else  
-  dump_mtp(mtp);
+%  dump_mtp(mtp);
   [matr,newdir,firstvertex,lastvertex,zf,schema]=getMatrixMaksPar(mtp);
   MaksTelMatrMin{1}=schema;
   MaksTelMatrMin{2}=matr;
