@@ -4,44 +4,66 @@ function  ElementsDataTableInit( parent )
 
 scrsize = get( groot, 'Screensize' );
 
-% scrsizefloat(3:4)=[scrsize(3)/scrsize(4) 1];
- 
-javaColoredTableRender= ColoredFieldCellRenderer(java.awt.Color.white);
-
-javaColoredTableRender.setDisabled(true);
-
-GlobalSet('javaColoredTableRender',javaColoredTableRender);
-
 Table = uitable('Parent', parent, 'Position', [10 10 410 scrsize(4)*0.79]);
 
 headers = {'Element type', ...
-           '<html><center>Position<br /></center></html>', ...
-           '<html><center>Rotation<br /></center></html>', ...
-           '<html><center>Aperture<br /></center></html>', ...
-           '<html><center>Edit<br /></center></html>'};
+               '<html><center>Position<br /></center></html>', ...
+               '<html><center>Rotation<br /></center></html>', ...
+               '<html><center>Aperture<br /></center></html>', ...
+               '<html><center>Edit<br /></center></html>'};
 
-jScroll = findjobj(Table);
-
-jTable = jScroll.getViewport.getView;
-
-jTable.setAutoResizeMode(jTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);
+% headers = {'Element type','Position','Rotation','Aperture','Edit'};
        
-set(Table,'ColumnFormat',{{'Surface','Mirror','TransparentDG','ReflectiveDG','Lens','Empty','SpotLight','PointLight','CustomLight','TestRay'}, [], [], [],[] })
+% The color changing solution below
+       
+% uitable('Data',{'<HTML><table border=0 width=400 bgcolor=#FF0000><TR><TD>Hello</TD></TR> </table></HTML>' })
+       
+       
+set(Table,'ColumnName', headers);
+
+
+% '<HTML><table border=0 width=400 bgcolor=#FF0000><TR><TD> 1 </TD></TR> </table></HTML>'
+
+ElementsTypes={'<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> Surface </TD></TR> </table></HTML>',...
+                        '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> Mirror </TD></TR> </table></HTML>',...
+                        '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> TransparentDG </TD></TR> </table></HTML>',...
+                        '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> ReflectiveDG </TD></TR> </table></HTML>',...
+                        '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> Lens </TD></TR> </table></HTML>',...
+                        '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> Empty </TD></TR> </table></HTML>',...
+                        '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> SpotLight </TD></TR> </table></HTML>',...
+                        '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> PointLight </TD></TR> </table></HTML>',...
+                        '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> CustomLight </TD></TR> </table></HTML>',...
+                        '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> TestRay </TD></TR> </table></HTML>'...
+                        };
+GlobalSet('ElementsTypes',ElementsTypes);
+
+set(Table,'ColumnFormat',{ElementsTypes, [], [], [],[] })
+
+% set(Table,'ColumnFormat',{{'Surface','Mirror','TransparentDG','ReflectiveDG','Lens','Empty','SpotLight','PointLight','CustomLight','TestRay'}, [], [], [],[] })
 
 set(Table,'ColumnWidth', {'auto', 'auto', 'auto', 'auto','auto'});
 
 set(Table,'ColumnEditable', [true, false, false, false]);
 
-set(Table,'ColumnName', headers);
 
 set(Table,'CellEditCallback',@(s,e)CellEditCallBack(s,e));
 
 set(Table,'CellSelectionCallback',@(s,e)CellSelectionCallback(s,e));
 
+set(Table,'KeyPressFcn',@(s,e)ButtonDownFcn(s,e))
+
 GlobalSet('ElementsDataTable',Table);
 
-set(Table,'BackgroundColor',[0.8 0.8 1]);
 
+% get(Table)
+% set(Table,'BackgroundColor',[0.8 0.8 1]);
+
+% uitable('Data',{'<HTML><table border=0 width=400 bgcolor=#FF0000><TR><TD>Hello</TD></TR> </table></HTML>' })
+end
+
+
+function ButtonDownFcn(sender, event)
+% disp('button was pressed')
 end
 
 
@@ -50,46 +72,60 @@ function CellSelectionCallback(sender, event)
 if numel(event.Indices)==0
     return
 end
-JCRT=GlobalGet('javaColoredTableRender');
-JCRT.setCellFgColor(event.Indices(1)-1,0,java.awt.Color(1,0,0));  
-JCRT.setCellFgColor(event.Indices(1)-1,1,java.awt.Color(1,0,0));  
-JCRT.setCellFgColor(event.Indices(1)-1,2,java.awt.Color(1,0,0));  
-JCRT.setCellFgColor(event.Indices(1)-1,3,java.awt.Color(1,0,0));  
-%  GlobalSet('ActiveTableRow',event.Indices(1));
-%  col=ones(size(get(sender,'Data'),1),3);
-%  col(event.Indices(1),:)=[0.8 0.8 1];
-%  a=get(sender,'ColumnFormat')%ForegroundColor
-%  set(sender,'BackgroundColor',col);
 
- %  set(sender,'BackgroundColor',[0.8 0.8 1;0.8 0.1 1]);
+
+data = get(sender,'Data');
+ActiveTableRow=GlobalGet('ActiveTableRow');
+
+   for i=1:5
+            element=data{ActiveTableRow,i};
+            k = strfind(element,'#');
+            element(k:k+6)='#CCECFE';
+            data{ActiveTableRow,i}=element;
+        
+            element=data{event.Indices(1),i};
+            k = strfind(element,'#');
+            element(k:k+6)='#FFEA19';
+            data{event.Indices(1),i}=element;
+            
+   end
+       GlobalSet('ActiveTableRow',event.Indices(1)); 
+   
+    if ~strcmp(data{event.Indices(1),1}(58:62),'Empty')
+        if event.Indices(2)==2
+          ElementFieldEditForm('Position');
+        end
+    end    
+
+    set(sender,'Data',data);
 end
+
 function CellEditCallBack(sender, event)%%src-table// eventdata
 % global Scema;
 % global chosenTableRow;
 % GlobalSet('ActiveTableRow',1);
 % GlobalSet('ElementsList',{});
 % chosenTableRow =
+
 if numel(event.Indices)==0
     return
 end
-
-   
- 
-     if  event.Indices(2) == 1               
-        elementTypeAssign(sender,event);
+     if    event.Indices(2) == 1               
+           elementTypeAssign(sender,event);
            displayUpdate(1);
      end
-     if  event.Indices(2) == 2               
-        elementPositionAssign(sender,event);
-           displayUpdate(1);
-     end
-     if  event.Indices(2) == 3               
-        elementRotationAssign(sender,event);
-           displayUpdate(1);
-     end
-     if  event.Indices(2) == 4              
-        elementMaterialAssign(sender,event);
-     end
+     
+%      if  event.Indices(2) == 2
+%          elementPositionAssign(sender,event);
+%          displayUpdate(1);
+%      end
+%      if  event.Indices(2) == 3               
+%         elementRotationAssign(sender,event);
+%            displayUpdate(1);
+%      end
+%      if  event.Indices(2) == 4              
+%         elementMaterialAssign(sender,event);
+%      end
 % drawElementsFunction();     
 end
 
@@ -136,37 +172,39 @@ end
 
 function elementTypeAssign(sender,event)
  Scema = GlobalGet('ElementsList');
+ ElementsTypes=GlobalGet('ElementsTypes');
+%  description=
       if  event.Indices(2) == 1               % check if column 2
-        if    strcmp(event.NewData,'Surface')
-              set(sender,'ColumnEditable', [true, true, true, true, false]);
-              assignTableElementDescription(sender, event.Indices(1), [{'Surface'} {'0 0 0'} {'0 0 0'} {'10 10'} {'Edit'}]);
+        if    strcmp(event.NewData,ElementsTypes{1})
+              set(sender,'ColumnEditable', [true, false, false, false, false]);
+              assignTableElementDescription(sender, event.Indices(1),tableRowAsHTML( [{'Surface'} {'0 0 0'} {'0 0 0'} {'10 10'} {'Edit'}]));
               Scema{event.Indices(1)}=flatQuad( 10,10,[0 0 0],[0 0 0]);
              
-        elseif strcmp(event.NewData,'Mirror')
-               set(sender,'ColumnEditable', [true, true, true, true, false]);
-               assignTableElementDescription(sender, event.Indices(1), [{'Mirror'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}])
+        elseif strcmp(event.NewData,ElementsTypes{2})
+               set(sender,'ColumnEditable', [true, false, false, false, false]);
+               assignTableElementDescription(sender, event.Indices(1),tableRowAsHTML( [{'Mirror'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]))
                Scema{event.Indices(1)}=flatQuad( 10,10,[0 0 0],[0 0 0]);
                Scema{event.Indices(1)}.extraDataType = strcat(Scema{event.Indices(1)}.extraDataType,'_mirror') ;
               
-        elseif strcmp(event.NewData,'TransparentDG')
+        elseif strcmp(event.NewData,ElementsTypes{3})
                set(sender,'ColumnEditable', [true, true, true, true, false]);
-               assignTableElementDescription(sender, event.Indices(1), [{'TransparentDG'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]);
+               assignTableElementDescription(sender, event.Indices(1),tableRowAsHTML( [{'TransparentDG'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]));
                Scema{event.Indices(1)}=flatQuad( 10,10,[0 0 0],[0 0 0]);
                Scema{event.Indices(1)}=convertQuad2DG( Scema{event.Indices(1)},0.032, 1, 0, 10^10);
              
-        elseif strcmp(event.NewData,'ReflectiveDG')
-               set(sender,'ColumnEditable', [true, true, true, true, false]);
-               assignTableElementDescription(sender, event.Indices(1), [{'ReflectiveDG'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]);
+        elseif strcmp(event.NewData,ElementsTypes{4})
+               set(sender,'ColumnEditable', [true, false, false, false, false]);
+               assignTableElementDescription(sender, event.Indices(1), tableRowAsHTML([{'ReflectiveDG'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]));
                Scema{event.Indices(1)}=flatQuad( 10,10,[0 0 0],[0 0 0]);
                Scema{event.Indices(1)}=convertQuad2DG( Scema{event.Indices(1)},0.032, 1, 0, 10^10);
              
-        elseif strcmp(event.NewData,'Lens')
-               set(sender,'ColumnEditable', [true, true, true, true, false]);
-               assignTableElementDescription(sender, event.Indices(1), [{'Lens'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]);
+        elseif strcmp(event.NewData,ElementsTypes{5})
+               set(sender,'ColumnEditable', [true, false, false, false, false]);
+               assignTableElementDescription(sender, event.Indices(1),tableRowAsHTML( [{'Lens'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]));
                Scema{event.Indices(1)}= getLens( 10, 5, 50, -50,'silica');
              
-        elseif strcmp(event.NewData,'Empty')
-               assignTableElementDescription(sender, event.Indices(1), [{'Empty'} {'-'} {'-'} {'-'} {'-'}]);
+        elseif strcmp(event.NewData,ElementsTypes{6})
+               assignTableElementDescription(sender, event.Indices(1),tableRowAsHTML( [{'Empty'} {'-'} {'-'} {'-'} {'-'}]));
                set(sender,'ColumnEditable', [true, false, false, false, false]);
                Scema{event.Indices(1)}='Empty';
         end
@@ -186,3 +224,43 @@ function assignTableElementDescription(tableHandle, row, description)
              set(tableHandle,'Data',data);    
         end
 end
+
+
+
+function ElementFieldEditForm(fieldName)
+
+
+s_size=GlobalGet('Screensize');
+L=300;
+padding=10;
+fig_handler=figure('Units', 'pixels', 'pos',[s_size(3)/2-150 s_size(4)/2-50 L 100],'MenuBar','None','NumberTitle','Off');
+set(fig_handler,'Name',fieldName);
+pannel_handler = uipanel(fig_handler,'Title','Element XYZ coordinates', 'Position',[0.005 0.005 0.99 0.99]);
+aspect=0.6;
+
+text_plus_label=L/3-padding;
+
+text_length   = 0.6*text_plus_label;
+
+label_length = (1-0.6)*text_plus_label;
+
+EL=GlobalGet('ElementsList');
+EL=EL{GlobalGet('ActiveTableRow')};
+
+
+textFieldLabelX = uicontrol('parent', pannel_handler ,'pos',[1                  40 label_length 30],'String', 'X, [mm]:','style','text');
+textFieldX        = uicontrol('parent', pannel_handler ,'pos',[1+label_length    40 text_length 30],'style','edit','String',num2str(EL.position(1)));
+
+
+textFieldLabelY = uicontrol('parent', pannel_handler ,'pos',[1+label_length + text_length+padding 40 label_length 30],'String', 'Y, [mm]:','style','text');
+textFieldY         = uicontrol('parent', pannel_handler ,'pos',       [1+2*label_length + text_length+padding     40 text_length 30],'style','edit','String',num2str(EL.position(2)));
+
+
+textFieldLabelZ = uicontrol('parent', pannel_handler ,'pos',[1+2*(label_length + text_length+padding) 40 label_length 30],'String', 'Z, [mm]:','style','text');
+textFieldZ        = uicontrol('parent', pannel_handler ,'pos',       [1+2*(label_length + text_length+padding)+label_length 40 text_length 30],'style','edit','String',num2str(EL.position(3)));
+
+acceptButton  = uicontrol('parent', pannel_handler ,'pos',[0  0 295 30],'String', 'Accept element shift','style','pushbutton');
+
+end
+
+

@@ -40,14 +40,14 @@ function appendButtonCallBack(sender, event)
   
    l=length(GlobalGet('ElementsList'));
     if l==0
-         assignTableElementDescription(GlobalGet('ElementsDataTable'), 1, [{'Empty'} {'-'} {'-'} {'-'} {'-'}]);
+         assignTableElementDescription(GlobalGet('ElementsDataTable'), 1, tableRowAsHTML([{'Empty'} {'-'} {'-'} {'-'} {'-'}]));
          set(GlobalGet('ElementsDataTable'),'ColumnEditable', [true, false, false, false, false]);
          El=GlobalGet('ElementsList');
          El{l+1}='Empty';
          GlobalSet('ElementsList',El);
          GlobalSet('ActiveTableRow',1);
     else
-        assignTableElementDescription(GlobalGet('ElementsDataTable'), l+1, [{'Empty'} {'-'} {'-'} {'-'} {'-'}]);
+        assignTableElementDescription(GlobalGet('ElementsDataTable'), l+1, tableRowAsHTML([{'Empty'} {'-'} {'-'} {'-'} {'-'}]));
          set(GlobalGet('ElementsDataTable'),'ColumnEditable', [true, false, false, false, false]);
          El=GlobalGet('ElementsList');
          El{l+1}='Empty';

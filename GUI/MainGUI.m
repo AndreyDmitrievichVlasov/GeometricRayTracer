@@ -5,8 +5,6 @@ close all; clc; clear all;
 
 addpath([cd '\UIinitilazers'])
 
-javaaddpath ([pwd '\GUI\UIinitilazers\ColoredFieldCellRenderer.zip']) ;
-
 GlobalSet('ActiveTableRow',1);
 
 GlobalSet('ElementsList',{});
