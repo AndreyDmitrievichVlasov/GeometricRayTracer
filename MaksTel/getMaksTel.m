@@ -33,11 +33,15 @@ rI=Materials('silica');
 rI2=rI;
 n=dispersionLaw(lam, rI2.refractionIndexData); % let's hope it works...
 
-fm = 1/((n-1.)*(1./r1m-1./r2m));
+if r1m!=r2m
+ fm = 1/((n-1.)*(1./r1m-1./r2m));
 % focal length of the menisc
-distmfm=dist-fm;
-mmaprad = -distmfm*maprad/fm; % this doesn't take into account vignetting
-rim=abs(rmm)*distmfm/(2*distmfm-abs(rmm));
+ distmfm=dist-fm;
+ mmaprad = -distmfm*maprad/fm; % this doesn't take into account vignetting
+ rim=abs(rmm)*distmfm/(2*distmfm-abs(rmm));
+else 
+ rim=abs(rmm)/2.0;
+end 
 % distance from mm image to mm
 if rim<0
  fprintf('Error: 2*distmfm=%.3f<abd(rmm)=%.3f \n',2*distmfm,abs(rmm));

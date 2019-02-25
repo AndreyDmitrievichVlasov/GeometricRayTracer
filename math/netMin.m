@@ -84,3 +84,4 @@ else
  nlb=ulb=0;
 end  
 end
+# [x679,obj679,nlb,nub]=netMin(@widthMinInd,lb679,ub679,0,[15,15,15],@ineqMinInd);

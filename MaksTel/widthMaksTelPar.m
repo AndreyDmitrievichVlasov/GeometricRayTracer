@@ -15,7 +15,7 @@ if length(MaksTelMatrMin)>1 && checkMaksTelPars(MaksTelPar,MaksTelMatrMin{1})
   MaksTelMatrMin{3}=raysOut;
  end  
 else
- dump_mtp(MaksTelPar);
+% dump_mtp(MaksTelPar);
  [mt,b]=getMaksTel(MaksTelPar(1),MaksTelPar(2),MaksTelPar(3),MaksTelPar(4),MaksTelPar(5),MaksTelPar(6),MaksTelPar(7),MaksTelPar(8),MaksTelPar(9)); 
  raysIn=paraxialSpotHom([0 0 -1000],[MaksTelPar(8) MaksTelPar(1)],nrays);
  [~,~,raysOut] = traceThroughSystem(raysIn,mt);
