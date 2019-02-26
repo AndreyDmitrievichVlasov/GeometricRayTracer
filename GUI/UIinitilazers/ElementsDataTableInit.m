@@ -24,26 +24,26 @@ set(Table,'ColumnName', headers);
 
 % '<HTML><table border=0 width=400 bgcolor=#FF0000><TR><TD> 1 </TD></TR> </table></HTML>'
 
-ElementsTypes={'<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> Surface </TD></TR> </table></HTML>',...
-                        '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> Mirror </TD></TR> </table></HTML>',...
-                        '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> TransparentDG </TD></TR> </table></HTML>',...
-                        '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> ReflectiveDG </TD></TR> </table></HTML>',...
-                        '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> Lens </TD></TR> </table></HTML>',...
-                        '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> Empty </TD></TR> </table></HTML>',...
-                        '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> SpotLight </TD></TR> </table></HTML>',...
-                        '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> PointLight </TD></TR> </table></HTML>',...
-                        '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> CustomLight </TD></TR> </table></HTML>',...
-                        '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> TestRay </TD></TR> </table></HTML>'...
-                        };
+ElementsTypes={'<HTML><table border=0 width=290 bgcolor=#CCECFE><TR><TD> Surface </TD></TR> </table></HTML>',...
+               '<HTML><table border=0 width=290 bgcolor=#CCECFE><TR><TD> Mirror </TD></TR> </table></HTML>',...
+               '<HTML><table border=0 width=290 bgcolor=#CCECFE><TR><TD> TransparentDG </TD></TR> </table></HTML>',...
+               '<HTML><table border=0 width=290 bgcolor=#CCECFE><TR><TD> ReflectiveDG </TD></TR> </table></HTML>',...
+               '<HTML><table border=0 width=290 bgcolor=#CCECFE><TR><TD> Lens </TD></TR> </table></HTML>',...
+               '<HTML><table border=0 width=290 bgcolor=#CCECFE><TR><TD> Empty </TD></TR> </table></HTML>',...
+               '<HTML><table border=0 width=290 bgcolor=#CCECFE><TR><TD> SpotLight </TD></TR> </table></HTML>',...
+               '<HTML><table border=0 width=290 bgcolor=#CCECFE><TR><TD> PointLight </TD></TR> </table></HTML>',...
+               '<HTML><table border=0 width=290 bgcolor=#CCECFE><TR><TD> CustomLight </TD></TR> </table></HTML>',...
+               '<HTML><table border=0 width=290 bgcolor=#CCECFE><TR><TD> TestRay </TD></TR> </table></HTML>'...
+               };
 GlobalSet('ElementsTypes',ElementsTypes);
 
-set(Table,'ColumnFormat',{ElementsTypes, [], [], [],[] })
+set(Table,'ColumnFormat',{[], [], [], [],[] })
 
 % set(Table,'ColumnFormat',{{'Surface','Mirror','TransparentDG','ReflectiveDG','Lens','Empty','SpotLight','PointLight','CustomLight','TestRay'}, [], [], [],[] })
 
 set(Table,'ColumnWidth', {'auto', 'auto', 'auto', 'auto','auto'});
 
-set(Table,'ColumnEditable', [true, false, false, false]);
+set(Table,'ColumnEditable', [false, false, false, false]);
 
 
 set(Table,'CellEditCallback',@(s,e)CellEditCallBack(s,e));
@@ -73,7 +73,6 @@ if numel(event.Indices)==0
     return
 end
 
-
 data = get(sender,'Data');
 ActiveTableRow=GlobalGet('ActiveTableRow');
 
@@ -89,14 +88,8 @@ ActiveTableRow=GlobalGet('ActiveTableRow');
             data{event.Indices(1),i}=element;
             
    end
-       GlobalSet('ActiveTableRow',event.Indices(1)); 
-   
-    if ~strcmp(data{event.Indices(1),1}(58:62),'Empty')
-        if event.Indices(2)==2
-          ElementFieldEditForm('Position');
-        end
-    end    
-
+    GlobalSet('ActiveTableRow',event.Indices(1)); 
+    ElementFieldEditForm(event.Indices(2));
     set(sender,'Data',data);
 end
 
@@ -107,14 +100,14 @@ function CellEditCallBack(sender, event)%%src-table// eventdata
 % GlobalSet('ElementsList',{});
 % chosenTableRow =
 
-if numel(event.Indices)==0
-    return
-end
-     if    event.Indices(2) == 1               
-           elementTypeAssign(sender,event);
-           displayUpdate(1);
-     end
-     
+% if numel(event.Indices)==0
+%     return
+% end
+%      if    event.Indices(2) == 1               
+%            elementTypeAssign(sender,event);
+%            displayUpdate(1);
+%      end
+%      
 %      if  event.Indices(2) == 2
 %          elementPositionAssign(sender,event);
 %          displayUpdate(1);
@@ -170,47 +163,41 @@ function elementMaterialAssign(sender,event)
 disp('material');
 end
 
-function elementTypeAssign(sender,event)
- Scema = GlobalGet('ElementsList');
- ElementsTypes=GlobalGet('ElementsTypes');
-%  description=
-      if  event.Indices(2) == 1               % check if column 2
-        if    strcmp(event.NewData,ElementsTypes{1})
-              set(sender,'ColumnEditable', [true, false, false, false, false]);
-              assignTableElementDescription(sender, event.Indices(1),tableRowAsHTML( [{'Surface'} {'0 0 0'} {'0 0 0'} {'10 10'} {'Edit'}]));
-              Scema{event.Indices(1)}=flatQuad( 10,10,[0 0 0],[0 0 0]);
-             
-        elseif strcmp(event.NewData,ElementsTypes{2})
-               set(sender,'ColumnEditable', [true, false, false, false, false]);
-               assignTableElementDescription(sender, event.Indices(1),tableRowAsHTML( [{'Mirror'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]))
-               Scema{event.Indices(1)}=flatQuad( 10,10,[0 0 0],[0 0 0]);
-               Scema{event.Indices(1)}.extraDataType = strcat(Scema{event.Indices(1)}.extraDataType,'_mirror') ;
-              
-        elseif strcmp(event.NewData,ElementsTypes{3})
-               set(sender,'ColumnEditable', [true, true, true, true, false]);
-               assignTableElementDescription(sender, event.Indices(1),tableRowAsHTML( [{'TransparentDG'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]));
-               Scema{event.Indices(1)}=flatQuad( 10,10,[0 0 0],[0 0 0]);
-               Scema{event.Indices(1)}=convertQuad2DG( Scema{event.Indices(1)},0.032, 1, 0, 10^10);
-             
-        elseif strcmp(event.NewData,ElementsTypes{4})
-               set(sender,'ColumnEditable', [true, false, false, false, false]);
-               assignTableElementDescription(sender, event.Indices(1), tableRowAsHTML([{'ReflectiveDG'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]));
-               Scema{event.Indices(1)}=flatQuad( 10,10,[0 0 0],[0 0 0]);
-               Scema{event.Indices(1)}=convertQuad2DG( Scema{event.Indices(1)},0.032, 1, 0, 10^10);
-             
-        elseif strcmp(event.NewData,ElementsTypes{5})
-               set(sender,'ColumnEditable', [true, false, false, false, false]);
-               assignTableElementDescription(sender, event.Indices(1),tableRowAsHTML( [{'Lens'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]));
-               Scema{event.Indices(1)}= getLens( 10, 5, 50, -50,'silica');
-             
-        elseif strcmp(event.NewData,ElementsTypes{6})
-               assignTableElementDescription(sender, event.Indices(1),tableRowAsHTML( [{'Empty'} {'-'} {'-'} {'-'} {'-'}]));
-               set(sender,'ColumnEditable', [true, false, false, false, false]);
-               Scema{event.Indices(1)}='Empty';
-        end
-        GlobalSet('ElementsList',Scema);
-   end
-end
+% function elementTypeAssign(sender,event)
+%  Scema = GlobalGet('ElementsList');
+%  ElementsTypes=GlobalGet('ElementsTypes');
+% %  description=
+%       if  event.Indices(2) == 1               % check if column 2
+%         if    strcmp(event.NewData,ElementsTypes{1})
+%               assignTableElementDescription(sender, event.Indices(1),tableRowAsHTML( [{'Surface'} {'0 0 0'} {'0 0 0'} {'10 10'} {'Edit'}]));
+%               Scema{event.Indices(1)}=flatQuad( 10,10,[0 0 0],[0 0 0]);
+%              
+%         elseif strcmp(event.NewData,ElementsTypes{2})
+%                assignTableElementDescription(sender, event.Indices(1),tableRowAsHTML( [{'Mirror'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]))
+%                Scema{event.Indices(1)}=flatQuad( 10,10,[0 0 0],[0 0 0]);
+%                Scema{event.Indices(1)}.extraDataType = strcat(Scema{event.Indices(1)}.extraDataType,'_mirror') ;
+%               
+%         elseif strcmp(event.NewData,ElementsTypes{3})
+%                assignTableElementDescription(sender, event.Indices(1),tableRowAsHTML( [{'TransparentDG'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]));
+%                Scema{event.Indices(1)}=flatQuad( 10,10,[0 0 0],[0 0 0]);
+%                Scema{event.Indices(1)}=convertQuad2DG( Scema{event.Indices(1)},0.032, 1, 0, 10^10);
+%              
+%         elseif strcmp(event.NewData,ElementsTypes{4})
+%                assignTableElementDescription(sender, event.Indices(1), tableRowAsHTML([{'ReflectiveDG'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]));
+%                Scema{event.Indices(1)}=flatQuad( 10,10,[0 0 0],[0 0 0]);
+%                Scema{event.Indices(1)}=convertQuad2DG( Scema{event.Indices(1)},0.032, 1, 0, 10^10);
+%              
+%         elseif strcmp(event.NewData,ElementsTypes{5})
+%                assignTableElementDescription(sender, event.Indices(1),tableRowAsHTML( [{'Lens'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]));
+%                Scema{event.Indices(1)}= getLens( 10, 5, 50, -50,'silica');
+%              
+%         elseif strcmp(event.NewData,ElementsTypes{6})
+%                assignTableElementDescription(sender, event.Indices(1),tableRowAsHTML( [{'Empty'} {'-'} {'-'} {'-'} {'-'}]));
+%                Scema{event.Indices(1)}='Empty';
+%         end
+%         GlobalSet('ElementsList',Scema);
+%    end
+% end
 
 
 function assignTableElementDescription(tableHandle, row, description)
