@@ -3,7 +3,8 @@ function  MainGUI( )
 %MAINGUI Summary of this function goes here
 close all; clc; clear all;
 
-addpath([cd '\UIinitilazers'])
+addpath([cd '\UIinitilazers']);
+addpath([cd '\EditForms']);
 
 GlobalSet('ActiveTableRow',1);
 
