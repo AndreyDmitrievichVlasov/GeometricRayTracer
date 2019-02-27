@@ -203,7 +203,7 @@ elseif type==2%element position
     end
     set(parentUI,'Title',['Element ',num2str(GlobalGet('ActiveTableRow')),' XYZ coordinates']);
     set(get(parentUI,'Parent'),'Name','Position');
-    [textFields,labelFields] = initFields(Element.position,{'X, [mm]','Y, [mm]','Z, [mm]'},parentUI,aspect,sizeX,padding);
+    [textFields,labelFields] = initFields(Element.position,{' X, [mm]',' Y, [mm]',' Z, [mm]'},parentUI,aspect,sizeX,padding);
     GlobalSet('ElementPositionX',textFields(1));
     GlobalSet('ElementPositionY',textFields(2));
     GlobalSet('ElementPositionZ',textFields(3));
@@ -231,6 +231,7 @@ elseif type==4%element aperture
     acceptButton  = uicontrol('parent', parentUI ,'pos',[0  0 295 30],'String', 'Accept','style','pushbutton');
     set(acceptButton,'Callback',@acceptMaterialButtonCallBack);
 elseif type==5%element edit form
+    EditElementGUI( Element )
 end
 
 end

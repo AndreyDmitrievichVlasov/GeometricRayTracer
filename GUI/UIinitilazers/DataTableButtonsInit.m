@@ -8,13 +8,6 @@ saveButton=  uicontrol(parent,'Style','pushbutton','String','Save','Position',[2
 saveAsButton=  uicontrol(parent,'Style','pushbutton','String','Save as','Position',[153.6 h+20 133 20]);
 loadButton=  uicontrol(parent,'Style','pushbutton','String','Load','Position',[286.7 h+20 133 20]);
 
-
-
-
-
-
-
-
 appendButton =  uicontrol(parent,'Style','pushbutton','String','Append element','Position',...
     ([20 h 200 20]));
 set(appendButton,'Callback',@appendButtonCallBack);
