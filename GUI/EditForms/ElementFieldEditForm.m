@@ -14,46 +14,87 @@ L=300;
 
 padding=10;
 
+% if ~isempty(GlobalGet('TableCellEditForm'))
+%     close(GlobalGet('TableCellEditForm'));
+%     GlobalDelete('TableCellEditForm')
+% end
+
 fig_handler=figure('Units', 'pixels', 'pos',[s_size(3)/2-150 s_size(4)/2-50 L 100],'MenuBar','None','NumberTitle','Off');
+
+GlobalSet('TableCellEditForm',fig_handler);
 
 pannel_handler = uipanel(fig_handler,'Position',[0.005 0.005 0.99 0.99]);
 
 aspect=0.6;
-
-
 
 [textFields,labelFields] = initEditForm(EL,type,pannel_handler,aspect,L,padding);
 
 end
 
 function acceptPositionButtonCallBack(s,e)
-pos_X = (get(GlobalGet('ElementPositionX','String'))); 
-pos_Y = (get(GlobalGet('ElementPositionX','String'))); 
-pos_Z = (get(GlobalGet('ElementPositionX','String'))); 
+pos_X = (get(GlobalGet('ElementPositionX'),'String')); 
+pos_Y = (get(GlobalGet('ElementPositionY'),'String')); 
+pos_Z = (get(GlobalGet('ElementPositionZ'),'String')); 
 
 row=GlobalGet('ActiveTableRow');
 Scema = GlobalGet('ElementsList');
     
     data = get(GlobalGet('ElementsDataTable'),'Data');
     
-    if  strcmp(event.PreviousData,data{event.Indices(1),event.Indices(2)})
-        return;
-    end
-         data{row,2}= [pos_X,' ',pos_Y,' ',pos_Z];
+%     if  strcmp(event.PreviousData,data{event.Indices(1),event.Indices(2)})
+%         return;
+%     end
+         d=[pos_X,' ',pos_Y,' ',pos_Z];
+         data{row,2}= ['<HTML><table border=0 width=400 bgcolor=#FFEA19><TR><TD> ',d,' </TD></TR> </table></HTML>'];
          set(GlobalGet('ElementsDataTable'),'Data',data);
+         
+         d=str2num(d);
          if strcmp( Scema{row}.type,'lens')
-             Scema{row}=moveLens(Scema{row},str2num([pos_X,' ',pos_Y,' ',pos_Z]));
+             Scema{row}=moveLens(Scema{row}, d);
          else
-             Scema{row}= moveQuad(Scema{row},str2num([pos_X,' ',pos_Y,' ',pos_Z]));
+             Scema{row}= moveQuad(Scema{row},d);
          end
-    GlobalSet('ElementsList',Scema);
+
+  GlobalSet('ElementsList',Scema);
+  displayUpdate(1);   
   GlobalDelete('ElementPositionX'); 
   GlobalDelete('ElementPositionY'); 
   GlobalDelete('ElementPositionZ'); 
+  close(get(get(s,'parent'),'parent'));
 end
 
 function acceptOrientationButtonCallBack(s,e)
+    
+pos_X = (get(GlobalGet('ElementAngleX'),'String')); 
+pos_Y = (get(GlobalGet('ElementAngleY'),'String')); 
+pos_Z = (get(GlobalGet('ElementAngleZ'),'String')); 
 
+row=GlobalGet('ActiveTableRow');
+Scema = GlobalGet('ElementsList');
+    
+    data = get(GlobalGet('ElementsDataTable'),'Data');
+    
+%     if  strcmp(event.PreviousData,data{event.Indices(1),event.Indices(2)})
+%         return;
+%     end
+         d=[pos_X,' ',pos_Y,' ',pos_Z];
+         data{row,3}= ['<HTML><table border=0 width=400 bgcolor=#FFEA19><TR><TD> ',d,' </TD></TR> </table></HTML>'];
+         set(GlobalGet('ElementsDataTable'),'Data',data);
+         
+         d=str2num(d);
+         
+         if strcmp( Scema{row}.type,'lens')
+             Scema{row}=rotateLens(Scema{row}, d);
+         else
+             Scema{row}= rotateQuad(Scema{row},d);
+         end
+
+  GlobalSet('ElementsList',Scema);
+  displayUpdate(1);   
+  GlobalDelete('ElementAngleX'); 
+  GlobalDelete('ElementAngleY'); 
+  GlobalDelete('ElementAngleZ'); 
+  close(get(get(s,'parent'),'parent'));
 end
 
 function acceptTypeButtonCallBack(s,e)
@@ -66,36 +107,67 @@ Scema = GlobalGet('ElementsList');
 ElementsTypes=GlobalGet('ElementsTypes');
 %  description=
         if    strcmp(type,ElementsTypes{1})
-              assignTableElementDescription( row,tableRowAsHTML( [{'Surface'} {'0 0 0'} {'0 0 0'} {'10 10'} {'Edit'}]));
+              assignTableElementDescription( row,tableRowAsHTML( [{'Surface'} {'0 0 0'} {'0 0 0'} {'none'} {'Edit'}]));
               Scema{row}=flatQuad( 10,10,[0 0 0],[0 0 0]);
              
         elseif strcmp(type,ElementsTypes{2})
-               assignTableElementDescription( row,tableRowAsHTML( [{'Mirror'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]))
+               assignTableElementDescription( row,tableRowAsHTML( [{'Mirror'} {'0 0 0'} {'0 0 0'} {'none'} {'Edit'}]))
                Scema{row}=flatQuad( 10,10,[0 0 0],[0 0 0]);
                Scema{row}.extraDataType = strcat(Scema{row}.extraDataType,'_mirror') ;
               
         elseif strcmp(type,ElementsTypes{3})
-               assignTableElementDescription(row,tableRowAsHTML( [{'TransparentDG'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]));
+               assignTableElementDescription(row,tableRowAsHTML( [{'TransparentDG'} {'0 0 0'} {'0 0 0'} {'none'} {'Edit'}]));
                Scema{row}=flatQuad( 10,10,[0 0 0],[0 0 0]);
                Scema{row}=convertQuad2DG( Scema{row},0.032, 1, 0, 10^10);
              
         elseif strcmp(type,ElementsTypes{4})
-               assignTableElementDescription(row, tableRowAsHTML([{'ReflectiveDG'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]));
+               assignTableElementDescription(row, tableRowAsHTML([{'ReflectiveDG'} {'0 0 0'} {'0 0 0'} {'none'} {'Edit'}]));
                Scema{row}=flatQuad( 10,10,[0 0 0],[0 0 0]);
                Scema{row}=convertQuad2DG( Scema{row},0.032, 1, 0, 10^10);
              
         elseif strcmp(type,ElementsTypes{5})
-               assignTableElementDescription(row,tableRowAsHTML( [{'Lens'} {'0 0 0'} {'0 0 0'} {'10'} {'Edit'}]));
+               assignTableElementDescription(row,tableRowAsHTML( [{'Lens'} {'0 0 0'} {'0 0 0'} {'silica'} {'Edit'}]));
                Scema{row}= getLens( 10, 5, 50, -50,'silica');
              
         elseif strcmp(type,ElementsTypes{6})
                assignTableElementDescription( row,tableRowAsHTML( [{'Empty'} {'-'} {'-'} {'-'} {'-'}]));
                Scema{row}='Empty';
         end
+        
+        
+     
         GlobalSet('ElementsList',Scema);
-        drawElementsFunction();   
+               displayUpdate(1);   
         GlobalDelete('ElementTypeList'); 
         close(get(get(s,'parent'),'parent'));
+end
+
+function acceptMaterialButtonCallBack(s,e)
+
+pm = GlobalGet('ElementMaterialList'); 
+type = get(pm,'String');
+row = GlobalGet('ActiveTableRow');
+type = type{get(pm,'Value')};
+data = get(GlobalGet('ElementsDataTable'),'Data');
+data{row,4}=type;
+set(GlobalGet('ElementsDataTable'),'Data',data);
+          
+Scema = GlobalGet('ElementsList');
+MaterialTypes = GlobalGet('GlassLibKeys');
+
+material=GlobalGet('GlassLib');
+material=material(MaterialTypes(type));
+
+Scema{row}.materialDispersion=@(lam)(dispersionLaw(lam, material.refractionIndexData));
+Scema{row}.material=material;
+
+
+GlobalSet('ElementsList',Scema);
+
+displayUpdate(1);   
+GlobalDelete('ElementMaterialList'); 
+close(get(get(s,'parent'),'parent'));
+
 end
 
 function assignTableElementDescription(row, description)
@@ -120,8 +192,8 @@ if type==1%element type
     set(parentUI,'Title',['Element ',num2str(GlobalGet('ActiveTableRow')),' type']);
     set(get(parentUI,'Parent'),'Name','Type');    
     pm = uicontrol('parent',parentUI,'Style','popupmenu',...
-                    'String',GlobalGet('ElementsTypes'),...
-                    'Value',1,'Position',[0 40 290 40]);
+                          'String',GlobalGet('ElementsTypes'),...
+                          'Value',1,'Position',[0 40 290 40]);
     GlobalSet('ElementTypeList',pm);    
     acceptButton  = uicontrol('parent', parentUI ,'pos',[0  0 295 30],'String', 'Accept','style','pushbutton');
     set(acceptButton,'Callback',@acceptTypeButtonCallBack);
@@ -150,7 +222,14 @@ elseif type==3%element orientation
     acceptButton  = uicontrol('parent', parentUI ,'pos',[0  0 295 30],'String', 'Accept','style','pushbutton');
     set(acceptButton,'Callback',@acceptOrientationButtonCallBack);
 elseif type==4%element aperture
-%     [textFields,labelFields] = initFields(Data,FieldsNames,parentUI,aspect,sizeX);
+    set(parentUI,'Title',['Element ',num2str(GlobalGet('ActiveTableRow')),' type']);
+    set(get(parentUI,'Parent'),'Name','Type');    
+    pm = uicontrol('parent',parentUI,'Style','popupmenu',...
+                          'String',keys(GlobalGet('GlassLibKeys')),...
+                          'Value',1,'Position',[0 40 290 40]);
+    GlobalSet('ElementMaterialList',pm);    
+    acceptButton  = uicontrol('parent', parentUI ,'pos',[0  0 295 30],'String', 'Accept','style','pushbutton');
+    set(acceptButton,'Callback',@acceptMaterialButtonCallBack);
 elseif type==5%element edit form
 end
 
