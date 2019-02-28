@@ -39,9 +39,9 @@ else
 
     set(surf_1_handler,'Title','Surface data');
 
-    set(fig_handler,'Name','Element ',num2str(GlobalGet('ActiveTableRow')),' properties edit');    
+    set(fig_handler,'Name',['Element ',num2str(GlobalGet('ActiveTableRow')),' properties edit']);    
 
-    expandSurfData2GUI(surf_1_handler,Element.frontSurface);
+    expandSurfData2GUI(surf_1_handler,Element);
 
 end
 
@@ -64,11 +64,13 @@ aperturePannel = uipanel(handlerUI,'Position',[0.0  0.64 1 0.12],'Title','Suface
 [textFields,~] = initFields([surfData.L surfData.H],{'L, [mm]','W, [mm]'},aperturePannel,0.5,300,10);
 GlobalSet('ElementL',textFields(1));
 GlobalSet('ElementW',textFields(2));
-ExtraDataPannel = uipanel(handlerUI,'Position',[0 0 1 0.64],'Title','Suface extra data');
+ExtraDataPannel = uipanel(handlerUI,'Position',[0 0 1 0.64],'Title',[surfData.extraDataType,' extra data']);
 s = uicontrol(ExtraDataPannel,'Style','slider','Min',0,'Max',1,'Value',1,...
                 'SliderStep',[0.05 0.2],'Position',[274 0 20 296]);
-for i=1:10
-p = uipanel(ExtraDataPannel,'Position',[0 0.1*(i-1) 0.8 0.1],'Title','Suface extra data');
+dataFiels = fieldnames(surfData.extraData);            
+% getfield(surfData.extraDataType,dataFiels(i));
+for i=1:length(dataFiels)
+p = uipanel(ExtraDataPannel,'Position',[0 0.1*(i-1) 0.8 0.1],'Title',dataFiels{i});
 end
             
 %             get(s)
