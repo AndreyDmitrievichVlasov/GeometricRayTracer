@@ -41,6 +41,9 @@ DataTableButtonsInit( GlobalGet('Left_Pannel') );
 ResultsDisplayInit( GlobalGet('Right_Pannel') );
 
 
+fieldNames={'A','B','C','R','aperture','direction','dencity','orders','transOrReflect'};
+fieldDescriptions={'X half axis ','Y half axis ','Z half axis ','Radius ','Aperture','1st diff order dir','Row density','Difraction order direction','Transparent or reflected'};
+GlobalSet('ExtraDataEditableFields',containers.Map(fieldNames,fieldDescriptions));
 end
 
 

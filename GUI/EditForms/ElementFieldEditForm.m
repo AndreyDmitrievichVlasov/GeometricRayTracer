@@ -225,8 +225,8 @@ elseif type==4%element aperture
     set(parentUI,'Title',['Element ',num2str(GlobalGet('ActiveTableRow')),' type']);
     set(get(parentUI,'Parent'),'Name','Type');    
     pm = uicontrol('parent',parentUI,'Style','popupmenu',...
-                          'String',keys(GlobalGet('GlassLibKeys')),...
-                          'Value',1,'Position',[0 40 290 40]);
+                   'String',keys(GlobalGet('GlassLibKeys')),...
+                   'Value',1,'Position',[0 40 290 40]);
     GlobalSet('ElementMaterialList',pm);    
     acceptButton  = uicontrol('parent', parentUI ,'pos',[0  0 295 30],'String', 'Accept','style','pushbutton');
     set(acceptButton,'Callback',@acceptMaterialButtonCallBack);
