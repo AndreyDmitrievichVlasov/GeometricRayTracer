@@ -57,14 +57,6 @@ end
 % отрисовка лучей
 % проверка кольцевой решётки 
 
-
-
-
-
-
-
-
-
 % function buildSpotAxes()
 % %     global tracingResultsTabulatedPannel;
 % %     

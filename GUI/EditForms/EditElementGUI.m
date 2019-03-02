@@ -25,9 +25,9 @@ if strcmp(Element.type,'lens')
 
     
     
-    surf_1_handler = uipanel(fig_handler,'Position',[0.0 0.0 0.5 0.95]);
+    surf_1_handler = uipanel(fig_handler,'Position',[0.0 0.1 0.5 0.85]);
     
-    surf_2_handler = uipanel(fig_handler,'Position',[0.50  0.0 0.5 0.95]);
+    surf_2_handler = uipanel(fig_handler,'Position',[0.50  0.1 0.5 0.85]);
 
     set(surf_1_handler,'Title','Front lens surface data');
 
@@ -46,7 +46,7 @@ else
 
     GlobalSet('TableCellEditForm',fig_handler);
 
-    surf_1_handler = uipanel(fig_handler,'Position',[0.005 0.005 1 0.99]);
+    surf_1_handler = uipanel(fig_handler,'Position',[0.0 0.0 1 0.95]);
 
     set(surf_1_handler,'Title','Surface data');
 
