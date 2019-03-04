@@ -1,4 +1,4 @@
-function EditElementGUI( Element )
+function EditElementGUI(  Element )
 %EDITELEMENTGUI Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -11,14 +11,24 @@ s_size=GlobalGet('Screensize');
 
 if strcmp(Element.type,'lens')
     
-    fig_handler=figure('Units', 'pixels', 'pos',[s_size(3)/2-300 s_size(4)/2-350 600 700],'MenuBar','None','NumberTitle','Off');
+%     fig_handler=figure('Units', 'pixels', 'pos',[s_size(3)/2-300 s_size(4)/2-350 600 700],'MenuBar','None','NumberTitle','Off');
 
+     fig_handler=GlobalGet('TableCellEditForm');
+
+
+    set(fig_handler,'pos',[s_size(3)/2-300 s_size(4)/2-350 600 700]);
+    
+    
+    set(fig_handler,'MenuBar','None');
+    
+    set(fig_handler,'NumberTitle','Off');
+    
     GlobalSet('TableCellEditForm',fig_handler);
 
     surf_0_handler = uipanel(fig_handler,'Position',[0.0 0.95 1 0.095],'Title','Lens material');
  
     
-    get(surf_0_handler)
+%     get(surf_0_handler)
     pm = uicontrol('parent',surf_0_handler,'Style','popupmenu',...
                    'String',keys(GlobalGet('GlassLibKeys')),...
                    'Value',1,'Position',[0 18 595 10]);
@@ -78,7 +88,13 @@ GlobalSet('ElementW',textFields(2));
 ExtraDataPannel = uipanel(handlerUI,'Position',[0 0 1 0.7],'Title',[surfData.extraDataType,' extra data']);
 % s = uicontrol(ExtraDataPannel,'Style','slider','Min',0,'Max',1,'Value',1,...
 %                 'SliderStep',[0.05 0.2],'Position',[274 0 20 296]);
+
+if isstruct(surfData.extraData)
 dataFiels = fieldnames(surfData.extraData);            
+else
+dataFiels = '';            
+end
+
 % getfield(surfData.extraDataType,dataFiels(i));
  
 EtraDataEditableFields=GlobalGet('ExtraDataEditableFields');
