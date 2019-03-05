@@ -3,7 +3,6 @@ global minInd;
 global mtpMinInd; 
 global mtpsize;
 indp=0;
-%mtp=[];
 if (l=length(pMinInd))!=length(minInd)
  mtp(1:9)=0; 
  printf('In fillMinInd, length(pMinInd)=%d!=length(minInd)=%d\n',length(pMinInd),length(minInd)); 
