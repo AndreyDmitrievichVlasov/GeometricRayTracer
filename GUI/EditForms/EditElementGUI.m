@@ -1,7 +1,8 @@
 function EditElementGUI(  Element )
 %EDITELEMENTGUI Summary of this function goes here
 %   Detailed explanation goes here
-
+%Сделать так, чо бы при выборе типа поверхности менялось GUI и поля 
+%тоже самое для апертуры
 s_size=GlobalGet('Screensize');
 
 % L=300;
@@ -52,11 +53,12 @@ if strcmp(Element.type,'lens')
 
 
 else
-     fig_handler=figure('Units', 'pixels', 'pos',[s_size(3)/2-150 s_size(4)/2-350 300 700],'MenuBar','None','NumberTitle','Off');
-
-    GlobalSet('TableCellEditForm',fig_handler);
-
-    surf_1_handler = uipanel(fig_handler,'Position',[0.0 0.0 1 0.95]);
+    
+    fig_handler=GlobalGet('TableCellEditForm');
+    
+    set(fig_handler,'pos',[s_size(3)/2-150 s_size(4)/2-350 300 700])
+   
+    surf_1_handler = uipanel(fig_handler,'Position',[0 0 1 0.999]);
 
     set(surf_1_handler,'Title','Surface data');
 
@@ -69,23 +71,35 @@ end
 end
 
 function expandSurfData2GUI(handlerUI,surfData)
-positionPannel = uipanel(handlerUI,'Position',[0.0  0.9 1 0.1],'Title','Suface position');
-[textFields,~] = initFields(surfData.position,{' X, [mm]',' Y, [mm]',' Z, [mm]'},positionPannel,0.6,300,10);
+
+% hpos = get(handlerUI,'Position')
+fieldHeight=0.08;
+startHeight=1;
+surfTypePannel = uipanel(handlerUI,'Position',[0.0  startHeight-fieldHeight 1 fieldHeight],'Title','Suface type');
+
+surfType = uicontrol('parent',surfTypePannel,'Style','popupmenu',...
+                    'String',keys(GlobalGet('GeometricSurfaceTypes')),...
+                    'Value',1,'Units','Normalized','Position',[0 0 1 1]);
+              
+positionPannel = uipanel(handlerUI,'Position',[0.0  startHeight-2*fieldHeight 1 fieldHeight],'Title','Suface position');
+[textFields,~] = initFields(surfData.position,{' X, [mm]',' Y, [mm]',' Z, [mm]'},positionPannel);
 GlobalSet('ElementPositionX',textFields(1));
 GlobalSet('ElementPositionY',textFields(2));
 GlobalSet('ElementPositionZ',textFields(3));
 
-orientationPannel = uipanel(handlerUI,'Position',[0.0  0.8 1 0.1],'Title','Suface orientation');
-[textFields,~] = initFields(surfData.angles,{'A, [grad]','B, [grad]','C, [grad]'},orientationPannel,0.6,300,10);
+orientationPannel = uipanel(handlerUI,'Position',[0.0  startHeight-3*fieldHeight 1 fieldHeight],'Title','Suface orientation');
+[textFields,~] = initFields(surfData.angles,{'A, [grad]','B, [grad]','C, [grad]'},orientationPannel);
 GlobalSet('ElementAngleX',textFields(1));
 GlobalSet('ElementAngleY',textFields(2));
 GlobalSet('ElementAngleZ',textFields(3));
 
-aperturePannel = uipanel(handlerUI,'Position',[0.0  0.7 1 0.1],'Title','Suface aperture');
-[textFields,~] = initFields([surfData.L surfData.H],{'L, [mm]','W, [mm]'},aperturePannel,0.6,300,10);
+aperturePannel = uipanel(handlerUI,'Position',[0.0  startHeight-4*fieldHeight 1 fieldHeight],'Title','Suface aperture');
+[textFields,~] = initFields([surfData.L surfData.H],{'L, [mm]','W, [mm]',containers.Map({'Circular','Ring','Square','SquareRing'},....
+                                                                                        {'Circular','Ring','Square','SquareRing'})},aperturePannel);
 GlobalSet('ElementL',textFields(1));
 GlobalSet('ElementW',textFields(2));
-ExtraDataPannel = uipanel(handlerUI,'Position',[0 0 1 0.7],'Title',[surfData.extraDataType,' extra data']);
+
+ExtraDataPannel = uipanel(handlerUI,'Position',[0 0  startHeight-5*fieldHeight 1 startHeight-5*fieldHeight],'Title',[surfData.extraDataType,' extra data']);
 % s = uicontrol(ExtraDataPannel,'Style','slider','Min',0,'Max',1,'Value',1,...
 %                 'SliderStep',[0.05 0.2],'Position',[274 0 20 296]);
 
@@ -96,18 +110,18 @@ dataFiels = '';
 end
 
 % getfield(surfData.extraDataType,dataFiels(i));
- 
-EtraDataEditableFields=GlobalGet('ExtraDataEditableFields');
-vertShift=0.0;
-for i=1:length(dataFiels)
-    if EtraDataEditableFields.isKey(dataFiels{i})
-        p = uipanel(ExtraDataPannel,'Position',[0 0.9-vertShift 1 0.1]);
-        [textFields,labelFields] = initFields(getfield(surfData.extraData,dataFiels{i}),...
-                                              EtraDataEditableFields(dataFiels{i}),...
-                                              p,0.5,290,10);
-        vertShift=vertShift+0.1;
-    end
-end
+ surfaceRepresentInGUI(ExtraDataPannel, surfData)
+% EtraDataEditableFields=GlobalGet('ExtraDataEditableFields');
+% vertShift=0.0;
+% for i=1:length(dataFiels)
+%     if EtraDataEditableFields.isKey(dataFiels{i})
+%         p = uipanel(ExtraDataPannel,'Position',[0 0.9-vertShift 1 0.1]);
+%         [textFields,labelFields] = initFields(getfield(surfData.extraData,dataFiels{i}),...
+%                                               EtraDataEditableFields(dataFiels{i}),...
+%                                               p,0.5,290,10);
+%         vertShift=vertShift+0.1;
+%     end
+% end
             
 %             get(s)
 
@@ -120,29 +134,47 @@ end
 
 end
 
-function [textFields,labelFields] = initFields(Data,FieldsNames,parentUI,aspect,sizeX,padding)
+
+function surfaceRepresentInGUI(UIparent, surfData)
+  
+
+end
+
+function [textFields,labelFields] = initFields(Data,FieldsNames,parentUI)
 
 if ~iscell(FieldsNames)
-    text_plus_label=sizeX-padding;
+    text_plus_label=1;
 
-    text_length   = aspect*text_plus_label;
+    text_length  = 0.5*text_plus_label;
 
-    label_length = (1-aspect)*text_plus_label;
+    label_length = 0.5*text_plus_label;
     
     
-     labelFields =  uicontrol('parent', parentUI ,'pos',[1 10 label_length 20],'String', FieldsNames,'style','text');
-     textFields  =  uicontrol('parent', parentUI ,'pos', [1+label_length 10 text_length 20],'style','edit','String',num2str(Data));
+     labelFields =  uicontrol('parent', parentUI ,'Units','Normalized','pos',[0 0.1 label_length 0.80],'String', FieldsNames,'style','text');
+     textFields  =  uicontrol('parent', parentUI ,'Units','Normalized','pos', [0+label_length 0.1 text_length 0.80],'style','edit','String',num2str(Data));
     return;
 end
-text_plus_label=sizeX/length(FieldsNames)-padding;
+text_plus_label=1/length(FieldsNames);
 
-text_length   = aspect*text_plus_label;
+text_length   = 0.5*text_plus_label;
 
-label_length = (1-aspect)*text_plus_label;
+label_length = 0.5*text_plus_label;
 
 for i=1:length(FieldsNames)
-    labelFields(i) = uicontrol('parent', parentUI ,'pos',[1+( i-1)*(label_length + text_length+padding) 15 label_length 30],'String', FieldsNames{i},'style','text');
-    textFields(i)=  uicontrol('parent', parentUI ,'pos', [1+i*label_length+( i-1)*(text_length+padding) 15 text_length 30],'style','edit','String',num2str(Data(i)));
+    
+    
+    if ~strcmp(class(FieldsNames{i}),'containers.Map')
+    labelFields(i) = uicontrol('parent', parentUI ,'Units','Normalized','pos',[( i-1)*(label_length + text_length) 0.1 label_length 0.8],'String', FieldsNames{i},'style','text');
+    textFields(i)=  uicontrol('parent', parentUI ,'Units','Normalized','pos', [i*label_length+( i-1)*(text_length) 0.1 text_length 0.8],'style','edit','String',num2str(Data(i)));
+    else
+    labelFields(i) =  uicontrol('parent', parentUI ,'Units','Normalized','pos',[( i-1)*(label_length + text_length) 0.1 label_length 0.8],'String','','style','text');
+    textFields(i)=  uicontrol('parent', parentUI ,'Units','Normalized','pos', [i*label_length+( i-1)*(text_length) 0.1 2*text_length 0.8],'style','popupmenu',...
+                                'String',keys(FieldsNames{i}));
+      
+    end
+    
+    
+
 end
 
 end

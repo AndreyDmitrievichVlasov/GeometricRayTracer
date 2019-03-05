@@ -187,10 +187,11 @@ fig_handler=figure('Units', 'pixels', 'pos',[s_size(3)/2-150 s_size(4)/2-50 size
 
 GlobalSet('TableCellEditForm',fig_handler);
 
-pannel_handler = uipanel(fig_handler,'Position',[0.005 0.005 0.99 0.99]);
+
 
 
 if type==1%element type
+    pannel_handler = uipanel(fig_handler,'Position',[0 0 1 1]);
     set(pannel_handler,'Title',['Element ',num2str(GlobalGet('ActiveTableRow')),' type']);
     set(get(pannel_handler,'Parent'),'Name','Type');    
     pm = uicontrol('parent',pannel_handler,'Style','popupmenu',...
@@ -200,6 +201,7 @@ if type==1%element type
     acceptButton  = uicontrol('parent', pannel_handler ,'pos',[0  0 295 30],'String', 'Accept','style','pushbutton');
     set(acceptButton,'Callback',@acceptTypeButtonCallBack);
 elseif type==2%element position
+    pannel_handler = uipanel(fig_handler,'Position',[0 0 1 1]);
     if strcmp(Element.type,'lens')
       Element=Element.frontSurface;
     end
@@ -215,6 +217,7 @@ elseif type==3%element orientation
     if strcmp(Element.type,'lens')
       Element=Element.frontSurface;
     end
+    pannel_handler = uipanel(fig_handler,'Position',[0 0 1 1]);
     set(pannel_handler,'Title',['Element ',num2str(GlobalGet('ActiveTableRow')),' ABC angles']);
     set(get(pannel_handler,'Parent'),'Name','Angle');
     [textFields,labelFields] = initFields(Element.angles,{'A, [grad]','B, [grad]','C, [grad]'},pannel_handler,aspect,sizeX,padding);
@@ -224,6 +227,7 @@ elseif type==3%element orientation
     acceptButton  = uicontrol('parent', pannel_handler ,'pos',[0  0 295 30],'String', 'Accept','style','pushbutton');
     set(acceptButton,'Callback',@acceptOrientationButtonCallBack);
 elseif type==4%element aperture
+    pannel_handler = uipanel(fig_handler,'Position',[0 0 1 1]);
     set(pannel_handler,'Title',['Element ',num2str(GlobalGet('ActiveTableRow')),' type']);
     set(get(pannel_handler,'Parent'),'Name','Type');    
     pm = uicontrol('parent',pannel_handler,'Style','popupmenu',...
