@@ -8,26 +8,17 @@ if strcmp (EL,'Empty')&&type~=1
     return;
 end
 
-s_size=GlobalGet('Screensize');
-
-L=300;
-
 padding=10;
+
+
 
 % if ~isempty(GlobalGet('TableCellEditForm'))
 %     close(GlobalGet('TableCellEditForm'));
 %     GlobalDelete('TableCellEditForm')
 % end
-
-fig_handler=figure('Units', 'pixels', 'pos',[s_size(3)/2-150 s_size(4)/2-50 L 100],'MenuBar','None','NumberTitle','Off');
-
-GlobalSet('TableCellEditForm',fig_handler);
-
-pannel_handler = uipanel(fig_handler,'Position',[0.005 0.005 0.99 0.99]);
-
 aspect=0.6;
 
-[textFields,labelFields] = initEditForm(EL,type,pannel_handler,aspect,L,padding);
+[textFields,labelFields] = initEditForm(EL,type,aspect,padding);
 
 end
 
@@ -182,53 +173,68 @@ function assignTableElementDescription(row, description)
         end
 end
 
-function [textFields,labelFields] = initEditForm(Element,type,parentUI,aspect,sizeX,padding)
+function [textFields,labelFields] = initEditForm(Element,type,aspect,padding)
 % aspect=0.6;
+sizeX=300;
+
+ 
+
+s_size=GlobalGet('Screensize');
 
 textFields=[];labelFields=[];
 
+fig_handler=figure('Units', 'pixels', 'pos',[s_size(3)/2-150 s_size(4)/2-50 sizeX 100],'MenuBar','None','NumberTitle','Off');
+
+GlobalSet('TableCellEditForm',fig_handler);
+
+
+
 
 if type==1%element type
-    set(parentUI,'Title',['Element ',num2str(GlobalGet('ActiveTableRow')),' type']);
-    set(get(parentUI,'Parent'),'Name','Type');    
-    pm = uicontrol('parent',parentUI,'Style','popupmenu',...
+    pannel_handler = uipanel(fig_handler,'Position',[0 0 1 1]);
+    set(pannel_handler,'Title',['Element ',num2str(GlobalGet('ActiveTableRow')),' type']);
+    set(get(pannel_handler,'Parent'),'Name','Type');    
+    pm = uicontrol('parent',pannel_handler,'Style','popupmenu',...
                           'String',GlobalGet('ElementsTypes'),...
                           'Value',1,'Position',[0 40 290 40]);
     GlobalSet('ElementTypeList',pm);    
-    acceptButton  = uicontrol('parent', parentUI ,'pos',[0  0 295 30],'String', 'Accept','style','pushbutton');
+    acceptButton  = uicontrol('parent', pannel_handler ,'pos',[0  0 295 30],'String', 'Accept','style','pushbutton');
     set(acceptButton,'Callback',@acceptTypeButtonCallBack);
 elseif type==2%element position
+    pannel_handler = uipanel(fig_handler,'Position',[0 0 1 1]);
     if strcmp(Element.type,'lens')
       Element=Element.frontSurface;
     end
-    set(parentUI,'Title',['Element ',num2str(GlobalGet('ActiveTableRow')),' XYZ coordinates']);
-    set(get(parentUI,'Parent'),'Name','Position');
-    [textFields,labelFields] = initFields(Element.position,{' X, [mm]',' Y, [mm]',' Z, [mm]'},parentUI,aspect,sizeX,padding);
+    set(pannel_handler,'Title',['Element ',num2str(GlobalGet('ActiveTableRow')),' XYZ coordinates']);
+    set(get(pannel_handler,'Parent'),'Name','Position');
+    [textFields,labelFields] = initFields(Element.position,{' X, [mm]',' Y, [mm]',' Z, [mm]'},pannel_handler,aspect,sizeX,padding);
     GlobalSet('ElementPositionX',textFields(1));
     GlobalSet('ElementPositionY',textFields(2));
     GlobalSet('ElementPositionZ',textFields(3));
-    acceptButton  = uicontrol('parent', parentUI ,'pos',[0  0 295 30],'String', 'Accept','style','pushbutton');
+    acceptButton  = uicontrol('parent', pannel_handler ,'pos',[0  0 295 30],'String', 'Accept','style','pushbutton');
     set(acceptButton,'Callback',@acceptPositionButtonCallBack);
 elseif type==3%element orientation
     if strcmp(Element.type,'lens')
       Element=Element.frontSurface;
     end
-    set(parentUI,'Title',['Element ',num2str(GlobalGet('ActiveTableRow')),' ABC angles']);
-    set(get(parentUI,'Parent'),'Name','Angle');
-    [textFields,labelFields] = initFields(Element.angles,{'A, [grad]','B, [grad]','C, [grad]'},parentUI,aspect,sizeX,padding);
+    pannel_handler = uipanel(fig_handler,'Position',[0 0 1 1]);
+    set(pannel_handler,'Title',['Element ',num2str(GlobalGet('ActiveTableRow')),' ABC angles']);
+    set(get(pannel_handler,'Parent'),'Name','Angle');
+    [textFields,labelFields] = initFields(Element.angles,{'A, [grad]','B, [grad]','C, [grad]'},pannel_handler,aspect,sizeX,padding);
     GlobalSet('ElementAngleX',textFields(1));
     GlobalSet('ElementAngleY',textFields(2));
     GlobalSet('ElementAngleZ',textFields(3));
-    acceptButton  = uicontrol('parent', parentUI ,'pos',[0  0 295 30],'String', 'Accept','style','pushbutton');
+    acceptButton  = uicontrol('parent', pannel_handler ,'pos',[0  0 295 30],'String', 'Accept','style','pushbutton');
     set(acceptButton,'Callback',@acceptOrientationButtonCallBack);
 elseif type==4%element aperture
-    set(parentUI,'Title',['Element ',num2str(GlobalGet('ActiveTableRow')),' type']);
-    set(get(parentUI,'Parent'),'Name','Type');    
-    pm = uicontrol('parent',parentUI,'Style','popupmenu',...
+    pannel_handler = uipanel(fig_handler,'Position',[0 0 1 1]);
+    set(pannel_handler,'Title',['Element ',num2str(GlobalGet('ActiveTableRow')),' type']);
+    set(get(pannel_handler,'Parent'),'Name','Type');    
+    pm = uicontrol('parent',pannel_handler,'Style','popupmenu',...
                    'String',keys(GlobalGet('GlassLibKeys')),...
                    'Value',1,'Position',[0 40 290 40]);
     GlobalSet('ElementMaterialList',pm);    
-    acceptButton  = uicontrol('parent', parentUI ,'pos',[0  0 295 30],'String', 'Accept','style','pushbutton');
+    acceptButton  = uicontrol('parent', pannel_handler ,'pos',[0  0 295 30],'String', 'Accept','style','pushbutton');
     set(acceptButton,'Callback',@acceptMaterialButtonCallBack);
 elseif type==5%element edit form
     EditElementGUI( Element )
