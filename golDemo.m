@@ -60,5 +60,5 @@ golGetFigs(raysOut,zf,detSize=2.0,Npix=300,matlab,str='DemoPars');
 % str - the string that's going to be appended to the filenames so that 
 
 % Now it's time to minimize. 
-mtpMinInd=[45,-362.8,-100,-108.9,14.3,145,-200,11.6,-200];
-minInd=
+mtpMinInd=[45,-362.8,-100,-108.9,14.3,160,145,11.6,-108.9]; % The parameters of the telescope. Only those parameters which are not 
+minInd=[6,7,9]; % We will minimize position of menisc (6), position of the secondary mirror (7) and cu
