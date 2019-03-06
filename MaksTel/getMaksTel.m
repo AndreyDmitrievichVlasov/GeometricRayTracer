@@ -11,11 +11,6 @@ function [ schema_makstel, b ] = getMaksTel(maprad,rmm,r1m,r2m,mthick,dist,argdi
 % rsec - radius of curvature of secondary mirror. if distsec<=0, this value is ignored and r2m is used for this purpose
 % n - index of refraction of menisc glass 
 
-%if n<=1 || n>5
-% print "Suspicious n=",n,"was supplied. n should be >1 and <=5";
-% exit;
-%end
-
 if argdistsec>0
  napyl=false;
  distsec=argdistsec;
