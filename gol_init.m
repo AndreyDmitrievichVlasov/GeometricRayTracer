@@ -6,7 +6,7 @@ global MaksTelMatrMin={0};
 global absolutemax
 global absolutemin;
 absolutemax=2000;
-absolutemin=-100;
+absolutemin=0;
 curt=clock();
 global outfilename=sprintf('zout%d%d',curt(2),curt(3));
 global mtp5679=[45.000,-362.800,100,108.900,20.000,140.000,124,11.600,-110];

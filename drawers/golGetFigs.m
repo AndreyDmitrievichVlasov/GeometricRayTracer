@@ -19,14 +19,17 @@ defstring=sprintf('%s_%.1f_%.1f_%d_%d_%d',str,detPos,detSize,Npix,curt(4),curt(5
 % This is a string which is appended to all filenames
 % detPos - detector position, b - vynos,detSize - detectorSize, Npix - number of pixels, minutes
 
-if(false)
+if(true)
  filename2=sprintf('images/%s_SDI.eps',defstring);
  if matlab 
   fig_2=figure(2);
  else   
   fig_2=figure(2,'visible','off');
  end
+ npoints=sprintf('Points=%d',length(raysOutInt));
+ printf('Points=%d\n',length(raysOutInt));
  [~,~,~,~]=drawSpotDiagram(fig_2,detector,raysOutInt);
+ title(npoints);
  if matlab
   saveas(fig_2,filename2,'epsc');
  else    
@@ -53,7 +56,8 @@ else
 end 
 
 % raysOut,detPos,detSize,Npix,matlab,str
-printf('detPos=%.1f, str=%s, width=%.3f\n',detPos,str,optWidth(raysOut,detPos,detSize))
+
+printf('detPos=%.1f, str=%s, width=%.5f\n',detPos,str,optWidth(raysOut,detPos,detSize))
 
 end
 

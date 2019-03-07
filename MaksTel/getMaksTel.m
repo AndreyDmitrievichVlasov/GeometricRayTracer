@@ -1,5 +1,5 @@
 % returns Maksutov telescope
-function [ schema_makstel, b ] = getMaksTel(maprad,rmm,r1m,r2m,mthick,dist,argdistsec,secaprad,argrsec)
+function schema_makstel = getMaksTel(maprad,rmm,r1m,r2m,mthick,dist,argdistsec,secaprad,argrsec)
 % origin is at the center of main mirror
 %getMaksTel - returns Maksutov telescope
 %  maprad - menisc aperture radius, rmm - radius of main mirror
@@ -10,11 +10,6 @@ function [ schema_makstel, b ] = getMaksTel(maprad,rmm,r1m,r2m,mthick,dist,argdi
 % secaprad - secondary aperture radius
 % rsec - radius of curvature of secondary mirror. if distsec<=0, this value is ignored and r2m is used for this purpose
 % n - index of refraction of menisc glass 
-
-%if n<=1 || n>5
-% print "Suspicious n=",n,"was supplied. n should be >1 and <=5";
-% exit;
-%end
 
 if argdistsec>0
  napyl=false;
@@ -33,28 +28,10 @@ rI=Materials('silica');
 rI2=rI;
 n=dispersionLaw(lam, rI2.refractionIndexData); % let's hope it works...
 
-if r1m!=r2m
- fm = 1/((n-1.)*(1./r1m-1./r2m));
-% focal length of the menisc
- distmfm=dist-fm;
- mmaprad = -distmfm*maprad/fm; % this doesn't take into account vignetting
- rim=abs(rmm)*distmfm/(2*distmfm-abs(rmm));
-else 
- rim=abs(rmm)/2.0;
-end 
-% distance from mm image to mm
-if rim<0
- fprintf('Error: 2*distmfm=%.3f<abd(rmm)=%.3f \n',2*distmfm,abs(rmm));
-end
-rimd=rim-distsec;
-b=abs(rsec)*rimd/(abs(rsec)-2*rimd)-distsec;
-% vynos teleskopa
-if abs(rsec)<2*rimd
- fprintf('Error: abs(rsec)=%.2f<2*rimd=%.2f \n',abs(rsec),2*rimd)
-end
-
 menisc=getLens(maprad,mthick,r1m,r2m);
 menisc=moveLens(menisc,[0 0 -dist-mthick]);
+
+mmaprad=1.2*maprad; % instead of calculation from optic principles
 
 mm=getMirror(mmaprad,rmm,[0 0 0],[0 0 0]);
 % getMirror(aperture,r,orient,pos)
