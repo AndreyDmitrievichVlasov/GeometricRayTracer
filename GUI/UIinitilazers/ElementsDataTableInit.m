@@ -6,81 +6,20 @@ scrsize = get( groot, 'Screensize' );
 
 Table = uitable('Parent', parent, 'Position', [10 10 410 scrsize(4)*0.79]);
 
-headers = {'Element type', ...
-               '<html><center>Position<br /></center></html>', ...
-               '<html><center>Rotation<br /></center></html>', ...
-               '<html><center>Material<br /></center></html>', ...
-               '<html><center>Edit<br /></center></html>'};
-
-% headers = {'Element type','Position','Rotation','Aperture','Edit'};
+GlobalGet('datatTableHeaders')
        
-% The color changing solution below
-       
-% uitable('Data',{'<HTML><table border=0 width=400 bgcolor=#FF0000><TR><TD>Hello</TD></TR> </table></HTML>' })
-       
-       
-set(Table,'ColumnName', headers);
-
-
-% '<HTML><table border=0 width=400 bgcolor=#FF0000><TR><TD> 1 </TD></TR> </table></HTML>'
-
-ElementsTypes={'<HTML><table border=0 width=290 bgcolor=#CCECFE><TR><TD> Surface </TD></TR> </table></HTML>',...
-               '<HTML><table border=0 width=290 bgcolor=#CCECFE><TR><TD> Mirror </TD></TR> </table></HTML>',...
-               '<HTML><table border=0 width=290 bgcolor=#CCECFE><TR><TD> TransparentDG </TD></TR> </table></HTML>',...
-               '<HTML><table border=0 width=290 bgcolor=#CCECFE><TR><TD> ReflectiveDG </TD></TR> </table></HTML>',...
-               '<HTML><table border=0 width=290 bgcolor=#CCECFE><TR><TD> Lens </TD></TR> </table></HTML>',...
-               '<HTML><table border=0 width=290 bgcolor=#CCECFE><TR><TD> Empty </TD></TR> </table></HTML>',...
-               '<HTML><table border=0 width=290 bgcolor=#CCECFE><TR><TD> SpotLight </TD></TR> </table></HTML>',...
-               '<HTML><table border=0 width=290 bgcolor=#CCECFE><TR><TD> PointLight </TD></TR> </table></HTML>',...
-               '<HTML><table border=0 width=290 bgcolor=#CCECFE><TR><TD> CustomLight </TD></TR> </table></HTML>',...
-               '<HTML><table border=0 width=290 bgcolor=#CCECFE><TR><TD> TestRay </TD></TR> </table></HTML>'...
-               };
-vals= {'none','silica','SK16','F2','air'};       
-
-Materials={   '<HTML><table border=0 width=595 bgcolor=#CCECFE><TR><TD> none </TD></TR> </table></HTML>',...
-              '<HTML><table border=0 width=595 bgcolor=#CCECFE><TR><TD> silica </TD></TR> </table></HTML>',...
-              '<HTML><table border=0 width=595 bgcolor=#CCECFE><TR><TD> SK16 </TD></TR> </table></HTML>',...
-              '<HTML><table border=0 width=595 bgcolor=#CCECFE><TR><TD> F2 </TD></TR> </table></HTML>',...
-              '<HTML><table border=0 width=595 bgcolor=#CCECFE><TR><TD> air </TD></TR> </table></HTML>'
-          };
-GeometricSurfaceTypesVals={'<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> Spherical </TD></TR> </table></HTML>',...
-                           '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> Parabaloidal </TD></TR> </table></HTML>',...
-                           '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> Ellipsoidal </TD></TR> </table></HTML>',...
-                           '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> Flat </TD></TR> </table></HTML>',...
-                           '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> Conus </TD></TR> </table></HTML>',...
-                           '<HTML><table border=0 width=300 bgcolor=#CCECFE><TR><TD> Hyperbolic </TD></TR> </table></HTML>'
-                      };
-GeometricSurfaceTypesKeys = {'Spherical','Parabaloidal','Ellipsoidal','Flat','Conus','Hyperbolic'};
-
-GlobalSet('GeometricSurfaceTypes',containers.Map(GeometricSurfaceTypesVals,GeometricSurfaceTypesKeys));
-
-GlobalSet('GlassLibKeys',containers.Map(Materials,vals));
-InitMaterials();
-
-GlobalSet('ElementsTypes',ElementsTypes);
+set(Table,'ColumnName', GlobalGet('datatTableHeaders'));
 
 set(Table,'ColumnFormat',{[], [], [], [],[] })
-
-% set(Table,'ColumnFormat',{{'Surface','Mirror','TransparentDG','ReflectiveDG','Lens','Empty','SpotLight','PointLight','CustomLight','TestRay'}, [], [], [],[] })
 
 set(Table,'ColumnWidth', {'auto', 'auto', 'auto', 'auto','auto'});
 
 set(Table,'ColumnEditable', [false, false, false, false]);
 
-
-% set(Table,'CellEditCallback',@(s,e)CellEditCallBack(s,e));
-
 set(Table,'CellSelectionCallback',@(s,e)CellSelectionCallback(s,e));
-
-% set(Table,'KeyPressFcn',@(s,e)ButtonDownFcn(s,e))
 
 GlobalSet('ElementsDataTable',Table);
 
-
-% get(Table)
-% set(Table,'BackgroundColor',[0.8 0.8 1]);
-
-% uitable('Data',{'<HTML><table border=0 width=400 bgcolor=#FF0000><TR><TD>Hello</TD></TR> </table></HTML>' })
 end
 
  
