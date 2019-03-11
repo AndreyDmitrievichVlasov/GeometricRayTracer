@@ -1,7 +1,7 @@
 function [ quad_ ] = convertQuad2Ellipsoid( quad_,A,B,C)
 %CONVERTQUAD2ELLIPSOID Summary of this function goes here
 %   Detailed explanation goes here
-quad_.extraDataType='ellipsoid';
+quad_.extraDataType=ellipsoidType();
 quality=64;
 if quad_.L>2*A
 quad_.L=2*A;

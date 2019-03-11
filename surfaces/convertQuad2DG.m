@@ -8,7 +8,7 @@ direction =  CurvLinearInterp3D(direction,10);
         
 if length(ABC)==1
      quad_ = convertQuad2Sphere(quad_,ABC);
-     quad_.extraDataType='sphereDG';
+     quad_.extraDataType=sphereDGtype();
      direction = WrapDirectionUponSurface(direction,[ABC(1),0,0],1);
        direction(1,:)=direction(1,:);
        direction(2,:)=direction(2,:);
@@ -16,12 +16,12 @@ if length(ABC)==1
 end
 if length(ABC)==2
      quad_ = convertQuad2Paraboloid(quad_,ABC(1),ABC(2));
-     quad_.extraDataType='paraboloidDG';
+     quad_.extraDataType=paraboloidDGtype();
      direction = WrapDirectionUponSurface(direction,[ABC(1),ABC(2),0],2);
 end
 if length(ABC)==3
      quad_ = convertQuad2Ellipsoid( quad_,ABC(1),ABC(2),ABC(3));
-     quad_.extraDataType='ellipsoidDG';
+     quad_.extraDataType=ellipsoidDGtype();
      direction = WrapDirectionUponSurface(direction,[ABC(1),ABC(2),ABC(3)],3);
 end
 

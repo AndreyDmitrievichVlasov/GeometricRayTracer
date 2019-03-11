@@ -1,7 +1,7 @@
 function [ quad_ ] = convertQuad2Sphere(quad_,R)
 %CONVERTQUAD2SPHERE Summary of this function goes here
 %   Detailed explanation goes here
-quad_.extraDataType='sphere';
+quad_.extraDataType=sphereType(  );
 quality=64;
 if quad_.L>abs(2*R)
     quad_.L=abs(2*R);
