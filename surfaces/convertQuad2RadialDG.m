@@ -1,9 +1,15 @@
 function [ quad_ ] = convertQuad2RadialDG(quad_,density, orders, transOrReflect, ABC)
 %CONVERTQUAD2DG Summary of this function goes here
 % quad_.extraDataType='flatDG';
-direction = [quad_.L*[0   0   0.75 0.75 1   0.75 0.75 0]-quad_.L/2;
-                 quad_.H*[0.6 0.4 0.4  0.25 0.5 0.75 0.6  0.6]-quad_.H/2;
+if quad_.apertureType==1
+    direction = [quad_.apertureData(1)*[0   0   0.75 0.75 1   0.75 0.75 0]-quad_.apertureData(1)/2;
+                    quad_.apertureData(2)*[0.6 0.4 0.4  0.25 0.5 0.75 0.6  0.6]-quad_.apertureData(2)/2;
                               [0   0   0    0    0   0    0    0]];
+elseif quad_.apertureType==2
+    direction = [quad_.apertureData(2)*[0   0   0.75 0.75 1   0.75 0.75 0]-quad_.apertureData(2)/2;
+                     quad_.apertureData(2)*[0.6 0.4 0.4  0.25 0.5 0.75 0.6  0.6]-quad_.apertureData(2)/2;
+                                  [0   0   0    0    0   0    0    0]];
+end
 direction =  CurvLinearInterp3D(direction,10);      
         
 if length(ABC)==1
@@ -36,16 +42,7 @@ quad_.extraData.orders  =orders;
 quad_.extraData.transOrReflect=transOrReflect;
 end
 
-function arra3Dout = CurvLinearInterp3D(arra3Din,steps)
-arra3Dout=zeros(3,(size(arra3Din,2)-1)*steps-1);
-    t=linspace(0,1,steps);
-    for i=1:size(arra3Din,2)-1;
-            direction=arra3Din(:,i+1)-arra3Din(:,i);
-            for j=1:length(t)
-              arra3Dout(:,(i-1)*steps+j)=arra3Din(:,i)+direction*t(j);
-            end
-    end
-end
+ 
  
 % type=1 -sphere;
 % type=2- parabalod;

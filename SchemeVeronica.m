@@ -22,16 +22,16 @@ ofsett= 42.1577;
 [ lens_3 ] = getLens( 6, 2.952076, 18.389841, -79.683603,'SK16');
 [ lens_3 ] = moveLens( lens_3,[0 0 position+ofsett*2+2]);
 
-radialDG = flatQuad( 8,8,[0 0 0],[0 0 position+ofsett+1]);
+radialDG = flatQuad( [8 8 0],1,[0 0 0],[0 0 position+ofsett+1]);
 radialDG = convertQuad2RadialDG(radialDG,0.032, -1, 0, 10^10);
 
 [ axicon ] =getLens( 4, 1, 10^10, 10^10,'SK16');%; getAxicon( 4, 2,[4 4 1],'SK16');% getLens( 4, 2, 10^10, 10^10,'SK16');%; 
 
 [ axicon ] = moveLens( axicon,[0 0 position+ofsett]);
 
-[ detector] =  flatQuad( 15,15,[0 0 0],[0 0 position+ofsett*2 + 25]);
+[ detector] =  flatQuad( [15 15 0],1,[0 0 0],[0 0 position+ofsett*2 + 25]);
 
-[ slit] =  flatQuad( 11,11,[0 0 0],[0 0 -ofsett]);
+[ slit] =  flatQuad( [11 11 0],1,[0 0 0],[0 0 -ofsett]);
 [ slit] =  convertQuad2Sphere(slit,10^10);
 schema={};
 
