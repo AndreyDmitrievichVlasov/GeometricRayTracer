@@ -68,8 +68,12 @@ datatTableHeaders = {'Element type', ...
                     '<html><center>Rotation<br /></center></html>', ...
                     '<html><center>Material<br /></center></html>', ...
                     '<html><center>Edit<br /></center></html>'};
+
 GlobalSet('datatTableHeaders',datatTableHeaders );
 
+GlobalSet('CircularApertureMesh',dlmread([pwd '\circAperture.app'])');
+
+GlobalSet('RectangularApertureMesh',dlmread([pwd '\rectAperture.app'])');
 %addpath([pwd strcat(folder_separator,'sources')]);
 %addpath([pwd strcat(folder_separator,'surfaces')]);
 %addpath([pwd strcat(folder_separator,'tracing')]);

@@ -31,11 +31,11 @@ schema={};
 schema{1}=lens1;
 schema{2}=detector;
 schema{2}=lens2;
-schema{3}=lens3;
-
-schema{4}=lens4;
-schema{5}=lens5;
-schema{6}=lens6;
+% schema{3}=lens3;
+% 
+% schema{4}=lens4;
+% schema{5}=lens5;
+% schema{6}=lens6;
 
 % schema{7}=detector;
 
