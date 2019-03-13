@@ -2,7 +2,7 @@
 clear all; close all;clc;initEnvio();
 %%чтобы перейти к определению функции,необходимо поставить курсор сразу после имени этой функции и нажать ctrl+D 
 [ lens ] = getLens( 2.0, 4,  10, -10 );
-[ detector] =  flatQuad( 2,2,[0 0 0],[0 0 16]);
+[ detector] =  flatQuad( [2 2 ],2,[0 0 0],[0 0 16]);
 [ lens ] = moveLens( lens,[0 0 2]);
 
 [ lens ] = rotateLens( lens,[0 0 0]);

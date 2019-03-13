@@ -71,9 +71,9 @@ datatTableHeaders = {'Element type', ...
 
 GlobalSet('datatTableHeaders',datatTableHeaders );
 
-GlobalSet('CircularApertureMesh',dlmread([pwd '\circAperture.app'])');
+GlobalSet('CircularApertureMesh',dlmread([pwd '\surfaces\circAperture.app'])');
 
-GlobalSet('RectangularApertureMesh',dlmread([pwd '\rectAperture.app'])');
+GlobalSet('RectangularApertureMesh',dlmread([pwd '\surfaces\rectAperture.app'])');
 %addpath([pwd strcat(folder_separator,'sources')]);
 %addpath([pwd strcat(folder_separator,'surfaces')]);
 %addpath([pwd strcat(folder_separator,'tracing')]);
