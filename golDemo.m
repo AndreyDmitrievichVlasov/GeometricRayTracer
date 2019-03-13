@@ -60,5 +60,22 @@ golGetFigs(raysOut,zf,detSize=2.0,Npix=300,matlab,str='DemoPars');
 % str - the string that's going to be appended to the filenames so that 
 
 % Now it's time to minimize. 
-mtpMinInd=[45,-362.8,-100,-108.9,14.3,160,145,11.6,-108.9]; % The parameters of the telescope. Only those parameters which are not 
-minInd=[6,7,9]; % We will minimize position of menisc (6), position of the secondary mirror (7) and cu
+mtpMinInd=[45,-362.8,-100,-108.9,14.3,160,145,11.6,-108.9]; % The parameters of the telescope. Only those parameters which are not in minInd, are used
+minInd=[6,7,9]; % We will minimize position of menisc (6), position of the secondary mirror (7) and its curvature
+% So, the argument of function to be minimized is x(1)=position of the menisc, x(2)=position of the secondary mirror, x(3)=radius of curvature of the secondary mirror
+lb679=[50 50 -300]; % minimum values of the parameters
+ub679=[290,280,0];  % maximum values of the parameters
+% widthMinInd - function that returns image width from a system with given parameters
+% ineqMinInd - inequality function that checks several conditions.
+% ineqMinInd checks that: 
+%  1) the image calculated by matri[ method is between z=absolutemin and z=absolutemax (absolutemin and absolutemax are global variables that are described in gol_init.m)
+% 2) that the system has positive overall optical power (is focusing)
+% 3) if the positions of menisc and secondary mirror do not coincide, it checks that they are at least 10 mm apart.
+% If all the above conditions are met, ineqMinInd returns positive value, otherwise it is negative or zero
+
+[x679,obj679,info679,iter679,nf679,lambda679]=sqp([148.00   134.33  -200.00],@widthMinInd,[],@ineqMinInd,lb679,ub679);
+% This is a built-in Octave function for minimizing widthMinInd function (objective function). Unfortunately, it usually fails (returns x value very close to the original one and lambda all zeros).
+% The documentation for function sqr is available here:  
+
+
+
