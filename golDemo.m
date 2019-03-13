@@ -61,4 +61,27 @@ golGetFigs(raysOut,zf,detSize=2.0,Npix=300,matlab,str='DemoPars');
 
 % Now it's time to minimize. 
 mtpMinInd=[45,-362.8,-100,-108.9,14.3,160,145,11.6,-108.9]; % The parameters of the telescope. Only those parameters which are not 
-minInd=[6,7,9]; % We will minimize position of menisc (6), position of the secondary mirror (7) and cu
+minInd=[6,7,9]; % We will minimize position of menisc (6), position of the secondary mirror (7) and its curvature
+
+lb679=[50 50 -300];
+ub679=[290,280,0];
+
+
+[x,obj,infoout,iter,nf,lambda]=sqp([148.00   134.33  -200.00],@widthMinInd,[],@ineqMinInd,lb679,ub679);
+% sqp is Octave built-in minimization function. widthMinInd is wrapper for widthMaksTelPar function, 
+% ineqMinInd calculates inequality constraints
+% It checks that secondary mirror is at least 10 mm apart from the  menisc, that we have focusing optical system,
+% that the image calculated by matrix formalism is between absolutemin and absolutemax variables set in gol_init
+% It returns positive number if everything os OK, otherwise it returns negative number
+% the documentation about sqp function is available from Octave webpage:
+% https://octave.sourceforge.io/octave/function/sqp.html
+
+retarr=netMinArr(@widthMinInd,lb679,ub679,0,2,@ineqMinInd);
+% netMinArr(objfun,lb,ub,addargs,narr,N,conFun)
+% netMinArr performs net minimization with constraint
+% objfun - objective function to be minimized
+% lb, ub - lower and upper boundaries
+% addargs - additional arguments to the objective and minimization functions. If none, pass 0
+% N - the number of points along each dimension. Be careful with this N, because the total number of evaluations grows as length(lb)^N
+% confun - constraint function.
+% N and confun arguments are non-mandatory
