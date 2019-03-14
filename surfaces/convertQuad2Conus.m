@@ -1,7 +1,7 @@
 function [ quad_ ] = convertQuad2Conus( quad_,A,B,C )
 %CONVERTQUAD2CONUS Summary of this function goes here
 %   Detailed explanation goes here
-quad_.extraDataType='conus';
+quad_.extraDataType=conusType();
 quality=64;
 if quad_.L>2*A
 quad_.L=2*A;

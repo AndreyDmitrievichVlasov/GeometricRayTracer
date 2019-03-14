@@ -94,10 +94,10 @@ GlobalSet('ElementAngleY',textFields(2));
 GlobalSet('ElementAngleZ',textFields(3));
 
 aperturePannel = uipanel(handlerUI,'Position',[0.0  startHeight-4*fieldHeight 1 fieldHeight],'Title','Suface aperture');
-[textFields,~] = initFields([surfData.L surfData.H],{'L, [mm]','W, [mm]',containers.Map({'Circular','Ring','Square','SquareRing'},....
-                                                                                        {'Circular','Ring','Square','SquareRing'})},aperturePannel);
-GlobalSet('ElementL',textFields(1));
-GlobalSet('ElementW',textFields(2));
+% [textFields,~] = initFields([surfData.L surfData.H],{'L, [mm]','W, [mm]',containers.Map({'Circular','Ring','Square','SquareRing'},....
+%                                                                                         {'Circular','Ring','Square','SquareRing'})},aperturePannel);
+% GlobalSet('ElementL',textFields(1));
+% GlobalSet('ElementW',textFields(2));
 
 ExtraDataPannel = uipanel(handlerUI,'Position',[0 0  startHeight-5*fieldHeight 1 startHeight-5*fieldHeight],'Title',[surfData.extraDataType,' extra data']);
 % s = uicontrol(ExtraDataPannel,'Style','slider','Min',0,'Max',1,'Value',1,...
@@ -139,6 +139,14 @@ function surfaceRepresentInGUI(UIparent, surfData)
   
 
 end
+
+
+function [textFields,labelFields] = initApertureTypesGUI(Data,parentUI,postion)
+end
+function [textFields,labelFields] = initSurfaceTypesGUI(Data,FieldsNames,parentUI,postion)
+end
+
+
 
 function [textFields,labelFields] = initFields(Data,FieldsNames,parentUI)
 

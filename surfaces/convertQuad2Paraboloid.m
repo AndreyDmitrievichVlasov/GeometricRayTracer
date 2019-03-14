@@ -5,7 +5,7 @@ function [quad_ ] = convertQuad2Paraboloid(quad_,A,B)
 % sign A define curvature direction
 % 
 parabolod=@(x,y,A,B)(sign(A)*x.^2/A^2+sign(B)*y.^2/B^2);
-quad_.extraDataType='paraboloid';
+quad_.extraDataType=paraboloidType();
 quality=64;
 % if quad_.L>abs(2*A)
 quad_.L=abs(2*A);

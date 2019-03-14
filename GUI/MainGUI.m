@@ -3,6 +3,8 @@ function  MainGUI( )
 %MAINGUI Summary of this function goes here
 close all; clc; clear all;
 
+initEnvio();
+
 addpath([cd '\UIinitilazers']);
 addpath([cd '\EditForms']);
 
