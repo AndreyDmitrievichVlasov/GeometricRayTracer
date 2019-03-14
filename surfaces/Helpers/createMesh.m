@@ -4,7 +4,7 @@ function [ apertureMesh ] = createMesh( ApertureType, ApertureData,varargin )
     if 1 == ApertureType
         mesh = GlobalGet('RectangularApertureMesh');
         multiplyer=[ApertureData(1) ApertureData(2)];
-           mesh =  CurvLinearInterp3D(mesh,10);      
+        mesh =  CurvLinearInterp3D(mesh,10);      
     elseif 2 == ApertureType
         mesh = GlobalGet('CircularApertureMesh');
         multiplyer=[ApertureData(2) ApertureData(2)];

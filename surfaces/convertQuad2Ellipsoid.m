@@ -18,25 +18,3 @@ quad_.extraData=struct('surfaceMesh',apertureMesh,...
 end
 
 
-% function apertureMesh = createMesh(ApertureType, ApertureData, A,B,C)
-% 
-%     if 1 == ApertureType
-%         mesh = GlobalGet('RectangularApertureMesh');
-%         multiplyer=[ApertureData(1) ApertureData(2)];
-%            mesh =  CurvLinearInterp3D(mesh,10);      
-%     elseif 2 == ApertureType
-%         mesh = GlobalGet('CircularApertureMesh');
-%         multiplyer=[ApertureData(2) ApertureData(2)];
-%     end    
-%     
-%        
-%     
-%         apertureMesh=zeros(size(mesh));
-%         
-%         apertureMesh(1,:)=mesh(1,:)*multiplyer(1);
-% 
-%         apertureMesh(2,:)=mesh(2,:)*multiplyer(2);
-% 
-%         apertureMesh(3,:) =EllipseEquation(apertureMesh(1,:),apertureMesh(2,:),A,B,C);
-%   
-% end

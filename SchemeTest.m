@@ -29,8 +29,11 @@ clear all; close all;clc;initEnvio();
 schema={};
 % sequensce=[1 2 3 4 5 6 7];
 schema{1}=lens1;
-schema{2}=lens2;
-schema{3}=detector;
+% schema{2}=lens2;
+% schema{3}=detector;
+
+SceneSave('schemeVeronica.dat',schema);
+
 % schema{2}=lens2;
 % schema{3}=lens3;
 % 

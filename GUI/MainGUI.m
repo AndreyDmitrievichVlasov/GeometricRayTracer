@@ -11,6 +11,7 @@ addpath([cd '\EditForms']);
 GlobalSet('ActiveTableRow',1);
 
 GlobalSet('ElementsList',{});
+GlobalSet('ElementsSequence',{});
 
 scrsize = get( groot, 'Screensize' );
 scrsizefloat=scrsize;

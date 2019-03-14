@@ -49,7 +49,7 @@ GeometricSurfaceTypesKeys = {'Spherical','Parabaloidal','Ellipsoidal','Flat','Co
 
 GlobalSet('GeometricSurfaceTypes',containers.Map(GeometricSurfaceTypesVals,GeometricSurfaceTypesKeys));
 
-GeometricSurfaceTypesEditableFields={{'Radius'},{'A','B'},{'A','B','C'},{},{'Raduis','Height'},{'A','B','C'}};
+% GeometricSurfaceTypesEditableFields={{'Radius'},{'A','B'},{'A','B','C'},{},{'Raduis','Height'},{'A','B','C'}};
 
 GlobalSet('GlassLibKeys',containers.Map(Materials,vals));
 
