@@ -1,10 +1,10 @@
 clear all; close all;clc;initEnvio();
 
-[ lens1 ] = getLens(1, 2,  -10, 10 );
+[ lens1 ] = getLens( 2, 2,  [10 10 -105],[10 10 105]);
 [ lens1 ] = moveLens( lens1,[0 0 0]);
 % 
-[ lens2 ] = getLens( 2.0, 1, 15, -15 );
-[ lens2 ] = moveLens( lens2,[0 0 2]);
+[ lens2 ] = getLens( 2, 2, 2, -2 );
+[ lens2 ] = moveLens( lens2,[0 0 4]);
 
 [ lens3 ] = getLens( 2.0, 1,  -15, -15);
 [ lens3 ] = moveLens( lens3,[0 0 4]);
@@ -29,8 +29,12 @@ clear all; close all;clc;initEnvio();
 schema={};
 % sequensce=[1 2 3 4 5 6 7];
 schema{1}=lens1;
-schema{2}=detector;
-schema{2}=lens2;
+% schema{2}=lens2;
+% schema{3}=detector;
+
+SceneSave('schemeVeronica.dat',schema);
+
+% schema{2}=lens2;
 % schema{3}=lens3;
 % 
 % schema{4}=lens4;

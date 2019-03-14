@@ -51,6 +51,7 @@ schema{8}=detector;
 schema{9}=slit;
 schema{10}=radialDG;
 
+SceneSave('schemeVeronica.dat',schema);
 % DG_flat =  flatQuad( 4,4,[0 0 1],[0 0 -1]);
 % DG_flat=convertQuad2DG(DG_flat,0.032, 1, 0, 10^10);
 % schema{5}=DG_flat;
