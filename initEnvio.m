@@ -19,6 +19,13 @@ end
 % opengl info
 % opengl software
 
+if matlab % this is actually a question if we have windows or Linux. But we assume that if we do have matlab, we're on Windows, and if we don't, we are on Linux
+ folder_separator='\';
+else
+ folder_separator='/';
+end
+
+
 addpath(genpath(pwd));
 
 ElementsTypes={'<HTML><table border=0 width=290 bgcolor=#CCECFE><TR><TD> Surface </TD></TR> </table></HTML>',...
@@ -75,10 +82,14 @@ datatTableHeaders = {'Element type', ...
 
 GlobalSet('datatTableHeaders',datatTableHeaders );
 
-if matlab
- GlobalSet('CircularApertureMesh',dlmread([pwd '\surfaces\circAperture.app'])');
- GlobalSet('RectangularApertureMesh',dlmread([pwd '\surfaces\rectAperture.app'])');
-end
+
+
+%if matlab
+folder=sprintf('%ssurfaces%s',folder_separator,folder_separator);
+
+GlobalSet('CircularApertureMesh',dlmread([pwd strcat(folder,'circAperture.app')])');
+GlobalSet('RectangularApertureMesh',dlmread([pwd strcat(folder,'rectAperture.app')])');
+%end
 %addpath([pwd strcat(folder_separator,'sources')]);
 %addpath([pwd strcat(folder_separator,'surfaces')]);
 %addpath([pwd strcat(folder_separator,'tracing')]);

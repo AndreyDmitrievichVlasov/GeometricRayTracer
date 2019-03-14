@@ -1,6 +1,7 @@
 function [ mir ] = getMirror(aperture,r,orient,pos)
 % getZer - orient - orientation, pos - position
-mir = flatQuad( 2*aperture,2*aperture,orient,pos);
+%mir = flatQuad( 2*aperture,2*aperture,orient,pos);
+mir = flatQuad([0,aperture],2,orient,pos);
 
 if length(r)==1
     mir = convertQuad2Sphere(mir,r);

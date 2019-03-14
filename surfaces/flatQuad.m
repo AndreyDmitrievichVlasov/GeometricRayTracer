@@ -6,6 +6,7 @@ function [ quad_] = flatQuad(aperture,apertureType,e,r)
 
 % aperture=[L H delta] - Rectangular
 % aperture=[Rmin Rmax delta] - Circular
+% But for circular the aperture(3) is not used at all!
 if apertureType==1
     [xyz,TBN,aperture] = initRectAperture(aperture,e,r);
 elseif apertureType==2

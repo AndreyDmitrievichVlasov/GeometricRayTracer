@@ -2,19 +2,19 @@ function [ apertureMesh ] = createMesh( ApertureType, ApertureData,varargin )
 %CREATEMESH Summary of this function goes here
 %   Detailed explanation goes here
     if 1 == ApertureType
-        mesh = GlobalGet('RectangularApertureMesh');
+        golmesh = GlobalGet('RectangularApertureMesh');
         multiplyer=[ApertureData(1) ApertureData(2)];
-        mesh =  CurvLinearInterp3D(mesh,10);      
+        golmesh =  CurvLinearInterp3D(golmesh,10);      
     elseif 2 == ApertureType
-        mesh = GlobalGet('CircularApertureMesh');
+        golmesh = GlobalGet('CircularApertureMesh');
         multiplyer=[ApertureData(2) ApertureData(2)];
     end
     
-        apertureMesh=zeros(size(mesh));
+        apertureMesh=zeros(size(golmesh));
         
-        apertureMesh(1,:)=mesh(1,:)*multiplyer(1);
+        apertureMesh(1,:)=golmesh(1,:)*multiplyer(1);
 
-        apertureMesh(2,:)=mesh(2,:)*multiplyer(2);
+        apertureMesh(2,:)=golmesh(2,:)*multiplyer(2);
 
 if length(varargin)==1
        apertureMesh(3,:) =SphereEquation(apertureMesh(1,:),apertureMesh(2,:),varargin{1});

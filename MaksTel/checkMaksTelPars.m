@@ -12,7 +12,7 @@ menisc=mts{1};
 mm=mts{2};
 sm=mts{3}; 
 % maprad,rmm,r1m,r2m,mthick,dist,argdistsec,secaprad,argrsec
-if (menisc.aperture==mtp(1) && mm.extraData.R==mtp(2) && 
+if (menisc.frontSurface.apertureData(2)==mtp(1) && mm.extraData.R==mtp(2) && 
    menisc.frontSurface.extraData.R==mtp(3) && menisc.backSurface.extraData.R==mtp(4) &&
    abs(norm(menisc.frontSurface.position-menisc.backSurface.position)-mtp(5))<eps &&
    abs(menisc.backSurface.position(3)-mm.position(3)+mtp(6))<eps && 
