@@ -79,8 +79,8 @@ data=[];
 
         for i=1:m
               for j=1:n
-                  s_string
-                  s_string{(i-1)*m+j+4}
+%                   s_string
+                (i-1)*m+j+4
 %                   search error here
               data(i,j) = num2str(s_string{(i-1)*m+j+4}); 
               end
