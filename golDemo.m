@@ -85,3 +85,11 @@ retarr=netMinArr(@widthMinInd,lb679,ub679,0,2,@ineqMinInd);
 % N - the number of points along each dimension. Be careful with this N, because the total number of evaluations grows as length(lb)^N
 % confun - constraint function.
 % N and confun arguments are non-mandatory
+
+% of course, N=2 is just to test. Real N should be around 10 which leads to around 1000 evaluations
+
+
+% After we've got optimal parameters, we can get figures of spot diagrams and intensity maps:
+
+
+

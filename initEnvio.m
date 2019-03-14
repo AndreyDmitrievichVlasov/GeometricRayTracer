@@ -7,10 +7,14 @@ function initEnvio( varargin )
 % addpath(genpath('matlab/myfiles'))
 if nargin~=0
  if varargin{1}
-  opengl hardware
+  opengl hardware;
+  matlab=true;
+ else
+  matlab=false;
  end
 else
- opengl hardware
+ opengl hardware;
+ matlab=true;
 end
 % opengl info
 % opengl software
@@ -71,9 +75,10 @@ datatTableHeaders = {'Element type', ...
 
 GlobalSet('datatTableHeaders',datatTableHeaders );
 
-GlobalSet('CircularApertureMesh',dlmread([pwd '\surfaces\circAperture.app'])');
-
-GlobalSet('RectangularApertureMesh',dlmread([pwd '\surfaces\rectAperture.app'])');
+if matlab
+ GlobalSet('CircularApertureMesh',dlmread([pwd '\surfaces\circAperture.app'])');
+ GlobalSet('RectangularApertureMesh',dlmread([pwd '\surfaces\rectAperture.app'])');
+end
 %addpath([pwd strcat(folder_separator,'sources')]);
 %addpath([pwd strcat(folder_separator,'surfaces')]);
 %addpath([pwd strcat(folder_separator,'tracing')]);
