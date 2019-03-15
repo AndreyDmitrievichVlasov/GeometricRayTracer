@@ -47,7 +47,7 @@ function [xyz,TBN,aperture] = initRectAperture(aperture,e,r)
                   [ 0    0      0      0     0]];
         if d~=0
         xyz_=[[-L/2+d L/2-d   L/2-d -L/2+d -L/2+d];...
-              [ H/2- H/2-d -H/2+d -H/2+d  H/2-d];...
+              [ H/2-d H/2-d -H/2+d -H/2+d  H/2-d];...   % ADV: the first value in this row used to be 'H/2-', corrected 
               [ 0    0      0      0     0]];
         xyz=[xyz_ xyz];
         end
