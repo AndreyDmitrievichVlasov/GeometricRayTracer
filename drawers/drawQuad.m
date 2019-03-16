@@ -120,8 +120,8 @@ end
 function plotCurveIn3D(curve_data,orient_matrix,ref_point,smooth_or_not,hndl)
 
 draw_data=[orient_matrix(1,1)*curve_data(1,:)+orient_matrix(1,2)*curve_data(2,:)+orient_matrix(1,3)*curve_data(3,:)+ref_point(1);
-                 orient_matrix(2,1)*curve_data(1,:)+orient_matrix(2,2)*curve_data(2,:)+orient_matrix(2,3)*curve_data(3,:)+ref_point(2);
-                 orient_matrix(3,1)*curve_data(1,:)+orient_matrix(3,2)*curve_data(2,:)+orient_matrix(3,3)*curve_data(3,:)+ref_point(3)];
+           orient_matrix(2,1)*curve_data(1,:)+orient_matrix(2,2)*curve_data(2,:)+orient_matrix(2,3)*curve_data(3,:)+ref_point(2);
+           orient_matrix(3,1)*curve_data(1,:)+orient_matrix(3,2)*curve_data(2,:)+orient_matrix(3,3)*curve_data(3,:)+ref_point(3)];
     
        
     
