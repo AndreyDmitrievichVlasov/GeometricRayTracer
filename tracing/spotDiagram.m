@@ -43,10 +43,16 @@ angleSize=zeros(length(Rays),3);
 end
 
 function isornot=isInsideArray(pos,q)
- retarr=[];
- for i=1:length(pos)
-  retarr(end+1)=isInside(pos(i),q);
+ isornot=[];
+ if(length(pos)>1)
+  for i=1:length(pos)
+   isornot(end+1)=isInside(pos(i,:),q);
+  end
+  isornot=isornot';
+ else
+  isornot=isInside(pos,q);
  end
+ return;
 end
 
 

@@ -1,6 +1,7 @@
 function golGetFigs(raysOut,detPos,detSize,Npix,matlab,str)
 %str is a string which is appended to the output
-detector = flatQuad(detSize,detSize,[0 0 0],[0 0 detPos]);
+%detector = flatQuad(detSize,detSize,[0 0 0],[0 0 detPos]); % old flatQuad
+detector=flatQuad([detSize,detSize,0],1,[0 0 0],[0 0 detPos]);
 raysOutInt = quadIntersect(detector,raysOut);
 % allRays=[raysIn; rays_middle; raysOut; raysReflected1; raysReflected2];
 %
