@@ -2,7 +2,7 @@ function [ x,y,colors,angleSize] = spotDiagram( quad_,Rays)
 %SPOTDIAGRAM Summary of this function goes here
 %   Detailed explanation goes here
 
- bounds=[-quad_.L/2 -quad_.H/2 quad_.L/2 quad_.H/2];
+% bounds=[-quad_.L/2 -quad_.H/2 quad_.L/2 quad_.H/2];
 
 % bounds=[[-quad_.L/2 0, 0]; [quad_.L/2,0 ,0 ];[0, -quad_.H/2, 0];[0, quad_.H/2,0]];
 
@@ -29,7 +29,7 @@ angleSize=zeros(length(Rays),3);
             positions(:,2)=invRotMat(2,1)*rayEnd(:,1)+invRotMat(2,2)*rayEnd(:,2)+invRotMat(2,3)*rayEnd(:,3);%+invRotMat(2,4)*1;
             positions(:,3)=invRotMat(3,1)*rayEnd(:,1)+invRotMat(3,2)*rayEnd(:,2)+invRotMat(3,3)*rayEnd(:,3);%+invRotMat(3,4)*1;
 
-            isornot=isIn_array(positions,bounds);
+            isornot=isInsideArray(positions,quad_);
             x=(positions(:,1)+quad_.position(1)).*isornot;
             y=(positions(:,2)+quad_.position(2)).*isornot;
             colors=zeros(size(Rays(:,11:13)));
@@ -42,14 +42,30 @@ angleSize=zeros(length(Rays),3);
             angleSize(:,3)=atan(sqrt(positions(:,1).^2+positions(:,2).^2)/quad_.ABCD(4)).*isornot;
 end
 
-function isornot=isIn_array(pos,bounds)
-    isornot=((pos(:,1)<=bounds(3)).*(pos(:,1)>=bounds(1)).*...
-             (pos(:,2)<=bounds(4)).*(pos(:,2)>=bounds(2)) );
+function isornot=isInsideArray(pos,q)
+ isornot=[];
+ if(length(pos)>1)
+  for i=1:length(pos)
+   isornot(end+1)=isInside(pos(i,:),q);
+  end
+  isornot=isornot';
+ else
+  isornot=isInside(pos,q);
+ end
+ return;
 end
-function isornot=isIn(pos,bounds)
-    isornot=(pos(1)<=bounds(3)&&pos(1)>=bounds(1)&&...
-             pos(2)<=bounds(4)&&pos(2)>=bounds(2) );
-end
+
+
+
+%function isornot=isIn_array(pos,bounds)
+%    isornot=((pos(:,1)<=bounds(3)).*(pos(:,1)>=bounds(1)).*...
+%             (pos(:,2)<=bounds(4)).*(pos(:,2)>=bounds(2)) );
+%end
+%function isornot=isIn(pos,bounds)
+%    isornot=(pos(1)<=bounds(3)&&pos(1)>=bounds(1)&&...
+%             pos(2)<=bounds(4)&&pos(2)>=bounds(2) );
+%end
+
 function  rotX = xRotMat(angle)
 rotX =[[1 0               0              0];...
        [0 cos(angle) -sin(angle)  0];...

@@ -51,13 +51,13 @@ MaksTelMatrMin{3}=raysOut;
 %  width is the image width, the radius of a circle that contains 50% of all rays in the optimal position of detector
 %  zf is the optimal position of the detector
 
-golGetFigs(raysOut,zf,detSize=2.0,Npix=300,matlab,str='DemoPars');
+golGetFigs(raysOut,zf,detSize=1.0,Npix=300,matlab,str='DemoPars');
 % This function will produce two images in the images folder. If there is no folder 'images', it will complain - please make sure that the folder images exists
 % INPUTS - zf - detector position. Could be anything, not just the best detector position
 % detSize - the size of the detector
 % Npix - number of pixels along one side of the detector
 % matlab - tells us if this is run in Matlab or Octave (see gol_init script description in the beginning of this file)
-% str - the string that's going to be appended to the filenames so that 
+% str - the string that's going to be appended to the filenames so that we can recognize them afterwards
 
 % Now it's time to minimize. 
 mtpMinInd=[45,-362.8,-100,-108.9,14.3,160,145,11.6,-108.9]; % The parameters of the telescope. Only those parameters which are not 

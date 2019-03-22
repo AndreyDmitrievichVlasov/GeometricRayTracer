@@ -20,10 +20,16 @@ function [ x_spot,y_spot,colors,angleSize] = drawSpotDiagram(fig_handler,quad_,r
             plot(x_spot(i),y_spot(i),'.','color',colors(i,:));
         end
     end
-    plot([-quad_.L/2 quad_.L/2   quad_.L/2 -quad_.L/2 -quad_.L/2]+quad_.position(1),...
-           [quad_.H/2 quad_.H/2 -quad_.H/2 -quad_.H/2  quad_.H/2]+quad_.position(2),'k','LineWidth',1.5);
-    xlim([-1.1*quad_.L/2 1.1*quad_.L/2]+quad_.position(1));
-    ylim([-1.1*quad_.H/2 1.1*quad_.H/2]+quad_.position(2));
+%    plot([-quad_.L/2 quad_.L/2   quad_.L/2 -quad_.L/2 -quad_.L/2]+quad_.position(1),...
+%           [quad_.H/2 quad_.H/2 -quad_.H/2 -quad_.H/2  quad_.H/2]+quad_.position(2),'k','LineWidth',1.5);
+    if quad_.apertureType==1 % rectangular aperture
+     L2=quad_.apertureData(1);
+     H2=quad_.apertureData(2);
+     plot([-L2 L2   L2 -L2 -L2]+quad_.position(1),...
+            [H2 H2 -H2 -H2  H2]+quad_.position(2),'k','LineWidth',1.5);
+     xlim([-1.1*L2 1.1*L2]+quad_.position(1));
+     ylim([-1.1*H2 1.1*H2]+quad_.position(2));
+    end % we don't plot the boundaries if the quad is not rectangular. To be fixed
     hold off;
     grid on;
     axis equal;
