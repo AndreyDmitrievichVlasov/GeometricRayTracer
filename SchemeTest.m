@@ -1,6 +1,6 @@
 clear all; close all;clc;initEnvio();
 
-[ lens1 ] = getLens( 2, 2,  [10 10 -105],[10 10 105]);
+[ lens1 ] = getLens( 2, 2,  [ 15],[  -15]);
 [ lens1 ] = moveLens( lens1,[0 0 0]);
 % 
 [ lens2 ] = getLens( 2, 2, 2, -2 );
@@ -52,17 +52,17 @@ LED_source=paraxialSpot([0 0 -5],[1.9 2]);
 % as array
 % [ raysIn, raysMiddle, raysOut ] = traceThroughSystem( LED_source, schema);
 % as sequence
-% [ raysIn, raysMiddle, raysOut ] = traceThroughSystem( LED_source, schema);
-% 
+[ raysIn, raysMiddle, raysOut ] = traceThroughtLens( lens1,LED_source);
+
 fig_1=figure();
 
 axis vis3d 
 view([0 0])
 DrawElements(schema);
 xlabel('x');ylabel('y');zlabel('z');
-% drawRays(fig_1,[raysIn; ]);
-% drawRays(fig_1,[raysMiddle; ]);
-% drawRays(fig_1,[ raysOut]);
+drawRays(fig_1,[raysIn; ]);
+drawRays(fig_1,[raysMiddle; ]);
+drawRays(fig_1,[ raysOut]);
 % drawRays(fig_1,[rays_in; rays_middle; rays_out_]);
 grid on;
 % 
