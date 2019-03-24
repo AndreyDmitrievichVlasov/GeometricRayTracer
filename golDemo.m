@@ -30,7 +30,7 @@ MaksTelPar=[maprad=45,rmm=-435,r1m=-150,r2m=-300,mthick=20,dist=200,argdistsec=-
 % mt - Maksutov telescope object, a cell array containing Maksutov telescope elements
 
 % generate RGB parallel rays
-raysIn=paraxialSpotHom([0 0 -1000],[MaksTelPar(8) MaksTelPar(1)],30);
+raysIn=paraxialSpotHom([0 0 -1000],[MaksTelPar(8) MaksTelPar(1)],20);
 % [0 0 -1000] - that's origination point
 % [MaksTelPar(8) MaksTelPar(1)] - the outer and inner radii of the ray fan. Rays with distance from the axis more than MaksTelPar(8) and less than MaksTelPar(1) are going to be removed
 % The last arguments, 30, is number of rays. The total output number of rays will ne 30*30 minus rays that don't work because of their distance to the axis
@@ -45,7 +45,7 @@ MaksTelMatrMin{3}=raysOut;
 % These are global variables that are needed for minimization. If they are not initialized, then widthMaksTelPar will initialize them
 
 
-[width,zf]=widthMaksTelPar(MaksTelPar,nrays=30,delta=10);
+[width,zf]=widthMaksTelPar(MaksTelPar,nrays=20,delta=10);
 % INPUTS: delta is the step to expand search window if we haven't found the minimum right away. 10 mm is a good choice
 % OUTPUTS: 
 %  width is the image width, the radius of a circle that contains 50% of all rays in the optimal position of detector

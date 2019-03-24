@@ -22,7 +22,7 @@ function [retval]=ineqMTP(mtp)
 % this thing is positive whenever zf is between absolutemin and absolutemax
  valarray(2)=-matr(1,1)/matr(2,1);
  if menisc.backSurface.position(3)!=sm.position(3) 
-  valarray(length(valarray)+1)=-(menisc.backSurface.position(3)-sm.position(3))-10;
+  valarray(length(valarray)+1)=-(menisc.backSurface.position(3)-sm.position(3))-25;
 % if they coincide, we don't care at all, but they don't, they have to be at least 10 mm apart  
  end
  signretval=1; % by default, the sign is positive meaning this set of parameters is allowed
