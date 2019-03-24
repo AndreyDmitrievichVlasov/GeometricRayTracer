@@ -10,7 +10,7 @@ global outfilename;
 l=length(lb);
 retarr=[];
 defN=4;
-numsteps=500; % every numsteps steps we will dump the array of the smallest values so far
+numsteps=20; % every numsteps steps we will dump the array of the smallest values so far
 haveconstr=0;
 if narr<=0
  printf('Error, narr=%d, should be >0\n',narr);  
@@ -20,16 +20,26 @@ if nargin==5
  np(1:l)=defN;
  prodnp=defN^l;
 elseif nargin==6 || nargin==7
- if length(varargin{1})!=l
-  printf('Wrong lenngth of 6th srgument to netMin. It must be the same length as lb and ub\n');
+ if length(varargin{1})!=l && length(varargin{2})!=1
+  printf('Wrong lenngth of 6th srgument to netMin. It must be the same length as lb and ub, or just 1\n');
   np(1:l)=defN;
   prodnp=defN^l;     
- else
+ elseif length(varargin{1})==l
   np=varargin{1};
   prodnp=1;
   for i=1:l
    prodnp*=np(i);
   end
+ else
+  if varargin{1}>=1
+   npall=ceil(varargin(1));
+   np(1:l)=npall; 
+   prodnp=npall^l; 
+  else
+   printf('varargin{1}=%s is <1 or weird. Using default defN=%d\n',varargin{1},defN);
+   np(1:l)=defN;
+   prodnp=defN^l;     
+  end    
  end 
 else
  printf('In netMin, wrong number of arguments=%d. netMin expects 5-7 arguments',nargin);
