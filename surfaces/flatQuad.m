@@ -12,7 +12,7 @@ if apertureType==1
 elseif apertureType==2
     [xyz,TBN,aperture] = initCircAperture(aperture,e,r);
 else
-     disp('Gol error: in flatQuad, apertureType=%d should be 1 - rectangular or 2 - circular. Returning 0\n',apertureType);
+     disp(['Gol error: in flatQuad, apertureType=%d should be 1 - rectangular or 2 - circular. Returning 0\n',apertureType]);
      quad_=[];
      return; % Let's not allow wrong aperture types - it's going to make debugginbg much easier!
 end
@@ -26,11 +26,16 @@ end
 end
 
 function [xyz,TBN,aperture] = initRectAperture(aperture,e,r)
-L = aperture(1);
-H = aperture(2);
+if length(aperture)==2
+    L = aperture(1);
+    H = aperture(2);
+else
+    L = aperture(1);
+    H = aperture(1);
+end
 xyz=[[-L/2 L/2   L/2 -L/2 -L/2];...
-     [ H/2 H/2 -H/2 -H/2  H/2];...
-     [ 0    0      0      0     0]];
+       [ H/2 H/2 -H/2 -H/2  H/2];...
+        [ 0    0      0      0     0]];
 if length(aperture)==2 || (length(aperture)==3 && aperture(3)==0)
  aperture=[L,H,0];
 end
@@ -48,7 +53,7 @@ if length(aperture)==3
  xyz=[xyz_ xyz];
 else
  if length(aperture)~=2
-  disp('Gol error: in flatQuad>initRectAperture, length(aperture)=%d, should be 2 or 3\n',length(aperture));
+  disp(['Gol error: in flatQuad>initRectAperture, length(aperture)=%d, should be 2 or 3\n',length(aperture)]);
   TBN=0;
   return;
  end
@@ -57,20 +62,26 @@ end
 %     bitangent=[0 1 0]';
 %     normal=[0 0 1]';
 TBN=[[1 0 0]' [0 1 0]' [0 0 1]'];
-for i=1:3
- TBN(:,i)=getRotation(TBN(:,i),1,e/180*pi);
-end
+    for i=1:3
+     TBN(:,i)=getRotation(TBN(:,i),1,e/180*pi);
+    end
     
-for i=1:size(xyz,2);
- xyz(:,i)=getRotation(xyz(:,i),1,e/180*pi);
- xyz(:,i)=moveToPoint(xyz(:,i),r);
-end
+    for i=1:size(xyz,2);
+     xyz(:,i)=getRotation(xyz(:,i),1,e/180*pi);
+     xyz(:,i)=moveToPoint(xyz(:,i),r);
+    end
 end
 
 
 function [xyz,TBN,aperture] = initCircAperture(aperture,e,r)
-R_min = aperture(1);
-R_max = aperture(2);
+
+if length(aperture)==2
+    R_min = aperture(1);
+    R_max = aperture(2);
+else
+    R_min = 0;
+    R_max = aperture(2);
+end
 % d = aperture(3); 
      if R_min >R_max
          disp('Warning:aperture area selfintersection')

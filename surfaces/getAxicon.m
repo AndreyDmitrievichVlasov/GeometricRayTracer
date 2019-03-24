@@ -17,37 +17,82 @@
 
 %% Поверхности можно комбинировать. 
 function [ lens ] = getAxicon(varargin)
-    if nargin==0
-            lens = createAxicon( 10,2,10,10,2);
-    elseif nargin==1
-            lens = createAxicon( varargin{1},2,10,10,2);
-    elseif nargin==2
-            lens = createAxicon( varargin{1},varargin{2},10,10,2);
-    elseif nargin==3
-              lens = createAxicon( varargin{1},varargin{2},varargin{3}(1),varargin{3}(2),varargin{3}(3));
-    elseif nargin==4
-            lens = createAxicon( varargin{1},varargin{2},varargin{3}(1),varargin{3}(2),varargin{3}(3));
-             if ischar(varargin{4})
-                 rI=Materials(varargin{4});
-                 lens.materialDispersion=@(lam)(dispersionLaw(lam, rI.refractionIndexData));
-                 lens.material=rI;
-             else
-                disp('Incorrect material definition. Default material will be applied')
-             end
-    end
+
+if ~checkInputVars(varargin{:})
+    disp('incorrect list of input vars');
+    lens=[];
+    return;
+end
+
+% aperture,tickness,r_1,r_2 
+aperture = parseInputVars( 'aperture',varargin{:} );
+if isempty(aperture )
+    aperture =[5 5 0];
+end
+
+apertureType = parseInputVars( 'apertureType',varargin{:} );
+if isempty(apertureType)
+apertureType=2;
+end
+
+tickness = parseInputVars( 'tickness', varargin{:} );
+if isempty(tickness)
+tickness=2;
+end
+
+material = parseInputVars( 'material',varargin{:} );
+if isempty(material)
+material='silica';
+end
+
+conusParams = parseInputVars( 'conusData',varargin{:} );
+if isempty(conusParams)
+r_1=[10 10 10];
+end
+
+lens=createAxicon( aperture, apertureType, tickness,conusParams);%initDefaultLens(aperture, tickness,r_1,r_2, apertureType);
+    if ischar(material)
+             rI=Materials(material);
+             lens.materialDispersion=@(lam)(dispersionLaw(lam, rI.refractionIndexData));
+             lens.material=rI;
+     else
+        disp('Incorrect material definition. Default material will be applied')
+     end
+
 end
 
 
 
 
-function [ lens ] = createAxicon( aperture,tickness,A,B,C)
+function [ lens ] = createAxicon( aperture, appType, tickness,conusParams)
 %GETLENS Summary of this function goes here
 %   Detailed explanation goes here
-front_surf = flatQuad( 2*aperture,2*aperture,[0 0 0],[0 0 0]);
-front_surf=convertQuad2Sphere(front_surf, 10^10);
-back_surf  = flatQuad( 2*aperture,2*aperture,[0 0 0],[0 0 tickness]);
+if length(conusParams)~=3
+    disp('incorrect conus data');
+    return;
+end
 
-back_surf=convertQuad2Conus(back_surf, A,B,C);
+if length(aperture)==1
+    front_surf = flatQuad( [0 aperture 0], appType,[0 0 0],[0 0 0]);
+elseif length(aperture)==2
+    front_surf = flatQuad( [aperture(1) aperture(2) 0], appType,[0 0 0],[0 0 0]);
+elseif length(aperture)==3
+    front_surf = flatQuad( [aperture(1) aperture(2) aperture(3)], appType,[0 0 0],[0 0 0]);
+end
+
+front_surf=convertQuad2Sphere(front_surf, 10^10);
+
+
+if length(aperture)==1
+    back_surf = flatQuad( [0 aperture 0], appType,[0 0 0],[0 0 tickness]);
+elseif length(aperture)==2
+    back_surf = flatQuad( [aperture(1) aperture(2) 0], appType,[0 0 0],[0 0 tickness]);
+elseif length(aperture)==3
+    back_surf = flatQuad( [aperture(1) aperture(2) aperture(3)], appType,[0 0 0],[0 0 tickness]);
+end
+
+
+back_surf=convertQuad2Conus(back_surf, conusParams(1),conusParams(2),conusParams(3));
 
 rI=Materials('silica');
 lens=struct('frontSurface',front_surf,'backSurface',back_surf,'tickness',tickness,'aperture',aperture,'material',...

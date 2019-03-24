@@ -30,7 +30,7 @@ schema={};
 % sequensce=[1 2 3 4 5 6 7];
 schema{1}=lens1;
 % schema{2}=lens2;
-% schema{3}=detector;
+  schema{2}=detector;
 
 SceneSave('schemeVeronica.dat',schema);
 
@@ -50,9 +50,9 @@ SceneSave('schemeVeronica.dat',schema);
 LED_source=paraxialSpot([0 0 -5],[1.9 2]);
 
 % as array
-% [ raysIn, raysMiddle, raysOut ] = traceThroughSystem( LED_source, schema);
+[ raysIn, raysMiddle, raysOut ] = traceThroughSystem( LED_source, schema);
 % as sequence
-[ raysIn, raysMiddle, raysOut ] = traceThroughtLens( lens1,LED_source);
+% [ raysIn, raysMiddle, raysOut ] = traceThroughtLens( lens1,LED_source);
 
 fig_1=figure();
 

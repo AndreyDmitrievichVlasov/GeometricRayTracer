@@ -10,8 +10,8 @@ if quad_.apertureType==1
  L=quad_.apertureData(1);
  H=quad_.apertureData(2);
 else
- printf('Gol error: quadIntencity for quads other than rectangular is not yet realized. Returning 0 \n');
- intensity=x=y=0;
+ disp('Gol error: quadIntencity for quads other than rectangular is not yet realized. Returning 0 \n');
+ intensity=0;x=0;y=0;
  return;
 end
 

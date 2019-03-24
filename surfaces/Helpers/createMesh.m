@@ -23,6 +23,7 @@ elseif length(varargin)==2
 elseif length(varargin)==3
         apertureMesh(3,:) =EllipseEquation(apertureMesh(1,:),apertureMesh(2,:),varargin{1},varargin{2},varargin{3});
 elseif length(varargin)==4
+        apertureMesh(3,:) =ConusEquation(apertureMesh(1,:),apertureMesh(2,:),varargin{1},varargin{2},varargin{3});
 end
 
 

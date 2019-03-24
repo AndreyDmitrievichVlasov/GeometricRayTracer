@@ -1,8 +1,8 @@
 clear all; close all;clc;initEnvio();
 %%чтобы перейти к определению функции,необходимо поставить курсор сразу после имени этой функции и нажать ctrl+D 
-[ detector] =  flatQuad( 0.7,0.7,[0 0 0],[0 0 6.5]);
+[ detector] =  flatQuad([2 2],2,[0 0 0],[0 0 6.5]);
 
-Axicon=getAxicon( 2,2,2,2,0.5);
+Axicon=getAxicon( 'aperture',2,'apertureType',2,'tickness',1,'conusData',[2,2,0.5]);
 
 LED_source = paraxialSpot([0 0 -1],[0.5]);
 
@@ -15,8 +15,7 @@ axis vis3d
 view([0 0])
 %TODO
 % упаковать всё в общую функцию трейсинга
- drawLens(fig_handler,Axicon);
- drawQuad(fig_handler,detector);
+DrawElements({Axicon, detector});
  drawRays(fig_handler,[LED_source;rays_middle; rays_out]);
 %  drawRays(fig_handler,LED_source);
  axis equal;
