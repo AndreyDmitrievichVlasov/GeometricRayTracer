@@ -75,6 +75,7 @@ ub679=[290,280,0];
 % It returns positive number if everything os OK, otherwise it returns negative number
 % the documentation about sqp function is available from Octave webpage:
 % https://octave.sourceforge.io/octave/function/sqp.html
+% for some reason, sqp consistently fails on our problem, returning zero lambda, x slightly different than initial value.
 
 retarr=netMinArr(@widthMinInd,lb679,ub679,0,2,@ineqMinInd);
 % netMinArr(objfun,lb,ub,addargs,narr,N,conFun)
