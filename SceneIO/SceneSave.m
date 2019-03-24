@@ -44,7 +44,7 @@ dataFields=fields(data);%верно
 
 format='%10.5f';
 
-    fprintf(fileID,'%s\n',[parentName,'Struct {']);
+    fprintf(fileID,'%s\n',['Struct ',parentName,'{']);
 % if isfield(data,'type')
 %     fprintf(fileID,'%s\n',[parentName,'Struct ',data.type,' {']);
 % else

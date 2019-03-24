@@ -1,15 +1,8 @@
 function  [schema,sequence] = SceneLoad( path2file )
-%SCENELOAD Summary of this function goes here
-%   Detailed explanation goes here
-
-% 
-% splitedString = splitStr('aaa aaa aaa a',' ')
-% 
-% splitedString(1)
 
 schema={};sequence=[];
 
-fid = fopen(path2file, 'r');     % открытие файла на запись 
+fid = fopen(path2file, 'r');     % открытие файла на чтение 
 
 elementID=1;
 
@@ -22,8 +15,7 @@ while ischar(line)
     line = fgets(fid);
     i=i+1;
 end
-% strcmp(InputLines{58}{1}(1),'}')
-% disp(size(InputLines{58}{1}))
+
 finalLine=0;
 
     for k=1:length(InputLines)
@@ -32,7 +24,8 @@ finalLine=0;
 %                   class(InputLines{k}{i+1})
 %                   InputLines{k}{i+1}
                   sequence(i)=str2num(InputLines{k}{i+1});
-                end
+               end
+                
             elseif strcmp('Struct',InputLines{k}(1))
                 [structData, finalLine] = readStruct(InputLines,k);
                 k=finalLine;
@@ -50,12 +43,15 @@ structData=[];
          if length(Lines{finalLine})<2
              finalLine=finalLine+1;
              continue;
-        elseif strcmp(Lines{finalLine}{2},'Struct')
+        elseif strcmp(Lines{finalLine}{1},'Struct')
                
-             field_name=Lines{finalLine}(1);
-             [data, finalLine] = readStruct(Lines,finalLine)
-%              field_name
-%              structData
+             field_name=Lines{finalLine}{2};
+             [data, finalLine] = readStruct(Lines,finalLine);
+
+             fields=fieldnames(data);
+             for i=1:length(fields)
+                  structData.(field_name).(fields{i})= getfield(data,fields{i});
+             end
              structData.(field_name)=data;
         else
            
@@ -90,16 +86,11 @@ data=[];
 
     m=str2num(s_string{3});
     n=str2num(s_string{4});
+    data=zeros(m,n);
 
-
- data=zeros(m,n);
-%     s_string{5}
-size(s_string)
-    size(data)
         for i=1:m
               for j=1:n
-                  (i-1)*n+j+4
-              data(i,j) = num2str(s_string{(i-1)*n+j+4}); 
+              data(i,j) = str2num(s_string{(i-1)*n+j+4});
               end
         end
 
