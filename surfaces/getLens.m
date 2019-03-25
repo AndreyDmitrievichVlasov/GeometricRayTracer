@@ -84,11 +84,11 @@ front_surf  = getSurfaceType(front_surf,r_1);
 
 % back_surf  = flatQuad( [0 aperture 0], 2,[0 0 0],[0 0 tickness]);
 if length(aperture)==1
-    back_surf = flatQuad( [0 aperture 0], appType,[0 0 0],[0 0 0]);
+    back_surf = flatQuad( [0 aperture 0], appType,[0 0 0],[0 0 tickness]);
 elseif length(aperture)==2
-    back_surf = flatQuad( [aperture(1) aperture(2) 0], appType,[0 0 0],[0 0 0]);
+    back_surf = flatQuad( [aperture(1) aperture(2) 0], appType,[0 0 0],[0 0 tickness]);
 elseif length(aperture)==3
-    back_surf = flatQuad( [aperture(1) aperture(2) aperture(3)], appType,[0 0 0],[0 0 0]);
+    back_surf = flatQuad( [aperture(1) aperture(2) aperture(3)], appType,[0 0 0],[0 0 tickness]);
 end
 
 back_surf  = getSurfaceType(back_surf,r_2);

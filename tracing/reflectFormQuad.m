@@ -34,24 +34,24 @@ rays_in=quadIntersect(quad_,rays_in);
         normal=@(point)(quad_.ABCD(1:3));
         rays_out=Reflect(rays_in,normal);
     end
-    if startWith(quad_.extraDataType,'sphere')
+    if startWith(quad_.extraDataType,sphereType())
        ref_point=quad_.position-(quad_.TBN*[0 0 quad_.extraData.R]')';
         normal=@(point)(sphericalNormalArray(point,ref_point));
         rays_out=Reflect(rays_in,normal);
     end
-    if startWith(quad_.extraDataType,'ellipsoid')
+    if startWith(quad_.extraDataType,ellipsoidType())
         normal=@(point)(ellipsoidalNormalArray(point,quad_.position,quad_.TBN',...
                                                quad_.extraData.A,quad_.extraData.B,...
                                                quad_.extraData.C));
         rays_out=Reflect(rays_in,normal);
     end
-    if startWith(quad_.extraDataType,'paraboloid')
+    if startWith(quad_.extraDataType,paraboloidType())
         ref_point=quad_.position-(quad_.TBN*[0 0 quad_.extraData.C]')';
         normal=@(point)(paraboloidalNormalArray(point,ref_point,quad_.extraData.A,quad_.extraData.B));
          rays_out=Reflect(rays_in,normal);
     end
     
-    if startWith(quad_.extraDataType,'conus')
+    if startWith(quad_.extraDataType,conusType())
         ref_point=quad_.position-(quad_.TBN*[0 0 quad_.extraData.C]')';
         normal=@(point)(conusNormalArray(point,ref_point,quad_.extraData.A,quad_.extraData.B,quad_.extraData.C));
          rays_out=Reflect(rays_in,normal);

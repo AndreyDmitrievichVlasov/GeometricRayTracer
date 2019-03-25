@@ -108,11 +108,11 @@ function drawQuadInOlderVersions(quad_,hndl)
 %         description=quad_.extraDataType((quad_.extraDataType-2):length(quad_.extraDataType));
 %         if strcmp(elemType,'sphere')||strcmp(elemType,'ellipsoid')||strcmp(elemType,'paraboloid')||strcmp(elemType,'conus')||...
 %            strcmp(elemType,'sphereDG')||strcmp(elemType,'ellipsoidDG')||strcmp(elemType,'paraboloidDG')
-          if  ~isempty(quad_.extraData)
-            plotCurveIn3D(quad_.extraData.arc_x,quad_.rotationMatrix,quad_.position,0,hndl);
-            plotCurveIn3D(quad_.extraData.arc_y,quad_.rotationMatrix,quad_.position,0,hndl);
-            plotCurveIn3D(quad_.extraData.arc_xy,quad_.rotationMatrix,quad_.position,0,hndl);
-          end
+%           if  ~isempty(quad_.extraData)
+%             plotCurveIn3D(quad_.extraData.arc_x,quad_.rotationMatrix,quad_.position,0,hndl);
+%             plotCurveIn3D(quad_.extraData.arc_y,quad_.rotationMatrix,quad_.position,0,hndl);
+%             plotCurveIn3D(quad_.extraData.arc_xy,quad_.rotationMatrix,quad_.position,0,hndl);
+%           end
 
  
 end
