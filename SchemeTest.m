@@ -1,6 +1,6 @@
 clear all; close all;clc;initEnvio();
 
-[ lens1 ] = getLens( 2, 2,  [ 15],[  -15]);
+[ lens1 ] =  getLens( 'aperture',4, 'tickness',2, 'r1', [ -15 ],'r2',[ 15],'material','silica');% getLens( 2, 2,  [ 15 12],[12  -15]);
 [ lens1 ] = moveLens( lens1,[0 0 0]);
 % 
 [ lens2 ] = getLens( 2, 2, 2, -2 );

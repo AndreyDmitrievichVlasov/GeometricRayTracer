@@ -1,7 +1,7 @@
 %%Пример использования трейсера для толстой линзы
 clear all; close all;clc;initEnvio();
 %%чтобы перейти к определению функции,необходимо поставить курсор сразу после имени этой функции и нажать ctrl+D 
-[ lens ] = getLens( 'aperture',2, 'tickness',4, 'r1', [ -2 ],'r2',[ 2]);
+[ lens ] = getLens( 'aperture',2, 'tickness',0.5, 'r1', [ 10 ],'r2',[ -10]);
 [ detector] =  flatQuad( [2 2 ],2,[0 0 0],[0 0 16]);
 [ lens ] = moveLens( lens,[0 0 0]);
 

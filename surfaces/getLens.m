@@ -72,11 +72,11 @@ end
 function lens = initDefaultLens(aperture, tickness,r_1,r_2, appType)
 
 if length(aperture)==1
-    front_surf = flatQuad( [0 aperture 0], appType,[0 0 0],[0 0 0]);
+    front_surf = flatQuad( 'aperture',[0 aperture 0],'apertureType', appType,'position',[0 0 0]);
 elseif length(aperture)==2
-    front_surf = flatQuad( [aperture(1) aperture(2) 0], appType,[0 0 0],[0 0 0]);
+    front_surf = flatQuad('aperture', [aperture(1) aperture(2) 0],'apertureType', appType,'position',[0 0 0]);
 elseif length(aperture)==3
-    front_surf = flatQuad( [aperture(1) aperture(2) aperture(3)], appType,[0 0 0],[0 0 0]);
+    front_surf = flatQuad('aperture', [aperture(1) aperture(2) aperture(3)],'apertureType', appType,'position',[0 0 0]);
 end
 
 front_surf  = getSurfaceType(front_surf,r_1);
@@ -84,11 +84,11 @@ front_surf  = getSurfaceType(front_surf,r_1);
 
 % back_surf  = flatQuad( [0 aperture 0], 2,[0 0 0],[0 0 tickness]);
 if length(aperture)==1
-    back_surf = flatQuad( [0 aperture 0], appType,[0 0 0],[0 0 tickness]);
+    back_surf = flatQuad('aperture', [0 aperture 0],'apertureType', appType,'position',[0 0 tickness]);
 elseif length(aperture)==2
-    back_surf = flatQuad( [aperture(1) aperture(2) 0], appType,[0 0 0],[0 0 tickness]);
+    back_surf = flatQuad( 'aperture',[aperture(1) aperture(2) 0],'apertureType', appType,'position',[0 0 tickness]);
 elseif length(aperture)==3
-    back_surf = flatQuad( [aperture(1) aperture(2) aperture(3)], appType,[0 0 0],[0 0 tickness]);
+    back_surf = flatQuad('aperture', [aperture(1) aperture(2) aperture(3)],'apertureType', appType,'position',[0 0 tickness]);
 end
 
 back_surf  = getSurfaceType(back_surf,r_2);

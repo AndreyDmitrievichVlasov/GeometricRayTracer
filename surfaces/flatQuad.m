@@ -1,4 +1,4 @@
-function [ quad_] = flatQuad(aperture,apertureType,e,r)
+function [ quad_] = flatQuad(varargin)
 % H - height
 % L - length
 % e - [ angle_x angle_y angle_z]
@@ -7,6 +7,36 @@ function [ quad_] = flatQuad(aperture,apertureType,e,r)
 % aperture=[L H delta] - Rectangular
 % aperture=[Rmin Rmax delta] - Circular
 % But for circular the aperture(3) is not used at all!
+
+% 'aperture','apertureType','eulerAngles','position'
+if ~checkInputVars(varargin{:})
+    disp('incorrect list of input vars');
+    quad_=[];
+    return;
+end
+
+aperture = parseInputVars( 'aperture',varargin{:} );
+if isempty(aperture )
+    aperture =[5 5 0];
+end
+
+apertureType = parseInputVars( 'apertureType',varargin{:} );
+if isempty(apertureType )
+    apertureType =1;
+end
+
+
+e = parseInputVars( 'eulerAngles',varargin{:} );
+if isempty(e )
+    e =[0 0 0];
+end
+
+r = parseInputVars( 'position',varargin{:} );
+if isempty(r )
+    r =[0 0 0];
+end
+
+
 if apertureType==1
     [xyz,TBN,aperture] = initRectAperture(aperture,e,r);
 elseif apertureType==2
@@ -26,37 +56,35 @@ end
 end
 
 function [xyz,TBN,aperture] = initRectAperture(aperture,e,r)
-if length(aperture)==2
-    L = aperture(1);
-    H = aperture(2);
-else
+if length(aperture)==1
     L = aperture(1);
     H = aperture(1);
+    d=0;
+elseif length(aperture)==2
+    L = aperture(1);
+    H = aperture(2);
+    d=0;
+elseif length(aperture)==3
+        L = aperture(1);
+        H = aperture(2);
+        d = aperture(3);
 end
-xyz=[[-L/2 L/2   L/2 -L/2 -L/2];...
-       [ H/2 H/2 -H/2 -H/2  H/2];...
-        [ 0    0      0      0     0]];
-if length(aperture)==2 || (length(aperture)==3 && aperture(3)==0)
- aperture=[L,H,0];
-end
-if length(aperture)==3 
- d = aperture(3);
+
  if d>L/2||d>H/2
      disp('Warning:aperture area selfintersection')
     %         d=(L+H)/4; % This d is still bigger than min(L/2,H/2), does not eliminate selfintersection
       d=min(L/2,H/2);
  end
- aperture = [L,H,d];
- xyz_=[[-L/2+d L/2-d   L/2-d -L/2+d -L/2+d];...
-           [ H/2-d H/2-d -H/2+d -H/2+d  H/2-d];...   % ADV: the first value in this row used to be 'H/2-', corrected 
-           [ 0    0      0      0     0]];
- xyz=[xyz_ xyz];
-else
- if length(aperture)~=2
-  disp(['Gol error: in flatQuad>initRectAperture, length(aperture)=%d, should be 2 or 3\n',length(aperture)]);
-  TBN=0;
-  return;
- end
+
+ aperture=[L,H,d];
+ xyz=[[-L/2 L/2   L/2 -L/2 -L/2];...
+         [ H/2 H/2 -H/2 -H/2  H/2];...
+         [ 0    0      0      0     0]];
+if d~=0
+         xyz_=[[-L/2+d L/2-d   L/2-d -L/2+d -L/2+d];...
+               [ H/2-d H/2-d -H/2+d -H/2+d  H/2-d];...   % ADV: the first value in this row used to be 'H/2-', corrected 
+               [ 0    0      0      0     0]];
+         xyz=[xyz_ xyz];
 end
 %     tangent=[1 0 0]';
 %     bitangent=[0 1 0]';
@@ -75,11 +103,14 @@ end
 
 function [xyz,TBN,aperture] = initCircAperture(aperture,e,r)
 
-if length(aperture)==2
+if length(aperture)==1
+    R_min = 0;
+    R_max = aperture(1);
+elseif length(aperture)==2
     R_min = aperture(1);
     R_max = aperture(2);
-else
-    R_min = 0;
+elseif length(aperture)==3
+     R_min = aperture(1);
     R_max = aperture(2);
 end
 % d = aperture(3); 
