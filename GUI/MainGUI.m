@@ -12,6 +12,9 @@ GlobalSet('ActiveTableRow',1);
 
 GlobalSet('ElementsList',{});
 GlobalSet('ElementsSequence',{});
+globalSet('WorkspaceDirectory',cd);
+
+
 
 scrsize = get( groot, 'Screensize' );
 scrsizefloat=scrsize;

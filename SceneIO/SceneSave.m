@@ -20,22 +20,26 @@ elseif length(varargin)==2
     
 Elements = varargin{1};
 
-ElementsSequense = varargin{1};
+ElementsSequense = varargin{2};
 
 end
+% позже исправить ошибки в собственном парсере
+% scene=struct('Sequence',ElementsSequense,'Elements',Elements);
 
-str=num2str(ElementsSequense(1));
+save([path2file,'.mat'],'ElementsSequense','Elements');
 
-for i=2:length(ElementsSequense)
-    str=[str,' ',num2str(ElementsSequense(i))];
-end
-
-fprintf(fid,'%s\n',['Sequense ',str]);
-
-for k=1:length(Elements)
-         writeStruct(Elements{k},'',fid);
-end
-fclose('all'); 
+% str=num2str(ElementsSequense(1));
+% 
+% for i=2:length(ElementsSequense)
+%     str=[str,' ',num2str(ElementsSequense(i))];
+% end
+% 
+% fprintf(fid,'%s\n',['Sequense ',str]);
+% 
+% for k=1:length(Elements)
+%          writeStruct(Elements{k},'',fid);
+% end
+% fclose('all'); 
 end
 
 function writeStruct(data,parentName,fileID)

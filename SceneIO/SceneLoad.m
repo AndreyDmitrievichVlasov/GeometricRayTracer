@@ -2,37 +2,40 @@ function  [schema,sequence] = SceneLoad( path2file )
 
 schema={};sequence=[];
 
-fid = fopen(path2file, 'r');     % открытие файла на чтение 
-
-elementID=1;
-
-i=1;
-
-line = fgets(fid);
-
-while ischar(line)
-    InputLines{i} = strsplit(line,' ');
-    line = fgets(fid);
-    i=i+1;
-end
-
-finalLine=0;
-k=1;
-    while k~=length(InputLines)
-            if strcmp('Sequense',InputLines{k}{1})
-               for i=1:length(InputLines{k})-1
-                   sequence(i)=str2num(InputLines{k}{i+1});
-               end
-               k=k+1;
-             elseif strcmp('Struct',InputLines{k}(1))
-                [structData, finalLine] = readStruct(InputLines,k);
-                k=finalLine;
-                schema{elementID}=structData;
-                elementID=elementID+1;
-            else
-                  k=k+1;
-            end
-    end
+scene = load(path2file);
+schema = scene.Elements;
+sequence = scene.ElementsSequense;
+% fid = fopen(path2file, 'r');     % открытие файла на чтение 
+% 
+% elementID=1;
+% 
+% i=1;
+% 
+% line = fgets(fid);
+% 
+% while ischar(line)
+%     InputLines{i} = strsplit(line,' ');
+%     line = fgets(fid);
+%     i=i+1;
+% end
+% 
+% finalLine=0;
+% k=1;
+%     while k~=length(InputLines)
+%             if strcmp('Sequense',InputLines{k}{1})
+%                for i=1:length(InputLines{k})-1
+%                    sequence(i)=str2num(InputLines{k}{i+1});
+%                end
+%                k=k+1;
+%              elseif strcmp('Struct',InputLines{k}(1))
+%                 [structData, finalLine] = readStruct(InputLines,k);
+%                 k=finalLine;
+%                 schema{elementID}=structData;
+%                 elementID=elementID+1;
+%             else
+%                   k=k+1;
+%             end
+%     end
 end
 
 

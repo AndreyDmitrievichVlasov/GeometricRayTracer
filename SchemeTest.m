@@ -32,7 +32,7 @@ schema{1}=lens1;
 % schema{2}=lens2;
   schema{2}=detector;
 
-SceneSave('schemeVeronica.dat',schema);
+SceneSave('schemeVeronica',schema);
 
 % schema{2}=lens2;
 % schema{3}=lens3;

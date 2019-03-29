@@ -4,9 +4,15 @@ function  DataTableButtonsInit( parent )
 scrsize = get( groot, 'Screensize' );
 % scrsizefloat(3:4)=[scrsize(3)/scrsize(4) 1];
 h=scrsize(4)*0.86;
-saveButton=  uicontrol(parent,'Style','pushbutton','String','Save','Position',[20 h+20 133 20]);
-saveAsButton=  uicontrol(parent,'Style','pushbutton','String','Save as','Position',[153.6 h+20 133 20]);
-loadButton=  uicontrol(parent,'Style','pushbutton','String','Load','Position',[286.7 h+20 133 20]);
+
+saveButton =  uicontrol(parent,'Style','pushbutton','String','Save','Position',[20 h+20 133 20]);
+set(saveButton,'Callback',@saveButtonCallBack);
+
+saveAsButton =  uicontrol(parent,'Style','pushbutton','String','Save as','Position',[153.6 h+20 133 20]);
+set(saveAsButton,'Callback',@saveAsButtonCallBack);
+
+loadButton =  uicontrol(parent,'Style','pushbutton','String','Load','Position',[286.7 h+20 133 20]);
+set(loadButton,'Callback',@loadButtonCallBack);
 
 appendButton =  uicontrol(parent,'Style','pushbutton','String','Append element','Position',...
     ([20 h 200 20]));
@@ -25,7 +31,23 @@ sequenseEditButton = uicontrol(parent,'Style','pushbutton','String', 'Edit Seque
 
 sequenseUseButton = uicontrol(parent,'Style','togglebutton','String', 'Use Sequence','Position',...
     [220 h-20 200 20]);
+% get(a);
+end
 
+function saveButtonCallBack(sender, event)
+
+end
+
+function saveAsButtonCallBack(sender, event)
+ 
+end
+
+function loadButtonCallBack(sender, event)
+[file,path] = uigetfile('*.mat');
+globalSet('ElementsList',file.Elements);
+globalSet('ElementsSequence', file.ElementsSequense);
+globalSet('WorkspaceDirectory',path);
+% запись данных в таблицу и ее обновление
 end
 
 
