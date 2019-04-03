@@ -12,7 +12,7 @@ GlobalSet('ActiveTableRow',1);
 
 GlobalSet('ElementsList',{});
 GlobalSet('ElementsSequence',{});
-globalSet('WorkspaceDirectory',cd);
+GlobalSet('WorkspaceDirectory',cd);
 
 
 
