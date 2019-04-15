@@ -22,8 +22,10 @@ ofsett= 42.1577;
 [ lens_3 ] = getLens('aperture', 6,'tickness', 2.952076,'r1', -18.389841,'r2', 79.683603,'material','SK16');
 [ lens_3 ] = moveLens( lens_3,[0 0 position+ofsett*2+2]);
 
-radialDG = flatQuad( [8 8 0],1,[0 0 0],[0 0 position+ofsett+1]);
-radialDG = convertQuad2RadialDG(radialDG, 0.032, -1, 0, 10^10);
+radialDG = flatQuad('aperture', [8 8 0],'apertureType',1,'position',[0 0 position+ofsett+1]);
+
+% radialDG = flatQuad( [8 8 0],1,[0 0 0],[0 0 position+ofsett+1]);
+radialDG = convertQuad2RadialDG(radialDG, 0.022, -1, 0, 10^10);
 
 [ axicon ] =getLens( 'aperture',4,'tickness', 1,'r1', 10^10,'r2', 10^10,'material','SK16');%; getAxicon( 4, 2,[4 4 1],'SK16');% getLens( 4, 2, 10^10, 10^10,'SK16');%; 
 
@@ -31,12 +33,15 @@ radialDG = convertQuad2RadialDG(radialDG, 0.032, -1, 0, 10^10);
 
 [ detector] =  flatQuad('aperture', [15 15 0],'apertureType',1,'position',[0 0 position+ofsett*2 + 25]);
 
+[ detector1] =  flatQuad('aperture', [15 15 0],'apertureType',1,'position',[0 0 80]);
+
+
 [ slit] =  flatQuad( 'aperture',[11 11 0],'apertureType',1,'position',[0 0 -ofsett]);
 [ slit] =  convertQuad2Sphere(slit,10^10);
 schema={};
 
-% sequensce=[ 1 2 3 10 5 6 7 8];
-sequensce=[ 1 2 3 4 5 6 7 8];
+sequensce=[ 1 2 3 10 5 6 7 8];
+% sequensce=[ 1 2 3 5 6 7 8];
 schema{1}=lens1;
 schema{2}=lens2;
 schema{3}=lens3;
@@ -51,8 +56,8 @@ schema{7}=lens_1;
 schema{8}=detector;
 schema{9}=slit;
 schema{10}=radialDG;
-
-SceneSave('schemeVeronica',schema);
+schema{11}=detector1;
+% SceneSave('schemeVeronica',schema);
 % DG_flat =  flatQuad( 4,4,[0 0 1],[0 0 -1]);
 % DG_flat=convertQuad2DG(DG_flat,0.032, 1, 0, 10^10);
 % schema{5}=DG_flat;
@@ -75,9 +80,9 @@ drawRays(fig_1,[ raysOut]);
 % drawRays(fig_1,[rays_in; rays_middle; rays_out_]);
 % 
 fig_2=figure(2);
-[~,~,~,~]=drawSpotDiagram(fig_2,schema{8},raysOut);
+[~,~,~,~]=drawSpotDiagram(fig_2,schema{11},raysOut);
 
 fig_3=figure(3);
-[ intensity,x ,y ] = quadIntencity( schema{8},raysOut,128,128);
+[ intensity,x ,y ] = quadIntencity( schema{11},raysOut,128,128);
 imagesc(x,y,intensity);
 axis equal;
