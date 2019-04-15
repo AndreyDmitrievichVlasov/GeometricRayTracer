@@ -132,6 +132,7 @@ function raysOut = DifractCircular(raysIn, normal, sufCentr,difOrder, ticksDenci
     raysOut(:,4)=rho.*difraction_angle;
     raysOut(:,5)=ray_dir_dg_space(:,2);
     raysOut(:,6)=rho.*sqrt(1-difraction_angle.^2);
+   
     raysOut(:,4:6) = ArrayOfMatrixMultByArrayOfVectors(T,B,N,raysOut(:,4:6));
     
     

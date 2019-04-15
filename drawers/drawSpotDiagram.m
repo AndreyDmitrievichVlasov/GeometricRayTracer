@@ -9,15 +9,19 @@ function [ x_spot,y_spot,colors,angleSize] = drawSpotDiagram(fig_handler,quad_,r
     [x_spot,y_spot,colors,angleSize]=spotDiagram(quad_,rays);
    toc
     hold on;
-    if length(x_spot)>1500
-        for i=1:2500
+    if length(x_spot)>5500
+        for i=1:5500
             idx=1+randi(length(x_spot)-1);
-            plot(x_spot(idx),y_spot(idx),'.','color',colors(idx,:));
-        end
+            if~(norm(colors(idx,:)-[0.05 0.05 0.05])<=0.05)
+            plot(x_spot(idx),y_spot(idx),'.','color',1-colors(idx,:));
+            end
+       end
     
     else
         for i=1:length(x_spot)
-            plot(x_spot(i),y_spot(i),'.','color',colors(i,:));
+            if~(norm(colors(i,:)-[0.05 0.05 0.05])<=0.05)
+            plot(x_spot(i),y_spot(i),'.','color',1-colors(i,:));
+            end
         end
     end
 %    plot([-quad_.L/2 quad_.L/2   quad_.L/2 -quad_.L/2 -quad_.L/2]+quad_.position(1),...

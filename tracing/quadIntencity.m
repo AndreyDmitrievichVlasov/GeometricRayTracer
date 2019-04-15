@@ -47,7 +47,7 @@ bounds=[-L/2 -H/2 L/2 H/2];
          if isInside(positions(1:2),quad_) % ADV correction; this takes into account different quad types
              x_s=tileG+tile(1,M+4,3+(positions(1)+L/2)/L*M);
              y_s=tileG+tile(1,N+4,3+(positions(2)+H/2)/H*N);
-             intensity(x_s,y_s)=intensity(x_s,y_s) +abs(sum(Rays(i,4:6).*quad_.ABCD(1:3)))*gaussCore;
+             intensity(x_s,y_s)=intensity(x_s,y_s) +abs(Rays(i,10)*sum(Rays(i,4:6).*quad_.ABCD(1:3)))*gaussCore;
          end
        
     end

@@ -41,6 +41,7 @@ radialDG = convertQuad2RadialDG(radialDG, 0.022, -1, 0, 10^10);
 schema={};
 
 sequensce=[ 1 2 3 10 5 6 7 8];
+% sequensce=[ 8];
 % sequensce=[ 1 2 3 5 6 7 8];
 schema{1}=lens1;
 schema{2}=lens2;
@@ -62,7 +63,7 @@ schema{11}=detector1;
 % DG_flat=convertQuad2DG(DG_flat,0.032, 1, 0, 10^10);
 % schema{5}=DG_flat;
 
-LED_source=paraxialSpot([0 0 -50],[4.9 5]);
+LED_source=paraxialSpot([0 0 -50],[4.95 5]);
 
 % as array
 % [ raysIn, raysMiddle, raysOut ] = traceThroughSystem( LED_source, schema);
@@ -83,6 +84,6 @@ fig_2=figure(2);
 [~,~,~,~]=drawSpotDiagram(fig_2,schema{11},raysOut);
 
 fig_3=figure(3);
-[ intensity,x ,y ] = quadIntencity( schema{11},raysOut,128,128);
+[ intensity,x ,y ] = quadIntencity( schema{11},raysOut,256,256);
 imagesc(x,y,intensity);
 axis equal;
