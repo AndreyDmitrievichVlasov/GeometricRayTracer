@@ -43,11 +43,28 @@ function saveAsButtonCallBack(sender, event)
 end
 
 function loadButtonCallBack(sender, event)
-[file,path] = uigetfile('*.mat');
-globalSet('ElementsList',file.Elements);
-globalSet('ElementsSequence', file.ElementsSequense);
-globalSet('WorkspaceDirectory',path);
+[fileName,path] = uigetfile('*.mat');
+file=load([path fileName]);
+GlobalSet('ElementsList',file.Elements);
+GlobalSet('ElementsSequence', file.ElementsSequense);
+GlobalSet('WorkspaceDirectory',path);
 % запись данных в таблицу и ее обновление
+for i=1:length(file.Elements)
+    type = file.Elements{i}.type;
+  
+    if ~strcmp('lens',type)
+        position=[num2str(file.Elements{i}.position(1)),' ',num2str(file.Elements{i}.position(2)),' ',num2str(file.Elements{i}.position(3))];
+        orientation=[num2str(file.Elements{i}.angles(1)),' ',num2str(file.Elements{i}.angles(2)),' ',num2str(file.Elements{i}.angles(3))];
+        material='none';
+    else
+        position=[num2str(file.Elements{i}.frontSurface.position(1)),' ',num2str(file.Elements{i}.frontSurface.position(2)),' ',num2str(file.Elements{i}.frontSurface.position(3))];
+        orientation=[num2str(file.Elements{i}.frontSurface.angles(1)),' ',num2str(file.Elements{i}.frontSurface.angles(2)),' ',num2str(file.Elements{i}.frontSurface.angles(3))];
+        material=file.Elements{i}.material.Desciption;
+    end
+       assignTableElementDescription(GlobalGet('ElementsDataTable'), i, tableRowAsHTML([{type} {position} {orientation} {material} {'Edit'}]));
+end
+ displayUpdate(1);
+GlobalSet('ActiveTableRow',i);
 end
 
 
@@ -62,7 +79,7 @@ function appendButtonCallBack(sender, event)
          GlobalSet('ElementsList',El);
          GlobalSet('ActiveTableRow',1);
     else
-        assignTableElementDescription(GlobalGet('ElementsDataTable'), l+1, tableRowAsHTML([{'Empty'} {'-'} {'-'} {'none'} {'-'}]));
+         assignTableElementDescription(GlobalGet('ElementsDataTable'), l+1, tableRowAsHTML([{'Empty'} {'-'} {'-'} {'none'} {'-'}]));
          set(GlobalGet('ElementsDataTable'),'ColumnEditable', [false, false, false, false, false]);
          El=GlobalGet('ElementsList');
          El{l+1}='Empty';
