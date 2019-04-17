@@ -6,10 +6,61 @@ function [ x_spot,y_spot,colors,angleSize] = drawSpotDiagram(fig_handler,quad_,r
 %     set(fig_handler,'DefaultAxesFontSize',10,'DefaultAxesFontName','Times New Roman');
 %     set(fig_handler,'DefaultTextFontSize',10,'DefaultTextFontName','Times New Roman');
    tic
-    [x_spot,y_spot,colors,angleSize]=spotDiagram(quad_,rays);
+    [x_spot,y_spot,colors,angleSize,waveLngthKeys]=spotDiagram(quad_,rays);
    toc
-    hold on;
-    if length(x_spot)>5500
+   
+%    plot([-quad_.L/2 quad_.L/2   quad_.L/2 -quad_.L/2 -quad_.L/2]+quad_.position(1),...
+%           [quad_.H/2 quad_.H/2 -quad_.H/2 -quad_.H/2  quad_.H/2]+quad_.position(2),'k','LineWidth',1.5);
+
+DrawSpot(x_spot{1},y_spot{1},colors{1},waveLngthKeys{1},0,0,{3 ,3, 1});   
+DrawQuadSpotDiagramm(quad_);
+DrawSpot(x_spot{2},y_spot{2},colors{2},waveLngthKeys{1},0,0,{3 ,3, 2});   
+DrawQuadSpotDiagramm(quad_);
+DrawSpot(x_spot{2},y_spot{2},colors{2},waveLngthKeys{1},0,0,{3 ,3, 3});   
+DrawQuadSpotDiagramm(quad_);
+DrawSpot(x_spot{2},y_spot{2},colors{2},waveLngthKeys{1},0,0,{3 ,3, 4:9});   
+DrawQuadSpotDiagramm(quad_);
+
+end
+function DrawQuadSpotDiagramm(quad_)
+  hold on;
+ if quad_.apertureType==1 % rectangular aperture
+     L2=quad_.apertureData(1);
+     H2=quad_.apertureData(2);
+     plot(0.5*[-L2 L2   L2 -L2 -L2]+quad_.position(1),...
+            0.5*[H2 H2 -H2 -H2  H2]+quad_.position(2),'k','LineWidth',1.5);
+     xlim([-0.51*L2 0.51*L2]+quad_.position(1));
+     ylim([-0.51*H2 0.51*H2]+quad_.position(2));
+    end % we don't plot the boundaries if the quad is not rectangular. To be fixed
+hold off;
+end
+
+function DrawSpot(x_spot,y_spot,colors,wLength,RMS,AverageGEO,position)
+subplot(position{1},position{2},position{3})
+hold on;
+if iscell(x_spot)
+    if length(x_spot)~=length(y_spot)
+    disp('error in spot diagram drawning');return;
+    end
+    for j=1:length(x_spot)
+            if length(x_spot{j})>5500
+            for i=1:5500
+                idx=1+randi(length(x_spot{j})-1);
+                if~(norm(colors{j}(idx,:)-[0.05 0.05 0.05])<=0.05)
+                plot(x_spot{j}(idx),y_spot{j}(idx),'.','color',1-colors{j}(idx,:));
+                end
+           end
+
+            else
+                for i=1:length(x_spot{j})
+                    if~(norm(colors{j}(i,:)-[0.05 0.05 0.05])<=0.05)
+                    plot(x_spot{j}(i),y_spot{j}(i),'.','color',1-colors{j}(i,:));
+                    end
+                end
+            end
+    end
+else
+        if length(x_spot)>5500
         for i=1:5500
             idx=1+randi(length(x_spot)-1);
             if~(norm(colors(idx,:)-[0.05 0.05 0.05])<=0.05)
@@ -24,20 +75,11 @@ function [ x_spot,y_spot,colors,angleSize] = drawSpotDiagram(fig_handler,quad_,r
             end
         end
     end
-%    plot([-quad_.L/2 quad_.L/2   quad_.L/2 -quad_.L/2 -quad_.L/2]+quad_.position(1),...
-%           [quad_.H/2 quad_.H/2 -quad_.H/2 -quad_.H/2  quad_.H/2]+quad_.position(2),'k','LineWidth',1.5);
-    if quad_.apertureType==1 % rectangular aperture
-     L2=quad_.apertureData(1);
-     H2=quad_.apertureData(2);
-     plot([-L2 L2   L2 -L2 -L2]+quad_.position(1),...
-            [H2 H2 -H2 -H2  H2]+quad_.position(2),'k','LineWidth',1.5);
-     xlim([-1.1*L2 1.1*L2]+quad_.position(1));
-     ylim([-1.1*H2 1.1*H2]+quad_.position(2));
-    end % we don't plot the boundaries if the quad is not rectangular. To be fixed
+end
+
     hold off;
     grid on;
     axis equal;
     xlabel('x, [ mm ]');
-    ylabel('y, [ mm ]');
+    ylabel('y, [ mm ]');  
 end
-
