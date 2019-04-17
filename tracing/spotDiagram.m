@@ -10,6 +10,7 @@ function [ x,y,colors,angleSize] = spotDiagram( quad_,Rays)
 % x=x-x;
 % y=x;
 % colors=zeros(length(Rays),3);
+[raysMap, waveLngthKeys]= getRaysSeparatedByWaveLength(Rays);
 angleSize=zeros(length(Rays),3);
 
         %    1   2   3   4   5   6     7   8           9         10  11 12 13
@@ -55,7 +56,19 @@ function isornot=isInsideArray(pos,q)
  return;
 end
 
-
+function [raysMap, waveLngthKeys]= getRaysSeparatedByWaveLength(rays)
+raysMap= containers.Map('KeyType','double','ValueType','any');
+kurrentKey=0;
+    for i=1:size(rays,1)
+        if ~isKey(raysMap,rays(i,9));
+            kurrentKey=rays(i,9);
+            raysMap(kurrentKey)=rays(i,:);
+            continue;
+        end
+        raysMap(kurrentKey)=[raysMap(kurrentKey);rays(i,:)];
+    end
+    waveLngthKeys=keys(raysMap);
+end
 
 %function isornot=isIn_array(pos,bounds)
 %    isornot=((pos(:,1)<=bounds(3)).*(pos(:,1)>=bounds(1)).*...
