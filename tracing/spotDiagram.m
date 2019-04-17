@@ -10,6 +10,20 @@ function [ x,y,colors,angleSize] = spotDiagram( quad_,Rays)
 % x=x-x;
 % y=x;
 % colors=zeros(length(Rays),3);
+lambdaIDX ={};
+
+
+for i=1:size(Rays,1)
+
+end
+
+
+
+
+
+
+
+
 angleSize=zeros(length(Rays),3);
 
         %    1   2   3   4   5   6     7   8           9         10  11 12 13
