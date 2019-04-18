@@ -11,6 +11,9 @@ function [ x,y,colors,angleSize,waveLngthKeys] = spotDiagram( quad_,Rays)
 % y=x;
 % colors=zeros(length(Rays),3);
 [raysMap, waveLngthKeys]= getRaysSeparatedByWaveLength(Rays);
+% raysMap(waveLngthKeys{1})
+% raysMap(waveLngthKeys{2})
+% raysMap(waveLngthKeys{3})
  x={};y={};colors={};angleSize={};
 for i=1:length(waveLngthKeys)
     [ x_,y_,colors_,angleSize_] = CalculateSpotDiagram(quad_,raysMap(waveLngthKeys{i}));
@@ -72,15 +75,14 @@ end
 %% Error is in function below
 function [raysMap, waveLngthKeys]= getRaysSeparatedByWaveLength(rays)
 raysMap= containers.Map('KeyType','double','ValueType','any');
-kurrentKey=0;
+ 
     for i=1:size(rays,1)
         if ~isKey(raysMap,rays(i,9));
-            kurrentKey=rays(i,9);
-            raysMap(kurrentKey)=rays(i,:);
+            raysMap(rays(i,9))=rays(i,:);
             continue;
         end
-        raysMap(kurrentKey)=[raysMap(kurrentKey);rays(i,:)];
-    end
+        raysMap(rays(i,9))=[raysMap(rays(i,9));rays(i,:)];
+   end
     waveLngthKeys=keys(raysMap);
 end
 

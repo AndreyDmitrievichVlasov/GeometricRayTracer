@@ -8,17 +8,19 @@ function [ x_spot,y_spot,colors,angleSize] = drawSpotDiagram(fig_handler,quad_,r
    tic
     [x_spot,y_spot,colors,angleSize,waveLngthKeys]=spotDiagram(quad_,rays);
    toc
-   
+%    class(x_spot)
 %    plot([-quad_.L/2 quad_.L/2   quad_.L/2 -quad_.L/2 -quad_.L/2]+quad_.position(1),...
 %           [quad_.H/2 quad_.H/2 -quad_.H/2 -quad_.H/2  quad_.H/2]+quad_.position(2),'k','LineWidth',1.5);
 
 DrawSpot(x_spot{1},y_spot{1},colors{1},waveLngthKeys{1},0,0,{3 ,3, 1});   
 DrawQuadSpotDiagramm(quad_);
-DrawSpot(x_spot{2},y_spot{2},colors{2},waveLngthKeys{1},0,0,{3 ,3, 2});   
+
+DrawSpot(x_spot{2},y_spot{2},colors{2},waveLngthKeys{2},0,0,{3 ,3, 2});   
 DrawQuadSpotDiagramm(quad_);
-DrawSpot(x_spot{2},y_spot{2},colors{2},waveLngthKeys{1},0,0,{3 ,3, 3});   
+
+DrawSpot(x_spot{3},y_spot{3},colors{3},waveLngthKeys{3},0,0,{3 ,3, 3});   
 DrawQuadSpotDiagramm(quad_);
-DrawSpot(x_spot{2},y_spot{2},colors{2},waveLngthKeys{1},0,0,{3 ,3, 4:9});   
+DrawSpot(x_spot,y_spot,colors,waveLngthKeys,0,0,{3 ,3, 4:9});   
 DrawQuadSpotDiagramm(quad_);
 
 end
