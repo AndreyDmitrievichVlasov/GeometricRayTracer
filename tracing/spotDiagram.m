@@ -1,4 +1,4 @@
-function [ x,y,colors,angleSize,waveLngthKeys] = spotDiagram( quad_,Rays)
+function [ x,y,colors,angleSize,waveLngthKeys, RMS, AverageGeo] = spotDiagram( quad_,Rays)
 %SPOTDIAGRAM Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -14,20 +14,22 @@ function [ x,y,colors,angleSize,waveLngthKeys] = spotDiagram( quad_,Rays)
 % raysMap(waveLngthKeys{1})
 % raysMap(waveLngthKeys{2})
 % raysMap(waveLngthKeys{3})
- x={};y={};colors={};angleSize={};
-for i=1:length(waveLngthKeys)
-    [ x_,y_,colors_,angleSize_] = CalculateSpotDiagram(quad_,raysMap(waveLngthKeys{i}));
-     x{i}=x_;
-     y{i}=y_;
-     colors{i}=colors_;
-     angleSize{i}=angleSize_;
-end
+ x={};y={};colors={};angleSize={};RMS={};AverageGeo={};
+    for i=1:length(waveLngthKeys)
+        [ x_,y_,colors_,angleSize_,RMS_,AverageGeo_] = CalculateSpotDiagram(quad_,raysMap(waveLngthKeys{i}));
+         x{i}=x_;
+         y{i}=y_;
+         colors{i}=colors_;
+         angleSize{i}=angleSize_;
+         RMS{i}=RMS_;
+         AverageGeo{i}=AverageGeo_;
+    end
 
 
 end
 
 
-function [ x,y,colors,angleSize] = CalculateSpotDiagram(quad_,Rays)
+function [ x,y,colors,angleSize,RMS,AverageGeo] = CalculateSpotDiagram(quad_,Rays)
             angleSize=zeros(size(Rays,1),3);
         %    1   2   3   4   5   6     7   8           9         10  11 12 13
         % [r_1,r_2,r_3,e_1,e_2,e_3,START,END,WAVE_LENGTH, INTENSITY, R, G, B]
@@ -50,13 +52,23 @@ function [ x,y,colors,angleSize] = CalculateSpotDiagram(quad_,Rays)
             x=(positions(:,1)+quad_.position(1)).*isornot;
             y=(positions(:,2)+quad_.position(2)).*isornot;
             colors=zeros(size(Rays(:,11:13)));
+         
             colors(:,1)=Rays(:,11).*isornot;
             colors(:,2)=Rays(:,12).*isornot;
             colors(:,3)=Rays(:,13).*isornot;
 
+            Rho=sqrt(sum(positions(:,1:2).*positions(:,1:2),2));
+           
+            AverageGeo=sum(Rho)/size(positions,1);
+            
+            RMS = sum(sqrt((Rho-AverageGeo).^2/size(positions,1)));
+            
             angleSize(:,1)=atan(positions(:,1)/quad_.ABCD(4)).*isornot; 
+            
             angleSize(:,2)=atan(positions(:,2)/quad_.ABCD(4)).*isornot ;
+            
             angleSize(:,3)=atan(sqrt(positions(:,1).^2+positions(:,2).^2)/quad_.ABCD(4)).*isornot;
+            
 end
 
 

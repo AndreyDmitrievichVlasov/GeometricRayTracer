@@ -40,8 +40,8 @@ radialDG = convertQuad2RadialDG(radialDG, 0.022, -1, 0, 10^10);
 [ slit] =  convertQuad2Sphere(slit,10^10);
 schema={};
 
-sequensce=[ 1 2 3 10 5 6 7 8];
-% sequensce=[ 1 2 3 5 6 7 8];
+% sequensce=[ 1 2 3 10 5 6 7 8];
+sequensce=[ 1 2 3 5 6 7 8];
 
 % sequensce=[ 8];
 % sequensce=[ 1 2 3 5 6 7 8];
