@@ -25,7 +25,7 @@ ofsett= 42.1577;
 radialDG = flatQuad('aperture', [8 8 0],'apertureType',1,'position',[0 0 position+ofsett+1]);
 
 % radialDG = flatQuad( [8 8 0],1,[0 0 0],[0 0 position+ofsett+1]);
-radialDG = convertQuad2RadialDG(radialDG, 0.022, -1, 0, 10^10);
+radialDG = convertQuad2RadialDG(radialDG, 0.032, -1, 0, 10^10);
 
 [ axicon ] =getLens( 'aperture',4,'tickness', 1,'r1', 10^10,'r2', 10^10,'material','SK16');%; getAxicon( 4, 2,[4 4 1],'SK16');% getLens( 4, 2, 10^10, 10^10,'SK16');%; 
 
@@ -40,8 +40,8 @@ radialDG = convertQuad2RadialDG(radialDG, 0.022, -1, 0, 10^10);
 [ slit] =  convertQuad2Sphere(slit,10^10);
 schema={};
 
-% sequensce=[ 1 2 3 10 5 6 7 8];
-sequensce=[ 1 2 3 5 6 7 8];
+sequensce=[ 1 2 3 10 5 6 7 8];
+% sequensce=[ 1 2 3 5 6 7 8];
 
 % sequensce=[ 8];
 % sequensce=[ 1 2 3 5 6 7 8];

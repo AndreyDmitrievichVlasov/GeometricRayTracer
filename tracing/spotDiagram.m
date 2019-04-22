@@ -84,28 +84,6 @@ function isornot=isInsideArray(pos,q)
  end
  return;
 end
-%% Error is in function below
-function [raysMap, waveLngthKeys]= getRaysSeparatedByWaveLength(rays)
-raysMap= containers.Map('KeyType','double','ValueType','any');
- 
-    for i=1:size(rays,1)
-        if ~isKey(raysMap,rays(i,9));
-            raysMap(rays(i,9))=rays(i,:);
-            continue;
-        end
-        raysMap(rays(i,9))=[raysMap(rays(i,9));rays(i,:)];
-   end
-    waveLngthKeys=keys(raysMap);
-end
-
-%function isornot=isIn_array(pos,bounds)
-%    isornot=((pos(:,1)<=bounds(3)).*(pos(:,1)>=bounds(1)).*...
-%             (pos(:,2)<=bounds(4)).*(pos(:,2)>=bounds(2)) );
-%end
-%function isornot=isIn(pos,bounds)
-%    isornot=(pos(1)<=bounds(3)&&pos(1)>=bounds(1)&&...
-%             pos(2)<=bounds(4)&&pos(2)>=bounds(2) );
-%end
 
 function  rotX = xRotMat(angle)
 rotX =[[1 0               0              0];...
