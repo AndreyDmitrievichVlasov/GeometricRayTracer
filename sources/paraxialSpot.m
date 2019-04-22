@@ -7,8 +7,8 @@ M=256;
 RGB=[630 510 450]/1000;%wavelength in micrometers
 
 RGB_colors=[[0 1 1];
-            [1 0 1];
-            [1 1 0]];
+                    [1 0 1];
+                    [1 1 0]];
         
 if length(R)==1
 x=-R:2*R/(N-1):R;
