@@ -1,23 +1,41 @@
-function [ x_spot,y_spot,colors,angleSize] = drawSpotDiagram(fig_handler,quad_,rays)
+function drawSpotDiagram(fig_handler,PSFData,quad_)
 %DRAWSPOTDIAGRAM Summary of this function goes here
 %   Detailed explanation goes here
 %     fig_handler=figure('Units', 'centimeters', 'pos',  [0 0 dimension(1) dimension(2)]);
 %     axis vis3d 
 %     set(fig_handler,'DefaultAxesFontSize',10,'DefaultAxesFontName','Times New Roman');
 %     set(fig_handler,'DefaultTextFontSize',10,'DefaultTextFontName','Times New Roman');
-tic
-[x_spot,y_spot,colors,angleSize,waveLngthKeys,RMS,AverageGeo]=spotDiagram(quad_,rays);
-toc
+% tic
+% [x_spot,y_spot,colors,angleSize,waveLngthKeys,RMS,AverageGeo]=spotDiagram(quad_,rays);
+% toc
+spacing = [3 length(PSFData.WaveLengths)/3];
 
+modSpacing=(spacing(2))-floor(spacing (2));
 
-DrawSpot(x_spot{1},y_spot{1},colors{1},waveLngthKeys{1},RMS{1},AverageGeo{1},{3 ,3, 1},quad_);   
+if modSpacing~=0
+    spacing(2)=floor(spacing(2))+1;
+end
+
+allSpotsIdx=[spacing(2)+1 spacing(2)+6];
+
+spacing(2)=spacing(2)+2;
+for i=1:length(PSFData.WaveLengths)
+    %('PSFLayers',{}, 'SpotDiagrammLayers',{},'WaveLengths',{},'RMS',{},'AvgR',{},'Centroid',{});
+DrawSpot(PSFData.SpotDiagrammLayers{i}(:,1),PSFData.SpotDiagrammLayers{1}(:,2),...
+         PSFData.SpotDiagrammLayers{i}(:,3:5),PSFData.WaveLengths{i},...
+         PSFData.RMS{i},PSFData.AvgR{i},{spacing(1) ,spacing(2), i},quad_);
 DrawQuadSpotDiagramm(quad_);
-DrawSpot(x_spot{2},y_spot{2},colors{2},waveLngthKeys{2},RMS{1},AverageGeo{1},{3 ,3, 2},quad_);   
-DrawQuadSpotDiagramm(quad_);
-DrawSpot(x_spot{3},y_spot{3},colors{3},waveLngthKeys{3},RMS{1},AverageGeo{1},{3 ,3, 3},quad_);   
-DrawQuadSpotDiagramm(quad_);
-DrawSpot(x_spot,y_spot,colors,waveLngthKeys,RMS,AverageGeo,{3 ,3, 4:9},quad_);   
-DrawQuadSpotDiagramm(quad_);
+
+end
+% (length(PSFData.WaveLengths)+1):(length(PSFData.WaveLengths)+6)
+
+% for i=length(PSFData.WaveLengths)
+%     %('PSFLayers',{}, 'SpotDiagrammLayers',{},'WaveLengths',{},'RMS',{},'AvgR',{},'Centroid',{});
+% DrawSpot(PSFData.SpotDiagrammLayers{i}(:,1),PSFData.SpotDiagrammLayers{1}(:,2),...
+%          PSFData.SpotDiagrammLayers{i}(:,3:5),PSFData.WaveLengths{i},...
+%          PSFData.RMS{i},PSFData.AvgR{i},{spacing(1) ,spacing(2), allSpotsIdx},quad_);
+% DrawQuadSpotDiagramm(quad_);
+% end
 
 end
 function DrawQuadSpotDiagramm(quad_)
@@ -56,24 +74,43 @@ if iscell(x_spot)
         if length(x_spot)~=length(y_spot)
               disp('error in spot diagram drawning');return;
         end
-    for j=1:length(x_spot)
-            if length(x_spot{j})>5500
-            for i=1:5500
-                idx=1+randi(length(x_spot{j})-1);
-                if~(norm(colors{j}(idx,:)-[0.05 0.05 0.05])<=0.05)
-                plot(x_spot{j}(idx),y_spot{j}(idx),'.','color',1-colors{j}(idx,:));
-                end
-           end
-
-            else
-                for i=1:length(x_spot{j})
-                    if~(norm(colors{j}(i,:)-[0.05 0.05 0.05])<=0.05)
-                    plot(x_spot{j}(i),y_spot{j}(i),'.','color',1-colors{j}(i,:));
-                    end
-                end
-            end
-    end
+         for j=1:length(x_spot)
+            patch([x_spot{j} ;0],[y_spot{j}; nan],'EdgeColor','none','Marker','o','MarkerFaceColor','flat');
+        end
+%     for j=1:length(x_spot)
+%             if length(x_spot{j})>5500
+%             for i=1:5500
+%                 idx=1+randi(length(x_spot{j})-1);
+%                 if~(norm(colors{j}(idx,:)-[0.05 0.05 0.05])<=0.05)
+%                 plot(x_spot{j}(idx),y_spot{j}(idx),'.','color',1-colors{j}(idx,:));
+%                 end
+%            end
+% 
+%             else
+%                 for i=1:length(x_spot{j})
+%                     if~(norm(colors{j}(i,:)-[0.05 0.05 0.05])<=0.05)
+%                     plot(x_spot{j}(i),y_spot{j}(i),'.','color',1-colors{j}(i,:));
+%                     end
+%                 end
+%             end
+%     end
 else
+    
+%     a = [[0 1 1];[1 0 1];[1 1 0]];
+%     
+%     cMap(:,1,1)=1-colors(:,1);
+%     cMap(:,1,2)=1-colors(:,2);
+%     cMap(:,1,3)=1-colors(:,3);
+%     
+% % size(cMap)v
+% % imagesc(cMap)
+%     [cMap, map]=rgb2ind((cMap),a);
+% color
+% %     cMap
+%     
+% p = patch([x_spot ;0],[y_spot; nan],[cMap(:,1); 0],'EdgeColor','none','Marker','o','MarkerFaceColor','flat');
+% % get(p)
+% colormap(a);
     if length(x_spot)>5500
         for i=1:5500
             idx=1+randi(length(x_spot)-1);

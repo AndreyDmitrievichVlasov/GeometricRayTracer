@@ -25,7 +25,7 @@ ofsett= 42.1577;
 radialDG = flatQuad('aperture', [8 8 0],'apertureType',1,'position',[0 0 position+ofsett+1]);
 
 % radialDG = flatQuad( [8 8 0],1,[0 0 0],[0 0 position+ofsett+1]);
-radialDG = convertQuad2RadialDG(radialDG, 0.005, 1, 0, 10^10);
+radialDG = convertQuad2RadialDG(radialDG, 0.015, -1, 0, 10^10);
 
 [ axicon ] =getLens( 'aperture',4,'tickness', 1,'r1', 10^10,'r2', 10^10,'material','SK16');%; getAxicon( 4, 2,[4 4 1],'SK16');% getLens( 4, 2, 10^10, 10^10,'SK16');%; 
 
@@ -65,7 +65,7 @@ schema{11}=detector1;
 % DG_flat=convertQuad2DG(DG_flat,0.032, 1, 0, 10^10);
 % schema{5}=DG_flat;
 
-% LED_source=paraxialSpot([0 0 -50],[4.95 5],'coloredCheceker.png');
+%   LED_source=paraxialSpot([0 0 -50],[4.95 5],'coloredCheceker.png');
 LED_source=paraxialSpot([0 0 -50],[4.95 5]);
 % as array
 % [ raysIn, raysMiddle, raysOut ] = traceThroughSystem( LED_source, schema);
@@ -82,10 +82,13 @@ drawRays(fig_1,[ raysOut]);
 % plot2svg('full_schema_.svg');
 % drawRays(fig_1,[rays_in; rays_middle; rays_out_]);
 % 
-fig_2=figure(2);
-[~,~,~,~]=drawSpotDiagram(fig_2,schema{11},raysOut);
+[ PSF] = getPSFData( raysOut,schema{11},512,512);
 
-fig_3=figure(3);
-[ intensity,x ,y ] = quadIntencity( schema{11},raysOut,512,512);
-imagesc(x,y,intensity');
-axis equal;
+fig_2=figure(2);
+drawSpotDiagram(fig_2,PSF,schema{11});
+% [~,~,~,~]=drawSpotDiagram(fig_2,schema{11},raysOut);
+% 
+% fig_3=figure(3);
+% [ intensity,x ,y ] = quadIntencity( schema{11},raysOut,512,512);
+% imagesc(x,y,intensity');
+% axis equal;
