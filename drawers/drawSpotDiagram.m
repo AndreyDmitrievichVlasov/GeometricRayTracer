@@ -16,26 +16,26 @@ if modSpacing~=0
     spacing(2)=floor(spacing(2))+1;
 end
 
-allSpotsIdx=[spacing(2)+1 spacing(2)+6];
+allSpotsIdx=[length(PSFData.WaveLengths)+1 length(PSFData.WaveLengths)+6];
 
 spacing(2)=spacing(2)+2;
 for i=1:length(PSFData.WaveLengths)
     %('PSFLayers',{}, 'SpotDiagrammLayers',{},'WaveLengths',{},'RMS',{},'AvgR',{},'Centroid',{});
-DrawSpot(PSFData.SpotDiagrammLayers{i}(:,1),PSFData.SpotDiagrammLayers{1}(:,2),...
-         PSFData.SpotDiagrammLayers{i}(:,3:5),PSFData.WaveLengths{i},...
+DrawSpot(PSFData.XSpot{i},PSFData.YSpot{i},...
+         PSFData.SpotColor{i},PSFData.WaveLengths{i},...
          PSFData.RMS{i},PSFData.AvgR{i},{spacing(1) ,spacing(2), i},quad_);
 DrawQuadSpotDiagramm(quad_);
 
 end
 % (length(PSFData.WaveLengths)+1):(length(PSFData.WaveLengths)+6)
 
-% for i=length(PSFData.WaveLengths)
-%     %('PSFLayers',{}, 'SpotDiagrammLayers',{},'WaveLengths',{},'RMS',{},'AvgR',{},'Centroid',{});
-% DrawSpot(PSFData.SpotDiagrammLayers{i}(:,1),PSFData.SpotDiagrammLayers{1}(:,2),...
-%          PSFData.SpotDiagrammLayers{i}(:,3:5),PSFData.WaveLengths{i},...
-%          PSFData.RMS{i},PSFData.AvgR{i},{spacing(1) ,spacing(2), allSpotsIdx},quad_);
-% DrawQuadSpotDiagramm(quad_);
-% end
+%  for i=length(PSFData.WaveLengths)
+     %('PSFLayers',{}, 'SpotDiagrammLayers',{},'WaveLengths',{},'RMS',{},'AvgR',{},'Centroid',{});
+ DrawSpot(PSFData.XSpot,PSFData.YSpot,...
+          PSFData.SpotColor,PSFData.WaveLengths,...
+          PSFData.RMS,PSFData.AvgR,{spacing(1) ,spacing(2), allSpotsIdx},quad_);
+ DrawQuadSpotDiagramm(quad_);
+%  end
 
 end
 function DrawQuadSpotDiagramm(quad_)
@@ -74,26 +74,26 @@ if iscell(x_spot)
         if length(x_spot)~=length(y_spot)
               disp('error in spot diagram drawning');return;
         end
-         for j=1:length(x_spot)
-            patch([x_spot{j} ;0],[y_spot{j}; nan],'EdgeColor','none','Marker','o','MarkerFaceColor','flat');
-        end
-%     for j=1:length(x_spot)
-%             if length(x_spot{j})>5500
-%             for i=1:5500
-%                 idx=1+randi(length(x_spot{j})-1);
-%                 if~(norm(colors{j}(idx,:)-[0.05 0.05 0.05])<=0.05)
-%                 plot(x_spot{j}(idx),y_spot{j}(idx),'.','color',1-colors{j}(idx,:));
-%                 end
-%            end
-% 
-%             else
-%                 for i=1:length(x_spot{j})
-%                     if~(norm(colors{j}(i,:)-[0.05 0.05 0.05])<=0.05)
-%                     plot(x_spot{j}(i),y_spot{j}(i),'.','color',1-colors{j}(i,:));
-%                     end
-%                 end
-%             end
-%     end
+%          for j=1:length(x_spot)
+%             patch([x_spot{j} ;0],[y_spot{j}; nan],'EdgeColor','none','Marker','o','MarkerFaceColor','flat');
+%         end
+    for j=1:length(x_spot)
+            if length(x_spot{j})>5500
+            for i=1:5500
+                idx=1+randi(length(x_spot{j})-1);
+                if~(norm(colors{j}(idx,:)-[0.05 0.05 0.05])<=0.05)
+                plot(x_spot{j}(idx),y_spot{j}(idx),'.','color',1-colors{j}(idx,:));
+                end
+           end
+
+            else
+                for i=1:length(x_spot{j})
+                    if~(norm(colors{j}(i,:)-[0.05 0.05 0.05])<=0.05)
+                    plot(x_spot{j}(i),y_spot{j}(i),'.','color',1-colors{j}(i,:));
+                    end
+                end
+            end
+    end
 else
     
 %     a = [[0 1 1];[1 0 1];[1 1 0]];

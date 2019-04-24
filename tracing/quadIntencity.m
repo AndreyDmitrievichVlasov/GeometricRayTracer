@@ -47,7 +47,7 @@ intensity=zeros(M+4,N+4);
              x_s=tileG+tile(1,M+4,3+(positions(1)+L/2)/L*M);
              y_s=tileG+tile(1,N+4,3+(positions(2)+H/2)/H*N);
              intence=sum(Rays(i,4:6).*quad_.ABCD(1:3));
-             if~(intence)<0.0001
+             if~(intence)<0.001
              intensity(x_s,y_s)=intensity(x_s,y_s) + abs(Rays(i,10)*intence)*gaussCore;
              xyCol=[xyCol;[positions(1) positions(2) intence*Rays(i,11:13)]];
              end
