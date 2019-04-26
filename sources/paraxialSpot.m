@@ -2,8 +2,8 @@ function [ rays ] = paraxialSpot( r0, R, varargin)
 %LED Summary of this function goes here
 %   Detailed explanation goes here
 % R=1;
-N=20;
-M=1024;
+N=128;
+M=128;
 RGB=[600 500 400]/1000;%wavelength in micrometers
 
 RGB_colors=[[0 1 1];
@@ -38,10 +38,14 @@ else
                        % ������������� ����� ������� ������ �� ��������� ���������
                        % ��������������, ��� ��� ������� ������������� ����� -80 ���� �
                        % 80 ����.
-                         rays=[rays; [r0+rho(i)*[cos(phi(j)) sin(phi(j)) 0],...
-                                      [0 0 1],0,1.0,RGB(k),0,RGB_colors(k,:)]];
-                         rays(size(rays,1),10) = checkerPattern(5,5,rays(size(rays,1),1),rays(size(rays,1),2));
-                         rays(size(rays,1),11:13) = rays(size(rays,1),11:13)*rays(size(rays,1),10);
+                       RHO = rho(i)*[cos(phi(j)) sin(phi(j)) 0];
+                       rays=[rays; [r0+RHO,[0 0 1],0,1.0,RGB(k),0,RGB_colors(k,:)]];
+                       intence=sqrt(sum(RHO.*RHO))/R(2);
+                       if intence>1
+                           intence=1;
+                       end
+                       rays(size(rays,1),10) =intence*checkerPattern(5,5,rays(size(rays,1),1),rays(size(rays,1),2));
+                       rays(size(rays,1),11:13) = rays(size(rays,1),11:13)*rays(size(rays,1),10);
 
                 end
             end
@@ -80,7 +84,7 @@ end
 
 function intencity = checkerPattern(T_x,T_y,pos_X,pos_Y)
 % intencity = 0.5*(1+sign(sin(T_x*pos_X).*cos(T_y*pos_Y)));
-intencity = 0.5*(1+sign(cos(T_y*pos_Y)));
+intencity = 1;%0.5*(1+sign(cos(T_y*pos_Y)));
 % intencity = 0.5*(1+sign(sin(T_x*pos_X)));
 
 end
