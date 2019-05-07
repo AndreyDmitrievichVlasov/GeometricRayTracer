@@ -65,8 +65,8 @@ schema{11}=detector1;
 % DG_flat=convertQuad2DG(DG_flat,0.032, 1, 0, 10^10);
 % schema{5}=DG_flat;
 
-% LED_source=paraxialSpot([0 0 -50],[4.95 5],'coloredCheceker.png');
-LED_source=paraxialSpot([0 0 -50],[4.95 5]);
+  LED_source=paraxialSpot([0 0 -50],[4.95 5],'coloredCheceker.png');
+% LED_source=paraxialSpot([0 0 -50],[4.95 5]);
 % as array
 % [ raysIn, raysMiddle, raysOut ] = traceThroughSystem( LED_source, schema);
 % as sequence
@@ -82,10 +82,13 @@ drawRays(fig_1,[ raysOut]);
 % plot2svg('full_schema_.svg');
 % drawRays(fig_1,[rays_in; rays_middle; rays_out_]);
 % 
-fig_2=figure(2);
-[~,~,~,~]=drawSpotDiagram(fig_2,schema{11},raysOut);
+[ PSF] = getPSFData( raysOut,schema{11},512,512);
 
-fig_3=figure(3);
-[ intensity,x ,y ] = quadIntencity( schema{11},raysOut,512,512);
-imagesc(x,y,intensity');
-axis equal;
+fig_2=figure(2);
+drawSpotDiagram(fig_2,PSF,schema{11});
+% [~,~,~,~]=drawSpotDiagram(fig_2,schema{11},raysOut);
+% 
+% fig_3=figure(3);
+% [ intensity,x ,y ] = quadIntencity( schema{11},raysOut,512,512);
+% imagesc(x,y,intensity');
+% axis equal;

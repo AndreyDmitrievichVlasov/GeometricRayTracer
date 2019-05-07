@@ -38,10 +38,14 @@ else
                        % ������������� ����� ������� ������ �� ��������� ���������
                        % ��������������, ��� ��� ������� ������������� ����� -80 ���� �
                        % 80 ����.
-                         rays=[rays; [r0+rho(i)*[cos(phi(j)) sin(phi(j)) 0],...
-                                      [0 0 1],0,1.0,RGB(k),0,RGB_colors(k,:)]];
-                         rays(size(rays,1),10) = checkerPattern(5,5,rays(size(rays,1),1),rays(size(rays,1),2));
-                         rays(size(rays,1),11:13) = rays(size(rays,1),11:13)*rays(size(rays,1),10);
+                       RHO = rho(i)*[cos(phi(j)) sin(phi(j)) 0];
+                       rays=[rays; [r0+RHO,[0 0 1],0,1.0,RGB(k),0,RGB_colors(k,:)]];
+                       intence=sqrt(sum(RHO.*RHO))/R(2);
+                       if intence>1
+                           intence=1;
+                       end
+                       rays(size(rays,1),10) =intence*checkerPattern(5,5,rays(size(rays,1),1),rays(size(rays,1),2));
+                       rays(size(rays,1),11:13) = rays(size(rays,1),11:13)*rays(size(rays,1),10);
 
                 end
             end
