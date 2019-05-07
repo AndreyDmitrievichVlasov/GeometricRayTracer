@@ -119,7 +119,7 @@ function raysOut = DifractCircular(raysIn, normal, sufCentr,difOrder, ticksDenci
            
     ray_dir_dg_space = ArrayOfMatrixMultByArrayOfVectors(T,B,N,raysIn(:,4:6));
 
-    difraction_angle =  difOrder*10^-3*raysIn(:,9)/ticksDencity-sqrt(1 - ray_dir_dg_space(:,3).^2);
+    difraction_angle =  difOrder*10^-2*raysIn(:,9)/ticksDencity-sqrt(1 - ray_dir_dg_space(:,3).^2);
     
     rho=sqrt(ray_dir_dg_space(:,1).^2+ray_dir_dg_space(:,3).^2);
 

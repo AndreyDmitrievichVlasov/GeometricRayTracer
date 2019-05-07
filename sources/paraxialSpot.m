@@ -2,9 +2,9 @@ function [ rays ] = paraxialSpot( r0, R, varargin)
 %LED Summary of this function goes here
 %   Detailed explanation goes here
 % R=1;
-N=10;
-M=256;
-RGB=[630 510 450]/1000;%wavelength in micrometers
+N=1;
+M=1000;
+RGB=[750 650 550]/1000;%wavelength in micrometers
 
 RGB_colors=[[0 1 1];
                     [1 0 1];
@@ -80,7 +80,7 @@ end
 
 function intencity = checkerPattern(T_x,T_y,pos_X,pos_Y)
 % intencity = 0.5*(1+sign(sin(T_x*pos_X).*cos(T_y*pos_Y)));
-intencity = 0.5*(1+sign(cos(T_y*pos_Y)));
+intencity = 1;%0.5*(1+sign(cos(T_y*pos_Y)));
 % intencity = 0.5*(1+sign(sin(T_x*pos_X)));
 
 end
