@@ -65,8 +65,8 @@ schema{11}=detector1;
 % DG_flat=convertQuad2DG(DG_flat,0.032, 1, 0, 10^10);
 % schema{5}=DG_flat;
 
-  LED_source=paraxialSpot([0 0 -50],[4.95 5],'coloredCheceker.png');
-% LED_source=paraxialSpot([0 0 -50],[4.95 5]);
+%   LED_source=paraxialSpot([0 0 -50],[4.95 5],'coloredCheceker.png');
+LED_source=paraxialSpot([0 0 -50],[4.99 5]);
 % as array
 % [ raysIn, raysMiddle, raysOut ] = traceThroughSystem( LED_source, schema);
 % as sequence
