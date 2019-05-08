@@ -133,7 +133,7 @@ end
  
  
   for i=1:length(legend_map) 
-      text(-4,1+(i-1)*0.75,legend_map{i},'Color',col(i,:));
+      text(-4,1+(i-1)*0.75,legend_map{i},'Color',col(length(legend_map)-i+1,:));
   end
 
  
