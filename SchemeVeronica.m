@@ -84,8 +84,8 @@ drawRays(fig_1,[ raysOut]);
 % 
 [ PSF] = getPSFData( raysOut,schema{11},512,512);
 
-fig_2=figure(2);
-drawSpotDiagram(fig_2,PSF,schema{11});
+ 
+drawSpotDiagram(PSF,schema{11});
 % [~,~,~,~]=drawSpotDiagram(fig_2,schema{11},raysOut);
 % 
 % fig_3=figure(3);

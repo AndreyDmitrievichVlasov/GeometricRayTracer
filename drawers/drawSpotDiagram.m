@@ -1,4 +1,4 @@
-function drawSpotDiagram(fig_handler,PSFData,quad_)
+function drawSpotDiagram(PSFData,quad_)
 %DRAWSPOTDIAGRAM Summary of this function goes here
 %   Detailed explanation goes here
 %     fig_handler=figure('Units', 'centimeters', 'pos',  [0 0 dimension(1) dimension(2)]);
@@ -16,28 +16,37 @@ if modSpacing~=0
     spacing(2)=floor(spacing(2))+1;
 end
 
+fig_1=figure(1);
+
 allSpotsIdx=[length(PSFData.WaveLengths)+1 length(PSFData.WaveLengths)+6];
 
 spacing(2)=spacing(2)+2;
+
+%% Drawning spot diagramm 
 for i=1:length(PSFData.WaveLengths)
-    %('PSFLayers',{}, 'SpotDiagrammLayers',{},'WaveLengths',{},'RMS',{},'AvgR',{},'Centroid',{});
 DrawSpot(PSFData.XSpot{i},PSFData.YSpot{i},...
          PSFData.SpotColor{i},PSFData.WaveLengths{i},...
          PSFData.RMS{i},PSFData.AvgR{i},{spacing(1) ,spacing(2), i},quad_);
 DrawQuadSpotDiagramm(quad_);
 
 end
-% (length(PSFData.WaveLengths)+1):(length(PSFData.WaveLengths)+6)
-
-%  for i=length(PSFData.WaveLengths)
-     %('PSFLayers',{}, 'SpotDiagrammLayers',{},'WaveLengths',{},'RMS',{},'AvgR',{},'Centroid',{});
  DrawSpot(PSFData.XSpot,PSFData.YSpot,...
           PSFData.SpotColor,PSFData.WaveLengths,...
           PSFData.RMS,PSFData.AvgR,{spacing(1) ,spacing(2), allSpotsIdx},quad_);
  DrawQuadSpotDiagramm(quad_);
-%  end
+%% Drawning intencity diagramm
+fig_2=figure(2);
 
+for i=1:length(PSFData.WaveLengths)
+DrawIntencity(PSFData.WaveLengths{i},...
+         PSFData.RMS{i},PSFData.AvgR{i},PSFData.PSFLayers{i},{spacing(1) ,spacing(2), i},quad_);
+DrawQuadSpotDiagramm(quad_);
 end
+DrawIntencity(PSFData.WaveLengths ,...
+         PSFData.RMS ,PSFData.AvgR ,PSFData.PSFLayers ,{spacing(1) ,spacing(2), allSpotsIdx},quad_);
+DrawQuadSpotDiagramm(quad_);
+end
+
 function DrawQuadSpotDiagramm(quad_)
   hold on;
  if quad_.apertureType==1 % rectangular aperture
@@ -131,6 +140,68 @@ end
  H2=quad.apertureData(2)/2;
  col=[[1 0 0];[0 1 0];[0 0 1]];
  
+ 
+  for i=1:length(legend_map) 
+      text(-4,1+(i-1)*0.75,legend_map{i},'Color',col(length(legend_map)-i+1,:));
+  end
+
+ 
+    hold off;
+    grid on;
+    axis equal;
+    xlabel('x, [ mm ]');
+    ylabel('y, [ mm ]');  
+end
+
+
+
+
+
+function DrawIntencity(wLength,RMS,AverageGEO,PSFLayers,position,quad_)
+subplot(position{1},position{2},position{3})
+hold on;
+wl='';
+legend_map={};
+%% Legend init
+if length(wLength)~=1
+    for i=1:length(wLength)
+        wl = [wl,'  \lambda = ',num2str(wLength{i}),' \mum'];
+        legend_map{i}=['  \lambda = ',num2str(wLength{i}),' \mum', ' RMS = ',num2str(RMS{i}),' GEO = ',num2str(AverageGEO{i})];
+    end
+else
+   wl = [wl,'  \lambda = ',num2str(wLength),' \mum']; 
+%    legend_map={['  \lambda = ',num2str(wLength),' \mum'],[ ' RMS = ',num2str(RMS)],[' GEO = ',num2str(AverageGEO)]};
+end
+
+
+title(['Spot diagramm for ',wl]);
+
+
+if iscell(PSFLayers)
+x_s=linspace(-quad_.apertureData(1)/2,quad_.apertureData(1)/2,size(PSFLayers{1},2));
+y_s=linspace(-quad_.apertureData(2)/2,quad_.apertureData(2)/2,size(PSFLayers{1},1));
+intencityMap=zeros(size(PSFLayers{1}));
+    for i=1:length(PSFLayers)
+        intencityMap=intencityMap+PSFLayers{i};
+    end
+    imagesc(x_s,y_s,intencityMap);
+    xlim([-quad_.apertureData(1)/2,quad_.apertureData(1)/2]);
+    
+    ylim([-quad_.apertureData(2)/2,quad_.apertureData(2)/2]);
+
+else
+    x_s=linspace(-quad_.apertureData(1)/2,quad_.apertureData(1)/2,size(PSFLayers,2));
+    y_s=linspace(-quad_.apertureData(2)/2,quad_.apertureData(2)/2,size(PSFLayers,1));
+   
+    imagesc(x_s,y_s,PSFLayers);
+    xlim([-quad_.apertureData(1)/2,quad_.apertureData(1)/2]);
+    
+    ylim([-quad_.apertureData(2)/2,quad_.apertureData(2)/2]);
+end
+
+
+  col=[[1 0 0];[0 1 0];[0 0 1]];
+    
  
   for i=1:length(legend_map) 
       text(-4,1+(i-1)*0.75,legend_map{i},'Color',col(length(legend_map)-i+1,:));
