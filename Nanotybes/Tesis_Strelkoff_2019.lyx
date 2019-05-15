@@ -1,0 +1,5269 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass extbook
+\use_default_options true
+\begin_modules
+figs-within-sections
+tabs-within-sections
+eqs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language russian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 14
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 1.5cm
+\rightmargin 1cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Моделирование оптических приборов на основе квантовых нанотрубок 
+\end_layout
+
+\begin_layout Author
+Стрелков Юрий Станиславович 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Свойства квантовых нанотрубок
+\end_layout
+
+\begin_layout Chapter
+Математический аппарат
+\end_layout
+
+\begin_layout Standard
+Квантовые нанотрубки демонстрируют целый спектр самых неожиданных физических
+ свойств, открывающих широкие возможности для их применения в технике.
+ Исследование электронного строения (зонной структуры) квантовых трубок
+ позволяет позволяет определить тип проводимости, оптические свойства, для
+ полупроводниковых трубок — ширину запрещенной зоны, и ряд других электрофизичес
+ких свойств.
+ Рассмотренные в данной главе математические методы в дальнейшем будут применены
+ для расчета как полупроводниковых квантовых проводов и нанотрубок, так
+ и для моделирования электрических и оптических свойств наноуглеродных трубок,
+ которые благодаря своим уникальным физическим свойствам нашли многочисленные
+ научные применения и впоследствие будут использованы для производства электронн
+ых компонентов электронники будущего.
+ 
+\end_layout
+
+\begin_layout Section
+Метод присоединенных цилиндрических волн
+\end_layout
+
+\begin_layout Subsection
+Постановка задачи
+\end_layout
+
+\begin_layout Standard
+Углеродные нанотрубки были обнаружены Ииджимой в 1991 году как побочные
+ продукты синтеза фуллеренов [1].
+ Нанотрубки демонстрируют целый спектр самых неожиданных физических свойств,
+ открывающих широкие возможности для их применения в технике.
+ Исследование электронного строения (зонной структуры) нанотрубок позволяет
+ определить тип проводимости, оптические свойства, для полупроводниковых
+ трубок — ширину запрещенной зоны, и ряд других электрофизических свойств.
+ Один из первых расчетов зонной структуры углеродных нанотрубок был произведен
+ в 1992 году в работе [2].
+ В данной работе излагается метод линеаризованных присоединенных цилиндрических
+ волн (ЛПЦВ) — метод расчета из первых принципов (ab initio) электронной
+ структуры атомных систем, имеющих лишь одну трасляционную ось симметрии
+ (нанотрубоки, нанопровода).
+ Предлагаемый нами вариант метода ЛПЦВ отличается от формулировки [3, 4],
+ исторически восходящей от объемного метода ЛППВ [5].
+ В [3, 4] полагают, что на внутренней и внешней цилиндрических поверхностях
+ трубки существует бесконечный потенциальный барьер, в результате чего волновая
+ функция на этих поверхностях обращается в ноль и не проникает в вакуумные
+ вакуумные области, т.е.
+ движение электронов там запрещено.
+ Положения внутренней и внешней поверхностей (радиусы a и b на рис.
+ .
+ 1) являются в [3, 4] варьируемыми параметрами и выбираются из условия совпадени
+я ширины валентной зоны в полученной зонной структуре нанотрубки с шириной
+ валентной зоны графита 22 эВ.
+ В нашей формулировке метода ЛПЦВ эти нефизические ограничения сняты.
+ По аналогии с пленочным методом ЛППВ [6], мы вводим в рассмотрение вакуумные
+ области — области пространства вне цилиндрических поверхностей трубки.
+ В работе излагается формализм метода ЛПЦВ, обсуждается оптимальный выбор
+ параметров расчета и приводятся результаты расчета зонной структуры углеродных
+ нанотрубок ЛПЦВ и решении уравнения Шредингера делается предположение о
+ том, что потенциал имеет так называемую цилиндрическую muffinn-tin (MT)
+ форму.
+ В этом приближении атомы трубки окружаются непересекающимися атомными сферами,
+ и пространство разделяется на области трех типов: 
+\end_layout
+
+\begin_layout Enumerate
+области 
+\begin_inset Formula $W_{s}$
+\end_inset
+
+ внутри MT сфер радиуса 
+\begin_inset Formula $r_{s}$
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Enumerate
+центрированных атомами сорта s; 
+\end_layout
+
+\begin_layout Enumerate
+область 
+\begin_inset Formula $W_{I}$
+\end_inset
+
+ вне MT сфер между внутренней и внешней цилиндрическими поверхностями трубки
+ — так называемая промежуточная область;
+\end_layout
+
+\begin_layout Enumerate
+две вакуумные области 
+\begin_inset Formula $W_{v}$
+\end_inset
+
+ вне цилиндрических поверхностей трубки — внутренняя 
+\begin_inset Formula $W_{i}$
+\end_inset
+
+ и внешняя 
+\begin_inset Formula $W_{o}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Каждая из этих областей характеризуется своим видом одноэлектронного потенциала.
+ Внутри MT сфер потенциал сферически симметричен; в промежуточной области
+ потенциал постоянен; в вакуумных областях потенциал цилиндрически симметричен.
+ Таким образом, потенциал имеет вид:
+\end_layout
+
+\begin_layout Standard
+где 
+\begin_inset Formula $t_{s}$
+\end_inset
+
+ — базисный вектор, указывающий положение атома сорта s в элементарной ячейке.
+\end_layout
+
+\begin_layout Standard
+Рис.
+ 1 поясняет введенные обозначения и иллюстрирует ход кристаллического потенциала.
+ Отметим, что потенциал в цилиндрической muffin-tin форме используется лишь
+ при построении базисных функций.
+ Определив систему базисных функций, мы можем использовать потенциал общего
+ вида при построении матричных элементов гамильтониана.
+ Рассмотрим вид базисной функции в каждой из трех указанных выше областей.
+\end_layout
+
+\begin_layout Subsection
+БАЗИСНЫЕ ФУНКЦИИ МЕТОДА ЛПЦВ 
+\end_layout
+
+\begin_layout Standard
+В промежуточной области базисная функция удовлетворяет уравнению Шредингера
+ для свободной частицы.
+ Внутри МТ-сфер и в вакуумных областях, по аналогии с объемным [5] и пленочным
+ [6] методом ЛППВ, базисная функция берется как линейная комбинация решения
+ уравнения Шредингера и его энергетической производной.
+ Уравнение Шредингера внутри МТ-сфер и в вакуумных областях решается при
+ фиксированных значениях энергии, являющихся параметрами расчета.
+ Сшивая полученные функции и их нормальные производные на поверхностях МТ-сфер
+ и на цилиндрических поверхностях трубки, получим всюду непрерывную и дифференци
+руемую базисную функцию.
+\end_layout
+
+\begin_layout Standard
+2.5.
+ Метод линеаризованных присоединенных цилиндрических волн (ЛПЦВ) в теории
+ нанотрубок
+\end_layout
+
+\begin_layout Standard
+Предыдущий материал являлся, по существу, кратким и неизбежно поверхностным
+ обзором истории открытия, строения,свойств и возможных технических приложений
+ нанотрубок.
+ Здесь будет рассмотрен реализованный нами метод линеаризованных присоединенных
+ цилиндрических волн (ЛПЦВ) для расчета электронного строения нанотрубок
+ [277–283].
+\end_layout
+
+\begin_layout Standard
+В химическом плане, возможно, самые необычные свойства нанотрубок связаны
+ с наличием полого канала вдоль оси трубки по всей ее длине.
+ Путем легирования нанотрубок можно синтезировать материалы с новыми свойствами.
+ Заполненные металлом углеродные нанотрубки получают
+\end_layout
+
+\begin_layout Standard
+электродуговым методом в присутствии катализатора.
+ Ряд металлов внутри нанотрубки образует нанопровода постоянного диаметра,
+ ориентированные вдоль оси трубки и проходящие по всей ее длине [284].
+\end_layout
+
+\begin_layout Standard
+Электронная структура чисто углеродных нанотрубок, как отмечалось, первоначально
+ была изучена в рамках метода МО ЛКАО в 
+\begin_inset Formula $\varPi$
+\end_inset
+
+-электронном приближении и приближении функционала локальной плотности.
+ Однако метод ЛКАО не вполне пригоден для расчетов электронной структуры
+ нанотрубок, интеркалированных атомами тяжелых элементов, например, переходными
+ металлами.
+ Кроме того, из расчетов кристаллов известно, что метод ЛКАО хорошо воспроизводи
+т валентную зону, но не зону проводимости, так как стандартный ЛКАО-базис
+ не включает делокализованные состояния.
+\end_layout
+
+\begin_layout Standard
+Метод ЛПЦВ представляет собой распространение на системы с цилиндрической
+ геометрией метода линейных присоединенных плоских волн (ЛППВ) — одного
+ из наиболее точных в теории зонной структуры объемных твердых тел и применимого
+, в частности, к соединениям переходных металлов [285–288].
+\end_layout
+
+\begin_layout Standard
+Цель данного раздела — дать описание метода ЛПЦВ и его применений к чистым
+ и легированным 3d-металлами углеродным и борнитридным нанотрубкам, карбину,
+ металлическим нанопроводам и некоторым другим системам.
+ При описании метода ЛПЦВ мы будем использовать атомные единицы Ридберга,
+ согласно которым постоянная Планка 
+\begin_inset Formula $\hbar$
+\end_inset
+
+= 1, масса электрона m = 1/2 и заряд электрона e = 
+\begin_inset Formula $\sqrt{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Потенциал
+\end_layout
+
+\begin_layout Subsubsection
+Цилиндрический маффин-тин-потенциал
+\end_layout
+
+\begin_layout Standard
+Как обычно в зонной теории, будем исходить из одноэлектронной модели, т.
+ е.
+ будем считать, что электронная волновая функция описывается детерминантом
+ (7).
+ Тогда задача расчета электронных уровней нанотрубки сводится к решению
+ одноэлектронного уравнения Шрёдингера (9), в котором гамильтониан 
+\begin_inset Formula $\hat{H}$
+\end_inset
+
+ теперь принимает вид: 
+\begin_inset Formula $\hat{H}$
+\end_inset
+
+ =
+\begin_inset Formula $-\Delta+u(r)$
+\end_inset
+
+.
+ При расчете электронной структуры многоатомной системы центральной проблемой
+ является выбор электронного потенциала u(r).
+ В методе ЛПЦВ для построения этого потенциала используется ячеечное приближение
+ и приближение локальной плотности для обменного взаимодействия.
+\end_layout
+
+\begin_layout Standard
+С целью упрощения вычислений зонной структуры твердых тел еще в 1937 г.
+ Слэтер предложил так называемое ячеечное или, более точно, маффин-тин (muffin-t
+in) приближение для электронного потенциала кристаллов.
+ (Точный перевод выражения muffin-tin-потенциал означает потенциал в виде
+ сковороды для выпечки булочек.) Идея этого приближения состоит в разбиении
+ пространства кристалла на области двух типов: области атомов и межатомные
+ области.
+ Каждый атом многоатомной системы окружается сферой (МТ-сферой).
+ В окрестностях атомов, т.
+ е.
+ в областях МТ-сфер, потенциал считается сферически симметричным, зависящим
+ только от расстояния до ядра, и описывается как быстро меняющийся приближенно
+ атомный потенциал.
+ В пространстве между МТ-сферами электронный потенциал изменяется существенно
+ медленнее, чем в области атомов и в МТ-приближении считается постоянным.
+ Обычно постоянный потенциал межсферной области выбирается за начало отсчета
+ энергии, т.
+ е.
+ полагается равным нулю.
+\end_layout
+
+\begin_layout Standard
+Радиусы маффин-тин-сфер выбираются так, чтобы сферы соседних атомов соприкасалис
+ь, что соответствует максимально большому объему неперекрывающихся маффин-тин-об
+ластей.
+ Такой выбор физически довольно очевиден: только внутри маф-фин-тин-сфер
+ содержится информация (электронная плотность и потенциал) о химической
+ природе атомов, составляющих многоатомную систему.
+ При максимально большом выборе маф-фин-тин-областей содержится максимальное
+ количество этой информации.
+\end_layout
+
+\begin_layout Standard
+Существенное различие между кристаллами и наноматериалами состоит в том,
+ что в кристалле движение электронов неограниченно во всех направлениях,
+ а в наноматериале оно лимитировано его размерами и геометрией.
+ В цилиндрическом полимере типа углеродной нанотрубки имеется внутренняя
+ полость, и движение электронов ограничено приближенно цилиндрическим слоем
+ толщиной порядка удвоенного атомного
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 203.JPG
+	scale 60
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Рис.
+ 203.
+ Нанотрубка (5, 5) в потенциальной яме, ограниченной цилиндрическими потенциальн
+ыми барьерами.
+ (В расчетах атомные сферы считаются касающимися)
+\end_layout
+
+\begin_layout Standard
+ван-дер-ваальсова радиуса.
+ Соответственно, мы будем считать, что движение электронов в пространстве
+ между МТ-сферами ограничено двумя непроницаемыми для электронов цилиндрическими
+ барьерами: внешним барьером 
+\begin_inset Formula $\varOmega_{a}$
+\end_inset
+
+ радиусом a и внутренним барьером 
+\begin_inset Formula $\varOmega_{b}$
+\end_inset
+
+ радиусом b, которые выбираются так, чтобы внутри области, ограниченной
+ этими барьерами, помещалась существенная часть электронной плотности рассматрив
+аемой системы (рис.
+ 203).
+\end_layout
+
+\begin_layout Standard
+Такой сферически симметричный в области атомов 
+\begin_inset Formula $\varOmega_{I}$
+\end_inset
+
+ и постоянный в межатомном пространстве 
+\begin_inset Formula $\varOmega_{II}$
+\end_inset
+
+ вплоть до двух непроницаемых цилиндрических потенциальных барьеров электронный
+ потенциал будем называть цилиндрическим МТ-потенциалом.
+\end_layout
+
+\begin_layout Subsubsection
+Кулоновское и обменное взаимодействие
+\end_layout
+
+\begin_layout Standard
+Для расчета потенциала внутри МТ-сфер в численных расчетах нанотрубок строится
+ распределение 
+\begin_inset Formula $\rho(r)$
+\end_inset
+
+ полной электронной плотности системы в виде суперпозиции электронных плотностей
+ всех ее атомов.
+ Внутри МТ-сфер берется его сферически симметричная часть 
+\begin_inset Formula $\rho(r)$
+\end_inset
+
+.
+ Из решения уравнения Пуассона определяется электростатический потенциал
+\begin_inset Formula $V_{e}(r)$
+\end_inset
+
+, создаваемый распределением 
+\begin_inset Formula $\rho(r)$
+\end_inset
+
+.
+ Окончательно, кулоновский потенциал 
+\begin_inset Formula $V_{c}(r)$
+\end_inset
+
+=
+\begin_inset Formula $V_{e}(r)$
+\end_inset
+
++
+\begin_inset Formula $V_{n}(r)$
+\end_inset
+
+ внутри МТ-области получается добавлением к функции 
+\begin_inset Formula $V_{e}(r)$
+\end_inset
+
+ электростатического потенциала 
+\begin_inset Formula $V_{n}(r)$
+\end_inset
+
+, создаваемого положительным зарядом ядра атома.
+\end_layout
+
+\begin_layout Standard
+Распределение электронной плотности 
+\begin_inset Formula $\rho(r)$
+\end_inset
+
+ используется также для расчета обменного взаимодействия с помощью формулы
+ Слейтера:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+V_{x}\left(r\right)=-6\alpha\left(\frac{3}{8\varPi}\rho\left(r\right)\right)^{1/3},\alpha=\frac{2}{3}.\label{eq:51}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Это не самая общая форма для обменного потенциала: метод Хартри–Фока приводит
+ к нелокальному обменному взаимодействию.
+ Однако обменно-корреляционный потенциал (51) на протяжении многих десятилетий
+ широко и с успехом применялся в расчетах зонной структуры кристаллов.
+\end_layout
+
+\begin_layout Subsection
+Вывод уравнений метода ЛПЦВ
+\end_layout
+
+\begin_layout Standard
+Перейдем теперь к выводу основных уравнений метода ЛПЦВ, начиная с решения
+ уравнения Шрёдингера для межсферной области и МТ-областей.
+\end_layout
+
+\begin_layout Subsubsection
+Решение уравнения Шрёдингера для межсферной области
+\end_layout
+
+\begin_layout Standard
+В межсферной области базисные функции являются решениями уравнения Шрёдингера
+ для свободного движения электрона внутри бесконечной трубки с внешним и
+ внутренним радиусами a и b.
+ Это уравнение при использовании единиц Ридберга и цилиндрических координат
+ {Z,
+\begin_inset Formula $\Phi$
+\end_inset
+
+, R } имеет вид [289]:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\{ -\left[\frac{1}{R}\frac{\partial}{\partial R}\left(R\frac{\partial}{\partial R}\right)+\frac{1}{R^{2}}\frac{\partial^{2}}{\partial\Phi^{2}}+\frac{\partial^{2}}{\partial Z^{2}}\right]+U\left(R\right)\right\} \Psi\left(Z,\Phi,R\right)=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+=E\Psi\left(Z,\Phi,R\right),\label{eq:52}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где U(R) — потенциал, определяющий область, разрешенную для движения электронов:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+U\left(R\right)=\begin{cases}
+0,b\leqslant R\leqslant a & \infty,R<b,\end{cases}R>a.\label{eq:53}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Для получения уравнения (52) можно исходить из одноэлектронного уравнения
+ гамильтониана 
+\begin_inset Formula $H=-\triangle+U(R)$
+\end_inset
+
+ и подставить вместо оператора кинетической энергии
+\begin_inset Formula $-\triangle$
+\end_inset
+
+ его запись в цилиндрической системе координат.
+\end_layout
+
+\begin_layout Standard
+В силу цилиндрической симметрии потенциала U(R) решение уравнения (52) представл
+яется в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Psi\left(Z,\Phi,R\right)=\Psi_{p}\left(Z,k\right)\Psi_{M}\left(\Phi\right)\Psi_{|M|N}\left(R\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Здесь
+\begin_inset Formula $\Psi_{p}\left(Z,k\right)$
+\end_inset
+
+ — волновая функция,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Psi_{p}\left(Z,k\right)=\left(1/\sqrt{c}\right)exp\left[i\left(k+k_{p}\right)Z\right],k_{p}=\left(2\varPi/c\right)P,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+P=0,\pm1,\pm2,...,\label{eq:54}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+которая описывает свободное движение электрона вдоль оси трансляционной
+ симметрии Z с периодом c.
+ Волновой вектор k принадлежит одномерной зоне Бриллюэна: –
+\begin_inset Formula $\varPi/c$
+\end_inset
+
+
+\begin_inset Formula $\leqslant k\leq\varPi/c$
+\end_inset
+
+.
+ Функция
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Psi_{M}\left(\Phi\right)=\frac{1}{\sqrt{2\varPi}}e^{iM\Phi},M=0,\pm1,\pm2,...\label{eq:55}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+описывает вращение электрона вокруг оси симметрии системы, а функция 
+\begin_inset Formula $\Psi_{|M|N}(R),$
+\end_inset
+
+ определяющая радиальное движение электрона, является решением уравнения:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left[\frac{1}{R}\frac{d}{dR}\left(R\frac{d}{dR}\right)+\frac{M^{2}}{R^{2}}\right]\Psi_{|M|N}\left(R\right)+U\left(R\right)\Psi_{MN}\left(R\right)=E_{|M|,N}\Psi_{|M|N}\left(R\right).\label{eq:56}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Здесь N — радиальное квантовое число,
+\begin_inset Formula $E_{|M|,N}$
+\end_inset
+
+ — энергетический спектр; волновой функции 
+\begin_inset Formula $\Psi(Z,$
+\end_inset
+
+
+\begin_inset Formula $\Phi,R)$
+\end_inset
+
+ отвечает энергия
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E=\left(k+k_{p}\right)^{2}+E_{|M|,N}.\label{eq:57}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+При 
+\begin_inset Formula $b\leq R\leq a$
+\end_inset
+
+ уравнение (56) записывается в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left[\frac{d^{2}}{dR^{2}}+\frac{1}{R}\frac{d}{dR}+\kappa_{|M|,N}^{2}-\frac{M^{2}}{R^{2}}\right]\Psi_{|M|N}\left(R\right)=0,\label{eq:58}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где 
+\begin_inset Formula $\kappa_{|M|,N}=\{E_{|M|N}\}^{1/2}.$
+\end_inset
+
+ Подстановкой 
+\begin_inset Formula $\kappa R=x,$
+\end_inset
+
+
+\begin_inset Formula $\Psi(R)=y(x)$
+\end_inset
+
+ уравнение (58) сводится к уравнению Бесселя канонического вида: 
+\begin_inset Formula $x^{2}y^{''}+xy^{'}+(x^{2}-M^{2})y=0$
+\end_inset
+
+, решения которого называются цилиндрическими функциями порядка M [290–293].
+\end_layout
+
+\begin_layout Standard
+Любое решение уравнения Бесселя может быть представлено в виде линейной
+ комбинации его частных решений—цилиндрических функций Бесселя первого 
+\begin_inset Formula $J_{M}$
+\end_inset
+
+ и второго рода 
+\begin_inset Formula $Y_{M}$
+\end_inset
+
+ (функций Неймана):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Psi_{|M|N}\left(R\right)=C_{MN}^{J}J_{M}\left(\kappa_{|M|,N}R\right)+C_{MN}^{Y}Y_{M}\left(\kappa_{|M|,N}R\right).\label{eq:59}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+C ростом аргумента функции Бесселя 
+\begin_inset Formula $J_{M}$
+\end_inset
+
+ и 
+\begin_inset Formula $Y_{M}$
+\end_inset
+
+ убывают с осцилляциями (рис.
+ 204).
+ Функции Бесселя второго рода 
+\begin_inset Formula $Y_{M}$
+\end_inset
+
+ в нуле по абсолютной величине стремятся к бесконечности.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 204.JPG
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В уравнении (59) 
+\begin_inset Formula $C_{MN}^{J}$
+\end_inset
+
+ и 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $C_{MN}^{Y}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ — константы, которые должны быть выбраны так, чтобы обеспечить нормировку
+ волновой функции 
+\begin_inset Formula $\Psi_{|M|N}(R)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\stackrel[b]{a}{\int}\biggl|\Psi_{|M|N}\left(R\right)\biggr|^{2}RdR=1,\label{eq:60}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+и ее обращение в нуль на внутреннем и внешнем потенциальном барьере:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C_{MN}^{J}J_{M}\left(\kappa_{|M|,N}a\right)+C_{MN}^{Y}Y_{M}\left(\kappa_{|M|,N}a\right)=0,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C_{MN}^{J}J_{M}\left(\kappa_{|M|,N}b\right)+C_{MN}^{Y}Y_{M}\left(\kappa_{|M|,N}b\right)=0.\label{eq:61}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Рис.
+ 204.
+ Зависимости функций Бесселя 
+\begin_inset Formula $J_{M}(x)$
+\end_inset
+
+ и 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $Y_{M}(x)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ от аргумента x при M = 0, 1 и 2
+\end_layout
+
+\begin_layout Standard
+Из системы (61) очевидным образом находим соотношение между 
+\begin_inset Formula $C_{MN}^{J}$
+\end_inset
+
+ и 
+\begin_inset Formula $C_{MN}^{Y}$
+\end_inset
+
+ :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C_{MN}^{Y}=-C_{MN}^{J}\frac{J_{M}\left(\kappa_{|M|,N}a\right)}{Y_{M}\left(\kappa_{|M|,N}a\right)},\label{eq:62}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+а также уравнение для вычисления 
+\begin_inset Formula $\kappa_{|M|,N}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+J_{M}\left(\kappa_{|M|,N}a\right))Y\left(\kappa_{|M|,N}b\right)=J_{M}\left(\kappa_{|M|,N}b\right)Y_{M}\left(\kappa_{|M|,N}a\right),\label{eq:63}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+которое мы решаем численно: находим отрезки, на которых функция 
+\begin_inset Formula $f(\kappa_{|M|,N})=J_{M}(\kappa_{|M|,N}a)Y_{M}(\kappa_{|M|,N}b)-J_{M}(\kappa_{|M|,N}b)Y_{M}(\kappa_{|M|,N}a)$
+\end_inset
+
+ меняет знак, после чего значение 
+\begin_inset Formula $\kappa_{|M|,N}$
+\end_inset
+
+ уточняем методом деления отрезка пополам.
+\end_layout
+
+\begin_layout Standard
+Наконец, для вычисления интеграла (60) воспользуемся выражением [290–293]:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\stackrel{z}{\int}zF_{M}\left(\kappa z\right)G_{M}\left(\kappa z\right)dz=\frac{z^{2}}{4}\Biggl[2F_{M}\left(\kappa z\right)G_{M}\left(\kappa z\right)-
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+-F_{M-1}\left(\kappa z\right)G_{M+1}\left(\kappa z\right)-F_{M+1}\left(\kappa z\right)G_{M-1}\left(\kappa z\right)\Biggr]\label{eq:64}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+которое справедливо для двух любых цилиндрических функций, включая 
+\begin_inset Formula $J_{M}$
+\end_inset
+
+ и 
+\begin_inset Formula $Y_{M}$
+\end_inset
+
+.
+ Кроме того, справедливы рекуррентные формулы [290–293]:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+zF_{M-1}\left(z\right)=zF_{M}^{\prime}\left(z\right)+MF_{M}\left(z\right),
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+-zF_{M+1}\left(z\right)=zF_{M}^{\prime}\left(z\right)-MF_{M}\left(z\right),\label{eq:65}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+используя которые, можно переписать (64) в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\stackrel{z}{\int}zF_{M}\left(\kappa z\right)G_{M}\left(\kappa z\right)dz=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+=\frac{z^{2}}{2}\left[F_{M}^{\prime}\left(\kappa z\right)G_{M}^{\prime}\left(\kappa z\right)+\left(1-\left(\frac{M}{\kappa z}\right)^{2}\right)F_{M}\left(\kappa z\right)G_{M}\left(\kappa z\right)\right].\label{eq:66}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Здесь 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $F_{M}^{'}$
+\end_inset
+
+ и 
+\begin_inset Formula $G_{M}^{'}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ —производные цилиндрических функций.
+ В результате получаем:
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\stackrel[b]{a}{\int}\Psi_{MN}^{\ast}\left(R\right)\Psi_{MN}\left(R\right)RdR=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\left\{ \frac{R^{2}}{2}\left[\Psi_{MN}^{\prime\ast}\left(R\right)\Psi_{MN}^{\prime}\left(R\right)+\left(1-\left(\frac{M}{\kappa_{|M|,N}R}\right)^{2}\right)\Psi_{MN}^{\ast}\left(R\right)\Psi_{MN}(R)\right]\right\} \stackrel[b]{a}{\Biggr|}=1.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Так как 
+\begin_inset Formula $\Psi_{MN}(R)=0$
+\end_inset
+
+ при R = a и R = b, окончательно имеем:
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\stackrel[b]{a}{\int}\Psi_{MN}^{\ast}\left(R\right)\Psi_{MN}\left(R\right)RdR=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\frac{a^{2}}{2}\left\{ \Psi_{MN}^{\prime\ast}\left(a\right)\Psi_{MN}^{\prime}\left(a\right)\right\} -\frac{b^{2}}{2}\left\{ \Psi_{MN}^{\prime\ast}\left(b\right)\Psi_{MN}^{\prime}\left(b\right)\right\} =1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+или
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{a^{2}}{2}\left[C_{MN}^{J}J_{M}^{\prime}\left(\kappa_{|M|,N}a\right)+C_{MN}^{Y}Y_{M}^{\prime}\left(\kappa_{|M|,N}a\right)\right]^{2}-
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+-\frac{b^{2}}{2}\left[C_{MN}^{J}J_{M}^{\prime}\left(\kappa_{|M|,N}b\right)+C_{MN}^{Y}Y_{M}^{\prime}\left(\kappa_{|M|,N}b\right)\right]^{2}=1.\label{eq:67}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Итак, базисная функция 
+\begin_inset Formula $\Psi(k,P,M,N)$
+\end_inset
+
+ в области 
+\begin_inset Formula $\varOmega_{II}$
+\end_inset
+
+ в общей 
+\end_layout
+
+\begin_layout Standard
+цилиндрической системе координат принимает вид:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Psi_{II}\left(k,P,M,N\right)=\frac{1}{\sqrt{2\varPi c}}exp\left\{ i\left(K_{p}Z+M\Phi\right)\right\} \times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\times\left[C_{MN}^{J}J_{M}\left(\kappa_{|M|,N}R\right)+C_{MN}^{Y}Y_{M}\left(\kappa_{|M|,N}R\right)\right]\label{eq:68}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Здесь 
+\begin_inset Formula $K_{p}=k+k_{p}$
+\end_inset
+
+, значения 
+\begin_inset Formula $\kappa_{|M|,N}$
+\end_inset
+
+ находятся из (63), а 
+\begin_inset Formula $C_{MN}^{J}$
+\end_inset
+
+ — из (69):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C_{MN}^{J}=\Biggl\{\frac{a^{2}}{2}\left[J_{M}^{\prime}\left(\kappa_{|M|,N}a\right)-\frac{J_{M}\left(\kappa_{|M|,N}a\right)}{Y_{M}\left(\kappa_{|M|,N}a\right)}Y_{M}^{\prime}\left(\kappa_{|M|,N}a\right)\right]^{2}-
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+-\frac{b^{2}}{2}\left[J_{M}^{\prime}\left(\kappa_{|M|,N}b\right)-\frac{J_{M}\left(\kappa_{|M|,N}b\right)}{Y_{M}\left(\kappa_{|M|,N}b\right)}Y_{M}^{\prime}(\kappa_{|M|,N}b)\right]^{2}\Biggl\}^{-1/2}\label{eq:69}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+и из 
+\begin_inset Formula $C_{MN}^{Y}$
+\end_inset
+
+(62).
+\end_layout
+
+\begin_layout Subsubsection
+Решение уравнения Шрёдингера для области МТ-сфер
+\end_layout
+
+\begin_layout Standard
+Внутри МТ-сферы в локальной сферической системе координат {r,θ,φ} базисные
+ функции, как и в методе ЛППВ, разлагаются по сферическим гармоникам 
+\begin_inset Formula $Y_{lm}\left(\theta,\varphi\right)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Psi{}_{I\alpha}\left(r,\theta,\varphi\mid k,P,M,N\right)=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+=\stackrel[l=0]{\infty}{\sum}\stackrel[m=-l]{l}{\sum}\left[A_{lm\alpha}u_{l\alpha}(r,E_{l\alpha})+B_{lm\alpha}\dot{u}_{l\alpha}(r,E_{l\alpha})\right]Y_{lm}\left(\theta,\varphi\right).\label{eq:70}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Сферические гармоники имеют вид:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Y_{lm}(\theta,\varphi)=N_{lm}P_{l}^{\left|m\right|}\left(\cos\theta\right)e^{im\varphi}\text{,}\label{eq:71}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+здесь 
+\begin_inset Formula $P_{l}^{\left|m\right|}$
+\end_inset
+
+- присоединенные функции Лежандра,
+\begin_inset Formula $N_{lm}$
+\end_inset
+
+ - нормировка:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+N_{lm}=(-1)^{\frac{m+\left|m\right|}{2}}i^{l}\left[\frac{2l+1}{4\pi}\frac{\left(l-\left|m\right|\right)!}{\left(l+\left|m\right|\right)!}\right]^{1/2}.\label{eq:72}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Для сферических гармоник справедливо условие ортонормированности:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\stackrel[0]{\pi}{\int}\stackrel[0]{2\pi}{\int}Y_{l^{\prime},m^{\prime}}^{\ast}\left(\theta,\varphi\right)Y_{lm}\left(\theta,\varphi\right)\sin\theta d\theta d\varphi=\delta_{u^{\prime}}\delta_{mm^{\prime}}\label{eq:73}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В (70) 
+\begin_inset Formula $u_{la}$
+\end_inset
+
+-решение радиального уравнения Шрёдингера в области МТ-сферы α для энергии
+ 
+\begin_inset Formula $E_{l\alpha}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H_{MT\alpha}u_{l\alpha}\left(r\right)=E_{l\alpha}u_{l\alpha}\left(r\right).\label{eq:74}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Внутри МТ-сферы радиуса 
+\begin_inset Formula $r_{\alpha}$
+\end_inset
+
+ функция 
+\begin_inset Formula $u_{l\alpha}$
+\end_inset
+
+ считается нормированной на единицу:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\stackrel[0]{r_{\alpha}}{\int}\left[u_{l\alpha}\left(r\right)\right]^{2}r^{2}dr=1.\label{eq:75}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Через 
+\begin_inset Formula $\dot{u}_{l\alpha}$
+\end_inset
+
+ в (70) обозначена производная 
+\begin_inset Formula $u_{l\alpha}$
+\end_inset
+
+ по энергии 
+\begin_inset Formula $\dot{u}_{l\alpha}=\left[\partial u_{l\alpha}/\partial E\right]{}_{E_{l\alpha}}$
+\end_inset
+
+.
+ Функция 
+\begin_inset Formula $\dot{u}_{l\alpha}\left(r\right)$
+\end_inset
+
+ находится из уравнения:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H_{MT\alpha}\dot{u}_{l\alpha}\left(r\right)=u_{l\alpha}\left(r\right)+E_{l}\dot{u}_{l\alpha}\left(r\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Функции 
+\begin_inset Formula $\dot{u}_{l\alpha}$
+\end_inset
+
+и 
+\begin_inset Formula $u_{l\alpha}$
+\end_inset
+
+ортогональны:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\stackrel[0]{r_{\alpha}}{\int}\dot{u}_{l\alpha}\left(r\right)u_{l\alpha}\left(r\right)r^{2}dr=0.\label{eq:76}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В этом легко убедиться, если взять производную от левой и правой части (75).
+ Через 
+\begin_inset Formula $N_{l\alpha}$
+\end_inset
+
+ в дальнейшем будем обозначать интеграл от квадрата функции :
+\begin_inset Formula $\dot{u}_{l\alpha}\left(r\right)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+N_{l\alpha}=\stackrel[0]{r_{\alpha}}{\int}\left|\dot{u}_{l\alpha}(r)\right|^{2}r^{2}dr.\label{eq:77}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Базисные функции 
+\end_layout
+
+\begin_layout Subsubsection
+Сшивка функцийна границах МТ-сфер 
+\end_layout
+
+\begin_layout Standard
+В соответствии с постулатами квантовой механики искомые решения уравнения
+ Шрёдингера должны быть всюду непрерывны и дифференцируемы.
+ Базисные волновые функции будем искать в виде, удовлетворяющем этому требованию
+, тогда непрерывность и дифференцируемость решений будет автоматически обеспечен
+а.
+ Таким образом, для построения базисных функций нам остается сшить решения
+ волнового уравнения для межсферной и МТ-областей так, чтобы базисные функции
+ и их производные были непрерывны на границах МТ-сфер.
+ Этого удается достигнуть за счет выбора коэффициентов 
+\begin_inset Formula $A_{lm\alpha}$
+\end_inset
+
+ и 
+\begin_inset Formula $B_{lm\alpha}$
+\end_inset
+
+ в (70).
+ 
+\end_layout
+
+\begin_layout Standard
+Чтобы приравнять значения функций 
+\begin_inset Formula $\Psi_{II}$
+\end_inset
+
+ (68) и 
+\begin_inset Formula $\Psi_{I\alpha}$
+\end_inset
+
+ (70) на границах МТ-сфер, выразим 
+\begin_inset Formula $\Psi_{II}$
+\end_inset
+
+ через цилиндрические координаты 
+\begin_inset Formula $Z_{\alpha},\Phi_{\alpha},R_{\alpha}$
+\end_inset
+
+ центра сферы 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ и локальную сферическую систему координат 
+\begin_inset Formula $r,\theta,\varphi$
+\end_inset
+
+.
+ Пусть 
+\begin_inset Formula $Q=Q(Z,\Phi,R)$
+\end_inset
+
+ -точка с координатами 
+\begin_inset Formula $Z,\Phi,R$
+\end_inset
+
+ в общей системе координат и с координатами
+\begin_inset Formula $r,\theta\text{и }\varphi$
+\end_inset
+
+ в локальной системе (рис.
+ 205).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 205.JPG
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Рис.
+ 205.
+ Положение точки Q на поверхности МТ-сферы 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ , заданное в общей цилиндрической 
+\begin_inset Formula $Z,\Phi,R$
+\end_inset
+
+ и локальной сферической 
+\begin_inset Formula $(\theta,\varphi,r)$
+\end_inset
+
+ системах координат
+\end_layout
+
+\begin_layout Standard
+Подставляя в (68) 
+\begin_inset Formula $Z=Z_{\alpha}+r\cos\theta\text{ }$
+\end_inset
+
+и 
+\begin_inset Formula $\triangle\Phi=\Phi_{\alpha}-\Phi$
+\end_inset
+
+, имеем:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Psi_{II\alpha}\left(k,P,M,N\right)=\frac{1}{\sqrt{2\pi c}}\exp\left\{ i\left(K_{p}Z_{\alpha}+M\Phi_{\alpha}\right)\right\} \exp\left\{ iK_{p}r\cos\theta\right\} \times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\times\left[C_{MN}^{J}J_{M}(k_{\left|M\right|,N}R)+C_{MN}^{Y}Y_{M}(k_{\left|M\right|,N}R)\right]\times e^{-iM\triangle\Phi}.\label{eq:78}
+\end{equation}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Чтобы окончательно переписать (78) в координатах 
+\begin_inset Formula $r,\theta,\varphi$
+\end_inset
+
+, необходимо еще избавиться от цилиндрических координат R и 
+\begin_inset Formula $\triangle\Phi$
+\end_inset
+
+ .
+ Это достигается использованием теоремы сложения [290].
+ Для любой цилиндрической функции 
+\begin_inset Formula $F_{M}$
+\end_inset
+
+ справедлива теорема:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+e^{iM\Psi}F_{M}\left(kr_{1}\right)=\stackrel[m=-\infty]{\infty}{\sum}J_{m}\left(kr_{3}\right)F_{m+M}\left(kr_{2}\right)e^{im\varphi},\label{eq:79}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где k-произвольное комплексное число, а смысл 
+\begin_inset Formula $r1,r2,r3,\varphi$
+\end_inset
+
+ и 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ ясен из рис.
+ 206.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 206.JPG
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Рис.
+ 206.
+ Иллюстрация к теореме сложения для цилиндрических функций
+\end_layout
+
+\begin_layout Standard
+Заменяя 
+\begin_inset Formula $M$
+\end_inset
+
+ на 
+\begin_inset Formula $–M$
+\end_inset
+
+ и используя соотношение 
+\begin_inset Formula $F_{-M}=\left(–1\right){}^{M}F_{M}$
+\end_inset
+
+, находим:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+e^{-iM\triangle\Phi}F_{M}\left(k_{\left|M\right|,N}R\right)=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+=\left(-1\right){}^{M}\cdot\stackrel[m=-\infty]{\infty}{\sum}J_{M}\left(k_{\left|M\right|,N}r\sin\theta\right)F_{m-M}\left(k_{\left|M\right|,N}R_{\alpha}\right)e^{im\varphi}\label{eq:80}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Окончательно, функция 
+\begin_inset Formula $\Psi_{II\alpha}$
+\end_inset
+
+ (78) в координатах сферы 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ принимает вид:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Psi_{II\alpha}\left(r,\theta,\varphi\mid k,P,M,N\right)=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+=\frac{1}{\sqrt{2\pi c}}exp\left\{ \left(K_{p}Z_{a}+M\Phi_{\alpha}\right)\right\} exp\left\{ iK_{p}r\cos\theta\right\} \times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\left(-1\right){}^{M}\stackrel[m=-\infty]{\infty}{\sum}\left[C_{MN}^{J}J_{m-M}\left(k_{\left|M\right|,N}R_{\alpha}\right)+C_{MN}^{Y}Y_{m-M}\left(k_{\left|M\right|,N}R_{\alpha}\right)\right]\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\times J_{m}\left(k_{\left|M\right|,N}r\sin\theta\right)e^{im\varphi},\label{eq:81}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+зависящий только от координат 
+\begin_inset Formula $\alpha$
+\end_inset
+
+-сферы 
+\begin_inset Formula $Z_{\alpha},\Phi_{\alpha},R_{\alpha}$
+\end_inset
+
+ и локальных сферических координат 
+\begin_inset Formula $r,\theta,\varphi$
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Standard
+Приравняем теперь записанные в единой (сферической) системе координат функции
+ (70) и (81) на границе МТ-сфер 
+\begin_inset Formula $r=r_{\alpha}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\stackrel[l=0]{\infty}{\sum}\stackrel[m=-l]{l}{\sum}\left[A_{lm\alpha}u_{l\alpha}\left(r_{\alpha},E_{l\alpha}\right)+B_{lm\alpha}\dot{u}_{l\alpha}\left(r_{\alpha,}E_{l\alpha}\right)\right]N_{lm}P_{l}^{\left|m\right|}\left(\cos\theta\right)e^{im\varphi}=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\frac{1}{\sqrt{2\pi c}}\exp\left\{ i\left(K_{p}Z_{\alpha}+M\Phi_{\alpha}\right)\right\} \exp\left\{ iK_{p}r_{\alpha}\cos\theta\right\} \times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\times\left(-1\right){}^{M}\stackrel[m=-\infty]{\infty}{\sum}\left[C_{MN}^{J}J_{m-M}\left(k_{\left|M\right|,N}R_{\alpha}\right)+C_{MN}^{Y}Y_{m-M}\left(k_{\left|M\right|,N}R_{\alpha}\right)\right]\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\times J_{m}\left(k_{\left|M\right|,N}r_{\alpha}\sin\theta\right)e^{im\varphi}.\label{eq:82}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Для упрощения полученного уравнения, перепишем его для краткости в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\stackrel[l=0]{\infty}{\sum}\stackrel[m=-l]{l}{\sum}W_{lm}\exp\left(im\varphi\right)=F\stackrel[m=-\infty]{\infty}{\sum}V_{m}\exp\left(im\varphi\right)
+\]
+
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+где через 
+\begin_inset Formula $W_{lm}$
+\end_inset
+
+ и 
+\begin_inset Formula $V_{m}$
+\end_inset
+
+ обозначены множители перед экспонентами 
+\begin_inset Formula $\exp(im\varphi)$
+\end_inset
+
+ в суммах по 
+\emph on
+l
+\emph default
+ и 
+\emph on
+m
+\emph default
+ в левой и по 
+\emph on
+m
+\emph default
+ в правой частях (82), соответственно, а через 
+\emph on
+F
+\emph default
+ - множитель перед знаком суммы в правой части (82).
+\end_layout
+
+\begin_layout Standard
+Умножим теперь обе части этого уравнения на 
+\begin_inset Formula $\exp(–im'\varphi)$
+\end_inset
+
+ и проинтегрируем по 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ от 0 до 
+\begin_inset Formula $2\pi$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\stackrel[l=0]{\infty}{\sum}\stackrel[m=-l]{l}{\sum}W_{lm}\stackrel[0]{2\pi}{\int}\exp\left[i\left(m-m^{\prime}\right)\varphi\right]d\varphi=F\stackrel[m=-\infty]{\infty}{\sum}V_{m}\stackrel[0]{2\pi}{\int}\exp\left[i\left(m-m^{\prime}\right)\varphi\right]d\varphi
+\]
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+С учетом
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\stackrel[0]{2\pi}{\int}\exp\left[i\left(m-m^{\prime}\right)\varphi\right]d\varphi=2\pi\delta_{mm^{\prime}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+находим
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\stackrel[l=0]{\infty}{\sum}\stackrel[m=-l]{l}{\sum}W_{lm}\delta_{mm^{\prime}}=F\stackrel[m=-\infty]{\infty}{\sum}V_{m}\delta_{mm^{\prime}}
+\]
+
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+или
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\stackrel[l=\left|m^{\prime}\right|]{\infty}{\sum}W_{l,m^{\prime}}=FV_{m^{\prime}}
+\]
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+В результате приходим к выражению
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\stackrel[l=\left|m\right|]{\infty}{\sum}\left[Au_{l\alpha}\left(r_{\alpha},E_{l\alpha}\right)+B_{lm\alpha}\dot{u}_{l\alpha}\left(r_{\alpha},E_{l\alpha}\right)\right]N_{lm}P_{l}^{\left|m\right|}\left(\cos\theta\right)=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+=\frac{1}{\sqrt{2\pi c}}\exp\left\{ i\left(K_{p}Z_{\alpha}+M\Phi_{\alpha}\right)\right\} \exp\left\{ iK_{p}r_{\alpha}\cos\theta\right\} \times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\times\left(-1\right){}^{M}\left[C_{MN}^{J}J_{m-M}\left(k_{\left|M\right|,N}R_{\alpha}\right)+C_{MN}^{Y}Y_{m-M}\left(k_{\left|M\right|,N}R_{\alpha}\right)\right]\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\times J_{m}\left(k_{\left|M\right|,N}r_{\alpha}\sin\theta\right)\label{eq:83}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Умножим теперь обе части (83) на 
+\begin_inset Formula $P_{lm}\left(cos\theta\right)sin\theta$
+\end_inset
+
+, проинтегрируем по
+\begin_inset Formula $\theta$
+\end_inset
+
+от 0 до 
+\begin_inset Formula $\pi$
+\end_inset
+
+ и учтем ортогональность полиномов Лежандра:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\stackrel[0]{\pi}{\int}P_{l}^{m}\left(\cos\theta\right)P_{l^{\prime}}^{m}\left(\cos\theta\right)\sin\theta d\theta=\delta_{u^{\prime}}\frac{2}{2l+1}\frac{\left(l+m\right)!}{\left(l-m\right)!}\label{eq:84}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Тогда (82) можно записать в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+A_{lm\alpha}u_{l\alpha}\left(r_{\alpha},E_{l\alpha}\right)+B_{lm\alpha}\dot{u}_{l\alpha}\left(r_{\alpha},E_{l\alpha}\right)=D_{MNP,lm\alpha}I_{1}\left(MNP,lm\alpha\right),\label{eq:85}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где введены обозначения:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I_{1}\left(MNP,lm\alpha\right)=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+=2\stackrel[0]{\pi/2}{\int}\exp\left\{ iK_{p}r_{\alpha}\cos\theta\right\} J_{m}\left(K_{\left|M\right|,N}r_{\alpha}\sin\theta\right)P_{l}^{\left|m\right|}\left(\cos\theta\right)\sin\theta d\theta,\label{eq:86}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+D_{MNP,lm\alpha}=\frac{1}{\sqrt{2\text{c}}}\left(-1\right){}^{\frac{m+\left|m\right|}{2}+l}i^{l}\left[\left(2l+1\right)\frac{\left(l-\left|m\right|\right)!}{\left(l-\left|m\right|\right)!}\right]{}^{1/2}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\times\exp\left\{ i\left(K_{p}Z_{\alpha}+M\Phi_{\alpha}\right)\right\} \times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\times\left(-1\right){}^{M}\left[C_{MN}^{J}J_{m-M}\left(k_{\left|M\right|,N}R_{\alpha}\right)+C_{MN}^{Y}Y_{m-M}\left(k_{\left|M\right|,N}R_{\alpha}\right)\right].\label{eq:87}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Второе уравнение для нахождения 
+\begin_inset Formula $A_{lm\alpha}$
+\end_inset
+
+,
+\begin_inset Formula $B_{lm\alpha}$
+\end_inset
+
+ может быть найдено из условия непрерывности первой производной от волновой
+ функции.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Непрерывность производной на границе МТ-сфер
+\end_layout
+
+\begin_layout Standard
+Радиальная производная от волновой функции 
+\begin_inset Formula $\Psi_{I\alpha}$
+\end_inset
+
+ для МТ-области 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ имеет вид:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial r}\Psi_{I\alpha}\left(r,\theta,\varphi\mid k,P,M,N\right)=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+=\stackrel[l=0]{\infty}{\sum}\stackrel[m=-l]{l}{\sum}\left[A_{lm\alpha}u{}_{lm\alpha}^{\prime}\left(r,E_{l\alpha}\right)+B_{lm\alpha}\dot{u}{}_{l\alpha}^{\prime}\left(r,E_{l\alpha}\right)\right]N_{lm}P_{l}^{\left|m\right|}\left(\cos\theta\right)e^{im\varphi}.\label{eq:88}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Здесь штрих у функций 
+\begin_inset Formula $u_{l}^{\prime}$
+\end_inset
+
+ и 
+\begin_inset Formula $\dot{u}{}_{l}^{\prime}$
+\end_inset
+
+означает производную по 
+\emph on
+r
+\emph default
+.
+ Радиальная производная от волновой функции 
+\begin_inset Formula $\Psi_{II}$
+\end_inset
+
+ межсферной области, т.
+ е.
+ цилиндрической волны, легко вычисляется при использовании для записи 
+\begin_inset Formula $\Psi_{II}$
+\end_inset
+
+ локальных сферических координат (81):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial r}\Psi_{II\alpha}\left(r,\theta,\varphi\mid k,P,M,N\right)=\frac{1}{\sqrt{2\pi c}}\exp\left\{ i\left(K_{p}Z_{\alpha}+M\Phi_{\alpha}\right)\right\} \times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\left(-1\right){}^{M}\stackrel[m=-\infty]{\infty}{\sum}\left[C_{MN}^{J}J_{m-M}\left(k_{\left|M\right|,N}R_{\alpha}\right)+C_{MN}^{Y}Y_{m-M}\left(k_{\left|M\right|,N}R_{\alpha}\right)\right]\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\times\exp\left\{ iK_{p}r\cos\theta\right\} \times\left[k_{\left|M\right|,N}\sin\theta J{}_{m}^{\prime}\left(k_{\left|M\right|,N}r\sin\theta\right)\right.+
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
++\left.iK_{p}\cos\theta J_{m}\left(k_{\left|M\right|,N}r\sin\theta\right)\right]e^{im\varphi}.\label{eq:89}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Приравняем правые части (88) и (89) при 
+\begin_inset Formula $r=r_{\alpha}$
+\end_inset
+
+ и интегрированием полученного уравнения по 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ избавимся в нем от 
+\begin_inset Formula $e^{im\varphi}$
+\end_inset
+
+.
+ В результате находим:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\stackrel[m=\left|l\right|]{\infty}{\sum}\left[A_{lm\alpha}u{}_{l\alpha}^{\prime}\left(r_{\alpha},E_{l\alpha}\right)+B_{lm\alpha}\dot{u}{}_{lm\alpha}^{\prime}\left(r_{\alpha},E_{l\alpha}\right)\right]N_{lm}P_{l}^{\left|m\right|}\left(\cos\theta\right)=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+=\frac{1}{\sqrt{2\pi c}}\exp\left\{ i\left(K_{p}Z_{\alpha}+M\Phi_{\alpha}\right)\right\} \exp\left\{ iK_{p}r_{\alpha}\cos\theta\right\} \times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\times\left(-1\right){}^{M}\stackrel[m=-\infty]{\infty}{\sum}\left[C_{MN}^{J}J_{m-M}\left(k_{\left|M\right|,N}R_{\alpha}\right)+C_{MN}^{Y}Y_{m-M}\left(k_{\left|M\right|,N}R_{\alpha}\right)\right]\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\times\left[k_{\left|M\right|,N}\sin\theta J{}_{m}^{\prime}\left(k_{\left|M\right|,N}r_{\alpha}\sin\theta\right)+iK_{p}\cos\theta J_{m}\left(k_{\left|M\right|,N}r_{\alpha}\sin\theta\right)\right]\label{eq:90}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Умножим теперь обе части (90) на 
+\begin_inset Formula $P_{l}^{\left|m\right|}\left(\cos\theta\right)\sin\theta$
+\end_inset
+
+ и проинтегрируем по 
+\begin_inset Formula $\theta$
+\end_inset
+
+ в пределах от 0 до 
+\begin_inset Formula $\pi$
+\end_inset
+
+.
+ Получаем:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+A_{lm\alpha}u{}_{l\alpha}^{\prime}\left(r_{\alpha},E_{l\alpha}\right)+B_{lm\alpha}\dot{u}{}_{l\alpha}^{\prime}\left(r_{\alpha},E_{l\alpha}\right)=D_{MNP,lm\alpha}I_{2}\left(MNP,lm\alpha\right),\label{eq:91}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I_{2}\left(M,N,P,lm\alpha\right)=2\stackrel[0]{\pi/2}{\int}\exp\left\{ iK_{p}r_{\alpha}\cos\theta\right\} \times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\times\left\{ iK_{p}\cos\theta J_{M}\left(k_{\left|M\right|,N}r_{\alpha}\sin\theta\right)+\left(1/2\right)k_{\left|M\right|,N}\sin\theta\right\} \times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\times\left[J_{m-1}\left(k_{\left|M\right|,N}r_{\alpha}\sin\theta\right)-J_{m+1}\left(k_{\left|M\right|,N}r_{\alpha}\sin\theta\right)\right]\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\times P_{l}^{\left|m\right|}\left(\cos\theta\right)\sin\theta d\theta\label{eq:92}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Решая систему уравнений (85), (91), находим:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A_{lm\alpha}=D_{MNP,lm\alpha}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\times\frac{I_{1}\dot{u}{}_{l\alpha}^{\prime}\left(r_{\alpha},E_{l\alpha}\right)-I_{2}\dot{u}_{l\alpha}\left(r_{\alpha},E_{l\alpha}\right)}{u_{l\alpha}\left(r_{\alpha},E_{l\alpha}\right)\dot{u}{}_{l\alpha}^{\prime}\left(r_{\alpha},E_{l\alpha}\right)-u{}_{l\alpha}^{\prime}\left(r_{\alpha},E_{l\alpha}\right)\dot{u}_{l\alpha}\left(r_{\alpha},E_{l\alpha}\right)},\label{eq:93}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+B_{lm\alpha}=D_{MNP,lm\alpha}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\times\frac{I_{1}u{}_{l\alpha}^{\prime}\left(r_{\alpha},E_{l\alpha}\right)-I_{2}u_{l\alpha}\left(r_{\alpha},E_{l\alpha}\right)}{\dot{u}_{l\alpha}\left(r_{\alpha},E_{l\alpha}\right)u{}_{l\alpha}^{\prime}\left(r_{\alpha},E_{l\alpha}\right)-\dot{u}{}_{l\alpha}^{\prime}\left(r_{\alpha},E_{l\alpha}\right)u_{l\alpha}\left(r_{\alpha},E_{l\alpha}\right)}.\label{eq:94}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Покажем теперь, что на границе МТ-сфер для радиальной волновой функции и
+ ее производной выполняется соотношение:
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+r_{\alpha}^{2}\left[\dot{u}_{l\alpha}\left(r_{\alpha},E_{l\alpha}\right)u_{l\alpha}^{\prime}\left(r_{\alpha},E_{l\alpha}\right)-\dot{u}_{l\alpha}^{\prime}\left(r_{\alpha},E_{l\alpha}\right)u_{l\alpha}\left(r_{\alpha},E_{l\alpha}\right)\right]=1.\label{eq:95}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Действительно, уравнение Шрёдингера для радиальной волновой функции 
+\begin_inset Formula $u_{l\alpha}(r)$
+\end_inset
+
+ имеет вид:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r}\frac{d^{2}ru_{l\alpha}\left(r\right)}{dr^{2}}+\left(E_{l\alpha}-V_{MT\alpha}\left(r\right)-\frac{l\left(l+1\right)}{r^{2}}\right)u_{l\alpha}\left(r\right)=0.\label{eq:96}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Возьмем производную этого уравнения по 
+\begin_inset Formula $E_{l\alpha}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r}\frac{d^{2}r\dot{u}_{l\alpha}\left(r\right)}{dr^{2}}+u_{l\alpha}\left(r\right)+\left(E_{l\alpha}-V_{MT\alpha}\left(r\right)-\frac{l\left(l+1\right)}{r^{2}})\dot{u}_{l\alpha}\right)\left(r\right)=0.\label{eq:97}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Умножим (96) на 
+\begin_inset Formula $r^{2}\dot{u}_{l\alpha}\left(r\right)$
+\end_inset
+
+, а (97) на 
+\begin_inset Formula $-r^{2}u_{l\alpha}(r)$
+\end_inset
+
+; сложим полученные уравнения и проинтегрируем результат по радиусу от нуля
+ до радиуса МТ-сферы 
+\begin_inset Formula $r_{\alpha}$
+\end_inset
+
+ .
+ В результате находим:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\stackrel[0]{r_{\alpha}}{\int}r(\dot{u}_{l\alpha}(r)\frac{d^{2}ru_{l\alpha}(r)}{dr^{2}}-u_{l\alpha}(r)\frac{d^{2}r\dot{u}_{l\alpha}(r)}{dr^{2}})dr=1\label{eq:98}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Кроме того, имеет место равенство:
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\int r\left(\dot{u}_{l\alpha}\left(r\right)\frac{d^{2}ru_{l\alpha}(r)}{dr^{2}}-u_{l\alpha}\left(r\right)\frac{d^{2}r\dot{u}_{l\alpha}\left(r\right)}{dr^{2}})\right)dr=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+=r^{2}\left(\dot{u}_{l\alpha}\left(r\right)\frac{du_{l\alpha}\left(r\right)}{dr}-u_{l\alpha}\left(r\right)\frac{d\dot{u}_{l\alpha}\left(r\right)}{dr}\right),\label{eq:99}
+\end{equation}
+
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+справедливость которого следует, например, из того, что производная по 
+\begin_inset Formula $r$
+\end_inset
+
+ от правой части (99) равна подынтегральному выражению левой части.
+ Сравнивая (98) и (99), окончательно получаем эквивалентное (95) уравнение
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\left.\left(\dot{u}_{l\alpha}\left(r\right)\frac{du_{l\alpha}\left(r\right)}{dr}-u_{l\alpha}\left(r\right)\frac{d\dot{u}_{l\alpha}\left(r\right)}{dr}\right)\right|_{r=r_{\alpha}}=1/\left(r_{\alpha}\right){}^{2},\label{eq:100}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+а также, подставляя (95) в (93) и (94), уравнения для 
+\begin_inset Formula $A_{lm\alpha}$
+\end_inset
+
+ , 
+\begin_inset Formula $B_{lm\alpha}$
+\end_inset
+
+ :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+A_{lm\alpha}=D_{MNP,lm\alpha}r_{\alpha}^{2}\left\{ I_{2}\dot{u}_{l\alpha}\left(r_{\alpha},E_{l\alpha}\right)-I_{1}\dot{u}_{l\alpha}^{\prime}|\left(r_{\alpha},E_{l\alpha}\right)\right\} ,\label{eq:101}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+B_{lm\alpha}=D_{MNP,lm\alpha}r_{\alpha}^{2}\left\{ I_{1}u{}_{l\alpha}^{\prime}\left(r_{\alpha},E_{l\alpha}\right)-I_{2}u_{l\alpha}|\left(r_{\alpha},E_{l\alpha}\right)\right\} .\label{eq:102}
+\end{equation}
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Таким образом, значения
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\begin_inset Formula $D_{MNP,lm\alpha}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ (87), 
+\begin_inset Formula $A_{lm\alpha}$
+\end_inset
+
+ (101) и 
+\begin_inset Formula $B_{lm\alpha}$
+\end_inset
+
+ (102) обеспечивают непрерывность волновой функции и ее первой производной
+ внутри всего цилиндрического слоя, включая границы МТ-сфер.
+ 
+\end_layout
+
+\begin_layout Standard
+Интегралы 
+\begin_inset Formula $I_{1}$
+\end_inset
+
+ и 
+\begin_inset Formula $I_{2}$
+\end_inset
+
+ в аналитической форме не берутся, но они легко рассчитываются методами
+ численного интегрирования.
+\end_layout
+
+\begin_layout Standard
+(Объем вычислений сокращается в 4 раза при учете четности подынтегральных
+ выражений относительно замены 
+\begin_inset Formula $\theta\rightarrow\pi-\theta$
+\end_inset
+
+ .)
+\end_layout
+
+\begin_layout Subsubsection
+Интегралы перекрывания 
+\end_layout
+
+\begin_layout Standard
+Интеграл от произведения 
+\begin_inset Formula $\Psi^{*}(P_{2}M_{2}N_{2})$
+\end_inset
+
+ и 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\Psi^{*}(P_{1}M_{1}N_{1})$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ по элемен- тарной ячейке 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ равен интегралу от цилиндрических волн 
+\begin_inset Formula $\Psi_{II}$
+\end_inset
+
+ (68) по межсферной области 
+\begin_inset Formula $\Omega_{II}$
+\end_inset
+
+ плюс сумма интегралов по МТ-облаcтям 
+\begin_inset Formula $\Omega_{I\alpha}$
+\end_inset
+
+ от сферических частей базисных функций 
+\begin_inset Formula $\Psi_{I\alpha}$
+\end_inset
+
+ (70):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\underset{\Omega}{\int}\Psi^{*}\left(P_{2}M_{2}N_{2}\right)\Psi\left(P_{1}M_{1}N_{1}\right)dV=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\underset{\Omega_{II}}{\int}\Psi_{II}^{*}\left(P_{2}M_{2}N_{2}\right)\Psi_{II}\left(P_{1}M_{1}N_{1}\right)dV+
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
++\underset{\alpha}{\sum}\underset{\Omega_{\alpha}}{\int}\Psi_{I\alpha}^{*}\left(P_{2}M_{2}N_{2}\right)\Psi_{I\alpha}\left(P_{1}M_{1}N_{1}\right)dV.\label{eq:103}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Интеграл по сложной межсферной области от цилиндрических волн [первое слагаемое
+ в правой части (103)] равен интегралу по всей ячейке 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ за вычетом суммы интегралов по МТ-областям, причем интеграл по всей ячейке,
+ в силу ортонормированности цилиндрических волн, равен произведению 
+\begin_inset Formula $\delta$
+\end_inset
+
+-функций.
+ Таким образом, выражение для интеграла перекрывания (103) принимает вид:
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\left\langle PM_{2}N_{2}|P_{1}M_{1}N_{1}\right\rangle =
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+=\delta_{P_{2}P_{1}}\delta_{M_{2}M_{1}}\delta_{N_{2}N_{1}}-\underset{\alpha}{\sum}\underset{\alpha}{\int}\Psi_{II\alpha}^{*}\left(P_{2}M_{2}N_{2}\right)\Psi_{II\alpha}\left(P_{1}M_{1}N_{1}\right)dV+
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
++\underset{\alpha}{\sum}\underset{\Omega_{\alpha}}{\int}\Psi_{I\alpha}^{*}\left(P_{2}M_{2}N_{2}\right)\Psi_{I\alpha}\left(P_{1}M_{1}N_{1}\right)dV.\label{eq:104}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Для расчета второго слагаемого в правой части (104) будем использовать представл
+ение (81) цилиндрической волны в сферических координатах с началом в центре
+ сферы 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ .
+ Интегрирование по объему МТ-области в сферической системе координат 
+\begin_inset Formula $r,\theta,\varphi$
+\end_inset
+
+ включает интегрирование по 
+\begin_inset Formula $r$
+\end_inset
+
+ в пределах от 0 до 
+\begin_inset Formula $r_{\alpha}$
+\end_inset
+
+ , по
+\begin_inset Formula $\theta$
+\end_inset
+
+ от 0 до 
+\begin_inset Formula $\pi$
+\end_inset
+
+ и по 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ от 0 до 
+\begin_inset Formula $2\pi$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\underset{\Omega_{\alpha}}{\int}\Psi_{II\alpha}^{*}\left(P_{2}M_{2}N_{2}\right)\Psi_{II\alpha}\left(P_{1}M_{1}N_{1}\right)dV=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+=\frac{1}{c}\exp\left\{ i\left[\left(K_{p_{1}}-K_{p_{2}}\right)Z_{\alpha}+\left(M_{1}-M_{2}\right)\Phi_{\alpha}\right]\right\} \left(-1\right){}^{M_{1}+M_{2}}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\times\stackrel[m=-\infty]{\infty}{\sum}\left[C_{M_{2}N_{2}}^{J}J_{m-M_{2}}\left(k_{\left|M_{2}\right|,N_{2}}R_{\alpha}\right)+C_{M_{2}N_{2}}^{Y}Y_{m-M_{2}}\left(k_{\left|M_{2}\right|,N_{2}}R_{\alpha}\right)\right]\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\times\left[C_{M_{1}N_{1}}^{J}J_{m-M_{1}}\left(k_{\left|M_{1}\right|,N_{1}}R_{\alpha}\right)+C_{M_{1}N_{1}}^{Y}Y_{m-M_{1}}\left(k_{\left|M_{1}\right|,N_{1}}R_{\alpha}\right)\right]I_{3}.\label{eq:105}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Здесь введено обозначение:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I_{3}=2\stackrel[0]{\pi/2}{\int}\stackrel[0]{r_{\alpha}}{\int}\cos\left[r\left(K_{p_{1}}-K_{p_{2}}\right)\cos\theta\right]J_{m}\left(k_{\left|M_{2}\right|,N_{2}}r\sin\theta\right)\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\times J_{m}\left(k_{\left|M_{1}\right|,N_{1}}r\sin\theta\right)r^{2}\sin\theta d\theta dr.\label{eq:106}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Теперь следует определить второй интеграл в правой части (104):
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\underset{\Omega_{\alpha}}{\int}\Psi_{I\alpha}^{*}\left(P_{2}M_{2}N_{2}\right)\Psi_{I\alpha}\left(P_{1}M_{1}N_{1}\right)dV=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\stackrel[l'=0]{\infty}{\sum}\stackrel[m'=-l']{l^{\prime}}{\sum}\stackrel[l=0]{\infty}{\sum}\stackrel[m=-l]{l}{\sum}\stackrel[0]{\pi}{\int}\stackrel[0]{2\pi}{\int}Y_{l^{\prime}m^{\prime}}^{*}\left(\theta,\varphi\right)Y_{lm}\left(\theta,\varphi\right)\sin\theta d\theta d\varphi\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\times\stackrel[0]{r_{\alpha}}{\int}\left[A_{l^{\prime}m^{\prime}\alpha^{\prime}}^{*}u_{l\alpha^{\prime}}\left(r,E_{l'\alpha}\right)+B_{l^{\prime}m^{\prime}\alpha^{\prime}}^{*}\dot{u}_{l^{\prime}\alpha}\left(r,E_{l^{\prime}\alpha}\right)\right]\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\times\left[A_{lm\alpha}u_{l\alpha}(r,E_{l\alpha})+B_{lm\alpha}\dot{u}_{l\alpha}(r,E_{l\alpha})\right]r^{2}dr.\label{eq:107}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Используем условие ортогональности 
+\begin_inset Formula $(73)$
+\end_inset
+
+ сферических гармоник 
+\begin_inset Formula $Y_{lm}$
+\end_inset
+
+(
+\begin_inset Formula $\theta$
+\end_inset
+
+,
+\begin_inset Formula $\varphi$
+\end_inset
+
+ ), тогда:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\intop_{\Omega}\Psi_{I\alpha}^{\ast}\left(P_{2}M_{2}N_{2}\right)\Psi_{I\alpha}\left(P_{1}M_{1}N_{1}\right)dV=
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\sum_{l=0}^{\infty}\sum_{m=-l}^{l}\intop_{0}^{r_{\alpha}}\left[A_{lm\alpha}^{\ast}u_{l\alpha}\left(r,E_{l\alpha}\right)+B_{lm\alpha}^{\ast}\dot{u}_{l\alpha}\left(r,E_{l\alpha}\right)\right]\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\left[A_{lm\alpha}u_{l\alpha}\left(r,E_{l\alpha}\right)+B_{lm\alpha}\dot{u}_{l\alpha}\left(r,E_{l\alpha}\right)\right]r^{2}dr=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\sum_{l=0}^{\infty}\sum_{m=-l}^{l}\int_{0}^{r_{\alpha}}A_{lm\alpha}^{\ast}A_{lm\alpha}u_{l\alpha}u_{l\alpha}+A_{lm\alpha}^{\ast}B_{lm\alpha}u_{l\alpha}\dot{u}_{l\alpha}+
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
++A_{lm\alpha}B_{lm\alpha}^{\ast}\dot{u}_{l\alpha}u_{l\alpha}\left(r,E_{l\alpha}\right)+B_{lm\alpha}^{\ast}B_{lm\alpha}\dot{u}_{l\alpha}\dot{u}_{l\alpha}r^{2}dr.\label{eq:108}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+С учетом условий нормировки волновых функций 
+\begin_inset Formula $u_{la}(r)$
+\end_inset
+
+ 
+\begin_inset Formula $(75)$
+\end_inset
+
+ и ортогональности функций 
+\begin_inset Formula $u_{la}(r)$
+\end_inset
+
+ их производным 
+\begin_inset Formula $\dot{u}_{la}(r)$
+\end_inset
+
+
+\begin_inset Formula $(76)$
+\end_inset
+
+ выражение 
+\begin_inset Formula $(107)$
+\end_inset
+
+ преобразуется к виду:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\intop_{\Omega_{a}}\Psi_{I\alpha}^{\ast}\left(P_{2}M_{2}N_{2}\right)\Psi\left(P_{1}M_{1}N_{1}\right)dV=
+\]
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{equation}
+=\sum_{l=0}^{\infty}\sum_{m=-l}^{l}\left[A_{lm\alpha}^{\ast}A_{lm\alpha}+N_{la}B_{lm\alpha}B_{lm\alpha}^{\ast}\right]\label{eq:109}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где 
+\begin_inset Formula $N_{la}$
+\end_inset
+
+— интеграл 
+\begin_inset Formula $(77)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Подставим теперь в 
+\begin_inset Formula $(109)$
+\end_inset
+
+ выражения для коэффициентов 
+\begin_inset Formula $A_{lm\alpha}$
+\end_inset
+
+ и 
+\begin_inset Formula $B_{lm\alpha}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\intop_{\Omega_{a}}\Psi_{I\alpha}^{\ast}\left(P_{2}M_{2}N_{2}\right)\Psi_{I\alpha}\left(P_{1}M_{1}N_{1}\right)dV=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\sum_{l=0}^{\infty}\sum_{m=-l}^{l}D_{M_{2}N_{2}P_{2},lm\alpha}^{\ast}D_{M_{1}N_{1}P_{1},lm\alpha}r_{\alpha}^{4}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\Bigl[\bigl\{ I_{2}^{\ast}\left(M_{2}N_{2}P_{2};r_{\alpha},l,|m|\right)\dot{u}_{la}\left(r,E_{l\alpha}\right)-
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-I_{1}^{\ast}(M_{2}N_{2}P_{2};r_{\alpha},l,|m|)\dot{u}'_{la}\left(r,E_{l\alpha}\right)\Bigr\}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\Bigl\{ I_{2}(M_{2}N_{2}P_{2};r_{\alpha},l,|m|)\dot{u}_{la}\left(r,E_{l\alpha}\right)-
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-I_{1}\left(M_{2}N_{2}P_{2};r_{\alpha},l,|m|\right)u_{la}^{\prime}\left(r,E_{l\alpha}\right)\Bigr\}+
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++N_{la}\Bigl\{ I_{1}^{\ast}\left(M_{2}N_{2}P_{2};r_{\alpha},l,|m|\right)u_{la}^{\prime}\left(r,E_{l\alpha}\right)-
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-I_{2}^{\ast}\left(M_{2}N_{2}P_{2};r_{\alpha},l,|m|\right)u_{la}^{\prime}\left(r,E_{l\alpha}\right)\Bigr\}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\Bigl\{ I_{1}\left(M_{2}N_{2}P_{2};r_{\alpha},l,|m|\right)u_{la}^{\prime}\left(r,E_{l\alpha}\right)-
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+-I_{2}\left(M_{2}N_{2}P_{2};r_{\alpha},l,|m|\right)u{}_{la}\left(r,E_{l\alpha}\right)\Bigr\}\Bigl]\label{eq:110}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+D_{M_{2}N_{2}P_{2},lm\alpha}^{\ast}D_{M_{1}N_{1}P_{1},lm\alpha}=\frac{1}{2c}(2l+1)\frac{\left(l-|m|\right)!}{\left(l+|m|\right)!}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\left(-1\right){}^{M_{1}+M_{2}}\sum_{\alpha}exp\left\{ i\left[\left(K_{P_{1}}-K_{P_{2}}\right)Z_{\alpha}+\left(M_{1}-M_{2}\right)\varPhi_{\alpha}\right]\right\} \times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\left[C_{M_{2}N_{2}}^{J}J_{m-M_{2}}\left(K_{|M_{2}|,N_{2}}R_{\alpha}\right)+C_{M_{2}N_{2}}^{Y}J_{m-M_{2}}\left(K_{|M_{2}|,N_{2}}R_{\alpha}\right)\right]\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\times\left[C_{M_{1}N_{1}}^{J}J_{m-M_{2}}\left(K_{|M_{1}|,N_{1}}R_{\alpha}\right)+C_{M_{1}N_{1}}^{Y}J_{m-M_{1}}\left(K_{|M_{1}|,N_{1}}R_{\alpha}\right)\right].\label{eq:111}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Подставляя в 
+\begin_inset Formula $(104)$
+\end_inset
+
+ значения интегралов 
+\begin_inset Formula $(105)$
+\end_inset
+
+ и 
+\begin_inset Formula $(110)$
+\end_inset
+
+ и меняя порядок суммирования по 
+\begin_inset Formula $l$
+\end_inset
+
+ и 
+\begin_inset Formula $m$
+\end_inset
+
+ в
+\begin_inset Formula $(110)$
+\end_inset
+
+, получим окончательную формулу для интегралов перекрывания:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\langle P_{2}M_{2}N_{2}|P_{1}M_{1}N_{1}\right\rangle =\delta_{P_{2}P_{1}}\delta_{M_{2}M_{1}}\delta_{N_{2}N_{1}}-\frac{1}{c}\left(-1\right){}^{M_{1}+M_{2}}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times exp\left\{ i\left[\left(K_{P_{1}}-K_{P_{2}}\right)Z_{\alpha}+\left(M_{1}-M_{2}\right)\varPhi_{\alpha}\right]\right\} \times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\left[C_{M_{2}N_{2}}^{J}J_{m-M_{2}}\left(K_{|M_{2}|,N_{2}}R_{\alpha}\right)+C_{M_{2}N_{2}}^{Y}J_{m-M_{2}}\left(K_{|M_{2}|,N_{2}}R_{\alpha}\right)\right]\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\left[C_{M_{1}N_{1}}^{J}J_{m-M_{2}}\left(K_{|M_{1}|,N_{1}}R_{\alpha}\right)+C_{M_{1}N_{1}}^{Y}J_{m-M_{1}}\left(K_{|M_{1}|,N_{1}}R_{\alpha}\right)\right]\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\times\left\{ I_{3}\left(P_{1}-P_{2},N_{2},N_{1},M_{2},M_{1;}m,r_{\alpha}\right)-r_{\alpha}^{4}\sum_{l=|m|}^{\infty}\frac{\left(2l+1\right)\left(l-|m|\right)!}{2\left(l+|m|\right)!}c_{lm\alpha}\right\} ,\label{eq:112}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+c_{lm\alpha}=\left\{ I_{2}^{\ast}\left(M_{2}N_{2}P_{2};r_{\alpha},l,|m|\right)\dot{u}_{la}\left(r,E_{l\alpha}\right)-I_{1}^{*}\left(\left(M_{2}N_{2}P_{2};r_{\alpha},l,|m|\right)u_{la}^{\prime}\left(r,E_{l\alpha}\right)\right)\right\} \times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\left\{ I_{2}\left(M_{2}N_{2}P_{2};r_{\alpha},l,|m|\right)\dot{u}_{la}\left(r,E_{l\alpha}\right)-I_{1}\left(M_{2}N_{2}P_{2};r_{\alpha},l,|m|\right)u_{la}^{\prime}\left(r,E_{l\alpha}\right)\right\} +
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++N_{la}\left\{ I_{1}^{\ast}\left(M_{2}N_{2}P_{2};r_{\alpha},l,|m|\right)u_{la}^{\prime}\left(r,E_{l\alpha}\right)-I_{2}^{\ast}\left(M_{2}N_{2}P_{2};r_{\alpha},l,|m|\right)u{}_{la}^{\prime}\left(r,E_{l\alpha}\right)\right\} \times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\times\left\{ I_{1}\left(M_{2}N_{2}P_{2};r_{\alpha},l,|m|\right)u_{la}^{\prime}\left(r,E_{l\alpha}\right)-I_{2}\left(M_{2}N_{2}P_{2};r_{\alpha},l,|m|\right)u{}_{la}\left(r,E_{l\alpha}\right)\right\} .\label{eq:113}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+\size large
+Матричные элементы гамильтониана
+\end_layout
+
+\begin_layout Standard
+При определении матричных элементов гамильтониана 
+\begin_inset Formula $\hat{H}$
+\end_inset
+
+ будем пользоваться тем же приемом интегрирования базисной волновой функции
+ 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ по элементарной ячейке 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, а именно — интеграл по элементарной ячейке 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ представим как сумму интегралов по межсферной области 
+\begin_inset Formula $\Omega_{II\alpha}$
+\end_inset
+
+ от цилиндрических волн 
+\begin_inset Formula $\Psi_{II\alpha}$
+\end_inset
+
+ и интегралов по внутренним областям МТ-сфер 
+\begin_inset Formula $\Omega_{\alpha}$
+\end_inset
+
+ от сферических частей базисных функций 
+\begin_inset Formula $\Psi{}_{I\alpha}$
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\intop_{\Omega}\Psi^{\ast}\left(P_{2}M_{2}N_{2}\right)\hat{H}\Psi\left(P_{1}M_{1}N_{1}\right)dV=\intop_{\Omega_{II}}\Psi_{II}^{\ast}\left(P_{2}M_{2}N_{2}\right)\hat{H}\Psi_{II}\left(P_{1}M_{1}N_{1}\right)dV+
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
++\sum_{\alpha}\intop_{\Omega_{\alpha}}\Psi_{I\alpha}^{\ast}\left(P_{2}M_{2}N_{2}\right)\hat{H}\Psi_{I\alpha}\left(P_{1}M_{1}N_{1}\right)dV.\label{eq:114}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Примем за начало отсчета энергии значение постоянного потенциала в межсферной
+ области.
+ Тогда в этой области электронный гамильтониан совпадает с оператором кинетическ
+ой энергии: 
+\begin_inset Formula $\hat{H}=-\varDelta$
+\end_inset
+
+ .
+ Интеграл по межсферной области от цилиндрических волн 
+\begin_inset Formula $\Psi{}_{II\alpha}$
+\end_inset
+
+ равен интегралу по всей ячейке за вычетом суммы интегралов по МТ-сферам:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\intop_{\Omega_{II}}\Psi_{II}^{\ast}\left(P_{2}M_{2}N_{2}\right)\left(-\varDelta\right)\Psi\left(P_{1}M_{1}N_{1}\right)dV=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\intop_{\Omega_{II}}\Psi_{II}^{\ast}\left(P_{2}M_{2}N_{2}\right)\left(-\varDelta\right)\Psi_{II}\left(P_{1}M_{1}N_{1}\right)dV+
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
++\sum_{\alpha}\intop_{\Omega_{\alpha}}\Psi_{II}^{\ast}\left(P_{2}M_{2}N_{2}\right)\left(-\varDelta\right)\Psi_{II}\left(P_{1}M_{1}N_{1}\right)dV.\label{eq:115}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Цилиндрические волны являются собственными функциями оператора кинетической
+ энергии электронов в пустом цилиндре, поэтому 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\intop_{\Omega_{II}}\Psi_{II}^{\ast}\left(P_{2}M_{2}N_{2}\right)\left(-\varDelta\right)\Psi\left(P_{1}M_{1}N_{1}\right)dV=.\label{eq:116}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\left(K_{P_{1}}K_{P_{2}}+\kappa_{M_{1}|,N_{1}}\kappa_{M_{2}|,N_{2}}\right)\delta_{P_{2}P_{1}}\delta_{M_{2}M_{1}}\delta_{N_{2}N_{1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Представим интегралы по внутренним областям МТ-сфер в 
+\begin_inset Formula $(113)$
+\end_inset
+
+ и 
+\begin_inset Formula $(114)$
+\end_inset
+
+ в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\intop_{\Omega_{\alpha}}\Psi_{II}^{\ast}\left(P_{2}M_{2}N_{2}\right)\left(-\varDelta\right)\Psi_{II}\left(P_{1}M_{1}N_{1}\right)dV=\label{eq:117}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\intop_{\Omega_{\alpha}}\left(i\nabla\Psi_{II}\left(P_{2}M_{2}N_{2}\right)\right){}^{\ast}\left(i\nabla\Psi_{II}\left(P_{1}M_{1}N_{1}\right)\right)dV.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В локальной сферической системе координат 
+\begin_inset Formula $r$
+\end_inset
+
+, 
+\begin_inset Formula $\theta$
+\end_inset
+
+,
+\begin_inset Formula $\varphi$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\nabla=\frac{\partial}{\partial r}i_{r}+\frac{1}{r}\frac{\partial}{\partial\theta}i_{\theta}+\frac{1}{rsin\theta}\frac{\partial}{\partial\varphi}i_{\varphi},\label{eq:118}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где 
+\begin_inset Formula $i_{r}$
+\end_inset
+
+, 
+\begin_inset Formula $i_{\theta}$
+\end_inset
+
+, 
+\begin_inset Formula $i_{\varphi}$
+\end_inset
+
+ — ортонормированные единичные векторы.
+ Тогда:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\intop_{\Omega_{\alpha}}\Psi_{II\alpha}^{\ast}\left(P_{2}M_{2}N_{2}\right)\left(-\varDelta\right)\Psi_{II\alpha}\left(P_{1}M_{1}N_{1}\right)dV=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\intop_{\Omega_{\alpha}}\frac{\partial\Psi_{II\alpha}^{\ast}\left(P_{2}M_{2}N_{2}\right)}{\partial r}\frac{\partial\Psi_{II\alpha}\left(P_{1}M_{1}N_{1}\right)}{\partial r}dV+
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++\intop_{\Omega_{\alpha}}\frac{1}{r}\frac{\partial\Psi_{II\alpha}^{\ast}\left(P_{2}M_{2}N_{2}\right)}{\partial\theta}\frac{1}{r}\frac{\partial\Psi_{II\alpha}\left(P_{1}M_{1}N_{1}\right)}{\partial\theta}dV+
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
++\intop_{\Omega_{\alpha}}\frac{1}{rsin\theta}\frac{\partial\Psi_{II\alpha}^{\ast}\left(P_{2}M_{2}N_{2}\right)}{\partial\varphi}\frac{1}{rsin\theta}\frac{\partial\Psi_{II\alpha}\left(P_{1}M_{1}N_{1}\right)}{\partial\varphi}dV.\label{eq:119}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Вид 
+\begin_inset Formula $\frac{\text{∂ }}{\Psi}$
+\end_inset
+
+ 
+\begin_inset Formula $(89)$
+\end_inset
+
+ уже получен.
+ Производные 
+\begin_inset Formula $\Psi{}_{II}$
+\end_inset
+
+ по координатам 
+\begin_inset Formula $\theta$
+\end_inset
+
+ и 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ равны:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\Psi_{II\alpha}}{\partial\theta}=\frac{1}{\sqrt{2\pi c}}exp\left\{ i\left(K_{P}Z_{\alpha}+M\Phi_{\alpha}\right)\right\} exp\left\{ iK_{P}rcos\theta\right\} \left(-1\right){}^{M}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\sum_{m=-\infty}^{\infty}\left[C_{MN}^{J}J_{m-M}\left(\kappa_{|M|,N}R_{\alpha}\right)+C_{MN}^{Y}J_{m-M}\left(\kappa_{|M|,N}R_{\alpha}\right)\right]\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left[iK_{P}r\left(-sin\theta\right)J_{m}\left(\kappa_{|M|,N}rsin\theta\right)+\kappa_{|M|,N}rcos\theta J_{m}^{\prime}\left(\kappa_{|M|,N}rsin\theta\right)\right]]e;\label{eq:120}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\Psi_{II\alpha}}{\partial\varphi}=\frac{1}{\sqrt{2\pi c}}exp\left\{ i\left(K_{p}Z_{\alpha}+M\varPhi_{\alpha}\right)\right\} exp\left\{ iK_{P}rcos\theta\right\} \left(-1\right){}^{M}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{m=-\infty}^{\infty}\left[C_{MN}^{J}J_{m-M}\left(\kappa_{|M|,N}R_{\alpha}\right)+C_{MN}^{Y}J_{m-M}\left(\kappa_{|M|,N}R_{\alpha}\right)\right]\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\times J_{m}\left(\kappa_{|M|,N}rsin\theta\right)\left(-im\right)e^{im\varphi}\label{eq:121}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Зная производные 
+\begin_inset Formula $(88),$
+\end_inset
+
+ 
+\begin_inset Formula $(120)$
+\end_inset
+
+ и 
+\begin_inset Formula $(121)$
+\end_inset
+
+, можно рассчитать правую часть 
+\begin_inset Formula $(119)$
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\intop_{\Omega_{\alpha}}\Psi_{II\alpha}^{\ast}\left(P_{2}M_{2}N_{2}\right)\left(-\varDelta\right)\Psi_{II\alpha}\left(P_{1}M_{1}N_{1}\right)dV=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\frac{1}{c}exp\left\{ i\left[\left(K_{P_{1}}-K_{P_{2}}\right)Z_{\alpha}+\left(M_{1}-M_{2}\right)\varPhi_{\alpha}\right]\right\} \times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\left(-1\right){}^{M_{1}+M_{2}}\sum_{\alpha}exp\left\{ i\left(K_{P_{1}}-K_{P_{2}}\right)rcos\theta\right\} \times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\sum_{m=-\infty}^{+\infty}[C_{M_{2}N_{2}}^{J}J_{m-M_{2}}\left(\kappa_{|M_{2}|,N_{2}}R_{\alpha}\right)+C_{M_{2}N_{2}}^{Y}J_{m-M_{2}}\left(\kappa_{|M_{2}|,N_{2}}R_{\alpha}\right)\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\left[C_{M_{1}N_{1}}^{J}J_{m-M_{2}}\left(K_{|M_{1}|,N_{1}}R_{\alpha}\right)+C_{M_{1}N_{1}}^{Y}J_{m-M_{1}}\left(K_{|M_{1}|,N_{1}}R_{\alpha}\right)\right]\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\times\left[K_{p_{1}}K_{P_{2}}I_{3}+\kappa_{M_{2}|,N_{2}}\kappa_{M_{1}|,N_{1}}I_{3}^{\prime}+m^{2}I_{4}\right],\label{eq:122}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где интеграл 
+\begin_inset Formula $I_{3}$
+\end_inset
+
+ определяется уравнением 
+\begin_inset Formula $(106)$
+\end_inset
+
+.
+ Интеграл 
+\begin_inset Formula $I_{3}^{'}$
+\end_inset
+
+ аналогичен 
+\begin_inset Formula $I_{3}$
+\end_inset
+
+, но в нем вместо функций Бесселя 
+\begin_inset Formula $J$
+\end_inset
+
+ стоят их первые производные: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I_{3}^{\prime}=2\intop_{0}^{\pi/2}\intop_{0}^{r_{\alpha}}cos\left[r\left(K_{P_{1}}-K_{P_{2}}\right)cos\theta\right]J_{m}^{\prime}\left(\kappa_{|M_{2}|,N_{2}}rsin\theta\right)\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\times J_{m}^{\prime}\left(\kappa_{|M_{1}|,N_{1}}rsin\theta\right)r^{2}sin\theta d\theta dr.\label{eq:123}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Наконец, интеграл 
+\begin_inset Formula $I_{4}$
+\end_inset
+
+ имеет вид: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I_{4}=2\intop_{0}^{\pi/2}\intop_{0}^{r_{\alpha}}cos\left[r\left(K_{P_{1}}-K_{P_{2}}\right)cos\theta\right]J\left(\kappa_{|M_{2}|,N_{2}}rsin\theta\right)\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\times J_{m}\left(\kappa_{|M_{1}|,N_{1}}rsin\theta\right)\left(sin\theta\right){}^{-1}d\theta dr.\label{eq:124}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Теперь необходимо рассчитать второй интеграл в правой част и
+\begin_inset Formula $(114)$
+\end_inset
+
+, отвечающей МТ-областям атомов, где 
+\begin_inset Formula $\hat{H}=\hat{H}_{MT}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\intop_{\Omega_{\alpha}}\Psi_{I\alpha}^{\ast}\left(P_{2}M_{2}N_{2}\right)\hat{H}_{MT\alpha}\Psi_{I\alpha}\left(P_{1}M_{1}N_{1}\right)dV=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\sum_{l'=0}^{\infty}\sum_{m'=-l'}^{l'}\sum_{l=0}^{\infty}\sum_{m=-l}^{l}\intop_{0}^{r_{\alpha}}\Bigl\{\left[A_{l'm'\alpha}^{\ast}u_{l'\alpha}\left(r,E_{l'\alpha}\right)+B_{l'm'\alpha}^{\ast}\dot{u}_{l'\alpha}\left(r,E_{l'\alpha}\right)\right]\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\hat{H}_{MT\alpha}\left[A_{l'm'\alpha}u_{l'\alpha}\left(r,E_{l'\alpha}\right)+B_{l'm'\alpha}\dot{u}_{l'\alpha}\left(r,E_{l'\alpha}\right)\right]\Bigr\} r^{2}dr\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\times\intop_{0}^{\pi}\intop_{0}^{2\pi}Y_{l'm'}^{\ast}\left(\theta,\varphi\right)Y_{lm}\left(\theta,\varphi\right)sin\theta d\theta d\varphi.\label{eq:125}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Учитывая, что сферические гармоники ортонормированы, находим: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\intop_{\Omega_{\alpha}}\Psi_{I\alpha}^{\ast}\left(P_{2}M_{2}N_{2}\right)\hat{H}_{MT\alpha}\Psi_{I\alpha}\left(P_{1}M_{1}N_{1}\right)dV=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{l=0}^{\infty}\sum_{m=-l}^{l}\Bigl\{\Bigl[A_{lm\alpha}^{\ast}A_{lm\alpha}\intop_{0}^{r_{\alpha}}u_{l\alpha}\left(r,E_{l\alpha}\right)\hat{H}_{MT\alpha}u_{l\alpha}\left(r,E_{l\alpha}\right)r^{2}dr+B_{lm\alpha}^{\ast}A_{lm\alpha\times}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\intop_{0}^{r_{\alpha}}\dot{u}_{l\alpha}\left(r,E_{l\alpha}\right)\hat{H}_{MT\alpha}u_{l\alpha}\left(r,E_{l\alpha}\right)r^{2}dr+B_{lm\alpha}^{\ast}B_{lm\alpha\times}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\times\intop_{0}^{r_{\alpha}}\dot{u}_{l\alpha}\left(r,E_{l\alpha}\right)\hat{H}_{MT\alpha}\dot{u}_{l\alpha}\left(r,E_{l\alpha}\right)r^{2}dr\Bigl]\Bigr\}.\label{eq:126}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Из уравнений для волновых функций 
+\begin_inset Formula $u_{l\alpha}\left(r,E_{l\alpha}\right)$
+\end_inset
+
+ и 
+\begin_inset Formula $\dot{u}_{l\alpha}\left(r,E_{l\alpha}\right)$
+\end_inset
+
+ следует:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\intop_{0}^{r_{\alpha}}u_{l\alpha}\hat{H}_{MT\alpha}u_{l\alpha}r^{2}dr=E_{l\alpha},\label{eq:127}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\intop_{0}^{r_{\alpha}}\dot{u}_{l\alpha}\hat{H}\dot{u}_{l\alpha}r^{2}dr=\intop_{0}^{r_{\alpha}}\dot{u}_{l\alpha}\left[u_{l\alpha}+E_{l\alpha}\dot{u}_{l\alpha}\right]rdr=E_{l\alpha}N_{l\alpha},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\intop_{0}^{r_{\alpha}}\dot{u}_{l\alpha}\hat{H}_{MT\alpha}u_{l\alpha}r^{2}dr=E_{l\alpha}\intop_{0}^{r_{\alpha}}\dot{u}_{l\alpha}u_{l\alpha}r^{2}dr=0,\label{eq:128}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\intop_{0}^{r_{\alpha}}\dot{u}_{l\alpha}\hat{H}\dot{u}_{l\alpha}r^{2}dr=\intop_{0}^{r_{\alpha}}u_{l\alpha}^{2}r^{2}dr+E_{l\alpha}\intop_{0}^{r_{\alpha}}u_{l\alpha}\dot{u}_{l\alpha}r^{2}dr=1.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Теперь (126) можно записать в виде: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\intop_{\Omega_{\alpha}}\Psi_{I\alpha}^{\ast}\left(P_{2}M_{2}N_{2}\right)\hat{H}_{MT\alpha}\Psi_{I\alpha}\left(P_{1}M_{1}N_{1}\right)dV=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+=\sum_{l=0}^{\infty}\sum_{m=-l}^{l}\{E_{l\alpha}\left[A_{lm\alpha}^{\ast}A_{lm\alpha}+N_{lm\alpha}B_{lm\alpha}^{\ast}B_{lm\alpha}\right]+A_{lm\alpha}^{\ast}B_{lm\alpha}\}.\label{eq:129}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Используя соотношения 
+\begin_inset Formula $(114)$
+\end_inset
+
+,
+\begin_inset Formula $(122)$
+\end_inset
+
+, 
+\begin_inset Formula $(129)$
+\end_inset
+
+ и выражения для коэффициентов 
+\begin_inset Formula $A_{lm\alpha}$
+\end_inset
+
+ и 
+\begin_inset Formula $B_{lm\alpha}$
+\end_inset
+
+ , получаем окончательный вид уравнения для матричных элементов гамильтониана:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\langle P_{2}M_{2}N_{2}|P_{1}M_{1}N_{1}\right\rangle =\left(K_{p_{1}}K_{P_{2}}+\kappa_{M_{2}|,N_{2}}\kappa_{M_{1}|,N_{1}}\right)\delta_{P_{2}P_{1}}\delta_{M_{2}M_{1}}\delta_{N_{2}N_{1}}-\frac{_{1}}{c}(-1)^{M_{1}+M_{2}}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\sum_{\alpha}exp\left\{ i\left[\left(K_{P_{1}}-K_{P_{2}}\right)Z_{\alpha}+\left(M_{1}-M_{2}\right)\varPhi_{\alpha}\right]\right\} \times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\sum_{m=-\infty}^{\infty}\left[C_{M_{2}N_{2}}^{J}J_{m-M_{2}}\left(K_{|M_{2}|,N_{2}}R_{\alpha}\right)+C_{M_{2}N_{2}}^{Y}J_{m-M_{2}}\left(K_{|M_{2}|,N_{2}}R_{\alpha}\right)\right]\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\left[C_{M_{1}N_{1}}^{J}J_{m-M_{2}}\left(K_{|M_{1}|,N_{1}}R_{\alpha}\right)+C_{M_{1}N_{1}}^{Y}J_{m-M_{1}}\left(K_{|M_{1}|,N_{1}}R_{\alpha}\right)\right]\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\Biggl\{ K_{P_{1}}K_{P_{2}}I_{3}+\kappa_{|M_{2}|,N_{2}}\kappa_{|M_{1}|,N_{1}}I_{3}^{\prime}+m^{2}I_{4}-r_{\alpha}^{4}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\times\sum_{l=|m|}^{\infty}\frac{\left(2l+1\right)\left(l-|m|\right)!}{2\left(l+|m|\right)!}\left[E_{l\alpha}c_{lm\alpha}+\gamma_{m\alpha}\right]\Biggr\}.\label{eq:130}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Здесь 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\gamma_{lm\alpha}=\Bigl\{ I_{2}^{\ast}\left(r_{\alpha},K_{P_{2}}M_{2},N_{2},l,|m|\right)I_{1}\left(r_{\alpha},K_{P_{1}}M_{1},N_{1},l,|m|\right)+
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++I_{1}^{*}\left(r_{\alpha},K_{P_{2}}M_{2},N_{2},l,|m|\right)I_{2}\left(r_{\alpha},K_{P_{1}}M_{1},N_{1},l,|m|\right)\Bigr\}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\dot{u}{}_{la}\left(r,E_{l\alpha}\right)u\prime_{la}\left(r,E_{l\alpha}\right)-I_{2}^{\ast}\left(r_{\alpha},K_{P_{2}}M_{2},N_{2},l,|m|\right)\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times I_{2}\left(r_{\alpha},K_{P_{1}}M_{1},N_{1},l,|m|\right)\dot{u}{}_{la}\left(r,E_{l\alpha}\right)u{}_{la}\left(r,E_{l\alpha}\right)-
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-I_{1}^{\ast}\left(r_{\alpha},K_{P_{2}}M_{2},N_{2},l,|m|\right)I_{1}\left(r_{\alpha},K_{P_{1}}M_{1},N_{1},l,|m|\right)\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\times\dot{u}\prime{}_{la}\left(r,E_{l\alpha}\right)u\prime_{la}\left(r,E_{l\alpha}\right).\label{eq:131}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Заметим, что для обеспечения эрмитовой сопряженности матрицы, как и в методе
+ ЛППВ, при расчете 
+\begin_inset Formula $\gamma{}_{lm\alpha}$
+\end_inset
+
+ сделана замена 
+\begin_inset Formula $u_{l\alpha}^{\prime}\left(r,E_{l\alpha}\right)u_{l\alpha}\left(r,E_{l\alpha}\right)$
+\end_inset
+
+ на 
+\begin_inset Formula $\dot{u}_{l\alpha}\left(r,E_{l\alpha}\right)u_{l\alpha}^{\prime}\left(r,E_{l\alpha}\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Наконец, используя полученные выражения для интегралов перекрывания 
+\begin_inset Formula $<P_{2}M_{2}N_{2}|P_{1}M_{1}N_{1}>$
+\end_inset
+
+ и матричных элементов гамильтониана 
+\begin_inset Formula $<P_{2}M_{2}N_{2}|H|P_{1}M_{1}N_{1}>$
+\end_inset
+
+, из секулярного уравнения 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+det||<P_{2}M_{2}N_{2}|H|P_{1}M_{1}N_{1}>–\varepsilon\left(k\right)<P_{2}M_{2}N_{2}|P_{1}M_{1}N_{1}>||=0\label{eq:132}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+можно определить законы дисперсии электронов 
+\begin_inset Formula $\varepsilon(k)$
+\end_inset
+
+ нанотрубки.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+\size large
+Парциальные заряды 
+\end_layout
+
+\begin_layout Standard
+Кроме законов дисперсии электронов 
+\begin_inset Formula $n(k)$
+\end_inset
+
+, определяемых секулярным уравнением 
+\begin_inset Formula $(132)$
+\end_inset
+
+, электронное строение можно охарактеризовать энергетическими зависимостями
+ полных и парциальных плотностей состояний.
+ При этом полная плотность состояний определяется только видом дисперсионных
+ кривых 
+\begin_inset Formula $\varepsilon{}_{n}(k)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+N(E)=\sum_{n}\left[d\varepsilon{}_{n}\left(k\right)/dk\right]{}^{-1},\label{eq:133}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+а для расчета парциальных плотностей 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+N_{l}^{\alpha}(E)=\sum_{n}Q_{nl}^{\alpha}\left[d\varepsilon{}_{n}\left(k\right)/dk\right]{}^{-1},\label{eq:134}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+необходимо еще рассчитать разложение электронной плотности 
+\begin_inset Formula $2|\psi_{k,n}(r)|^{2}$
+\end_inset
+
+ собственных состояний
+\begin_inset Formula $\psi_{k,n}(r)$
+\end_inset
+
+ по атомам 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ и по
+\begin_inset Formula $l$
+\end_inset
+
+ (коэффициент 2 отвечает учету состояний со спином вверх и вниз).
+ 
+\end_layout
+
+\begin_layout Standard
+Аналогичным образом можно определить парциальный заряд межсферной области
+ 
+\begin_inset Formula $Q_{n}^{IS}(k)$
+\end_inset
+
+ для собственной функции 
+\begin_inset Formula $\psi_{k,n}(r)$
+\end_inset
+
+ , необходимый для расчета плотности межсферных состояний
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+N_{IS}(E)=\sum_{n}Q_{n}^{IS}\left[d\varepsilon{}_{n}\left(k\right)/dk\right]{}^{-1},\label{eq:135}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Для получения величин 
+\begin_inset Formula $Q_{nl}^{\alpha}(k)$
+\end_inset
+
+ и 
+\begin_inset Formula $Q_{n}^{IS}(k)$
+\end_inset
+
+ рассмотрим интеграл по элементарной ячейке от распределения электронной
+ плотности, создаваемого блоховской функцией 
+\begin_inset Formula $\psi_{k,n}(r)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\intop_{\Omega}\rho_{k,n}\left(r\right)dr=2\intop_{\varOmega}\Psi_{k,n}^{\ast}\left(r\right)\Psi_{k,n}\left(r\right)dr.\label{eq:136}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Как обычно, интеграл по элементарной ячейке представим в виде суммы интегралов
+ по межсферной и внутрисферным областям: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+2\intop_{\varOmega}\Psi_{k,n}^{\ast}\left(r\right)\Psi_{k,n}\left(r\right)dr=2\intop_{\varOmega_{II}}\Psi_{II}^{\ast}\left(k,n|r\right)\Psi_{II}\left(k,n|r\right)dr+
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
++\sum_{\alpha}2\intop_{\varOmega_{\alpha}}\Psi_{II}^{\ast}\left(k,n|r\right)\Psi_{II}\left(k,n|r\right)dr.\label{eq:137}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Первое слагаемое в правой части этого уравнения равно заряду 
+\begin_inset Formula $Q_{n}^{IS}(k)$
+\end_inset
+
+ , локализованному в межсферной области и относящемуся к дисперсионной кривой
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ и точке 
+\begin_inset Formula $k$
+\end_inset
+
+, а интегралы по МТ-областям 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ нужно разложить в ряд по 
+\begin_inset Formula $l$
+\end_inset
+
+.
+ Коэффициентами этого разложения будут 
+\begin_inset Formula $Q_{nl}^{\alpha}(k)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Собственная волновая функция является линейной комбинацией 
+\begin_inset Formula $(10)$
+\end_inset
+
+ линеаризованных присоединенных цилиндрических волн 
+\begin_inset Formula $\psi{}_{MNP}(r)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Psi_{k,n}(r)=\sum_{M,N,P}a_{MNP,kn}\Psi_{MNP}(r).\label{eq:138}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Таким образом,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+2\int_{\varOmega_{\alpha}}\Psi_{\alpha}^{\ast}\left(k,n|r\right)\Psi\left(k,n|r\right)dr=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=2\sum_{P_{2}M_{2}N_{2}}\sum_{P_{1}M_{1}N_{1}}a_{P_{2}M_{2}N_{2},kn}^{\ast}a_{P_{2}M_{2}N_{2},kn}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\left[\sum_{l=0}^{\infty}\sum_{m=-l}^{l}\left(A_{lm\alpha}^{\ast}A_{lm\alpha}+N_{lm\alpha}B_{lm\alpha}^{\ast}B_{lm\alpha}\right)\right]=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\sum_{l=0}^{\infty}\Biggl[2\sum_{P_{2}M_{2}N_{2}}\sum_{P_{1}M_{1}N_{1}}a_{P_{2}M_{2}N_{2},kn}^{\ast}a_{P_{2}M_{2}N_{2},kn}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\times\sum_{m=-l}^{l}\left(A_{lm\alpha}^{\ast}A_{lm\alpha}+N_{lm\alpha}B_{lm\alpha}^{\ast}B_{lm\alpha}\right)\Biggr].\label{eq:139}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Выражение в квадратных скобках в правой части 
+\begin_inset Formula $(139)$
+\end_inset
+
+ — это искомый парциальный заряд в МТ-области с данным 
+\begin_inset Formula $l$
+\end_inset
+
+ в зоне 
+\begin_inset Formula $n$
+\end_inset
+
+ в точке 
+\begin_inset Formula $k$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Q_{l}^{\alpha}\left(k,n\right)=2\sum_{P_{2}M_{2}N_{2}}\sum_{P_{1}M_{1}N_{1}}a_{P_{2}M_{2}N_{2},kn}^{\ast}a_{P_{2}M_{2}N_{2},kn}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\frac{r_{\alpha}^{4}}{c}exp\left\{ i\left[\left(K_{P_{1}}-K_{P_{2}}\right)Z_{\alpha}+\left(M_{1}-M_{2}\right)\varPhi_{\alpha}\right]\right\} \left(-1\right){}^{M_{1}+M_{2}}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\sum_{m=-l}^{\infty}\left[C_{M_{2}N_{2}}^{J}J_{m-M_{2}}\left(K_{|M_{2}|,N_{2}}R_{\alpha}\right)+C_{M_{2}N_{2}}^{Y}J_{m-M_{2}}\left(K_{|M_{2}|,N_{2}}R_{\alpha}\right)\right]\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\left[C_{M_{1}N_{1}}^{J}J_{m-M_{2}}\left(K_{|M_{1}|,N_{1}}R_{\alpha}\right)+C_{M_{1}N_{1}}^{Y}J_{m-M_{1}}\left(K_{|M_{1}|,N_{1}}R_{\alpha}\right)\right]\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\times\frac{\left(2l+1\right)\left(l-|m|\right)!}{2\left(l+|m|\right)!}c_{lm\alpha}.\label{eq:140}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Рассмотрим теперь интеграл от цилиндрической функции по межсферной области
+ в 
+\begin_inset Formula $(137)$
+\end_inset
+
+, который может быть определен как разность интегралов, вычисляемых по объему
+ элементарной ячейки и по объемам МТ-областей.
+ Тогда 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Q^{IS}\left(k,n\right)=2\sum_{P_{2}M_{2}N_{2}}\sum_{P_{1}M_{1}N_{1}}a_{P_{2}M_{2}N_{2},kn}^{\ast}a_{P_{2}M_{2}N_{2},kn}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\frac{1}{c}exp\left\{ i\left[\left(K_{P_{1}}-K_{P_{2}}\right)Z_{\alpha}+\left(M_{1}-M_{2}\right)\varPhi_{\alpha}\right]\right\} \left(-1\right){}^{M_{1}+M_{2}}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\sum_{m=-l}^{\infty}\left[C_{M_{2}N_{2}}^{J}J_{m-M_{2}}\left(K_{|M_{2}|,N_{2}}R_{\alpha}\right)+C_{M_{2}N_{2}}^{Y}J_{m-M_{2}}\left(K_{|M_{2}|,N_{2}}R_{\alpha}\right)\right]\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\times\left[C_{M_{1}N_{1}}^{J}J_{m-M_{2}}\left(K_{|M_{1}|,N_{1}}R_{\alpha}\right)+C_{M_{1}N_{1}}^{Y}J_{m-M_{1}}\left(K_{|M_{1}|,N_{1}}R_{\alpha}\right)\right]I_{3}.\label{eq:141}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+\size large
+Практические аспекты метода 
+\end_layout
+
+\begin_layout Standard
+Развитый метод реализован в виде программы на языке ФОРТРАН.
+ Практическая реализация метода потребовала вычисления специальных функций
+ — цилиндрических функций и присоединенных полиномов Лежандра, входящих
+ в выражения для матричных элементов гамильтониана и интегралы перекрывания.
+ Для цилиндрических функций Бесселя первого рода 
+\begin_inset Formula $J_{n}(x$
+\end_inset
+
+) и второго рода 
+\begin_inset Formula $Y_{n}(x)$
+\end_inset
+
+ и их производных справедливы рекуррентные формулы: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+F_{n-1}\left(x\right)+F_{n+1}\left(x\right)=\frac{2n}{x}F_{n}\left(x\right),\label{eq:142}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+2F_{n}^{\prime}\left(x\right)=F_{n-1}\left(x\right)-F_{n+1}\left(x\right).\label{eq:143}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Для расчета 
+\begin_inset Formula $J_{n}(x)$
+\end_inset
+
+ используется предложенная Миллером процедура, основанная на убывании этой
+ функции с ростом 
+\begin_inset Formula $n$
+\end_inset
+
+ [293].
+ Пусть требуется вычислить 
+\begin_inset Formula $J_{n}(x)$
+\end_inset
+
+.
+ На первом этапе полагаем 
+\begin_inset Formula $F_{N+1}(x)=0,F_{N}(x)=1$
+\end_inset
+
+ для достаточно большого 
+\begin_inset Formula $N>n$
+\end_inset
+
+.
+ Используя рекуррентную формулу (142) в направлении убывания N, получаем
+ последовательность 
+\begin_inset Formula $F_{N–1}(x),…,F_{0}(x)$
+\end_inset
+
+.
+ Если 
+\begin_inset Formula $N$
+\end_inset
+
+ было достаточно большим, каждый член этой последовательности пропорционален
+ соответствующему члену в последовательности 
+\begin_inset Formula $J_{N\text{–}1}(x),\text{…},J_{0}(x):F_{k}(x)=pJ_{k}(x)$
+\end_inset
+
+.
+ Множитель пропорциональности 
+\begin_inset Formula $p$
+\end_inset
+
+ получается с использованием формулы
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+J_{0}^{2}\left(x\right)+2\sum_{k=1}^{\infty}J_{k}^{2}\left(x\right)=1.\label{eq:144}
+\end{equation}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Вычисляя 
+\begin_inset Formula $\sigma=F_{0}^{2}(x)+2\sum_{k=1}^{\infty}F_{k}^{2}(x)$
+\end_inset
+
+ находим 
+\begin_inset Formula $p=1/\sqrt{\sigma}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Результаты расчета
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 207_1.jpg
+	scale 50
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename 207_2.jpg
+	scale 50
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename 207_3.jpg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
