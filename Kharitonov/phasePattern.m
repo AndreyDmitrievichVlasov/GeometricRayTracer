@@ -2,15 +2,17 @@
 % консоли
 close all; clear all; clc;
 %% параметры для ввода
-a=0.04;
+a=0.02;
 
-delta=50*10^-6;
+% delta=40*10^-6;
+
+delta=25*10^-6;
 
 phiAngle=pi/4;
 
-focalLength=1;
+focalLength=0.4;
 
-waveLength=10^-5;
+waveLength=10.6*10^-6;
 
 %%
 xPixels = floor(a/delta);
@@ -25,7 +27,7 @@ y=linspace(-b/2,b/2,yPixels);
 
 phasePatternMap  = Bi(mod(Phi(x,y*cos(phiAngle),focalLength,waveLength),2*pi));
 
-mask  = getGaussMask( x, y, a/6, phiAngle );
+mask  = getGaussMask( x, y, 35*10^-4, phiAngle );
 
 phasePatternMapMasked = phasePatternMap +(phasePatternMap.*mask==1);
 
@@ -40,6 +42,8 @@ colormap gray;
 
 grid on;
 
+xlabel('x, [mm]'),ylabel('y, [mm]')
+
 axis equal;
 
 subplot(1,2,2)
@@ -52,8 +56,9 @@ colormap gray;
 
 grid on;
 
-axis equal;
+xlabel('x, [mm]'),ylabel('y, [mm]')
 
+axis equal;
 
 cmap = [[0 0 0]; [1 1 1]; [1 0. 0.]];
 
