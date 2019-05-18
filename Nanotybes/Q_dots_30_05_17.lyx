@@ -1,0 +1,1767 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Расчет спектра квантовых точек c конечной потенциальной энергией
+\end_layout
+
+\begin_layout Author
+
+\end_layout
+
+\begin_layout Section
+Решение уравнения для различных систем координат
+\end_layout
+
+\begin_layout Subsection
+Решение в декартовой системе координат
+\end_layout
+
+\begin_layout Subsubsection
+Простейшая модель квантовой точки
+\end_layout
+
+\begin_layout Standard
+Рассмотрим квантовую точку в виде паралепипеда.
+ Область внутри квантовой точки описывается неравенством
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-\frac{d_{x}}{2}<x<\frac{d_{x}}{2}\,\,\,-\frac{d_{y}}{2}<y<\frac{d_{y}}{2}\,\,\,-\frac{d_{z}}{2}<z<\frac{d_{z}}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Положим, что потенциальная энергия внутри квантовой точки определяется работой
+ выхода для данного вещества, если образец имеет бесконечные размеры.
+ Обозначим величину этой потенциальной энергии 
+\begin_inset Formula $U_{0}$
+\end_inset
+
+ Предположим, что носители заряда не выходят за пределы квантовой точки.
+ Это означает, что квантовая точка помещена в в потенциальную яму с бесконечно
+ высокими стенками и потенциальной энергией внутри ямы равной 
+\begin_inset Formula $U_{0}$
+\end_inset
+
+.
+ В общем случае границы поенциальной ямы описывется неравенствами
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-\frac{L_{x}}{2}<x<\frac{L_{x}}{2}\,\,\,-\frac{L_{y}}{2}<y<\frac{L_{y}}{2}\,\,\,-\frac{L_{z}}{2}<z<\frac{L_{z}}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В нашем случае 
+\begin_inset Formula $L_{x}=d_{x},\,\,\, L_{y}=d_{y},\,\,\, L_{z}=d_{z}$
+\end_inset
+
+.
+ Волновая функция удовлетворяет уравнению
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial^{2}\Phi}{\partial x^{2}}+\frac{\partial^{2}\Phi}{\partial y^{2}}+\frac{\partial^{2}\Phi}{\partial z^{2}}+\frac{2m}{h^{2}}\left(E-U_{0}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Представим решение уравнения
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi\left(x,y,z\right)=\sum C^{pqs}\Psi_{pqs}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Psi_{pqs}=A_{lps}sin\left(k_{xp}\left(x+\frac{L_{x}}{2}\right)\right)sin\left(k_{yq}\left(y+\frac{L_{y}}{2}\right)\right)sin\left(k_{zs}\left(z+\frac{L_{z}}{2}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+k_{xp}=\frac{\pi p}{L_{x}}\,\,\, k_{yq}=\frac{\pi q}{L_{y}}\,\,\, k_{zs}=\frac{\pi s}{L_{z}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Энергия частицы
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E=U_{0}+\frac{h^{2}\pi^{2}}{2m}\left(\left(\frac{p}{L_{x}}\right)^{2}+\left(\frac{q}{L_{y}}\right)^{2}+\left(\frac{s}{L_{z}}\right)^{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В случае если размеры точки по всем трем координатам равны формула для энергии
+ принимает вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E=U_{0}+\frac{h^{2}\pi^{2}}{2mL^{2}}\left(p^{2}+q^{2}+s^{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Рассмотрим случай кубической квантовой точки из атомов лития.
+ Примерный размер атома лития 0,3 нм=0,3 10(-9)м.
+ Размер квантовой точки у которой вдоль ребра укладывается 10 атомов (всего
+ 1000) равен 3*10(-9) м.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h=1.054*10^{-34}\,\,\, m=9.1*10^{-31}\,\,\,\,\, L=3*10^{-9}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\backslash
+
+\begin_inset Formula 
+\[
+\frac{h^{2}\pi^{2}}{2mL^{2}}=\frac{1.054^{2}*10^{-68}*3,14^{2}}{2*9.1*10^{-31}*3^{2}*10^{-18}}=\frac{1.054^{2}*10^{-68}}{2*9.1*10^{-31}*10^{-18}}=\frac{10^{-19}}{2*9.1}=\frac{1.6*10^{-19}}{2*1.6*9.1}=\frac{1.6*10^{-19}}{3.2*9.1}=0.034\text{\,эв}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E=U_{0}+\frac{h^{2}\pi^{2}}{2mL^{2}}\left(p^{2}+q^{2}+s^{2}\right)=U_{0}+0.034*\left(p^{2}+q^{2}+s^{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Пусть 
+\begin_inset Formula $p=q=s=3$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E=U_{0}+0.034*\left(p^{2}+q^{2}+s^{2}\right)=U_{0}+0.034*3*27=U_{0}+0.034*81=U_{0}+2.754
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Работа выхода у лития составляет всего 2, 49 эв.
+ Последний уровень уже выходит за пределы отрицательных энергий.
+ Количество энергетических уровней 27.
+ На этих уровнях можно разместить 54 электрона.
+ Количество свободных электронов в квантовой точке 1000, а согласно принципу
+ Паули можно разместить только 54.
+\end_layout
+
+\begin_layout Standard
+Пусть теперь размер потенциальной ямы, которая ограничивает область движения
+ носителей заряда 30*10(-9) м
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\frac{h^{2}\pi^{2}}{2mL^{2}}=\frac{1.054^{2}*10^{-68}*3,14^{2}}{2*9.1*10^{-31}*3^{2}*10^{-16}}=\frac{1.054^{2}*10^{-68}}{2*9.1*10^{-31}*10^{-16}}=\frac{10^{-19}}{2*9.1}=\frac{1.6*10^{-19}}{2*1.6*9.1*10^{2}}=\frac{1.6*10^{-19}}{3.2*9.1*10^{2}}=0.00034\text{\,эв}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Более сложная модель квантовой точки
+\end_layout
+
+\begin_layout Standard
+Рассмотрим квантовую точку в виде паралепипеда.
+ Область внутри квантовой точки описывается неравенством
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-\frac{d_{x}}{2}<x<\frac{d_{x}}{2}\,\,\,-\frac{d_{y}}{2}<y<\frac{d_{y}}{2}\,\,\,-\frac{d_{z}}{2}<z<\frac{d_{z}}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Поместим квантовую точку в потенциальную яму с бесконечно высокими стенками.
+ Границы потенциальной ямы описывется неравенствами
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-\frac{L_{x}}{2}<x<\frac{L_{x}}{2}\,\,\,-\frac{L_{y}}{2}<y<\frac{L_{y}}{2}\,\,\,-\frac{L_{z}}{2}<z<\frac{L_{z}}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Волновая функция удовлетворяет уравнению
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial^{2}\Phi}{\partial x^{2}}+\frac{\partial^{2}\Phi}{\partial y^{2}}+\frac{\partial^{2}\Phi}{\partial z^{2}}+\frac{2m}{h^{2}}\left(E-U\left(x,y,z\right)\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Представим решение уравнения
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi\left(x,y,z\right)=\sum C^{pqs}\Psi_{pqs}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Psi_{pqs}=A_{lps}sin\left(k_{xp}\left(x+\frac{L_{x}}{2}\right)\right)sin\left(k_{yq}\left(y+\frac{L_{y}}{2}\right)\right)sin\left(k_{zs}\left(z+\frac{L_{z}}{2}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+k_{xp}=\frac{\pi p}{L_{x}}\,\,\, k_{yq}=\frac{\pi q}{L_{y}}\,\,\, k_{zs}=\frac{\pi s}{L_{z}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Подставляя 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial^{2}\Phi}{\partial x^{2}}+\frac{\partial^{2}\Phi}{\partial y^{2}}+\frac{\partial^{2}\Phi}{\partial z^{2}}+\frac{2m}{h^{2}}\left(E-U\left(x,y,z\right)\right)\Phi=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-\sum C^{pqs}\left\{ \left(k_{xp}^{2}+k_{yq}^{2}+k_{zs}^{2}\right)\Psi_{pqs}+\frac{2m}{h^{2}}\left(E-U\left(x,y,z\right)\right)\Psi_{pqs}\right\} =0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-\sum C^{pqs}\left\{ \left(k_{xp}^{2}+k_{yq}^{2}+k_{zs}^{2}\right)\int_{-L/2}^{L/2}\Psi^{p_{1}q_{1}s_{1}}\Psi_{pqs}dv+\frac{2m}{h^{2}}E\int_{-L/2}^{L/2}\Psi^{p_{1}q_{1}s_{1}}\Psi_{pqs}dv\right\} -
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-\frac{2m}{h^{2}}\int_{-d/2}^{d/2}U\left(x,y,z\right)\Psi^{p_{1}q_{1}s_{1}}\Psi_{pqs}dv=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C^{p_{1}q_{1}s_{1}}\left(k_{xp_{1}}^{2}+k_{yq_{1}}^{2}+k_{zs_{1}}^{2}\right)+\frac{2m}{h^{2}}U_{pqs}^{p_{1}q_{1}s_{1}}C^{pqs}=\frac{2m}{h^{2}}EC^{p_{1}q_{1}s_{1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\{ \left(k_{xp_{1}}^{2}+k_{yq_{1}}^{2}+k_{zs_{1}}^{2}\right)\delta_{pqs}^{p_{1}q_{1}s_{1}}+\frac{2m}{h^{2}}U_{p}^{p_{1}}U_{q}^{q_{1}}U_{s}^{s_{1}}\right\} C^{lps}=\frac{2m}{h^{2}}EC^{l_{1}p_{1}s_{1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U_{p}^{p_{1}}=UA_{l}A_{l_{1}}\int_{-d_{x}/2}^{d_{x}/2}sin\left(k_{xp_{1}}\left(x+\frac{L_{x}}{2}\right)\right)sin\left(k_{xp}\left(x+\frac{L_{x}}{2}\right)\right)dx
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+sin\left(k_{xp_{1}}\left(x+\frac{L_{x}}{2}\right)\right)sin\left(k_{xp}\left(x+\frac{L_{x}}{2}\right)\right)=\frac{1}{2}\left\{ cos\left(\left(k_{xp_{1}}-k_{xp}\right)\left(x+\frac{L_{x}}{2}\right)\right)-cos\left(\left(k_{xp_{1}}+k_{xp}\right)\left(x+\frac{L_{x}}{2}\right)\right)\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Подставляя получаем
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U_{p}^{p_{1}}=\frac{1}{2}UA_{l}A_{l_{1}}\int_{-d_{x}/2}^{d_{x}/2}\left\{ cos\left(\left(k_{xp_{1}}-k_{xp}\right)\left(x+\frac{L_{x}}{2}\right)\right)dx-\int_{-d_{x}/2}^{d_{x}/2}cos\left(\left(k_{xp_{1}}+k_{xp}\right)\left(x+\frac{L_{x}}{2}\right)\right)\right\} dx
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U_{p}^{p_{1}}=-\frac{1}{2}UA_{l}A_{l_{1}}\left\{ \frac{sin\left(k_{xp_{1}}-k_{xp}\right)\left(x+\frac{L_{x}}{2}\right)}{\left(k_{xp_{1}}-k_{xp}\right)}\brokenvert_{-d_{x}/2}^{d_{x}/2}-\frac{sin\left(k_{xp_{1}}+k_{xp}\right)\left(x+\frac{L_{x}}{2}\right)}{\left(k_{xp_{1}}+k_{xp}\right)}\brokenvert_{-d_{x}/2}^{d_{x}/2}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U_{p}^{p_{1}}=-\frac{1}{2}UA_{l}A_{l_{1}}\left\{ \frac{sin\left(k_{xp_{1}}-k_{xp}\right)\left(\frac{d_{x}}{2}+\frac{L_{x}}{2}\right)-sin\left(k_{xp_{1}}-k_{xp}\right)\left(-\frac{d_{x}}{2}+\frac{L_{x}}{2}\right)}{\left(k_{xp_{1}}-k_{xp}\right)}\right\} +
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++\frac{1}{2}UA_{l}A_{l_{1}}\left\{ \frac{sin\left(k_{xp_{1}}+k_{xp}\right)\left(\frac{d_{x}}{2}+\frac{L_{x}}{2}\right)-sin\left(k_{xp_{1}}+k_{xp}\right)\left(-\frac{d_{x}}{2}+\frac{L_{x}}{2}\right)}{\left(k_{xp_{1}}+k_{xp}\right)}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Решение в сферической системе координат
+\end_layout
+
+\begin_layout Subsection
+Решение в яме с бесконечными стенками
+\end_layout
+
+\begin_layout Standard
+Пусть частица движется внутри обрасти, ограниченной сферой 
+\begin_inset Formula $r<R_{\infty}$
+\end_inset
+
+.
+ В этом случае волновая функция удовлетворяет уравнению
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial\Phi_{s}}{\partial r}\right)+\frac{1}{r^{2}sin\theta}\frac{\partial}{\partial\theta}\left(sin\theta\frac{\partial\Phi_{s}}{\partial\theta}\right)+\frac{1}{r^{2}sin^{2}\theta}\frac{\partial^{2}\Phi_{s}}{\partial\varphi^{2}}+\frac{2m}{h^{2}}E\Phi_{s}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Обозначим 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{sin\theta}\frac{\partial}{\partial\theta}\left(sin\theta\frac{\partial\Phi_{s}}{\partial\theta}\right)+\frac{1}{sin^{2}\theta}\frac{\partial^{2}\Phi_{s}}{\partial\varphi^{2}}=\frac{-L^{2}}{h^{2}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Тогда уравнение Шредингера можно записать
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial\Phi_{s}}{\partial r}\right)-\frac{L^{2}}{h^{2}r^{2}}\Phi_{s}+\frac{2m}{h^{2}}E\Phi_{s}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Далее представим решение уравнения в виде решения с разделенными переменными
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi_{s}\left(r,\varphi,\theta\right)=R_{s}^{lm}\left(r\right)Y_{lm}\left(\varphi,\theta\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Уравнение для функции 
+\begin_inset Formula $R_{s}^{lm}\left(r\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial R_{s}^{lm}\left(r\right)}{\partial r}\right)-l\left(l+1\right)R_{s}^{lm}\left(r\right)+\frac{2m}{h^{2}}ER_{s}^{lm}\left(r\right)=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial R_{s}^{lm}\left(r\right)}{\partial r}\right)+\left(\frac{2m}{h^{2}}E-\frac{l\left(l+1\right)}{r^{2}}\right)R_{s}^{lm}\left(r\right)=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Сделаем подстановку 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+F_{s}^{lm}\left(r\sqrt{\frac{2m}{h^{2}}E}\right)=R_{s}^{lm}\left(r\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{\eta^{2}}\frac{\partial}{\partial\eta}\left(\eta{}^{2}\frac{\partial F_{s}^{lm}\left(\eta\right)}{\partial\eta}\right)+\left(1-\frac{l\left(l+1\right)}{\eta^{2}}\right)F_{s}^{lm}\left(\eta\right)=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где 
+\begin_inset Formula 
+\[
+\eta=r\sqrt{\frac{2m}{h^{2}}E}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Решение внутри сферы равно
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi_{s}\left(r,\varphi,\theta\right)=j_{l}\left(r\sqrt{\frac{2m}{h^{2}}E}\right)Y_{lm}\left(\varphi,\theta\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Общее решение равно 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi_{s}\left(r,\varphi,\theta\right)=\sum_{lm}B^{lm}j_{l}\left(r\sqrt{\frac{2m}{h^{2}}E}\right)Y_{lm}\left(\varphi,\theta\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+На поверхности сферы 
+\begin_inset Formula $\Phi_{s}\left(R_{\infty},\varphi,\theta\right)=0.$
+\end_inset
+
+ Из этого условия следует, что 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+j_{l}\left(R_{\infty}\sqrt{\frac{2m}{h^{2}}E}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Из этого уравнения следует, что 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R_{\infty}\sqrt{\frac{2m}{h^{2}}E}=\nu_{lp}\,\,\,\,\, E=\frac{h^{2}}{2m}\left(\frac{\nu_{lp}}{R_{\infty}}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Общее решение для уравнения внутри сферы, ограничивающей область движения
+ имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi_{s}\left(r,\varphi,\theta\right)=\sum_{lm}B^{plm}j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)Y_{lm}\left(\varphi,\theta\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Энергетический спектр в точке с конечной энергией 
+\end_layout
+
+\begin_layout Standard
+Рассмотрим теперь уравнение для квантовой точки с конечной энергией
+\end_layout
+
+\begin_layout Standard
+В этом случае имеется две области.
+ Первая область -область внутри квантовой точки.
+ Уравнение Шредингера имеет вид 
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial\Phi_{Q}}{\partial r}\right)+\frac{1}{r^{2}sin\theta}\frac{\partial}{\partial\theta}\left(sin\theta\frac{\partial\Phi_{Q}}{\partial\theta}\right)+\frac{1}{r^{2}sin^{2}\theta}\frac{\partial^{2}\Phi_{Q}}{\partial\varphi^{2}}+\frac{2m}{h^{2}}\left(E-U\right)\Phi_{Q}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial\Phi_{Q}}{\partial r}\right)-\frac{L^{2}\Phi_{Q}}{h^{2}r^{2}}+\frac{2m}{h^{2}}\left(E-U\right)\Phi_{Q}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Представим решение в виде 
+\begin_inset Formula 
+\[
+\Phi_{Q}=R_{Q}Y_{lm}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Уравнение для радиальной части волновой функции имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial R_{Q}}{\partial r}\right)-\frac{l\left(l+1\right)R_{Q}}{r^{2}}+\frac{2m}{h^{2}}\left(E-U\right)R_{Q}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Потенциальная энергия отлична от нуля в области 
+\begin_inset Formula $r<r_{0}$
+\end_inset
+
+ и имеет отрицательное значение.
+\end_layout
+
+\begin_layout Standard
+Сделаем замену переменных 
+\begin_inset Formula $\eta=\sqrt{\frac{2m}{h^{2}}\left(E-U\right)}r$
+\end_inset
+
+.
+ Уравнение в этих координатах имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{\eta^{2}}\frac{\partial}{\partial\eta}\left(\eta{}^{2}\frac{\partial F_{Q}}{\partial\eta}\right)+\left(1-\frac{l\left(l+1\right)}{\eta^{2}}\right)F_{Q}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Это уравнение совпадает с уравнением для сферических функций Бесселя
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{\xi^{2}}\frac{\partial}{\partial\xi}\left(\xi{}^{2}\frac{\partial j_{l}\left(\xi\right)}{\partial\xi}\right)+\left(1-\frac{l\left(l+1\right)}{\xi^{2}}\right)j_{l}\left(\xi\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Вторая область -это область вне квантовой точки.
+ Уравнение Шредингера имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial\Phi}{\partial r}\right)-\frac{L^{2}\Phi}{h^{2}r^{2}}+\frac{2m}{h^{2}}E\Phi=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi=RY_{lm}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Уравнение для радиальной части волновой функции имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial R}{\partial r}\right)-\frac{l\left(l+1\right)R}{r^{2}}+\frac{2m}{h^{2}}ER=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Сделаем замену переменных 
+\begin_inset Formula $\eta=\sqrt{-\frac{2m}{h^{2}}E}r$
+\end_inset
+
+.
+ Уравнение в этих координатах имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{\eta^{2}}\frac{\partial}{\partial\eta}\left(\eta{}^{2}\frac{\partial F_{Q}}{\partial\eta}\right)-\left(1+\frac{l\left(l+1\right)}{\eta^{2}}\right)F_{Q}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{\xi^{2}}\frac{\partial}{\partial\xi}\left(\xi{}^{2}\frac{\partial M_{l}\left(\xi\right)}{\partial\xi}\right)-\left(1+\frac{l\left(l+1\right)}{\xi^{2}}\right)M_{l}\left(\xi\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Это уравнение совпадает с уравнением для модифицированных сферических функций
+ Бесселя
+\end_layout
+
+\begin_layout Standard
+Итого решение в первой области для радиальной части волновой функции 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R_{Q}^{l}=A_{l}j_{l}\left(\sqrt{\frac{2m}{h^{2}}\left(E-U\right)}r\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Итого решение во второй области для радиальной части волновой функции 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R^{l}=B_{l}M_{l}\left(\sqrt{-\frac{2m}{h^{2}}E}r\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Уравнение сшивки на границе квантовой точки
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+j_{l}\left(\sqrt{\frac{2m}{h^{2}}\left(E-U\right)}r\right)A_{l}-M_{l}\left(\sqrt{-\frac{2m}{h^{2}}E}r\right)B_{l}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+j_{l}^{/}\left(\sqrt{\frac{2m}{h^{2}}\left(E-U\right)}r\right)A_{l}-M_{l}^{/}\left(\sqrt{-\frac{2m}{h^{2}}E}r\right)B_{l}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Уравнение для энергетического спектра имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+j_{l}\left(\sqrt{\frac{2m}{h^{2}}\left(E-U\right)}r\right)M_{l}^{/}\left(\sqrt{-\frac{2m}{h^{2}}E}r\right)-j_{l}^{/}\left(\sqrt{\frac{2m}{h^{2}}\left(E-U\right)}r\right)M_{l}\left(\sqrt{-\frac{2m}{h^{2}}E}r\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Обозначим
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+k_{Q}^{2}=\frac{2m}{h^{2}}\left(E-U\right)\,\,\,\,\,\,\, k^{2}=-\frac{2m}{h^{2}}E
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+kj_{l}\left(k_{Q}r_{0}\right)M_{l}^{/}\left(kr_{0}\right)-k_{Q}j_{l}^{/}\left(k_{Q}r_{0}\right)M_{l}\left(kr_{0}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Дисперсионное уравнение имеет простой вид
+\end_layout
+
+\begin_layout Standard
+Производная функции Бесселя имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+J_{n}^{/}\left(x\right)=-J_{n+1}\left(x\right)+\frac{n}{x}J_{n}\left(x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+J_{n}^{/}\left(x\right)=J_{n-1}\left(x\right)-\frac{n}{x}J_{n}\left(x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Производная модифицированной функции Бесселя
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I_{n}^{/}\left(x\right)=\frac{1}{2}\left(I_{n+1}\left(x\right)+I_{n-1}\left(x\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Сферические функции Бесселя
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+j_{n}=\sqrt{\frac{\pi}{2x}}J_{n+1/2}\left(x\right)=\sqrt{\frac{\pi}{2}}\left(x^{-1/2}\right)J_{n+1/2}\left(x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Производная от сферической функции Бесселя
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{dj_{n}\left(x\right)}{dx}=\sqrt{\frac{\pi}{2}}\left(-\frac{1}{2}x^{-3/2}J_{n+1/2}\left(x\right)+x^{-1/2}\frac{dJ_{n+1/2}\left(x\right)}{dx}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{dj_{n}\left(x\right)}{dx}=\sqrt{\frac{\pi}{2}}\left(-\frac{1}{2}x^{-3/2}J_{n+1/2}\left(x\right)+x^{-1/2}\left(-J_{n+3/2}\left(x\right)+\frac{n+1/2}{x}J_{n+1/2}\right)\left(x\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{dj_{n}\left(x\right)}{dx}=\left(-\frac{1}{2}x^{-1}\sqrt{\frac{\pi}{2x}}J_{n+1/2}\left(x\right)+\left(-\sqrt{\frac{\pi}{2x}}J_{n+3/2}\left(x\right)+\frac{n+1/2}{x}\sqrt{\frac{\pi}{2x}}J_{n+1/2}\right)\left(x\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{dj_{n}\left(x\right)}{dx}=-\frac{1}{2x}j_{n}\left(x\right)+\left(-j_{n+1}\left(x\right)+\frac{n+1/2}{x}j_{n}\left(x\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{dj_{n}\left(x\right)}{dx}=+\left(-j_{n+1}\left(x\right)+\frac{n}{x}j_{n}\left(x\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Модифицированная сферическая функция Бесселя первого рода
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+i_{n}=\sqrt{\frac{\pi}{2x}}I_{n+1/2}\left(x\right)=\sqrt{\frac{\pi}{2}}x^{-1/2}I_{n+1/2}\left(x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Производная от модифицированной сферической функции Бесселя первого рода
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{di_{n}\left(x\right)}{dx}=\sqrt{\frac{\pi}{2}}\left(-\frac{1}{2}x^{-3/2}I_{n+1/2}\left(x\right)+x^{-1/2}\frac{dI_{n+1/2}\left(x\right)}{dx}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{di_{n}\left(x\right)}{dx}=\sqrt{\frac{\pi}{2}}\left(-\frac{1}{2}x^{-3/2}I_{n+1/2}\left(x\right)+x^{-1/2}\frac{1}{2}\left(I_{n-1/2}\left(x\right)+I_{n+1/2}\left(x\right)\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{di_{n}\left(x\right)}{dx}=\left(-\frac{1}{2}x^{-3/2}\sqrt{\frac{\pi}{2}}I_{n+1/2}\left(x\right)+\frac{1}{2}\left(\sqrt{\frac{\pi}{2}}x^{-1/2}I_{n-1/2}\left(x\right)+\sqrt{\frac{\pi}{2}}x^{-1/2}I_{n+1/2}\left(x\right)\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{di_{n}\left(x\right)}{dx}=\left(-\frac{1}{2}x^{-1}i_{n}\left(x\right)+\frac{1}{2}\left(i_{n-1}\left(x\right)+i_{n+1}\left(x\right)\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{di_{n}\left(x\right)}{dx}=-\frac{1}{2}\left(x^{-1}i_{n}\left(x\right)-i_{n-1}\left(x\right)-i_{n+1}\left(x\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Модифицированная сферическая функция Бесселя второго рода
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+i_{-n}=\sqrt{\frac{\pi}{2x}}I_{-n-1/2}\left(x\right)=\sqrt{\frac{\pi}{2}}x^{-1/2}I_{-n-1/2}\left(x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Производная модифицированной сферической функции Бесселя второго рода
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{di_{-n}\left(x\right)}{dx}=\sqrt{\frac{\pi}{2}}\left(-\frac{1}{2}x^{-3/2}I_{-n-1/2}\left(x\right)+x^{-1/2}\frac{1}{2}\left(I_{-n-1/2-1}\left(x\right)+I_{-n-1/2+1}\left(x\right)\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{di_{-n}\left(x\right)}{dx}=\left(-\frac{1}{2}x^{-1}i_{-n}\left(x\right)+\frac{1}{2}\left(i_{-\left(n+1\right)}\left(x\right)+i_{-\left(n-1\right)}\left(x\right)\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{di_{-n}\left(x\right)}{dx}=-\frac{1}{2}\left(x^{-1}i_{-n}\left(x\right)-i_{-\left(n+1\right)}\left(x\right)-i_{-\left(n-1\right)}\left(x\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Модифицированная сферическая функция Бесселя третьего рода
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+k_{n}=\left(-1\right)^{n+1}\left(\frac{\pi}{2}\right)\left(i_{n}-i_{-n}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Производная модифицированной сферической функции Бесселя третьего рода
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{dk_{n}}{dx}=\left(-1\right)^{n+1}\left(\frac{\pi}{2}\right)\left(\frac{di_{n}}{dx}-\frac{di_{-n}}{dx}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{dk_{n}}{dx}=\left(-1\right)^{n+1}\left(\frac{\pi}{2}\right)\left(\left(-\frac{1}{2}x^{-1}i_{n}\left(x\right)+\frac{1}{2}\left(i_{n-1}\left(x\right)+i_{n+1}\left(x\right)\right)\right)-\left(-\frac{1}{2}x^{-1}i_{-n}\left(x\right)+\frac{1}{2}\left(i_{\left(n+1\right)}\left(x\right)+i_{-\left(n-1\right)}\left(x\right)\right)\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{dk_{n}}{dx}=\left(-1\right)^{n+1}\left(\frac{\pi}{2}\right)\left(-\frac{1}{2}x^{-1}i_{n}\left(x\right)+\frac{1}{2}i_{n-1}\left(x\right)+\frac{1}{2}i_{n+1}\left(x\right)+\frac{1}{2}x^{-1}i_{-n}\left(x\right)-\frac{1}{2}i_{\left(n+1\right)}\left(x\right)-\frac{1}{2}i_{-\left(n-1\right)}\left(x\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{dk_{n}}{dx}=\left(-1\right)^{n+1}\left(\frac{\pi}{2}\right)\left(-\frac{1}{2}x^{-1}i_{n}\left(x\right)+\frac{1}{2}x^{-1}i_{-n}\left(x\right)+\frac{1}{2}i_{n-1}\left(x\right)-\frac{1}{2}i_{-\left(n-1\right)}\left(x\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{dk_{n}}{dx}=\left(-\frac{1}{2}x^{-1}\left(-1\right)^{n+1}\left(\frac{\pi}{2}\right)\left(i_{n}\left(x\right)-i_{-n}\left(x\right)\right)+\frac{1}{2}\left(-1\right)^{n+1}\left(\frac{\pi}{2}\right)\left(-1\right)^{n}\left(-1\right)^{n}\left(i_{n-1}\left(x\right)-i_{-\left(n-1\right)}\left(x\right)\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{dk_{n}}{dx}=\left(-\frac{1}{2}x^{-1}\left(-1\right)^{n+1}\left(\frac{\pi}{2}\right)\left(i_{n}\left(x\right)-i_{-n}\left(x\right)\right)+\frac{1}{2}\left(-1\right)^{2n+1}k_{n-1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{dk_{n}}{dx}=\left(-\frac{1}{2}x^{-1}k_{n}-\frac{1}{2}k_{n-1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{dk_{n}}{dx}=-\frac{1}{2}\left(x^{-1}k_{n}+k_{n-1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Свод формул для дифференцирования сферических функций Бесселя
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{dj_{n}\left(x\right)}{dx}=-j_{n+1}\left(x\right)+\frac{n}{x}j_{n}\left(x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Производная от модифицированной сферической функции Бесселя первого рода
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+i_{n}=\sqrt{\frac{\pi}{2x}}I_{n+1/2}\left(x\right)=\sqrt{\frac{\pi}{2}}x^{-1/2}I_{n+1/2}\left(x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{di_{n}\left(x\right)}{dx}=-\frac{1}{2}\left(x^{-1}i_{n}\left(x\right)-i_{n-1}\left(x\right)-i_{n+1}\left(x\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Производная от модифицированной сферической функции Бесселя второго рода
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{di_{-n}\left(x\right)}{dx}=-\frac{1}{2}\left(x^{-1}i_{-n}\left(x\right)-i_{-\left(n+1\right)}\left(x\right)-i_{-\left(n-1\right)}\left(x\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Производная от модифицированной сферической функции Бесселя третьего рода
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{dk_{n}}{dx}=-\frac{1}{2}\left(x^{-1}k_{n}+k_{n-1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Решение в квантовой точке с ограничением движения
+\end_layout
+
+\begin_layout Standard
+Представим решение уравнения в виде ряда
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi_{Q}\left(r,\varphi,\theta\right)=\sum_{lm}B^{plm}R_{pl}Y_{lm}\left(\varphi,\theta\right)
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R_{pl}=A_{pl}j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\sum_{lm}B^{plm}A_{pl}Y_{lm}\left(\varphi,\theta\right)\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)}{\partial r}\right)-\frac{1}{r^{2}}j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)\left(\frac{L^{2}}{h^{2}}Y_{lm}\left(\varphi,\theta\right)\right)+
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++\sum_{lm}\frac{2m}{h^{2}}\left(E-U\right)B^{plm}A_{pl}j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)Y_{lm}\left(\varphi,\theta\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\sum_{lm}B^{plm}A_{pl}Y_{lm}\left(\varphi,\theta\right)\left\{ \frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)}{\partial r}\right)-\frac{\left(l\left(l+1\right)\right)}{r^{2}}j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)\right\} +
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++\sum_{lm}\frac{2m}{h^{2}}\left(E-U\right)B^{plm}A_{pl}j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)Y_{lm}\left(\varphi,\theta\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В результате получаем для каждого набора 
+\begin_inset Formula $pl$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\sum_{p}B^{plm}A_{pl}\left\{ \frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)}{\partial r}\right)-\frac{l\left(l+1\right)}{r^{2}}j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)+\frac{2m}{h^{2}}\left(E-U\right)j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)\right\} =0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\sum_{p}B^{plm}A_{pl}\left\{ \frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)}{\partial r}\right)-\frac{l\left(l+1\right)}{r^{2}}j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)+\left(\frac{\nu_{lp}}{R_{\infty}}\right)^{2}j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)-\left(\frac{\nu_{lp}}{R_{\infty}}\right)^{2}j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)\right\} +
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++\sum_{p}B^{plm}A_{pl}\frac{2m}{h^{2}}\left(E-U\right)j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Преобразуем выражение.
+ Уравнение для сферической функции Бесселя имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{\xi^{2}}\frac{\partial}{\partial\xi}\left(\xi{}^{2}\frac{\partial j_{l}\left(\xi\right)}{\partial\xi}\right)+\left(1-\frac{l\left(l+1\right)}{r^{2}}\right)j_{l}\left(\xi\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Принимая во внимание получаем
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial A_{pl}j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)}{\partial r}\right)-\frac{l\left(l+1\right)}{r^{2}}A_{pl}j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)+\left(\frac{\nu_{lp}}{R_{\infty}}\right)^{2}A_{pl}j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Уравнение для определения коэффициентов принимает вид вид 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\sum_{p}B^{plm}\left\{ -\left(\frac{\nu_{lp}}{R_{\infty}}\right)^{2}+\frac{2m}{h^{2}}\left(E-U\right)\right\} A_{pl}j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Умножим это уравнение на 
+\begin_inset Formula $r^{2}A_{ql}j_{l}\left(\frac{r}{R_{\infty}}\nu_{ql}\right)$
+\end_inset
+
+ и проинтегрируем
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\sum_{p}B^{plm}\left\{ -\int_{0}^{R_{\infty}}\left(\frac{\nu_{pl}}{R_{\infty}}\right)^{2}r^{2}A_{pl}A_{ql}j_{l}\left(\frac{r}{R_{\infty}}\nu_{ql}\right)j_{l}\left(\frac{r}{R_{\infty}}\nu_{pl}\right)\right\} +
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++\frac{2m}{h^{2}}\sum_{p}B^{plm}A_{pl}A_{ql}\int_{0}^{R_{\infty}}r^{2}j_{l}\left(\frac{r}{R_{\infty}}\nu_{ql}\right)\left(E-U\left(r\right)\right)j_{l}\left(\frac{r}{R_{\infty}}\nu_{pl}\right)dr=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Для сферических функций Бесселя справедливо соотношение ортогональности
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\int_{0}^{R_{\infty}}A_{pl}A_{ql}j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)j_{l}\left(\frac{r}{R_{\infty}}\nu_{lq}\right)r^{2}dr=\delta_{pq}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В результате получается уравнениe на собственные значения 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+-B^{qlm}\left(\frac{\nu_{ql}}{R_{\infty}}\right)^{2}+\frac{2mE}{h^{2}}B^{qlm}=\frac{2m}{h^{2}}\sum_{p}B^{plm}U_{pl}^{ql}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U_{pl}^{ql}=\int_{0}^{R_{\infty}}A_{pl}A_{ql}U\left(r\right)j_{l}\left(\frac{r}{R_{\infty}}\nu_{ql}\right)j_{l}\left(\frac{r}{R_{\infty}}\nu_{pl}\right)r^{2}dr
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+После преобразований система имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left\{ \left(\frac{\nu_{ql}}{R_{\infty}}\right)^{2}\delta_{p}^{q}+\frac{2m}{h^{2}}U_{pl}^{ql}\right\} B^{plm}=\frac{2mE}{h^{2}}B^{qlm}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Приложения
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E=U_{0}+\frac{h^{2}\pi^{2}}{2m}\left(\left(\frac{p}{L_{x}}\right)^{2}+\left(\frac{q}{L_{y}}\right)^{2}+\left(\frac{s}{L_{z}}\right)^{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+На всякий случай проверим размерность
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\text{дж*дж*сек*сек}}{\text{кг*м*м}}=\frac{\text{н*н*м*м*сек*сек}}{\text{кг*м*м}}=\frac{\text{н*н*м*сек*сек}}{\text{кг}*\text{м}}=\frac{\text{н*н*м}}{\text{кг}*\left(\text{м}/\text{сек}*\text{сек}\right)}=\frac{\text{н*н*м}}{\text{н}}=\text{н}*\text{м}=\text{дж}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
