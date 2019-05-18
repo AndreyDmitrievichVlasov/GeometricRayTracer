@@ -7,7 +7,7 @@ schema{1}=radialDG;
 schema{2}=dtetector;
 
 
-LED_source=LED([0 0 -10], 0.1);%paraxialSpot([0 0 -10],[4.8 4.9]);
+LED_source=Spot('distance',2,'fields',{[0 0],[0 0.1],[0 0.2]});%LED([0 0 -10], 0.1);%paraxialSpot([0 0 -10],[4.8 4.9]);
 
 % as array
 % [ raysIn, raysMiddle, raysOut ] = traceThroughSystem( LED_source, schema);
