@@ -1,5 +1,5 @@
 clear all; close all; clc;
-a = 0.005;
+a = 0.0075;
 
 % delta=40*10^-6;
 
@@ -20,7 +20,7 @@ x=linspace(-a/2,a/2,pixels);
 sigma=a/6;
 figure(1)
 
-[ w ] = W_func_distrebution( x,x,64,64, sigma, waveLength, focalLength );
+[ w ] = W_func_distrebution( x,x,100,100, sigma, waveLength, focalLength );
 %  w  =lam/2/cos(theta)*Bi(mod(Phi(x*cos(theta),x,1,lam),2*pi));
 %  w  = Bi(mod(Phi(x*cos(theta),x,1,lam),2*pi));
 
