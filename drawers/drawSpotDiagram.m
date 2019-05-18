@@ -1,5 +1,5 @@
 function drawSpotDiagram(PSFData,quad_)
-%DRAWSPOTDIAGRAM Summary of this function goes here
+          %DRAWSPOTDIAGRAM Summary of this function goes here
 %   Detailed explanation goes here
 %     fig_handler=figure('Units', 'centimeters', 'pos',  [0 0 dimension(1) dimension(2)]);
 %     axis vis3d 

@@ -86,7 +86,7 @@ drawRays(fig_1,[ raysOut]);
 
  
 drawSpotDiagram(PSF,schema{11});
-% [~,~,~,~]=drawSpotDiagram(fig_2,schema{11},raysOut);
+       % [~,~,~,~]=drawSpotDiagram(fig_2,schema{11},raysOut);
 % 
 % fig_3=figure(3);
 % [ intensity,x ,y ] = quadIntencity( schema{11},raysOut,512,512);
