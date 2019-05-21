@@ -29,4 +29,4 @@ drawRays(fig_1,[ raysOut]);
 
 
 fig_2=figure(2);
-[~,~,~,~]=drawSpotDiagram(fig_2,schema{2},raysOut);
+[~,~,~,~]=drawSpotDiagram(schema{2},raysOut);

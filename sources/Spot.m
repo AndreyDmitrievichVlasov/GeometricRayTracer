@@ -25,7 +25,7 @@ position = parseInputVars( 'position',varargin{:} );
 if isempty(position )
     position = [0,0,0];
 end
-apertureType = parseInputVars( 'apertureTupe',varargin{:} );
+apertureType = parseInputVars( 'apertureType',varargin{:} );
 if isempty(apertureType )
     apertureType ='rect';
 end
@@ -75,15 +75,15 @@ x_s=linspace(-aperture(1)/2,aperture(1)/2,N);
 y_s=linspace(-aperture(2)/2,aperture(2)/2,M);
 rays=[];
 % N,M
-intensity=1/N/M;
+intensity=1;%1/N/M;
 for k=1:length(waveLengths)
     color_= getWLColor( waveLengths(k) );
     for i=1:N
         for j=1:M
-        p = position+[x_s(i) y_s(j) 0];
+        p = [x_s(i) y_s(j) 0];
         e = p - field;t=norm(e); e=e/t;
     %     p=p-e*t;
-        rays=[rays; [field,e,0,t,waveLengths(k), intensity, color_*intensity]];
+        rays=[rays; [position+field,-e,0,t,waveLengths(k), intensity, color_*intensity]];
         end
     end
 end
@@ -91,19 +91,20 @@ end
 end
 
 
-function rays=getCircSpot(aperture,N,M,field,waveLengths)
+function rays=getCircSpot(position,aperture,N,M,field,waveLengths)
     r_s=linspace(aperture(1),aperture(2),N);
     phi_s=linspace(0,2*pi,M);
     rays=[];
-    intensity=1/N/M;
+    intensity=1;%1/N/M/max(aperture);
     for k=1:length(waveLengths)
         color_= getWLColor( waveLengths(k) );
         for i=1:N
             for j=1:M
-            p = position+[r_s(i)*cos(phi_s(j)) r_s(i)*sin(phi_s(j)) 0];
-            e = p - field;t=norm(e); e=e/t;
+            p_ = [r_s(i)*cos(phi_s(j)) r_s(i)*sin(phi_s(j)) 0];
+%             p = p_;
+            e = p_ - field;t=norm(e); e=e/t;
         %     p=p-e*t;
-            rays=[rays; [field,e,0,t,waveLengths(k), intensity, color_*intensity]];
+            rays=[rays; [position+field,-e,0,t,waveLengths(k), intensity*norm(p_), color_*intensity]];
             end
         end
     end

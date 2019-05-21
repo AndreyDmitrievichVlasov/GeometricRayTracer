@@ -8,19 +8,17 @@ function drawSpotDiagram(PSFData,quad_)
 % tic
 % [x_spot,y_spot,colors,angleSize,waveLngthKeys,RMS,AverageGeo]=spotDiagram(quad_,rays);
 % toc
-spacing = [3 length(PSFData.WaveLengths)/3];
+spacing = [length(PSFData.WaveLengths)/3 3];
 
-modSpacing=(spacing(2))-floor(spacing (2));
 
-if modSpacing~=0
-    spacing(2)=floor(spacing(2))+1;
-end
+    spacing(1)=floor(spacing(1))+1;
+
+
+
+allSpotsIdx=[length(PSFData.WaveLengths)+1 length(PSFData.WaveLengths)+3];
 
 fig_1=figure(1);
-
-allSpotsIdx=[length(PSFData.WaveLengths)+1 length(PSFData.WaveLengths)+6];
-
-spacing(2)=spacing(2)+2;
+% spacing(2)=spacing(2)+2;
 
 %% Drawning spot diagramm 
 for i=1:length(PSFData.WaveLengths)
@@ -91,58 +89,48 @@ if iscell(x_spot)
             for i=1:5500
                 idx=1+randi(length(x_spot{j})-1);
                 if~(norm(colors{j}(idx,:)-[0.05 0.05 0.05])<=0.05)
-                plot(x_spot{j}(idx),y_spot{j}(idx),'.','color',1-colors{j}(idx,:));
+                plot(x_spot{j}(idx),y_spot{j}(idx),'.','color',colors{j}(idx,:));
                 end
            end
 
             else
                 for i=1:length(x_spot{j})
                     if~(norm(colors{j}(i,:)-[0.05 0.05 0.05])<=0.05)
-                    plot(x_spot{j}(i),y_spot{j}(i),'.','color',1-colors{j}(i,:));
+                    plot(x_spot{j}(i),y_spot{j}(i),'.','color',colors{j}(i,:));
                     end
                 end
             end
     end
+     col=[];
+     for i=1:length(colors)
+     col=[col;max(colors{i})];
+     end
 else
-    
-%     a = [[0 1 1];[1 0 1];[1 1 0]];
-%     
-%     cMap(:,1,1)=1-colors(:,1);
-%     cMap(:,1,2)=1-colors(:,2);
-%     cMap(:,1,3)=1-colors(:,3);
-%     
-% % size(cMap)v
-% % imagesc(cMap)
-%     [cMap, map]=rgb2ind((cMap),a);
-% color
-% %     cMap
-%     
-% p = patch([x_spot ;0],[y_spot; nan],[cMap(:,1); 0],'EdgeColor','none','Marker','o','MarkerFaceColor','flat');
-% % get(p)
-% colormap(a);
     if length(x_spot)>5500
         for i=1:5500
             idx=1+randi(length(x_spot)-1);
             if~(norm(colors(idx,:)-[0.05 0.05 0.05])<=0.05)
-            plot(x_spot(idx),y_spot(idx),'.','color',1-colors(idx,:));
+            plot(x_spot(idx),y_spot(idx),'.','color',colors(idx,:));
             end
        end
     
     else
         for i=1:length(x_spot)
             if~(norm(colors(i,:)-[0.05 0.05 0.05])<=0.05)
-            plot(x_spot(i),y_spot(i),'.','color',1-colors(i,:));
+            plot(x_spot(i),y_spot(i),'.','color',colors(i,:));
             end
         end
     end
+     col=[];
+%      for i=1:length(colors)
+     col = [max(colors)];
+%      end
 end
  L2=quad.apertureData(1)/2;
  H2=quad.apertureData(2)/2;
- col=[[1 0 0];[0 1 0];[0 0 1]];
  
- 
-  for i=1:length(legend_map) 
-      text(-4,1+(i-1)*0.75,legend_map{i},'Color',col(length(legend_map)-i+1,:));
+  for i=length(legend_map):-1:1 
+      text(-4,1+(i-1)*0.75,legend_map{i},'Color',col(i,:));
   end
 
  
@@ -200,12 +188,13 @@ else
 end
 
 
-  col=[[1 0 0];[0 1 0];[0 0 1]];
+%   col=[[1 0 0];[0 1 0];[0 0 1]];
     
- 
-  for i=1:length(legend_map) 
-      text(-4,1+(i-1)*0.75,legend_map{i},'Color',col(length(legend_map)-i+1,:));
-  end
+
+  
+%   for i=1:length(legend_map) 
+%       text(-4,1+(i-1)*0.75,legend_map{i},'Color',col(length(legend_map)-i+1,:));
+%   end
 
  
     hold off;
