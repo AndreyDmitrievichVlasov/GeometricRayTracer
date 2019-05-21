@@ -25,13 +25,13 @@ ofsett= 42.1577;
 radialDG = flatQuad('aperture', [8 8 0],'apertureType',1,'position',[0 0 position+ofsett+1]);
 
 % radialDG = flatQuad( [8 8 0],1,[0 0 0],[0 0 position+ofsett+1]);
-radialDG = convertQuad2RadialDG(radialDG, 0.03,  1, 0, 10^10);
+radialDG = convertQuad2RadialDG(radialDG, 0.032,  1, 0, 10^10);
 
 [ axicon ] =getLens( 'aperture',4,'tickness', 1,'r1', 10^10,'r2', 10^10,'material','SK16');%; getAxicon( 4, 2,[4 4 1],'SK16');% getLens( 4, 2, 10^10, 10^10,'SK16');%; 
 
 [ axicon ] = moveLens( axicon,[0 0 position+ofsett]);
 
-[ detector] =  flatQuad('aperture', [25 25 0],'apertureType',1,'position',[0 0 122.25]);%+150]);
+[ detector] =  flatQuad('aperture', [15 15 0],'apertureType',1,'position',[0 0 122.25+75]);
 
 schema={};
 
@@ -59,9 +59,8 @@ schema{9}=detector;
 
 %   LED_source=paraxialSpot([0 0 -50],[4.95 5],'coloredCheceker.png');
 tic
-  LED_source=Spot('distance',-1000000,'apertureType','circ','aperture',2*[4.8 4.9],'Nrays',1,'Mrays',512,'position',[0 0 0],'fields',{[0 0]},...
-      'waveLenghts',[0.3 0.4 0.5...
-                           0.6 0.7 0.8]);%,'fields',{[0 0],[0 0.1],[0 0.2]});
+  LED_source=Spot('distance',0,'apertureType','circ','aperture',[4.99 5],'Nrays',1,'Mrays',512,'position',[0 0 -10],'fields',{[0 0]},...
+      'waveLenghts',linspace(0.4,0.7,3),'radialModulation',@(t)(0.5+0.5*(sin(10*t))));%,'fields',{[0 0],[0 0.1],[0 0.2]});
 % LED_source=LED([0 0 -10], 0.1);%paraxialSpot([0 0 -10],[4.8 4.9]);% [ raysIn, raysMiddle, raysOut ] = traceThroughSystem( LED_source, schema);
 % as sequence
 [ raysIn, raysMiddle, raysOut ] = traceThroughSystem(LED_source, schema,sequensce);
@@ -73,6 +72,9 @@ DrawElements(schema);
 drawRays(fig_1,[raysIn; ]);
 drawRays(fig_1,[raysMiddle;]);
 drawRays(fig_1,[ raysOut]);
+xlim([-20 20]);
+zlim([-50 200]);
+
 % plot2svg('full_schema_.svg');
 % drawRays(fig_1,[rays_in; rays_middle; rays_out_]);
 % 
@@ -87,3 +89,4 @@ toc;
 % [ intensity,x ,y ] = quadIntencity( schema{11},raysOut,512,512);
 % imagesc(x,y,intensity');
 % axis equal;
+

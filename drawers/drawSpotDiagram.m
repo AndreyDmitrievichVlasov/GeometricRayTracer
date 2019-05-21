@@ -103,7 +103,7 @@ if iscell(x_spot)
     end
      col=[];
      for i=1:length(colors)
-     col=[col;max(colors{i})];
+     col=[col;min(colors{i})];
      end
 else
     if length(x_spot)>5500
@@ -123,7 +123,7 @@ else
     end
      col=[];
 %      for i=1:length(colors)
-     col = [max(colors)];
+     col = [min(colors)];
 %      end
 end
  L2=quad.apertureData(1)/2;
