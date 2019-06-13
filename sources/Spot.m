@@ -117,9 +117,9 @@ for k=1:length(waveLengths)
     for i=1:N
         for j=1:M
         p = [x_s(i) y_s(j) 0];
-        e = p - field;t=norm(e); e=e/t;
+        e = p - field; t = norm(e); e=e/t;
         intence= modFuncX(x_s(i))*modFuncY(y_s(i))*intensity;
-        rays=[rays; [position+field,-e,0,t,waveLengths(k),intence,  getTrueColor(intence,color_)]];
+        rays=[rays; [position-field,-e,0,t,waveLengths(k),intence,  getTrueColor(intence,color_)]];
         end
     end
 end
@@ -140,7 +140,7 @@ function rays=getCircSpot(position,aperture,N,M,field,waveLengths,modFunc)
 %             p = p_;
             e = p_ - field;t=norm(e); e=e/t;
              intence= modFunc(phi_s(j))*intensity*norm(p_)/max(aperture);
-             rays=[rays; [position+field,-e,0,t,waveLengths(k),intence,  getTrueColor(intence,color_)]];
+             rays=[rays; [position-field,-e,0,t,waveLengths(k),intence,  getTrueColor(intence,color_)]];
             end
         end
     end

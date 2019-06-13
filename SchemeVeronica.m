@@ -22,6 +22,7 @@ ofsett= 42.1577;
 [ lens_3 ] = getLens('aperture', 6,'tickness', 2.952076,'r1', -18.389841,'r2', 79.683603,'material','SK16');
 [ lens_3 ] = moveLens( lens_3,[0 0 position+ofsett*2+2]);
 
+
 radialDG = flatQuad('aperture', [8 8 0],'apertureType',1,'position',[0 0 position+ofsett+1]);
 
 % radialDG = flatQuad( [8 8 0],1,[0 0 0],[0 0 position+ofsett+1]);
@@ -35,9 +36,10 @@ radialDG = convertQuad2RadialDG(radialDG, 0.032,  1, 0, 10^10);
 
 schema={};
 
-sequensce=[ 1 2 3 8 5 6 7 9];
+sequensce=[ 1 2 3 8 4 5 6 7 9];
 % sequensce=[ 1 2 3 5 6 7 8];
-
+% sequensce=[ 1 2 3 4 5 6 7 9];
+%  sequensce=[8 4 9];
 % sequensce=[ 8];
 % sequensce=[ 1 2 3 5 6 7 8];
 schema{1}=lens1;
@@ -59,8 +61,9 @@ schema{9}=detector;
 
 %   LED_source=paraxialSpot([0 0 -50],[4.95 5],'coloredCheceker.png');
 tic
-  LED_source=Spot('distance',0,'apertureType','circ','aperture',[4.99 5],'Nrays',1,'Mrays',512,'position',[0 0 -10],'fields',{[0 0]},...
-      'waveLenghts',linspace(0.4,0.7,3),'radialModulation',@(t)(0.5+0.5*(sin(10*t))));%,'fields',{[0 0],[0 0.1],[0 0.2]});
+field_y = 5;
+  LED_source=Spot('position',[0 0 0],'apertureType','circ','aperture',[4.99 5],'Nrays',1,'Mrays',512,'position',[0 0 -10],...
+      'waveLenghts',linspace(0.38,0.78,6),'distance',10000,'fields',{[0 field_y]});
 % LED_source=LED([0 0 -10], 0.1);%paraxialSpot([0 0 -10],[4.8 4.9]);% [ raysIn, raysMiddle, raysOut ] = traceThroughSystem( LED_source, schema);
 % as sequence
 [ raysIn, raysMiddle, raysOut ] = traceThroughSystem(LED_source, schema,sequensce);
@@ -81,7 +84,7 @@ zlim([-50 200]);
 [ PSF] = getPSFData( raysOut,schema{9},512,512);
 
  
-drawSpotDiagram(PSF,schema{9});
+drawSpotDiagram(PSF,schema{9},'saveSpot2',['spotDiagrammForField [0 ',num2str(field_y),'].svg']);
 toc;
        % [~,~,~,~]=drawSpotDiagram(fig_2,schema{11},raysOut);
 % 
