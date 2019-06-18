@@ -1041,7 +1041,7 @@ r=\alpha r_{1}
 окончательно:
 \begin_inset Formula 
 \[
-\left(\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial}{\partial r}\right)-\frac{1}{r^{2}}l\left(l+1\right)\right)R\left(r\right)+R\left(r\right)=0.
+\left(\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial}{\partial r}\right)-\frac{1}{r^{2}}l\left(l+1\right)\right)R\left(r\right)+\alpha^{2}R\left(r\right)=0.
 \]
 
 \end_inset
@@ -1085,29 +1085,105 @@ R\left(\alpha r\right)=\varsigma_{l}j_{l}\left(\alpha r\right)
 
 \end_inset
 
-Его решением, по аналогии будет:
+Уравнение для радиальной части по аналогии можно привести к модифицированному
+ уравнению Бесселя :
 \begin_inset Formula 
 \[
-\Psi_{l,m}^{1}\left(r,\phi,\theta\right)=\left(\varsigma_{l}j_{l}\left(\beta r\right)+\eta_{l}y_{l}\left(\beta r\right)\right)Y_{lm}\left(\phi,\theta\right),\beta=-\frac{2m_{e}}{\hbar^{2}}E
+\left(\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial}{\partial r}\right)-\frac{1}{r^{2}}l\left(l+1\right)\right)R\left(r\right)-\beta^{2}R\left(r\right)=0.
 \]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\beta=-\frac{2m_{e}}{\hbar^{2}}E
+\]
+
+\end_inset
+
+Его решением будет:
+\begin_inset Formula 
+\begin{equation}
+\Psi_{l,m}^{1}\left(r,\phi,\theta\right)=\left(\zeta_{l}k_{l}\left(\beta r\right)+\eta_{l}i_{l}\left(\beta r\right)\right)Y_{lm}\left(\phi,\theta\right),
+\end{equation}
 
 \end_inset
 
 Здесь 
-\begin_inset Formula $y_{l}\left(\beta r\right)$
+\begin_inset Formula $k_{l}\left(\beta r\right)$
 \end_inset
 
-введена ввиду того, что поле не проходит точку ноль.
+ - модифицированные сферические функции Бесселя третьего рода, а 
+\begin_inset Formula $i_{l}\left(\beta r\right)$
+\end_inset
+
+ - модифицированные сферические функции Бесселя первого рода.
+
+\series bold
+ 
 \end_layout
 
 \begin_layout Standard
 На границе областей решения, должны быть непрерывными и гдакими, потому:
+\begin_inset Formula 
+\[
+\begin{cases}
+\Psi_{l,m}^{1}\left(r_{0},\phi,\theta\right)=\Psi_{l,m}^{0}\left(r_{0},\phi,\theta\right)\\
+\frac{\partial\Psi_{l,m}^{1}}{\partial r}\left(r_{0},\phi,\theta\right)=\frac{\partial\Psi_{l,m}^{0}}{\partial r}\left(r_{0},\phi,\theta\right)
+\end{cases}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\Psi_{l,m}^{1}\left(r_{0},\phi,\theta\right)=\Psi_{l,m}^{0}\left(r_{0},\phi,\theta\right)
+\begin{cases}
+\zeta_{l}j_{l}\left(\beta r_{0}\right)+\eta_{l}y_{l}\left(\beta r_{0}\right)=\varsigma_{l}j_{l}\left(\alpha r_{0}\right)\\
+\zeta_{l}\frac{\partial}{\partial r}k_{l}\left(\beta r_{0}\right)+\eta_{l}\frac{\partial}{\partial r}i_{l}\left(\beta r_{0}\right)=\varsigma_{l}\frac{\partial}{\partial r}j_{l}\left(\alpha r_{0}\right)
+\end{cases}
+\]
+
+\end_inset
+
+Функция 
+\begin_inset Formula $i_{l}\left(\beta r_{0}\right)$
+\end_inset
+
+неограниченно возрастает при росте аргумента, поэтому:
+\begin_inset Formula 
+\[
+\begin{cases}
+\zeta_{l}j_{l}\left(\beta r_{0}\right)=\varsigma_{l}j_{l}\left(\alpha r_{0}\right)\\
+\zeta_{l}\frac{\partial}{\partial r}k_{l}\left(\beta r_{0}\right)=\varsigma_{l}\frac{\partial}{\partial r}j_{l}\left(\alpha r_{0}\right)
+\end{cases}\begin{cases}
+\zeta_{l}j_{l}\left(\beta r_{0}\right)-\varsigma_{l}j_{l}\left(\alpha r_{0}\right)=0\\
+\zeta_{l}\frac{\partial}{\partial r}k_{l}\left(\beta r_{0}\right)-\varsigma_{l}\frac{\partial}{\partial r}j_{l}\left(\alpha r_{0}\right)=0
+\end{cases}\left[\begin{array}{cc}
+j_{l}\left(\beta r_{0}\right) & -j_{l}\left(\alpha r_{0}\right)\\
+\frac{\partial}{\partial r}k_{l}\left(\beta r_{0}\right) & -\frac{\partial}{\partial r}j_{l}\left(\alpha r_{0}\right)
+\end{array}\right]\left[\begin{array}{c}
+\zeta_{l}\\
+\varsigma_{l}
+\end{array}\right]=\left[\begin{array}{c}
+0\\
+0
+\end{array}\right]
+\]
+
+\end_inset
+
+Решение мб определено лишь в том случае, когда :
+\begin_inset Formula 
+\[
+det\left[\begin{array}{cc}
+j_{l}\left(\beta r_{0}\right) & -j_{l}\left(\alpha r_{0}\right)\\
+\frac{\partial}{\partial r}k_{l}\left(\beta r_{0}\right) & -\frac{\partial}{\partial r}j_{l}\left(\alpha r_{0}\right)
+\end{array}\right]=0
 \]
 
 \end_inset
@@ -1115,12 +1191,29 @@ R\left(\alpha r\right)=\varsigma_{l}j_{l}\left(\alpha r\right)
 
 \begin_inset Formula 
 \[
-\frac{\partial\Psi_{l,m}^{1}}{\partial r}\left(r_{0},\phi,\theta\right)=\frac{\partial\Psi_{l,m}^{0}}{\partial r}\left(r_{0},\phi,\theta\right)
+j_{l}\left(\beta r_{0}\right)\frac{\partial}{\partial r}j_{l}\left(\alpha r_{0}\right)-j_{l}\left(\alpha r_{0}\right)\frac{\partial}{\partial r}k_{l}\left(\beta r_{0}\right)=0
 \]
 
 \end_inset
 
+учтя, что
+\begin_inset Formula 
+\[
+\beta=-\frac{2m_{e}}{\hbar^{2}}E,\,\,\,\alpha^{2}=\frac{2m_{e}}{\hbar^{2}}\left(E-U_{0}\right)
+\]
 
+\end_inset
+
+получим:
+\begin_inset Formula 
+\[
+j_{l}\left(-\frac{2m_{e}}{\hbar^{2}}Er_{0}\right)\frac{\partial}{\partial r}j_{l}\left(\frac{2m_{e}}{\hbar^{2}}\left(E-U_{0}\right)r_{0}\right)-j_{l}\left(\frac{2m_{e}}{\hbar^{2}}\left(E-U_{0}\right)r_{0}\right)\frac{\partial}{\partial r}k_{l}\left(-\frac{2m_{e}}{\hbar^{2}}Er_{0}\right)=0
+\]
+
+\end_inset
+
+Из последнего уравнения можно получить значения для спектра энергии, а потом,
+ подставив эти значения в уравнения 15 и 16, получить решения для задачи.
 \end_layout
 
 \begin_layout Standard

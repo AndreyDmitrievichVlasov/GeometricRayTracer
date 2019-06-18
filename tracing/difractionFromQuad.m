@@ -135,8 +135,6 @@ function raysOut = DifractCircular(raysIn, normal, sufCentr,difOrder, ticksDenci
    
     raysOut(:,4:6) = ArrayOfMatrixMultByArrayOfVectors(T,B,N,raysOut(:,4:6));
     
-    
-    
     raysOut(:,8)=1;
     raysOut(:,9:13)=raysIn(:,9:13);
         
@@ -151,25 +149,74 @@ function raysOut = Difract(raysIn, normal, difOrder, ticksDencity)
 %    1   2    3    4     5    6        7     8                         9              10  11 12 13
         % [r_1,r_2,r_3,e_1,e_2,e_3,START,END,WAVE_LENGTH, INTENSITY,  R,  G, B]
         raysOut=raysIn;
+        
         raysOut(:,1)=raysIn(:,1)+raysIn(:,4).*raysIn(:,8);
         raysOut(:,2)=raysIn(:,2)+raysIn(:,5).*raysIn(:,8);
         raysOut(:,3)=raysIn(:,3)+raysIn(:,6).*raysIn(:,8);
-        [T,B,N] = getAllLocalTBN(raysOut(:,1:3),normal);
-      
-        ray_dir_dg_space = ArrayOfMatrixMultByArrayOfVectors(T,B,N,raysIn(:,4:6));
-
-        difraction_angle =  difOrder*10^-3*raysIn(:,9)/ticksDencity-sqrt(1 - ray_dir_dg_space(:,3).^2);
- 
+        
+        
+        %% Search for TBN
+    T = zeros(size(raysOut(:,1:3)));
+    B = zeros(size(raysOut(:,1:3)));
+    N = ones(size(raysOut(:,1:3)));
     
-    rho=sqrt(raysIn(:,4).^2+raysIn(:,6).^2);
+    N_ = normal(raysOut(:,1:3));
+    
+    N(:,1)=N(:,1).*N_(:,1);
+    N(:,2)=N(:,2).*N_(:,2);
+    N(:,3)=N(:,3).*N_(:,3);
+
+    T(:,1) =1;
+    T(:,2) =0;
+    T(:,3) =0;
+
+    B(:,1)=0;
+    B(:,2)= - N(:,3).*T(:,1);
+    B(:,3)=N(:,2).*T(:,1);
+    
+    
+%     B(:,1)=N(:,3).*T(:,2) - N(:,2).*T(:,3);
+%     B(:,2)=N(:,1).*T(:,3) - N(:,3).*T(:,1);
+%     B(:,3)=N(:,2).*T(:,1) - N(:,1).*T(:,2);
+%     
+    normalizer = sqrt(sum(B(:,1:3).*B(:,1:3),2));
+    
+    B(:,1) =B(:,1)./normalizer(:);
+    B(:,2) =B(:,2)./normalizer(:);
+    B(:,3) =B(:,3)./normalizer(:);
+   
+    T(:,1)=N(:,3).*B(:,2) - N(:,2).*B(:,3);
+    T(:,2)=N(:,1).*B(:,3) - N(:,3).*B(:,1);
+    T(:,3)=N(:,2).*B(:,1) - N(:,1).*B(:,2);
+ 
+    normalizer = sqrt(sum(T(:,1:3).*T(:,1:3),2));
+     
+     T(:,1) =T(:,1)./normalizer(:);
+     T(:,2) =T(:,2)./normalizer(:);
+     T(:,3) =T(:,3)./normalizer(:);
+   
+    ray_dir_dg_space = ArrayOfMatrixMultByArrayOfVectors(T,B,N,raysIn(:,4:6));
+
+    difraction_angle = difOrder*10^-2*raysIn(:,9)/ticksDencity-sqrt(1 - ray_dir_dg_space(:,3).^2);
+    
+    rho=sqrt(ray_dir_dg_space(:,1).^2+ray_dir_dg_space(:,3).^2);
+
     %     1    2    3    4     5    6         7    8                    9             10  11 12 13
     % [r_1,r_2,r_3,e_1,e_2,e_3,START,END,WAVE_LENGTH, INTENSITY, R, G, B]
-    raysOut(:,4)=rho.*difraction_angle;
-    raysOut(:,5)=raysIn(:,5);
-    raysOut(:,6)=rho.*sqrt(1-difraction_angle.^2);
+
+%     raysOut(:,1:3)= raysIn(:,1:3);%+quad_.TextureHeight());
+%     raysOut(:,2)= raysIn(:,2)+raysIn(:,5).*(raysIn(:,8)-raysIn(:,7));%+quad_.TextureHeight());
+%     raysOut(:,3)= raysIn(:,3)+raysIn(:,6).*(raysIn(:,8)-raysIn(:,7));%+quad_.TextureHeight());
+    raysOut(:,4)= rho.*difraction_angle;
+%     raysOut(:,5)= ray_dir_dg_space(:,2);
+    raysOut(:,6)= rho.*sqrt(1-difraction_angle.^2);
+   
+%      raysOut(:,4:6) = ArrayOfMatrixInvMultByArrayOfVectors(T,B,N,raysOut(:,4:6));
+    
     raysOut(:,8)=1;
     raysOut(:,9:13)=raysIn(:,9:13);
         
+    
 end
 
 function [T,B,N] = getAllLocalTBN(positions,normal)
@@ -178,9 +225,9 @@ N=normal(positions);
 T=zeros(size(N));
 B=zeros(size(N));
 %Tagent
-T(:,1)=1-N(:,1).*N(:,1);
-T(:,2)= - N(:,2).*N(:,1);
-T(:,3)= - N(:,3).*N(:,1);
+T(:,1)= 0;
+T(:,2)= 1;%- N(:,2).*N(:,1);
+T(:,3)= 0;%- N(:,3).*N(:,1);
 %Bi-Tangent
 B(:,1)=N(:,3).*T(:,2)-N(:,2).*T(:,3);
 B(:,2)=N(:,1).*T(:,3)-N(:,3).*T(:,1);

@@ -138,8 +138,35 @@ U\left(\rho\right)=\begin{cases}
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\Psi\left(\rho,\phi,z\right)=A_{p}\left(z,k\right)B_{m}\left(\phi\right)C_{m,n}\left(\rho\right).
+\Psi\left(\rho,\phi,z\right)=A\left(z,k\right)B\left(\phi\right)C\left(\rho\right).
 \end{equation}
+
+\end_inset
+
+Подставим теперь это в исходное уравнение и получим:
+\begin_inset Formula 
+\[
+\frac{1}{C\left(\rho\right)}\frac{1}{\rho}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)C_{m,n}\left(\rho\right)+\frac{1}{A\left(z,k\right)}\frac{\partial^{2}}{\partial z^{2}}A_{p}\left(z,k\right)+\frac{1}{B\left(\phi\right)}\frac{1}{\rho^{2}}\frac{\partial^{2}}{\partial\phi^{2}}B_{m}\left(\phi\right)=-\frac{2m_{e}}{\hbar^{2}}E
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{1}{C\left(\rho\right)}\frac{1}{\rho}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)C\left(\rho\right)+\frac{1}{A\left(z\right)}\frac{\partial^{2}}{\partial z^{2}}A\left(z\right)+\frac{1}{B\left(\phi\right)}\frac{1}{\rho^{2}}\frac{\partial^{2}}{\partial\phi^{2}}B\left(\phi\right)+\frac{2m_{e}}{\hbar^{2}}E=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{cases}
+\frac{1}{A\left(z\right)}\frac{\partial^{2}}{\partial z^{2}}A\left(z\right)+\frac{2m_{e}}{\hbar^{2}}E=k_{z}\\
+\\
+\end{cases}
+\]
 
 \end_inset
 
@@ -216,7 +243,7 @@ B_{m}\left(\phi\right)=\frac{1}{\sqrt{2\pi}}e^{im\phi},m=0,\pm1,\pm2,...
 
 \begin_inset Formula 
 \[
-\left(\frac{1}{\rho}\frac{\partial}{\partial\rho}+\frac{\partial^{2}}{\partial\rho^{2}}-\left(k+k_{p}\right)^{2}-\frac{m^{2}}{\rho^{2}}\right)C_{m,n}\left(\rho\right)=-\frac{2m_{e}}{\hbar^{2}}EC_{m,n}\left(\rho\right),
+\left(\frac{1}{\rho}\frac{\partial}{\partial\rho}+\frac{\partial^{2}}{\partial\rho^{2}}-\frac{m^{2}}{\rho^{2}}\right)C_{m,n}\left(\rho\right)=\left(\left(k+k_{p}\right)^{2}-\frac{2m_{e}}{\hbar^{2}}E\right)C_{m,n}\left(\rho\right),
 \]
 
 \end_inset
@@ -224,12 +251,20 @@ B_{m}\left(\phi\right)=\frac{1}{\sqrt{2\pi}}e^{im\phi},m=0,\pm1,\pm2,...
 
 \begin_inset Formula 
 \[
-\left(\frac{1}{\rho}\frac{\partial}{\partial\rho}+\frac{\partial^{2}}{\partial\rho^{2}}+\frac{2m_{e}}{\hbar^{2}}E-\left(k+k_{p}\right)^{2}-\frac{m^{2}}{\rho^{2}}\right)C_{m,n}\left(\rho\right)=0.
+\left(\frac{1}{\rho}\frac{\partial}{\partial\rho}+\frac{\partial^{2}}{\partial\rho^{2}}-\frac{m^{2}}{\rho^{2}}\right)C_{m,n}\left(\rho\right)+\left(\frac{2m_{e}}{\hbar^{2}}E-\left(k+k_{p}\right)^{2}\right)C_{m,n}\left(\rho\right)=0,
 \]
 
 \end_inset
 
-Обозначим энергию:
+
+\begin_inset Formula 
+\[
+\left(\frac{1}{\rho}\frac{\partial}{\partial\rho}+\frac{\partial^{2}}{\partial\rho^{2}}-\frac{m^{2}}{\rho^{2}}\right)C_{m,n}\left(\rho\right)+k_{m,n}^{2}C_{m,n}\left(\rho\right)=0,
+\]
+
+\end_inset
+
+
 \begin_inset Formula 
 \[
 E_{m,n}=\frac{2m_{e}}{\hbar^{2}}E-\left(k+k_{p}\right)^{2}\rightarrow E=\frac{\hbar^{2}}{2m_{e}}\left(E_{m,n}+\left(k+k_{p}\right)^{2}\right),\,\,\,\,\sqrt{E_{m,n}}=k_{m,n}
@@ -237,139 +272,42 @@ E_{m,n}=\frac{2m_{e}}{\hbar^{2}}E-\left(k+k_{p}\right)^{2}\rightarrow E=\frac{\h
 
 \end_inset
 
-Введём замену:
+
+\begin_inset Formula 
+\[
+\rho k_{m,n}=r\rightarrow\rho=\frac{r}{k_{m,n}}.
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(\rho^{2}\frac{\partial^{2}}{\partial\rho^{2}}+\rho\frac{\partial}{\partial\rho}+\frac{\rho^{2}}{k_{m,n}^{2}}-m^{2}\right)C_{m,n}\left(\rho\right)=0.
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(r^{2}\frac{\partial^{2}}{\partial r^{2}}+r\frac{\partial}{\partial r}+r^{2}-m^{2}\right)C_{m,n}\left(\frac{r}{k_{m,n}}\right)=0.
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+C_{m,n}\left(\frac{r}{k_{m,n}}\right)=J_{m}\left(r\right)+Y_{m}\left(r\right)
+\]
+
+\end_inset
+
+Возвращаясь к первоналаьным переменным, мы получим:
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\[
-\rho=\alpha\rho_{1}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
--\frac{\hbar^{2}}{2m_{e}}\left(\frac{1}{\alpha\rho_{1}}\frac{\partial}{\partial\left(\alpha\rho_{1}\right)}\left(\alpha\rho_{1}\frac{\partial}{\partial\left(\alpha\rho_{1}\right)}\right)+\frac{\partial^{2}}{\partial z^{2}}+\frac{1}{\alpha^{2}\rho_{1}^{2}}\frac{\partial^{2}}{\partial\phi^{2}}\right)A_{p}\left(z,k\right)B_{m}\left(\phi\right)C_{m,n}\left(\alpha\rho_{1}\right)+U\left(\rho,\phi,z\right)A_{p}\left(z,k\right)B_{m}\left(\phi\right)C_{m,n}\left(\alpha\rho_{1}\right)=EA_{p}\left(z,k\right)B_{m}\left(\phi\right)C_{m,n}\left(\alpha\rho_{1}\right),
-\]
-
-\end_inset
-
-если рассматривать это уравнение внутри области 
-\begin_inset Formula $\rho\in\left[a,b\right],$
-\end_inset
-
- то потенциал (3) обращается в ноль, а значит:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
--\frac{\hbar^{2}}{2m_{e}}\left(\frac{1}{\alpha\rho_{1}}\frac{\partial}{\partial\left(\alpha\rho_{1}\right)}\left(\alpha\rho_{1}\frac{\partial}{\partial\left(\alpha\rho_{1}\right)}\right)A_{p}\left(z,k\right)B_{m}\left(\phi\right)C_{m,n}\left(\alpha\rho_{1}\right)-\left(k+k_{p}\right)^{2}A_{p}\left(z,k\right)B_{m}\left(\phi\right)C_{m,n}\left(\alpha\rho_{1}\right)-\frac{m^{2}}{\alpha^{2}\rho_{1}^{2}}A_{p}\left(z,k\right)B_{m}\left(\phi\right)C_{m,n}\left(\alpha\rho_{1}\right)\right)=EA_{p}\left(z,k\right)B_{m}\left(\phi\right)C_{m,n}\left(\alpha\rho_{1}\right),
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
--\frac{\hbar^{2}}{2m_{e}}\left(\frac{1}{\alpha^{2}\rho_{1}}\frac{\partial}{\partial\left(\rho_{1}\right)}\left(\rho_{1}\frac{\partial}{\partial\left(\rho_{1}\right)}\right)C_{m,n}\left(\alpha\rho_{1}\right)-\left(k+k_{p}\right)^{2}C_{m,n}\left(\alpha\rho_{1}\right)-\frac{m^{2}}{\alpha^{2}\rho_{1}^{2}}C_{m,n}\left(\alpha\rho_{1}\right)\right)=EC_{m,n}\left(\alpha\rho_{1}\right),
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
--\frac{\hbar^{2}}{2m_{e}}\frac{1}{\alpha^{2}}\left(\frac{1}{\rho_{1}}\frac{\partial}{\partial\rho_{1}}\left(\rho_{1}\frac{\partial}{\partial\rho_{1}}\right)C_{m,n}\left(\alpha\rho_{1}\right)-\alpha^{2}\left(k+k_{p}\right)^{2}C_{m,n}\left(\alpha\rho_{1}\right)-\frac{m^{2}}{\rho_{1}^{2}}C_{m,n}\left(\alpha\rho_{1}\right)\right)=EA_{p}C_{m,n}\left(\alpha\rho_{1}\right),
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{\hbar^{2}}{2m_{e}}\frac{1}{\alpha^{2}}=1\rightarrow\frac{\hbar}{\sqrt{2m_{e}}}=\alpha
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
--\frac{1}{\rho_{1}}\frac{\partial}{\partial\rho_{1}}\left(\rho_{1}\frac{\partial}{\partial\rho_{1}}\right)C_{m,n}\left(\alpha\rho_{1}\right)+\frac{\hbar^{2}}{2m_{e}}\left(k+k_{p}\right)^{2}C_{m,n}\left(\alpha\rho_{1}\right)+\frac{m^{2}}{\rho_{1}^{2}}C_{m,n}\left(\alpha\rho_{1}\right)=EC_{m,n}\left(\alpha\rho_{1}\right),
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
--\frac{1}{\rho_{1}}\frac{\partial}{\partial\rho_{1}}\left(\rho_{1}\frac{\partial}{\partial\rho_{1}}\right)C_{m,n}\left(\alpha\rho_{1}\right)+\left(\frac{\hbar^{2}}{2m_{e}}\left(k+k_{p}\right)^{2}-E\right)C_{m,n}\left(\alpha\rho_{1}\right)+\frac{m^{2}}{\rho_{1}^{2}}C_{m,n}\left(\alpha\rho_{1}\right)=0,
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Окончательно уравнение которому должно удовлетворять радиальное движение
- :
-\begin_inset Formula 
-\[
-\left(\frac{1}{\rho_{1}}\frac{\partial}{\partial\rho_{1}}\left(\rho_{1}\frac{\partial}{\partial\rho_{1}}\right)+\left(E-\frac{\hbar^{2}}{2m_{e}}\left(k+k_{p}\right)^{2}\right)-\frac{m^{2}}{\rho_{1}^{2}}\right)C_{m,n}\left(\alpha\rho_{1}\right)=0,
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\left(\frac{1}{\rho_{1}}\frac{\partial}{\partial\rho_{1}}+\frac{\partial^{2}}{\partial\rho_{1}^{2}}+\left(E-\frac{\hbar^{2}}{2m_{e}}\left(k+k_{p}\right)^{2}\right)-\frac{m^{2}}{\rho_{1}^{2}}\right)C_{m,n}\left(\alpha\rho_{1}\right)=0,
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-E_{m,n}=E-\frac{\hbar^{2}}{2m_{e}}\left(k+k_{p}\right)^{2}\rightarrow E=E_{m,n}+\frac{\hbar^{2}}{2m_{e}}\left(k+k_{p}\right)^{2}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\sqrt{E_{m,n}}=k_{m,n}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\left(\frac{1}{\rho_{1}}\frac{\partial}{\partial\rho_{1}}+\frac{\partial^{2}}{\partial\rho_{1}^{2}}+k_{m,n}^{2}-\frac{m^{2}}{\rho_{1}^{2}}\right)C_{m,n}\left(\alpha\rho_{1}\right)=0
-\]
-
-\end_inset
-
-Решением этого уравнениея м.б.
- :
 \begin_inset Formula 
 \begin{equation}
 C_{m,n}\left(\rho\right)=\alpha_{m,n}J_{m}\left(k_{m,n}\rho\right)+\beta_{m,n}Y_{m}\left(k_{m,n}\rho\right)
@@ -431,9 +369,20 @@ J_{m}\left(k_{m,n}b\right)Y_{m}\left(k_{m,n}a\right)=J_{m}\left(k_{m,n}a\right)Y
 \begin_inset Formula 
 \[
 \begin{cases}
-\alpha_{m,n}=-\beta_{m,n}\frac{Y_{m}\left(k_{m,n}a\right)}{J_{m}\left(k_{m,n}a\right)}\\
+\alpha_{m,n}=-\beta_{m,n}\frac{Y_{m}\left(k_{m,n}a\right)}{J_{m}\left(k_{m,n}a\right)},\text{or}\,\alpha_{m,n}=-\beta_{m,n}\frac{Y_{m}\left(k_{m,n}b\right)}{J_{m}\left(k_{m,n}b\right)}\\
 \frac{a^{2}}{2}\left(\alpha_{m,n}\frac{\partial J_{m}}{\partial\rho}\left(k_{m,n}a\right)+\beta_{m,n}\frac{\partial Y_{m}}{\partial\rho}\left(k_{m,n}a\right)\right)-\frac{b^{2}}{2}\left(\alpha_{m,n}\frac{\partial J_{m}}{\partial\rho}\left(k_{m,n}b\right)+\beta_{m,n}\frac{\partial Y_{m}}{\partial\rho}\left(k_{m,n}b\right)\right)=1
 \end{cases}
+\]
+
+\end_inset
+
+Решение для поля вне MT сфер запишется в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Psi\left(\rho,\phi,z\right)=A_{p}\left(z,k\right)B_{m}\left(\phi\right)C_{m,n}\left(\rho\right)=\frac{1}{\sqrt{2\pi c}}e^{im\phi}e^{i\left(k+k_{p}\right)z}\left(\alpha_{m,n}J_{m}\left(k_{m,n}\rho\right)+\beta_{m,n}Y_{m}\left(k_{m,n}\rho\right)\right)
 \]
 
 \end_inset
@@ -597,6 +546,25 @@ r=\alpha r_{1}
 \[
 R\left(\alpha r_{1}\right)=\varsigma_{l}j_{l}\left(\alpha r_{1}\right)+\xi_{l}y_{l}\left(\alpha r_{1}\right)
 \]
+
+\end_inset
+
+Так как поле в центре MT-сферы должно быть ноль,то:
+\begin_inset Formula 
+\[
+R\left(\alpha r_{1}\right)=\varsigma_{l}j_{l}\left(\alpha r_{1}\right)
+\]
+
+\end_inset
+
+Окончательно решение для поля внутри MT- сферы можно записать в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Psi\left(r,\phi,\theta\right)=\varsigma_{l}j_{l}\left(\alpha r_{1}\right)Y_{lm}\left(\phi,\theta\right)
+\end{equation}
 
 \end_inset
 

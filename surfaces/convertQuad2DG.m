@@ -1,8 +1,8 @@
 function [ quad_ ] = convertQuad2DG(quad_,density, orders, transOrReflect, ABC)
 %CONVERTQUAD2DG Summary of this function goes here
 % quad_.extraDataType='flatDG';
-direction = [quad_.L*[0   0   0.75 0.75 1   0.75 0.75 0]-quad_.L/2;
-                 quad_.H*[0.6 0.4 0.4  0.25 0.5 0.75 0.6  0.6]-quad_.H/2;
+direction = [quad_.apertureData(1)*[0   0   0.75 0.75 1   0.75 0.75 0]-quad_.apertureData(1)/2;
+                 quad_.apertureData(2)*[0.6 0.4 0.4  0.25 0.5 0.75 0.6  0.6]-quad_.apertureData(2)/2;
                               [0   0   0    0    0   0    0    0]];
 direction =  CurvLinearInterp3D(direction,10);      
         
