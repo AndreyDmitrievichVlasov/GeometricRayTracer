@@ -94,7 +94,7 @@ end
 back_surf  = getSurfaceType(back_surf,r_2);
 
 rI=Materials('silica');
-lens=struct('frontSurface',front_surf,'backSurface',back_surf,'tickness',tickness,'apertureData',aperture,'apertureType',appType,'material',...
+lens = struct('frontSurface',front_surf,'backSurface',back_surf,'tickness',tickness,'apertureData',aperture,'apertureType',appType,'material',...
                 rI,'materialDispersion',@(lam)(dispersionLaw(lam, rI.refractionIndexData)),'type','lens');
 end
 
