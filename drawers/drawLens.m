@@ -8,7 +8,9 @@ for i=1:size(frontMesh,2)
     frontMesh(:,i)=Lens.frontSurface.rotationMatrix(1:3,1:3)*frontMesh(:,i)+Lens.frontSurface.position';
     backMesh(:,i)=Lens.frontSurface.rotationMatrix(1:3,1:3)*backMesh(:,i)+Lens.frontSurface.position';
 end
-    if strcmp(version('-release'),'2015b')
+version_date = version('-release');
+version_date = str2num(version_date(1:4));
+     if version_date>2014
         plot3(hndl,frontMesh(1,:), frontMesh(2,:),frontMesh(3,:),'k','lineWidth',1);
         plot3(hndl,backMesh(1,:), backMesh(2,:),backMesh(3,:),'k','lineWidth',1);
 %         plot3(hndl,l_1_y(1,:), l_1_y(2,:),l_1_y(3,:),'k','lineWidth',1);
