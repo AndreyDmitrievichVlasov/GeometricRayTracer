@@ -10,14 +10,17 @@ aper=R*tan(angle);
 if aper>R
 aper=R;
 end
-  RGB=[630 510 450]*10^-6;
-% RGB_colors=[[1 0 0];
-%             [0 1 0];
-%             [0 0 1]];
+
+RGB=[630 510 450]*10^-6;
+RGB_colors=[[1 0 0];[0 1 0];[0 0 1]];
+
 x=-aper:2*aper/(N-1):aper;
 y=-aper:2*aper/(N-1):aper;
+
 lightDir=[0 0 1];
+
 rays=[];
+
 if asStructOrArray==1
   
        for i=1:N
@@ -35,6 +38,7 @@ if asStructOrArray==1
             end
        end
 else
+    for l=1:length(RGB)
         for i=1:N
             for j=1:N
                 h=((x(i)^2+y(j)^2));
@@ -45,10 +49,11 @@ else
                    % 80 град.
                    angle_=acos(lightDir*r0'/norm(r0))/angle*sqrt(6);
                    intensity=exp(-angle_^2);
-                   rays=[rays; [r_0,r0/norm(r0),0,1.0,RGB(1), intensity,[0 0 1]*intensity]];
+                   rays=[rays; [r_0,r0/norm(r0),0,1.0,RGB(l), intensity,RGB_colors(l,:)*intensity]];
                 end
             end
         end
+    end
  end
 
 

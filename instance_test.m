@@ -1,4 +1,4 @@
-clear all; close all;clc;initEnvio();
+clear all; close all;clc; initEnvio();
 
 % [ lens ] = getLens( 1.125,1,2,[1.25 1.25 -0.5] );
 [ lens ] = getLens( 2.0, 4, 3, [2 2 -1.4] );

@@ -15,7 +15,7 @@ direction =  CurvLinearInterp3D(direction,10);
 if length(ABC)==1
      quad_ = convertQuad2Sphere(quad_,ABC);
      quad_.extraDataType='radialDG';
-     direction = WrapDirectionUponSurface(direction,[ABC(1),0,0],1);
+       direction = WrapDirectionUponSurface(direction,[ABC(1),0,0],1);
        direction(1,:)=direction(1,:);
        direction(2,:)=direction(2,:);
        direction(3,:)=direction(3,:)+ABC(1);

@@ -2275,7 +2275,7 @@ sin\theta+sin\alpha=\frac{n\lambda}{d},
 
 \end_inset
 
-Чтобы определить угол между проецией луча на плоскость
+Чтобы определить угол между проекцией луча на плоскость
 \begin_inset Formula $XoZ$
 \end_inset
 
@@ -2290,8 +2290,8 @@ sin\theta+sin\alpha=\frac{n\lambda}{d},
 
 \end_inset
 
-после,ввиду того,ч то все вектора единичной длинны, косинус угла между интересую
-щими нас векторами м.б.
+после,ввиду того,что все вектора единичной длинны, косинус угла между интересующ
+ими нас векторами м.б.
  записан в виде:
 \end_layout
 
@@ -2642,6 +2642,124 @@ t=\frac{\left(\vec{n},\vec{r}_{0}-\vec{\rho}_{0}\right)}{\left(\vec{n},\vec{e}\r
 \begin_inset Formula 
 \[
 \vec{t}=\left[\vec{n},\vec{b}\right].
+\]
+
+\end_inset
+
+Плоскость отклонения луча будет лежать на векторах 
+\begin_inset Formula $\vec{n}$
+\end_inset
+
+ и 
+\begin_inset Formula $\vec{b}$
+\end_inset
+
+.
+ Чтобы определить угол между проекцией луча на плоскость 
+\begin_inset Formula $\vec{n}$
+\end_inset
+
+ и 
+\begin_inset Formula $\vec{b}$
+\end_inset
+
+ и нормалью к поверхности ДР необходимо сперва найти проекцию:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{e}_{0,Prj\left(\vec{n}o\vec{b}\right)}=\vec{e}_{0}-\vec{t}\left(\vec{t},\vec{e}_{0}\right),
+\]
+
+\end_inset
+
+после,ввиду того,что все вектора единичной длинны, косинус угла между интересующ
+ими нас векторами м.б.
+ записан в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+cos\theta=\left(\vec{n},\vec{e}_{0}-\vec{t}\left(\vec{t},\vec{e}_{0}\right)\right).
+\]
+
+\end_inset
+
+Теперь, нам нужно найти угол дфифракции и построить новый вектор направления,
+ а для этого перепишим уравнение ДР, учтя последний вывод:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sqrt{1-cos^{2}\theta}+sin\alpha=\frac{n\lambda}{d},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\alpha=acos\left(\frac{n\lambda}{d}-\sqrt{1-cos^{2}\theta}\right).
+\]
+
+\end_inset
+
+Очевидно, что одного только нового значения угла направления недостаточно,
+ но так как в плоскости 
+\begin_inset Formula $\vec{n}o\vec{b}$
+\end_inset
+
+ мы только отклоняем векор в нужном направлении, его длина не меняется.
+ Длиной вектора является длина прокции 
+\begin_inset Formula $\vec{e}_{0}$
+\end_inset
+
+на плоскость 
+\begin_inset Formula $\vec{n}o\vec{b}$
+\end_inset
+
+, поэтому:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\Vert \vec{e}_{0,Prj\left(\vec{n}o\vec{b}\right)}\right\Vert =\sqrt{\left(\vec{e}_{0}-\vec{t}\left(\vec{t},\vec{e}_{0}\right),\vec{e}_{0}-\vec{t}\left(\vec{t},\vec{e}_{0}\right)\right)}=\rho_{\vec{n}o\vec{b}}
+\]
+
+\end_inset
+
+Последний вывод опять же очевиден.
+ Теперь не сложно выразить компаненты нового вектора направления в плосоксти
+ 
+\begin_inset Formula $\vec{n}o\vec{b}$
+\end_inset
+
+ :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{e}_{1}=\left(cos\alpha\rho_{\vec{n}o\vec{b}},0,sin\alpha\rho_{\vec{n}o\vec{b}}\right).
+\]
+
+\end_inset
+
+Последняя компанента м.б.
+ выражена из условия единичной длины вктора: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{e}_{1}=\left(cos\alpha\rho_{\vec{n}o\vec{b}},e_{y},sin\alpha\rho_{\vec{n}o\vec{b}}\right).
 \]
 
 \end_inset

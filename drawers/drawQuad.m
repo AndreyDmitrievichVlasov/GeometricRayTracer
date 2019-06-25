@@ -1,8 +1,9 @@
 function drawQuad(quad_,hndl)
 %DRAWQUAD Summary of this function goes here
 %   Detailed explanation goes here
-
-   if strcmp(version('-release'),'2015b')
+version_date = version('-release');
+version_date = str2num(version_date(1:4));
+    if version_date>2014
         drawQuadIn2015b(quad_,hndl)
     else
         drawQuadInOlderVersions(quad_,hndl)

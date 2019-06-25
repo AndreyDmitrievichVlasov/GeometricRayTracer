@@ -94,15 +94,15 @@ end
 back_surf  = getSurfaceType(back_surf,r_2);
 
 rI=Materials('silica');
-lens=struct('frontSurface',front_surf,'backSurface',back_surf,'tickness',tickness,'apertureData',aperture,'apertureType',appType,'material',...
+lens = struct('frontSurface',front_surf,'backSurface',back_surf,'tickness',tickness,'apertureData',aperture,'apertureType',appType,'material',...
                 rI,'materialDispersion',@(lam)(dispersionLaw(lam, rI.refractionIndexData)),'type','lens');
 end
 
 function n = dispersionLaw(lam, Ndata)
 
-n    =    sqrt(1  +    Ndata(1)*lam.^2./(lam.^2-Ndata(2)^2)...
-                      +    Ndata(3)*lam.^2./(lam.^2-Ndata(4)^2)+...
-                            Ndata(5)*lam.^2./(lam.^2-Ndata(6)^2));
+n    =    sqrt(1+Ndata(1)*lam.^2./(lam.^2-Ndata(2)^2)...
+                +Ndata(3)*lam.^2./(lam.^2-Ndata(4)^2)+...
+                 Ndata(5)*lam.^2./(lam.^2-Ndata(6)^2));
 
 end
 

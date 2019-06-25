@@ -1,4 +1,4 @@
-function [ x,y,colors,angleSize] = spotDiagram( quad_,Rays)
+function [ x,y,colors,angleSize,waveLngthKeys, RMS, AverageGeo] = spotDiagram( quad_,Rays)
 %SPOTDIAGRAM Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -10,11 +10,30 @@ function [ x,y,colors,angleSize] = spotDiagram( quad_,Rays)
 % x=x-x;
 % y=x;
 % colors=zeros(length(Rays),3);
-angleSize=zeros(length(Rays),3);
+[raysMap, waveLngthKeys]= getRaysSeparatedByWaveLength(Rays);
+% raysMap(waveLngthKeys{1})
+% raysMap(waveLngthKeys{2})
+% raysMap(waveLngthKeys{3})
+ x={};y={};colors={};angleSize={};RMS={};AverageGeo={};
+    for i=1:length(waveLngthKeys)
+        [ x_,y_,colors_,angleSize_,RMS_,AverageGeo_] = CalculateSpotDiagram(quad_,raysMap(waveLngthKeys{i}));
+         x{i}=x_;
+         y{i}=y_;
+         colors{i}=colors_;
+         angleSize{i}=angleSize_;
+         RMS{i}=RMS_;
+         AverageGeo{i}=AverageGeo_;
+    end
 
+
+end
+
+
+function [ x,y,colors,angleSize,RMS,AverageGeo] = CalculateSpotDiagram(quad_,Rays)
+            angleSize=zeros(size(Rays,1),3);
         %    1   2   3   4   5   6     7   8           9         10  11 12 13
         % [r_1,r_2,r_3,e_1,e_2,e_3,START,END,WAVE_LENGTH, INTENSITY, R, G, B]
-            rayEnd      = zeros(length(Rays),3);
+            rayEnd      = zeros(size(Rays,1),3);
             rayEnd(:,1) = Rays(:,1)+Rays(:,4).*(Rays(:,8)-Rays(:,7))-quad_.ABCD(1)*quad_.ABCD(4);
             rayEnd(:,2) = Rays(:,2)+Rays(:,5).*(Rays(:,8)-Rays(:,7))-quad_.ABCD(2)*quad_.ABCD(4);
             rayEnd(:,3) = Rays(:,3)+Rays(:,6).*(Rays(:,8)-Rays(:,7))-quad_.ABCD(3)*quad_.ABCD(4);
@@ -33,19 +52,30 @@ angleSize=zeros(length(Rays),3);
             x=(positions(:,1)+quad_.position(1)).*isornot;
             y=(positions(:,2)+quad_.position(2)).*isornot;
             colors=zeros(size(Rays(:,11:13)));
+         
             colors(:,1)=Rays(:,11).*isornot;
             colors(:,2)=Rays(:,12).*isornot;
             colors(:,3)=Rays(:,13).*isornot;
 
+            Rho=sqrt(sum(positions(:,1:2).*positions(:,1:2),2));
+           
+            AverageGeo=sum(Rho)/size(positions,1);
+            
+            RMS = sum(sqrt((Rho-AverageGeo).^2/size(positions,1)));
+            
             angleSize(:,1)=atan(positions(:,1)/quad_.ABCD(4)).*isornot; 
+            
             angleSize(:,2)=atan(positions(:,2)/quad_.ABCD(4)).*isornot ;
+            
             angleSize(:,3)=atan(sqrt(positions(:,1).^2+positions(:,2).^2)/quad_.ABCD(4)).*isornot;
+            
 end
+
 
 function isornot=isInsideArray(pos,q)
  isornot=[];
- if(length(pos)>1)
-  for i=1:length(pos)
+ if(size(pos,1)>1)
+  for i=1:size(pos,1)
    isornot(end+1)=isInside(pos(i,:),q);
   end
   isornot=isornot';
@@ -54,17 +84,6 @@ function isornot=isInsideArray(pos,q)
  end
  return;
 end
-
-
-
-%function isornot=isIn_array(pos,bounds)
-%    isornot=((pos(:,1)<=bounds(3)).*(pos(:,1)>=bounds(1)).*...
-%             (pos(:,2)<=bounds(4)).*(pos(:,2)>=bounds(2)) );
-%end
-%function isornot=isIn(pos,bounds)
-%    isornot=(pos(1)<=bounds(3)&&pos(1)>=bounds(1)&&...
-%             pos(2)<=bounds(4)&&pos(2)>=bounds(2) );
-%end
 
 function  rotX = xRotMat(angle)
 rotX =[[1 0               0              0];...
