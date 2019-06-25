@@ -2,6 +2,7 @@ clear all; close all;clc;initEnvio();
 
 position=3.2589 + 6.007551 + 0.999975 + 2.952076 + 4.740409 ;
 ofsett= 42.1577;
+
 %forward
 [ lens1 ] = getLens( 'aperture',10,'tickness', 3.2589,'r1', -22.01359,'r2', 435.760436,'material','SK16');
 [ lens1 ] = moveLens( lens1,[0 0 0]);
@@ -34,7 +35,6 @@ radialDG = convertQuad2RadialDG(radialDG, 0.032, -1, 0, 10^10);
 [ slit] =  flatQuad( 'aperture',[11 11 0],'apertureType',1,'position',[0 0 -ofsett]);
 [ slit] =  convertQuad2Sphere(slit,10^10);
 schema={};
-
 % sequensce=[ 1 2 3 10 5 6 7 8];
 sequensce=[ 1 2 3 4 5 6 7 8];
 schema{1}=lens1;
@@ -70,7 +70,7 @@ fig_1=figure();
 DrawElements(schema);
 drawRays(fig_1,[raysIn; ]);
 drawRays(fig_1,[raysMiddle;]);
-drawRays(fig_1,[ raysOut]);
+drawRays(fig_1,[raysOut]);
 % plot2svg('full_schema_.svg');
 % drawRays(fig_1,[rays_in; rays_middle; rays_out_]);
 % 
