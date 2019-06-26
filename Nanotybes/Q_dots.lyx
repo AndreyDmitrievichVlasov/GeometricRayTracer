@@ -1,0 +1,1237 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Уровни энергии частицы в цилиндрическом поле
+\end_layout
+
+\begin_layout Standard
+Гамильтониан поля примет вид:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+{\cal H}=-\frac{\hbar^{2}}{2m_{e}}\nabla_{cyl}^{2}+U\left(\rho,\phi,z\right)=-\frac{\hbar^{2}}{2m_{e}}\left(\frac{1}{\rho}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)+\frac{\partial^{2}}{\partial z^{2}}+\frac{1}{\rho^{2}}\frac{\partial^{2}}{\partial\phi^{2}}\right)+U\left(\rho,\phi,z\right).
+\]
+
+\end_inset
+
+В таком случае будем рассматривать уравнение Грёдингера:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+{\cal H}\Psi\left(\rho,\phi,z\right)=E\Psi\left(\rho,\phi,z\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+-\frac{\hbar^{2}}{2m_{e}}\left(\frac{1}{\rho}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)+\frac{\partial^{2}}{\partial z^{2}}+\frac{1}{\rho^{2}}\frac{\partial^{2}}{\partial\phi^{2}}\right)\Psi\left(\rho,\phi,z\right)+U\left(\rho,\phi,z\right)\Psi\left(\rho,\phi,z\right)=E\Psi\left(\rho,\phi,z\right).
+\end{equation}
+
+\end_inset
+
+со следующим потенцалом:
+\begin_inset Formula 
+\begin{equation}
+U\left(\rho\right)=\begin{cases}
+0, & \rho\in\left[a,b\right]\\
+\infty, & \rho\notin\left[a,b\right]
+\end{cases}
+\end{equation}
+
+\end_inset
+
+Здесь 
+\begin_inset Formula $a$
+\end_inset
+
+ радиус внутренней обкладки трубки, а 
+\begin_inset Formula $b$
+\end_inset
+
+- радус внешеней.Решение (2) будем искать в следующем виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Psi\left(\rho,\phi,z\right)=A\left(z,k\right)B\left(\phi\right)C\left(\rho\right).
+\end{equation}
+
+\end_inset
+
+Тогда уравнение для области, где 
+\begin_inset Formula $\rho\in\left[a,b\right]$
+\end_inset
+
+будет:
+\begin_inset Formula 
+\begin{equation}
+-\frac{\hbar^{2}}{2m_{e}}\left(\frac{1}{\rho}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)+\frac{\partial^{2}}{\partial z^{2}}+\frac{1}{\rho^{2}}\frac{\partial^{2}}{\partial\phi^{2}}\right)\Psi\left(\rho,\phi,z\right)=E\Psi\left(\rho,\phi,z\right)
+\end{equation}
+
+\end_inset
+
+Подставитм замену 3 в уравнение 4:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-\frac{\hbar^{2}}{2m_{e}}\left(\frac{A\left(z,k\right)B\left(\phi\right)}{\rho}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)C\left(\rho\right)+B\left(\phi\right)C\left(\rho\right)\frac{\partial^{2}}{\partial z^{2}}A\left(z,k\right)+\frac{A\left(z,k\right)C\left(\rho\right)}{\rho^{2}}\frac{\partial^{2}}{\partial\phi^{2}}B\left(\phi\right)\right)=EA\left(z,k\right)B\left(\phi\right)C\left(\rho\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{\rho C\left(\rho\right)}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)C\left(\rho\right)+\frac{1}{A\left(z,k\right)}\frac{\partial^{2}}{\partial z^{2}}A\left(z,k\right)+\frac{1}{B\left(\phi\right)\rho^{2}}\frac{\partial^{2}}{\partial\phi^{2}}B\left(\phi\right)+\frac{2m_{e}}{\hbar^{2}}E=0
+\]
+
+\end_inset
+
+Домножим уравнение на 
+\begin_inset Formula $\rho^{2}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\rho}{C\left(\rho\right)}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)C\left(\rho\right)+\frac{\rho^{2}}{A\left(z,k\right)}\frac{\partial^{2}}{\partial z^{2}}A\left(z,k\right)+\frac{1}{B\left(\phi\right)}\frac{\partial^{2}}{\partial\phi^{2}}B\left(\phi\right)+\rho^{2}\frac{2m_{e}}{\hbar^{2}}E=0
+\]
+
+\end_inset
+
+Выделим угловую часть:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\rho}{C\left(\rho\right)}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)C\left(\rho\right)+\frac{\rho^{2}}{A\left(z,k\right)}\frac{\partial^{2}}{\partial z^{2}}A\left(z,k\right)+\rho^{2}\frac{2m_{e}}{\hbar^{2}}E=-\frac{1}{B\left(\phi\right)}\frac{\partial^{2}}{\partial\phi^{2}}B\left(\phi\right)=k_{\phi}^{2}
+\]
+
+\end_inset
+
+Представим последнее уравнение в виде системы:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+\frac{\rho}{C\left(\rho\right)}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)C\left(\rho\right)+\frac{\rho^{2}}{A\left(z,k\right)}\frac{\partial^{2}}{\partial z^{2}}A\left(z,k\right)+\rho^{2}\frac{2m_{e}}{\hbar^{2}}E-k_{\phi}^{2}=0\\
+\frac{\partial^{2}}{\partial\phi^{2}}B\left(\phi\right)+k_{\varphi}^{2}B\left(\phi\right)=0
+\end{cases}
+\end{equation}
+
+\end_inset
+
+Решение второго уравнеия системы 5 м.б.
+ записано в виде:
+\begin_inset Formula 
+\[
+B\left(\phi\right)=ae^{ik_{\phi}\phi}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+B_{m}\left(\phi\right)=\frac{1}{\sqrt{2\pi}}e^{im\phi},k_{\phi}=m=0,\pm1,\pm2,...
+\]
+
+\end_inset
+
+Получено из условия переодичности и нормировки на единицу по периуду.
+ Вернёмся к первому уравнению системы 5 и поделим всё на 
+\begin_inset Formula $\rho^{2}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{\rho C\left(\rho\right)}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)C\left(\rho\right)+\frac{1}{A\left(z,k\right)}\frac{\partial^{2}}{\partial z^{2}}A\left(z,k\right)+\frac{2m_{e}}{\hbar^{2}}E-\frac{k_{\phi}^{2}}{\rho^{2}}=0.
+\]
+
+\end_inset
+
+Выделим трянсляционную часть вдоль оси Z:
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{\rho C\left(\rho\right)}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)C\left(\rho\right)+\frac{2m_{e}}{\hbar^{2}}E-\frac{k_{\phi}^{2}}{\rho^{2}}=-\frac{1}{A\left(z,k\right)}\frac{\partial^{2}}{\partial z^{2}}A\left(z,k\right)=k_{z}^{2}
+\end{equation}
+
+\end_inset
+
+Перепишем (6) в виде системы:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+\frac{1}{\rho C\left(\rho\right)}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)C\left(\rho\right)+\frac{2m_{e}}{\hbar^{2}}E-\frac{k_{\phi}^{2}}{\rho^{2}}=k_{z}^{2}\\
+-\frac{1}{A\left(z,k\right)}\frac{\partial^{2}}{\partial z^{2}}A\left(z,k\right)=k_{z}^{2}
+\end{cases}\rightarrow\begin{cases}
+\rho\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)C\left(\rho\right)+\rho^{2}\left(\frac{2m_{e}}{\hbar^{2}}E-k_{z}^{2}\right)C\left(\rho\right)-k_{\phi}^{2}C\left(\rho\right)=0\\
+\frac{\partial^{2}}{\partial z^{2}}A\left(z,k_{z}\right)+k_{z}^{2}A\left(z,k_{z}\right)=0
+\end{cases}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula $A\left(z,k\right)$
+\end_inset
+
+- движение вдоль трансляционной симметрии м.б.
+ получено из первого уравнения системы 7
+\begin_inset Formula 
+\[
+\frac{\partial^{2}}{\partial z^{2}}A\left(z,k_{z}\right)+k_{z}^{2}A\left(z,k_{z}\right)=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+A\left(z,k_{z}\right)=Ce^{iz\left(\frac{2\pi}{c}n+k_{c}\right)}
+\]
+
+\end_inset
+
+ Учитывая переодичность структуры, нам необходимо выполнение условия:
+\begin_inset Formula 
+\[
+A\left(0\right)=A\left(c\right)e^{ik_{c}c}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+1=e^{ick_{z}}
+\]
+
+\end_inset
+
+тут 
+\begin_inset Formula $k_{z}=\frac{2\pi}{c}n+k_{c},\,\,\,n=0,\pm1,\pm2,...;\,\,\,k_{c}\in\left[-\frac{2\pi}{c},\frac{2\pi}{c}\right]$
+\end_inset
+
+-первая зона Бриллюэна.
+ Учитывая необходимость нормировки уравнение трансляционной части примет
+ вид:
+\begin_inset Formula 
+\[
+A\left(z,k\right)=\frac{1}{\sqrt{c}}e^{iz\left(\frac{2\pi}{c}n+k_{c}\right)}.
+\]
+
+\end_inset
+
+Рассмотрим первое уравнение системы 7:
+\begin_inset Formula 
+\[
+\rho\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)C\left(\rho\right)+\rho^{2}\left(\frac{2m_{e}}{\hbar^{2}}E-k_{z}^{2}\right)C\left(\rho\right)-k_{\phi}^{2}C\left(\rho\right)=0
+\]
+
+\end_inset
+
+Или
+\begin_inset Formula 
+\[
+\frac{1}{\rho}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)C\left(\rho\right)+\left(\frac{2m_{e}}{\hbar^{2}}E-k_{z}^{2}\right)C\left(\rho\right)-\frac{k_{\phi}^{2}}{\rho^{2}}C\left(\rho\right)=0
+\]
+
+\end_inset
+
+Введём, что: 
+\begin_inset Formula 
+\[
+\frac{2m_{e}}{\hbar^{2}}E-k_{z}^{2}=\frac{2m_{e}}{\hbar^{2}}E-\left(\frac{2\pi}{c}n+k_{c}\right)^{2}=k_{\rho,n}^{2},\,k_{\phi}=m=0,\pm1,\pm2,...
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{1}{\rho}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)C\left(\rho\right)+\left(k_{\rho}^{2}-\frac{m^{2}}{\rho^{2}}\right)C\left(\rho\right)=0
+\]
+
+\end_inset
+
+учитывая, что разным состоянимям вообще могут соответствоватьнесколько энергий,
+ те 
+\begin_inset Formula $E_{e},$
+\end_inset
+
+то волновое число теперь будем обозначать, как:
+\begin_inset Formula $k_{\rho,n,e}$
+\end_inset
+
+.
+ Решением такого уравнения будет:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C_{m,n,e}\left(\rho\right)=\alpha_{m,n}J_{m}\left(k_{\rho,n,e}\rho\right)+\beta_{m,n}Y_{m}\left(k_{\rho,n,e}\rho\right)
+\end{equation}
+
+\end_inset
+
+Определить константы можно из следующих условий: 
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+\int_{a}^{b}\left\Vert C_{m,n,e}\left(\rho\right)\right\Vert ^{2}\rho d\rho=1\\
+C_{m,n,e}\left(\rho\right)|_{\rho=a,b}=0
+\end{cases}
+\end{equation}
+
+\end_inset
+
+Из первого условия 9 можно получить:
+\begin_inset Formula 
+\begin{equation}
+\int_{a}^{b}\left\Vert C_{m,n,e}\left(\rho\right)\right\Vert ^{2}\rho d\rho=\int_{a}^{b}C_{m,n,e}\left(\rho\right)C_{m,n,e}\left(\rho\right)\rho d\rho=\frac{a^{2}}{2}\left(\alpha_{m,n,e}\frac{\partial J_{m}}{\partial\rho}\left(k_{\rho,n,e}a\right)+\beta_{m,n,e}\frac{\partial Y_{m}}{\partial\rho}\left(k_{\rho,n,e}a\right)\right)-\frac{b^{2}}{2}\left(\alpha_{m,n,e}\frac{\partial J_{m}}{\partial\rho}\left(k_{\rho,n,e}b\right)+\beta_{m,n,e}\frac{\partial Y_{m}}{\partial\rho}\left(k_{\rho,n,e}b\right)\right)=1
+\end{equation}
+
+\end_inset
+
+Из второго условия 9 можно получить следующие соотношения для коэффициентов:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+0=\alpha_{m,n,e}J_{m}\left(k_{\rho,n,e}a\right)+\beta_{m,n,e}Y_{m}\left(k_{\rho,n,e}a\right)\\
+0=\alpha_{m,n,e}J_{m}\left(k_{\rho,n,e}b\right)+\beta_{m,n,e}Y_{m}\left(k_{\rho,n,e}b\right)
+\end{cases},
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\alpha_{m,n,e}=-\beta_{m,n,e}\frac{Y_{m}\left(k_{\rho,n,e}a\right)}{J_{m}\left(k_{\rho,n,e}a\right)}.
+\]
+
+\end_inset
+
+Система 11 может иметь нетривиальные решения тогда, когда ее определитетль
+ равен нулю:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+J_{m}\left(k_{\rho,n,e}b\right)Y_{m}\left(k_{\rho,n,e}a\right)-J_{m}\left(k_{\rho,n,e}a\right)Y_{m}\left(k_{\rho,n,e}b\right)=0.
+\end{equation}
+
+\end_inset
+
+Уравнение 12 называется дисперсионным уравнением, его корни это 
+\begin_inset Formula $k_{\rho,n,e}$
+\end_inset
+
+,т.е.
+ для каждого состояния 
+\begin_inset Formula $\text{m,n}$
+\end_inset
+
+ мы можем найти энергитический спетктр, индексируемый по 
+\begin_inset Formula $e$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Запишум систему для определения 
+\begin_inset Formula $\alpha_{m,n,e}$
+\end_inset
+
+и 
+\begin_inset Formula $\beta_{m,n,e}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\begin{cases}
+\alpha_{m,n,e}=-\beta_{m,n,e}\frac{Y_{m}\left(k_{\rho,n,e}a\right)}{J_{m}\left(k_{\rho,n,e}a\right)}\\
+\frac{a^{2}}{2}\left(\alpha_{m,n,e}\frac{\partial J_{m}}{\partial\rho}\left(k_{\rho,n,e}a\right)+\alpha_{m,n,e}\frac{\partial Y_{m}}{\partial\rho}\left(k_{\rho,n,e}a\right)\right)-\frac{b^{2}}{2}\left(\alpha_{m,n,e}\frac{\partial J_{m}}{\partial\rho}\left(k_{\rho,n,e}b\right)+\beta_{m,n,e}\frac{\partial Y_{m}}{\partial\rho}\left(k_{\rho,n,e}b\right)\right)=1
+\end{cases}\rightarrow
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+\alpha_{m,n,e}+\beta_{m,n,e}\frac{Y_{m}\left(k_{\rho,n,e}a\right)}{J_{m}\left(k_{\rho,n,e}a\right)}=0\\
+\alpha_{m,n,e}\left(\frac{a^{2}}{2}\frac{\partial J_{m}}{\partial\rho}\left(k_{\rho,n,e}a\right)-\frac{b^{2}}{2}\frac{\partial J_{m}}{\partial\rho}\left(k_{\rho,n,e}b\right)\right)+\beta_{m,n,e}\left(\frac{a^{2}}{2}\frac{\partial Y_{m}}{\partial\rho}\left(k_{\rho,n,e}a\right)-\frac{b^{2}}{2}\frac{\partial Y_{m}}{\partial\rho}\left(k_{\rho,n,e}b\right)\right)=1
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\begin{array}{cc}
+1 & \frac{Y_{m}\left(k_{\rho,n,e}a\right)}{J_{m}\left(k_{\rho,n,e}a\right)}\\
+\frac{a^{2}}{2}\frac{\partial J_{m}}{\partial\rho}\left(k_{\rho,n,e}a\right)-\frac{b^{2}}{2}\frac{\partial J_{m}}{\partial\rho}\left(k_{\rho,n,e}b\right) & \frac{a^{2}}{2}\frac{\partial Y_{m}}{\partial\rho}\left(k_{\rho,n,e}a\right)-\frac{b^{2}}{2}\frac{\partial Y_{m}}{\partial\rho}\left(k_{\rho,n,e}b\right)
+\end{array}\right)\left(\begin{array}{c}
+\alpha_{m,n,e}\\
+\beta_{m,n,e}
+\end{array}\right)=\left(\begin{array}{c}
+0\\
+1
+\end{array}\right)
+\]
+
+\end_inset
+
+Окончательно:
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+\alpha_{m,n,e}\\
+\beta_{m,n,e}
+\end{array}\right)=\left(\begin{array}{cc}
+1 & \frac{Y_{m}\left(k_{\rho,n,e}a\right)}{J_{m}\left(k_{\rho,n,e}a\right)}\\
+\frac{a^{2}}{2}\frac{\partial J_{m}}{\partial\rho}\left(k_{\rho,n,e}a\right)-\frac{b^{2}}{2}\frac{\partial J_{m}}{\partial\rho}\left(k_{\rho,n,e}b\right) & \frac{a^{2}}{2}\frac{\partial Y_{m}}{\partial\rho}\left(k_{\rho,n,e}a\right)-\frac{b^{2}}{2}\frac{\partial Y_{m}}{\partial\rho}\left(k_{\rho,n,e}b\right)
+\end{array}\right)^{-1}\left(\begin{array}{c}
+0\\
+1
+\end{array}\right).
+\]
+
+\end_inset
+
+В таком случае решение для поля вне MT сфер запишется в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Psi_{n,m,e}\left(\rho,\phi,z\right)=A_{n}\left(z\right)B_{m}\left(\phi\right)C_{m,n,e}\left(\rho\right)=\frac{1}{\sqrt{2\pi c}}e^{ik_{\phi}\phi}e^{ik_{z}z}\left(\alpha_{m,n,e}J_{m}\left(k_{\rho,n}\rho\right)+\beta_{m,n}Y_{m}\left(k_{\rho,n,e}\rho\right)\right)
+\]
+
+\end_inset
+
+Или:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Psi_{n,m,e}\left(\rho,\phi,z\right)=A_{n}\left(z\right)B_{m}\left(\phi\right)C_{m,n,e}\left(\rho\right)=\frac{1}{\sqrt{2\pi c}}e^{im\phi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)z}\left(\alpha_{m,n,e}J_{m}\left(k_{\rho,n,e}\rho\right)+\beta_{m,n,e}Y_{m}\left(k_{\rho,n,e}\rho\right)\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Решение уравнения шрёдингера внутри сферической области
+\end_layout
+
+\begin_layout Standard
+Гамильтониан частицы для сферической области примит вид:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+{\cal H}=-\frac{\hbar^{2}}{2m_{e}}\nabla_{sphere}^{2}+U\left(r,\phi,\theta\right)=-\frac{\hbar^{2}}{2m_{e}}\left(\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial}{\partial r}\right)+\frac{1}{r^{2}sin\left(\theta\right)}\frac{\partial}{\partial\theta}\left(sin\left(\theta\right)\frac{\partial}{\partial\theta}\right)+\frac{1}{r^{2}sin^{2}\left(\theta\right)}\frac{\partial^{2}}{\partial\phi}\right)+U\left(r,\phi,\theta\right)
+\]
+
+\end_inset
+
+Тогда как уравнение Шрёдингера запишется в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+{\cal H}\Phi\left(r,\phi,\theta\right)=E\Phi\left(r,\phi,\theta\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+-\frac{\hbar^{2}}{2m_{e}}\left(\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial}{\partial r}\right)+\frac{1}{r^{2}sin\left(\theta\right)}\frac{\partial}{\partial\theta}\left(sin\left(\theta\right)\frac{\partial}{\partial\theta}\right)+\frac{1}{r^{2}sin^{2}\left(\theta\right)}\frac{\partial^{2}}{\partial\phi}\right)\Phi\left(r,\phi,\theta\right)+U\left(r,\phi,\theta\right)\Phi\left(r,\phi,\theta\right)=E\Phi\left(r,\phi,\theta\right).
+\end{equation}
+
+\end_inset
+
+Решать уравнение 13 будем для потенциала следующего вида:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U\left(r,\phi,\theta\right)=U\left(r\right)=\begin{cases}
+U_{0}, & \rho\in\left[0,r_{0}\right]\\
+0, & \rho\notin\left[0,r_{0}\right]
+\end{cases},
+\]
+
+\end_inset
+
+Для компактности записей введём следующее обозначение:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\varLambda\left(\phi,\theta\right)=\frac{1}{sin\left(\theta\right)}\frac{\partial}{\partial\theta}\left(sin\left(\theta\right)\frac{\partial}{\partial\theta}\right)+\frac{1}{sin^{2}\left(\theta\right)}\frac{\partial^{2}}{\partial\phi}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\varLambda\left(\phi,\theta\right)Y_{ml}\left(\phi,\theta\right)=-m\left(m+1\right)Y_{ml}\left(\phi,\theta\right)
+\]
+
+\end_inset
+
+Тогда уравнение 13 можно перезаписать в виде:
+\begin_inset Formula 
+\[
+-\frac{\hbar^{2}}{2m_{e}}\left(\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial}{\partial r}\right)+\frac{1}{r^{2}}\varLambda\left(\phi,\theta\right)\right)\Phi\left(r,\phi,\theta\right)+U\left(r,\phi,\theta\right)\Phi\left(r,\phi,\theta\right)=E\Phi\left(r,\phi,\theta\right).
+\]
+
+\end_inset
+
+Решение уравнения будем искать в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Phi\left(r,\phi,\theta\right)=R\left(r\right)Y_{ml}\left(\phi,\theta\right)
+\end{equation}
+
+\end_inset
+
+Для области 
+\begin_inset Formula $\rho\in\left[0,r_{0}\right]$
+\end_inset
+
+, уравнение 13 примет вид:
+\begin_inset Formula 
+\begin{equation}
+-\frac{\hbar^{2}}{2m_{e}}\left(\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial}{\partial r}\right)+\frac{1}{r^{2}}\varLambda\left(\phi,\theta\right)\right)\Phi\left(r,\phi,\theta\right)+U_{0}\Phi\left(r,\phi,\theta\right)=E\Phi\left(r,\phi,\theta\right).
+\end{equation}
+
+\end_inset
+
+Разделим переменные:
+\begin_inset Formula 
+\[
+-\frac{\hbar^{2}}{2m_{e}}\left(\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial}{\partial r}\right)+\frac{1}{r^{2}}\varLambda\left(\phi,\theta\right)\right)R\left(r\right)Y_{ml}\left(\phi,\theta\right)+\left(U_{0}-E\right)R\left(r\right)Y_{ml}\left(\phi,\theta\right)=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+-\frac{\hbar^{2}}{2m_{e}}\left(Y_{lm}\left(\phi,\theta\right)\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial}{\partial r}\right)R\left(r\right)+R\left(r\right)\frac{1}{r^{2}}\varLambda\left(\phi,\theta\right)Y_{ml}\left(\phi,\theta\right)\right)+\left(U_{0}-E\right)R\left(r\right)Y_{ml}\left(\phi,\theta\right)=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+-\frac{\hbar^{2}}{2m_{e}}\left(Y_{lm}\left(\phi,\theta\right)\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial}{\partial r}\right)R\left(r\right)-R\left(r\right)\frac{m\left(m+1\right)}{r^{2}}Y_{ml}\left(\phi,\theta\right)\right)+\left(U_{0}-E\right)R\left(r\right)Y_{ml}\left(\phi,\theta\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{r^{2}R\left(r\right)}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial}{\partial r}\right)R\left(r\right)-\frac{m\left(m+1\right)}{r^{2}}+\frac{2m_{e}}{\hbar^{2}}\left(E-U_{0}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial}{\partial r}\right)R\left(r\right)-\frac{m\left(m+1\right)}{r^{2}}R\left(r\right)+\frac{2m_{e}}{\hbar^{2}}\left(E-U_{0}\right)R\left(r\right)=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\alpha_{r}=\sqrt{\frac{2m_{e}}{\hbar^{2}}\left(E-U_{0}\right)}.
+\]
+
+\end_inset
+
+Последнее уравнение есть сферическое уравнение Бесселя.
+\begin_inset Formula 
+\[
+R\left(r\right)=\varsigma_{m}j_{m}\left(\alpha_{r}r\right)+\xi_{m}y_{m}\left(\alpha_{r}r\right)
+\]
+
+\end_inset
+
+Так как поле в центре MT-сферы должно быть ноль,то:
+\begin_inset Formula 
+\[
+R\left(r\right)=\varsigma_{m}j_{m}\left(\alpha_{r}r\right)
+\]
+
+\end_inset
+
+Окончательно решение для поля внутри MT- сферы можно записать в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Phi_{m,l}^{in}\left(r,\phi,\theta\right)=\varsigma_{m}j_{m}\left(\alpha_{r}r\right)Y_{ml}\left(\phi,\theta\right)
+\end{equation}
+
+\end_inset
+
+Для случая, когда 
+\begin_inset Formula $\rho\notin\left[0,r_{0}\right]$
+\end_inset
+
+ уравнение Шрёдингера принимает вид:
+\begin_inset Formula 
+\[
+-\frac{\hbar^{2}}{2m_{e}}\left(\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial}{\partial r}\right)+\frac{1}{r^{2}}\varLambda\left(\phi,\theta\right)\right)\Phi\left(r,\phi,\theta\right)=E\Phi\left(r,\phi,\theta\right).
+\]
+
+\end_inset
+
+Решение будем искать в виде 14 
+\begin_inset Formula 
+\begin{equation}
+\Phi\left(r,\phi,\theta\right)=R\left(r\right)Y_{ml}\left(\phi,\theta\right)
+\end{equation}
+
+\end_inset
+
+Разделяя переменные получим:
+\begin_inset Formula 
+\[
+-\frac{\hbar^{2}}{2m_{e}}\left(\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial}{\partial r}\right)+\frac{1}{r^{2}}\varLambda\left(\phi,\theta\right)\right)R\left(r\right)Y_{ml}\left(\phi,\theta\right)-ER\left(r\right)Y_{ml}\left(\phi,\theta\right)=0,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(\frac{Y_{lm}\left(\phi,\theta\right)}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial}{\partial r}\right)R\left(r\right)-\frac{l\left(l+1\right)}{r^{2}}R\left(r\right)Y_{ml}\left(\phi,\theta\right)\right)+\frac{2m_{e}}{\hbar^{2}}ER\left(r\right)Y_{ml}\left(\phi,\theta\right)=0,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(\frac{1}{r^{2}R\left(r\right)}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial}{\partial r}\right)R\left(r\right)-\frac{m\left(m+1\right)}{r^{2}}\right)+\frac{2m_{e}}{\hbar^{2}}E=0,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial}{\partial r}\right)R\left(r\right)-\frac{m\left(m+1\right)}{r^{2}}R\left(r\right)+\frac{2m_{e}}{\hbar^{2}}ER\left(r\right)=0
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\beta_{r}=\sqrt{-\frac{2m_{e}}{\hbar^{2}}E}
+\]
+
+\end_inset
+
+Решением уравнения 18 будет:
+\begin_inset Formula 
+\begin{equation}
+\Phi_{m,l}^{out}\left(r,\phi,\theta\right)=\left(\zeta_{m}k_{m}\left(\beta_{r}r\right)+\eta_{m}i_{m}\left(\beta_{r}r\right)\right)Y_{ml}\left(\phi,\theta\right),
+\end{equation}
+
+\end_inset
+
+Здесь 
+\begin_inset Formula $k_{m}\left(\beta r\right)$
+\end_inset
+
+ - модифицированные сферические функции Бесселя третьего рода, а 
+\begin_inset Formula $i_{m}\left(\beta r\right)$
+\end_inset
+
+ - модифицированные сферические функции Бесселя первого рода.
+ На границе областей решения, должны быть непрерывными и гдакими, потому:
+\begin_inset Formula 
+\[
+\begin{cases}
+\Phi_{m,l}^{out}\left(r_{0},\phi,\theta\right)=\Phi_{m,l}^{in}\left(r_{0},\phi,\theta\right)\\
+\frac{\partial\Phi_{m,l}^{out}}{\partial r}\left(r_{0},\phi,\theta\right)=\frac{\partial\Phi_{m,l}^{in}}{\partial r}\left(r_{0},\phi,\theta\right)
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+\zeta_{m}k_{m}\left(\beta_{r}r_{0}\right)+\eta_{m}i\left(\beta_{r}r_{0}\right)=\varsigma_{m}j_{m}\left(\alpha_{r}r_{0}\right)\\
+\zeta_{m}\frac{\partial}{\partial r}k_{m}\left(\beta_{r}r_{0}\right)+\eta_{m}\frac{\partial}{\partial r}i_{m}\left(\beta_{r}r_{0}\right)=\varsigma_{m}\frac{\partial}{\partial r}j_{m}\left(\alpha r_{0}\right)
+\end{cases}
+\]
+
+\end_inset
+
+Функция 
+\begin_inset Formula $i_{m}\left(\beta r_{0}\right)$
+\end_inset
+
+неограниченно возрастает при росте аргумента, поэтому:
+\begin_inset Formula 
+\[
+\begin{cases}
+\zeta_{m}k_{m}\left(\beta_{r}r_{0}\right)=\varsigma_{m}j_{m}\left(\alpha_{r}r_{0}\right)\\
+\zeta_{m}\frac{\partial}{\partial r}k_{m}\left(\beta_{r}r_{0}\right)=\varsigma_{m}\frac{\partial}{\partial r}j_{m}\left(\alpha_{r}r_{0}\right)
+\end{cases}\begin{cases}
+\zeta_{m}k_{m}\left(\beta_{r}r_{0}\right)-\varsigma_{m}j_{m}\left(\alpha_{r}r_{0}\right)=0\\
+\zeta_{m}\frac{\partial}{\partial r}k_{m}\left(\beta_{r}r_{0}\right)-\varsigma_{m}\frac{\partial}{\partial r}j_{m}\left(\alpha_{r}r_{0}\right)=0
+\end{cases}\left[\begin{array}{cc}
+j_{m}\left(\beta_{r}r_{0}\right) & -j_{m}\left(\alpha_{r}r_{0}\right)\\
+\frac{\partial}{\partial r}k_{m}\left(\beta_{r}r_{0}\right) & -\frac{\partial}{\partial r}j_{m}\left(\alpha_{r}r_{0}\right)
+\end{array}\right]\left[\begin{array}{c}
+\zeta_{m}\\
+\varsigma_{m}
+\end{array}\right]=\left[\begin{array}{c}
+0\\
+0
+\end{array}\right]
+\]
+
+\end_inset
+
+Решение мб определено лишь в том случае, когда :
+\begin_inset Formula 
+\[
+det\left[\begin{array}{cc}
+k_{m}\left(\beta_{r}r_{0}\right) & -j_{m}\left(\alpha_{r}r_{0}\right)\\
+\frac{\partial}{\partial r}k_{m}\left(\beta_{r}r_{0}\right) & -\frac{\partial}{\partial r}j_{m}\left(\alpha_{r}r_{0}\right)
+\end{array}\right]=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+k_{m}\left(\beta_{r}r_{0}\right)\frac{\partial}{\partial r}j_{m}\left(\alpha_{r}r_{0}\right)-j_{m}\left(\alpha_{r}r_{0}\right)\frac{\partial}{\partial r}k_{m}\left(\beta_{r}r_{0}\right)=0
+\]
+
+\end_inset
+
+учтя, что
+\begin_inset Formula 
+\[
+\beta_{r}=\sqrt{-\frac{2m_{e}}{\hbar^{2}}E},\,\,\,\alpha_{r}=\sqrt{\frac{2m_{e}}{\hbar^{2}}\left(E-U_{0}\right)}
+\]
+
+\end_inset
+
+Или, используя определнение спектра:
+\begin_inset Formula 
+\[
+\beta_{r,e}=\sqrt{-\frac{2m_{e}}{\hbar^{2}}E_{e}},\,\,\,\alpha_{r,e}=\sqrt{\frac{2m_{e}}{\hbar^{2}}\left(E_{e}-U_{0}\right)}
+\]
+
+\end_inset
+
+где 
+\begin_inset Formula $E_{n}$
+\end_inset
+
+- корни дисперсионного уравнения:
+\begin_inset Formula 
+\[
+k_{m}\left(\sqrt{-\frac{2m_{e}}{\hbar^{2}}E_{e}}r_{0}\right)\frac{\partial}{\partial r}j_{m}\left(\sqrt{\frac{2m_{e}}{\hbar^{2}}\left(E_{e}-U_{0}\right)}r_{0}\right)-j_{m}\left(\sqrt{\frac{2m_{e}}{\hbar^{2}}\left(E_{e}-U_{0}\right)}r_{0}\right)\frac{\partial}{\partial r}k_{m}\left(\sqrt{-\frac{2m_{e}}{\hbar^{2}}E_{e}}r_{0}\right)=0
+\]
+
+\end_inset
+
+Решения для внутренней и внешней областей запишутся:
+\begin_inset Formula 
+\[
+\Phi_{m,l,e}^{out}\left(r,\phi,\theta\right)=\zeta_{ml}k_{m}\left(\beta_{r,e}r\right)Y_{ml}\left(\phi,\theta\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi_{m,l,e}^{in}\left(r,\phi,\theta\right)=\varsigma_{ml}j_{m}\left(\alpha_{r,e}r\right)Y_{ml}\left(\phi,\theta\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Центральное поле внутри цилиндрического
+\end_layout
+
+\begin_layout Standard
+Рассмотрим следующую задава, пусть у нас есть две области - сферическая
+ область с радиусом 
+\begin_inset Formula $r_{0}$
+\end_inset
+
+и цилинтрическая область с радиусом 
+\begin_inset Formula $r_{0}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Для сферической области задача ставится следующим образом:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+{\cal H}=-\frac{\hbar^{2}}{2m_{e}}\nabla_{sphere}^{2}+U\left(r,\phi,\theta\right)=-\frac{\hbar^{2}}{2m_{e}}\left(\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial}{\partial r}\right)+\frac{1}{r^{2}sin\left(\theta\right)}\frac{\partial}{\partial\theta}\left(sin\left(\theta\right)\frac{\partial}{\partial\theta}\right)+\frac{1}{r^{2}sin^{2}\left(\theta\right)}\frac{\partial^{2}}{\partial\phi}\right)+U\left(r,\phi,\theta\right)
+\]
+
+\end_inset
+
+Тогда как уравнение Шрёдингера запишется в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+{\cal H}\Phi\left(r,\phi,\theta\right)=E\Phi\left(r,\phi,\theta\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+-\frac{\hbar^{2}}{2m_{e}}\left(\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial}{\partial r}\right)+\frac{1}{r^{2}sin\left(\theta\right)}\frac{\partial}{\partial\theta}\left(sin\left(\theta\right)\frac{\partial}{\partial\theta}\right)+\frac{1}{r^{2}sin^{2}\left(\theta\right)}\frac{\partial^{2}}{\partial\phi}\right)\Phi\left(r,\phi,\theta\right)+U\left(r,\phi,\theta\right)\Phi\left(r,\phi,\theta\right)=E\Phi\left(r,\phi,\theta\right).
+\end{equation}
+
+\end_inset
+
+Решать уравнение 13 будем для потенциала следующего вида:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U\left(r,\phi,\theta\right)=U\left(r\right)=\begin{cases}
+U_{0}, & \rho\in\left[0,r_{0}\right]\\
+0, & \rho\notin\left[0,r_{0}\right]
+\end{cases}.
+\]
+
+\end_inset
+
+Мы знаем, что решением такой зачади будет:
+\begin_inset Formula 
+\[
+\Phi_{m,l,e}^{in}\left(r,\phi,\theta\right)=\varsigma_{ml}j_{m}\left(\alpha_{r,e}r\right)Y_{ml}\left(\phi,\theta\right),
+\]
+
+\end_inset
+
+где 
+\begin_inset Formula $\alpha_{r}=\sqrt{\frac{2m_{e}}{\hbar^{2}}\left(E-U_{0}\right)}.$
+\end_inset
+
+Нормировка:
+\begin_inset Formula 
+\[
+\int_{0}^{r_{0}}\varsigma_{m,l}j_{m}\left(\alpha_{r}r\right)\varsigma_{m,l}j_{m}\left(\alpha_{r}r\right)\rho dr=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Задача для цилиндрической области 
+\end_layout
+
+\begin_layout Standard
+Гамильтониан частицы имеет вид:
+\begin_inset Formula 
+\[
+{\cal H}=-\frac{\hbar^{2}}{2m_{e}}\nabla_{cyl}^{2}+U\left(\rho,\phi,z\right)=-\frac{\hbar^{2}}{2m_{e}}\left(\frac{1}{\rho}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)+\frac{\partial^{2}}{\partial z^{2}}+\frac{1}{\rho^{2}}\frac{\partial^{2}}{\partial\phi^{2}}\right)+U\left(\rho,\phi,z\right).
+\]
+
+\end_inset
+
+В таком случае будем рассматривать уравнение Шрёдингера:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+{\cal H}\Psi\left(\rho,\phi,z\right)=E\Psi\left(\rho,\phi,z\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+-\frac{\hbar^{2}}{2m_{e}}\left(\frac{1}{\rho}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)+\frac{\partial^{2}}{\partial z^{2}}+\frac{1}{\rho^{2}}\frac{\partial^{2}}{\partial\phi^{2}}\right)\Psi\left(\rho,\phi,z\right)+U\left(\rho,\phi,z\right)\Psi\left(\rho,\phi,z\right)=E\Psi\left(\rho,\phi,z\right).
+\end{equation}
+
+\end_inset
+
+со следующим потенцалом:
+\begin_inset Formula 
+\begin{equation}
+U\left(\rho\right)=\begin{cases}
+0, & \rho\in\left[0,r_{0}\right]\\
+\infty, & \rho\notin\left[0,r_{0}\right]
+\end{cases}
+\end{equation}
+
+\end_inset
+
+Решение для такой задачи есть, но это решгение не может существовать в точке
+ с координатой 
+\begin_inset Formula $r_{0}=0$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Psi_{n,m,e}\left(\rho,\phi,z\right)=A_{n}\left(z\right)B_{m}\left(\phi\right)C_{m,n,e}\left(\rho\right)=\frac{1}{\sqrt{2\pi c}}e^{im\phi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)z}\left(\alpha_{m,n,e}J_{m}\left(k_{\rho,n,e}\rho\right)+\beta_{m,n,e}Y_{m}\left(k_{\rho,n,e}\rho\right)\right).
+\]
+
+\end_inset
+
+В таком случае решение дожно быть перезаписано в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Psi_{n,m,e}\left(\rho,\phi,z\right)=A_{n}\left(z\right)B_{m}\left(\phi\right)C_{m,n,e}\left(\rho\right)=\frac{1}{\sqrt{2\pi c}}e^{im\phi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)z}\alpha_{m,n,e}J_{m}\left(k_{\rho,n,e}\rho\right).
+\end{equation}
+
+\end_inset
+
+Нормировка в этом случае:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\int_{0}^{r}\left\Vert C_{m,n,e}\left(\rho\right)\right\Vert ^{2}\rho d\rho=\int_{0}^{r}\alpha_{m,n,e}^{2}J_{m}\left(k_{\rho,n,e}\rho\right)^{2}\rho d\rho=1
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\int_{0}^{r}\alpha_{m,n,e}^{2}J_{m}\left(k_{\rho,n,e}\rho\right)^{2}\rho d\rho=\frac{\alpha_{m,n,e}^{2}}{2}\left(\rho^{2}J_{m}\left(k_{\rho,n,e}\rho\right)^{2}-\rho^{2}J_{m-1}\left(k_{\rho,n,e}\right)J_{m+1}\left(k_{\rho,n,e}\rho\right)\right)|_{0}^{r_{0}}=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\alpha_{m,n,e}^{2}}{2}\rho^{2}\left(J_{m}\left(k_{\rho,n,e}\rho\right)^{2}-J_{m-1}\left(k_{\rho,n,e}\right)J_{m+1}\left(k_{\rho,n,e}\rho\right)\right)|_{0}^{r_{0}}=\frac{\alpha_{m,n,e}^{2}}{2}r_{0}^{2}\left(J_{m}\left(k_{\rho,n,e}r_{0}\right)^{2}-J_{m-1}\left(k_{\rho,n,e}r_{0}\right)J_{m+1}\left(k_{\rho,n,e}r_{0}\right)-J_{m}\left(0\right)^{2}-J_{m-1}\left(0\right)J_{m+1}\left(0\right)\right)=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\alpha_{m,n,e}=\sqrt{\frac{2}{r_{0}^{2}\left(J_{m}\left(k_{\rho,n,e}r_{0}\right)^{2}-J_{m-1}\left(k_{\rho,n,e}r_{0}\right)J_{m+1}\left(k_{\rho,n,e}r_{0}\right)-J_{m}\left(0\right)^{2}-J_{m-1}\left(0\right)J_{m+1}\left(0\right)\right)}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Связь сферической и цилиндрической систем коорднинат
+\end_layout
+
+\begin_layout Standard
+Рассмотрим переход от цилиндрической к сферической системе координат.
+ Используем решение 23 и попробуем записать его в сферических координатах.
+ Имеем:
+\begin_inset Formula 
+\[
+\Psi_{n,m,e}\left(\rho,\phi,z\right)=A_{n}\left(z\right)B_{m}\left(\phi\right)C_{m,n,e}\left(\rho\right)=\frac{1}{\sqrt{2\pi c}}e^{im\phi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)z}\alpha_{m,n,e}J_{m}\left(k_{\rho,n,e}\rho\right).
+\]
+
+\end_inset
+
+Для перехода нам необходима замена:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+\rho=rcos\left(\theta\right)\\
+\phi=\psi\\
+z=rsin\left(\theta\right)
+\end{cases},
+\]
+
+\end_inset
+
+тогда:
+\begin_inset Formula 
+\[
+\Psi_{n,m,e}\left(\rho,\phi,z\right)=\frac{1}{\sqrt{2\pi c}}e^{im\phi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)rsin\left(\theta\right)}\alpha_{m,n,e}J_{m}\left(k_{\rho,n,e}rcos\left(\theta\right)\right).
+\]
+
+\end_inset
+
+Тогад как сферическое поле:
+\begin_inset Formula 
+\[
+\Phi_{m,l,e}^{out}\left(r,\phi,\theta\right)=\zeta_{ml}k_{m}\left(\beta_{r,e}r\right)Y_{ml}\left(\phi,\theta\right)
+\]
+
+\end_inset
+
+Чтобы сшить эти уравнения, необходимо, что бы производные и значения на
+ границе 
+\begin_inset Formula $r=r_{0}$
+\end_inset
+
+ были равны (пусть 
+\begin_inset Formula $z=0,\phi=0$
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+\Psi_{n,m,e}\left(r_{0}sin\left(\theta\right),0,0\right)=\Phi_{m,l,e}^{in}\left(r_{0},0,0\right)\\
+\frac{\partial\Psi_{n,m,e}\left(r_{0}sin\left(\theta\right),0,0\right)}{\partial r}=\frac{\partial\Phi_{m,l,e}^{in}\left(r_{0},0,0\right)}{\partial r}
+\end{cases}\rightarrow\begin{cases}
+\Psi_{n,m,e}\left(r_{0}sin\left(\theta\right)\right)=\Phi_{m,l,e}^{in}\left(r_{0}\right)\\
+\frac{\partial\Psi_{n,m,e}\left(rsin\left(\theta\right)\right)}{\partial\left(rsin\left(\theta\right)\right)}sin\left(\theta\right)=\frac{\partial\Phi_{m,l,e}^{in}\left(r_{0}\right)}{\partial r}
+\end{cases},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{cases}
+\Psi_{n,m,e}\left(r_{0}sin\left(\theta\right)\right)-\Phi_{l,m}^{in}\left(r_{0}\right)=0\\
+\frac{\partial\Psi_{n,m,e}\left(rsin\left(\theta\right)\right)}{\partial\left(rsin\left(\theta\right)\right)}sin\left(\theta\right)-\frac{\partial\Phi_{l,m}^{in}\left(r_{0}\right)}{\partial r}=0
+\end{cases}\rightarrow\begin{cases}
+\frac{\alpha_{m,n,e}}{\sqrt{2\pi c}}J_{m}\left(k_{\rho,n,e}r_{0}sin\left(\theta\right)\right)-\varsigma_{m,l,e}j_{m}\left(\alpha_{r,e}r_{0}\right)=0\\
+\frac{\alpha_{m,n,e}}{\sqrt{2\pi c}}sin\left(\theta\right)\frac{\partial J_{m}\left(k_{\rho,n,e}r_{0}sin\left(\theta\right)\right)}{\partial r}-\varsigma_{m,l,e}\frac{\partial j_{m}\left(\alpha_{r,e}r_{0}\right)}{\partial r}=0
+\end{cases}
+\]
+
+\end_inset
+
+Учитывая, что 
+\begin_inset Formula 
+\[
+k_{\rho,n,e}=\sqrt{\frac{2m_{e}}{\hbar^{2}}E_{e}-\left(\frac{2\pi}{c}n+k_{c}\right)^{2}},\,\,\,\alpha_{r,e}=\sqrt{\frac{2m_{e}}{\hbar^{2}}\left(E_{e}-U_{0}\right)}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{cases}
+\frac{\alpha_{m,n,e}}{\sqrt{2\pi c}}J_{m}\left(r_{0}sin\left(\theta\right)\sqrt{\frac{2m_{e}}{\hbar^{2}}E_{e}-\left(\frac{2\pi}{c}n+k_{c}\right)^{2}}\right)-\varsigma_{m,l,e}j_{m}\left(r_{0}\sqrt{\frac{2m_{e}}{\hbar^{2}}\left(E_{e}-U_{0}\right)}\right)=0\\
+\frac{\alpha_{m,n,e}}{\sqrt{2\pi c}}sin\left(\theta\right)\frac{\partial J_{m}\left(r_{0}sin\left(\theta\right)\sqrt{\frac{2m_{e}}{\hbar^{2}}E_{e}-\left(\frac{2\pi}{c}n+k_{c}\right)^{2}}\right)}{\partial r}-\varsigma_{m,l,e}\frac{\partial j_{m}\left(r_{0}\sqrt{\frac{2m_{e}}{\hbar^{2}}\left(E_{e}-U_{0}\right)}\right)}{\partial r}=0
+\end{cases}
+\]
+
+\end_inset
+
+Возникает проблема, заключающаяся в том, что мы вроде и смогли сшить сферу
+ и и цилиндр, но у последнего осталась внешняя поверзность, значение на
+ которой не учлось.
+\end_layout
+
+\end_body
+\end_document

@@ -764,6 +764,28 @@ A\left(z\right)=\frac{1}{\sqrt{c}}e^{iz\left(k_{z}+k_{c}\right)}
 \end_inset
 
 ):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\rho}{C\left(\rho\right)}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)C\left(\rho\right)+\rho^{2}\frac{2m_{e}}{\hbar^{2}}E-\rho^{2}k_{z}^{2}=k_{\phi}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{\rho}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)C\left(\rho\right)+\left(\left(\frac{2m_{e}}{\hbar^{2}}E-k_{z}^{2}\right)-\frac{k_{\phi}^{2}}{\rho^{2}}\right)C\left(\rho\right)=0
+\]
+
+\end_inset
+
+
 \begin_inset Formula 
 \[
 \frac{1}{\rho}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)C\left(\rho\right)+\left(\left(\frac{2m_{e}}{\hbar^{2}}E-\left(k_{z}+k_{c}\right)^{2}\right)-\frac{k_{\phi}^{2}}{\rho^{2}}\right)C\left(\rho\right)=0
@@ -1143,7 +1165,7 @@ R\left(\alpha r\right)=\varsigma_{l}j_{l}\left(\alpha r\right)
 \begin_inset Formula 
 \[
 \begin{cases}
-\zeta_{l}j_{l}\left(\beta r_{0}\right)+\eta_{l}y_{l}\left(\beta r_{0}\right)=\varsigma_{l}j_{l}\left(\alpha r_{0}\right)\\
+\zeta_{l}k_{l}\left(\beta r_{0}\right)+\eta_{l}i\left(\beta r_{0}\right)=\varsigma_{l}j_{l}\left(\alpha r_{0}\right)\\
 \zeta_{l}\frac{\partial}{\partial r}k_{l}\left(\beta r_{0}\right)+\eta_{l}\frac{\partial}{\partial r}i_{l}\left(\beta r_{0}\right)=\varsigma_{l}\frac{\partial}{\partial r}j_{l}\left(\alpha r_{0}\right)
 \end{cases}
 \]
@@ -1158,10 +1180,10 @@ R\left(\alpha r\right)=\varsigma_{l}j_{l}\left(\alpha r\right)
 \begin_inset Formula 
 \[
 \begin{cases}
-\zeta_{l}j_{l}\left(\beta r_{0}\right)=\varsigma_{l}j_{l}\left(\alpha r_{0}\right)\\
+\zeta_{l}k_{l}\left(\beta r_{0}\right)=\varsigma_{l}j_{l}\left(\alpha r_{0}\right)\\
 \zeta_{l}\frac{\partial}{\partial r}k_{l}\left(\beta r_{0}\right)=\varsigma_{l}\frac{\partial}{\partial r}j_{l}\left(\alpha r_{0}\right)
 \end{cases}\begin{cases}
-\zeta_{l}j_{l}\left(\beta r_{0}\right)-\varsigma_{l}j_{l}\left(\alpha r_{0}\right)=0\\
+\zeta_{l}k_{l}\left(\beta r_{0}\right)-\varsigma_{l}j_{l}\left(\alpha r_{0}\right)=0\\
 \zeta_{l}\frac{\partial}{\partial r}k_{l}\left(\beta r_{0}\right)-\varsigma_{l}\frac{\partial}{\partial r}j_{l}\left(\alpha r_{0}\right)=0
 \end{cases}\left[\begin{array}{cc}
 j_{l}\left(\beta r_{0}\right) & -j_{l}\left(\alpha r_{0}\right)\\
@@ -1181,7 +1203,7 @@ j_{l}\left(\beta r_{0}\right) & -j_{l}\left(\alpha r_{0}\right)\\
 \begin_inset Formula 
 \[
 det\left[\begin{array}{cc}
-j_{l}\left(\beta r_{0}\right) & -j_{l}\left(\alpha r_{0}\right)\\
+k_{l}\left(\beta r_{0}\right) & -j_{l}\left(\alpha r_{0}\right)\\
 \frac{\partial}{\partial r}k_{l}\left(\beta r_{0}\right) & -\frac{\partial}{\partial r}j_{l}\left(\alpha r_{0}\right)
 \end{array}\right]=0
 \]
@@ -1191,7 +1213,7 @@ j_{l}\left(\beta r_{0}\right) & -j_{l}\left(\alpha r_{0}\right)\\
 
 \begin_inset Formula 
 \[
-j_{l}\left(\beta r_{0}\right)\frac{\partial}{\partial r}j_{l}\left(\alpha r_{0}\right)-j_{l}\left(\alpha r_{0}\right)\frac{\partial}{\partial r}k_{l}\left(\beta r_{0}\right)=0
+k_{l}\left(\beta r_{0}\right)\frac{\partial}{\partial r}j_{l}\left(\alpha r_{0}\right)-j_{l}\left(\alpha r_{0}\right)\frac{\partial}{\partial r}k_{l}\left(\beta r_{0}\right)=0
 \]
 
 \end_inset
@@ -1199,7 +1221,7 @@ j_{l}\left(\beta r_{0}\right)\frac{\partial}{\partial r}j_{l}\left(\alpha r_{0}\
 учтя, что
 \begin_inset Formula 
 \[
-\beta=-\frac{2m_{e}}{\hbar^{2}}E,\,\,\,\alpha^{2}=\frac{2m_{e}}{\hbar^{2}}\left(E-U_{0}\right)
+\beta^{2}=-\frac{2m_{e}}{\hbar^{2}}E,\,\,\,\alpha^{2}=\frac{2m_{e}}{\hbar^{2}}\left(E-U_{0}\right)
 \]
 
 \end_inset
@@ -1207,7 +1229,7 @@ j_{l}\left(\beta r_{0}\right)\frac{\partial}{\partial r}j_{l}\left(\alpha r_{0}\
 получим:
 \begin_inset Formula 
 \[
-j_{l}\left(-\frac{2m_{e}}{\hbar^{2}}Er_{0}\right)\frac{\partial}{\partial r}j_{l}\left(\frac{2m_{e}}{\hbar^{2}}\left(E-U_{0}\right)r_{0}\right)-j_{l}\left(\frac{2m_{e}}{\hbar^{2}}\left(E-U_{0}\right)r_{0}\right)\frac{\partial}{\partial r}k_{l}\left(-\frac{2m_{e}}{\hbar^{2}}Er_{0}\right)=0
+k_{l}\left(\sqrt{-\frac{2m_{e}}{\hbar^{2}}E}r_{0}\right)\frac{\partial}{\partial r}j_{l}\left(\sqrt{\frac{2m_{e}}{\hbar^{2}}\left(E-U_{0}\right)}r_{0}\right)-j_{l}\left(\sqrt{\frac{2m_{e}}{\hbar^{2}}\left(E-U_{0}\right)}r_{0}\right)\frac{\partial}{\partial r}k_{l}\left(\sqrt{-\frac{2m_{e}}{\hbar^{2}}E}r_{0}\right)=0
 \]
 
 \end_inset

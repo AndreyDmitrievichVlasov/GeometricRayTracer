@@ -764,6 +764,28 @@ A\left(z\right)=\frac{1}{\sqrt{c}}e^{iz\left(k_{z}+k_{c}\right)}
 \end_inset
 
 ):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\rho}{C\left(\rho\right)}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)C\left(\rho\right)+\rho^{2}\frac{2m_{e}}{\hbar^{2}}E-\rho^{2}k_{z}^{2}=k_{\phi}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{\rho}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)C\left(\rho\right)+\left(\left(\frac{2m_{e}}{\hbar^{2}}E-k_{z}^{2}\right)-\frac{k_{\phi}^{2}}{\rho^{2}}\right)C\left(\rho\right)=0
+\]
+
+\end_inset
+
+
 \begin_inset Formula 
 \[
 \frac{1}{\rho}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial}{\partial\rho}\right)C\left(\rho\right)+\left(\left(\frac{2m_{e}}{\hbar^{2}}E-\left(k_{z}+k_{c}\right)^{2}\right)-\frac{k_{\phi}^{2}}{\rho^{2}}\right)C\left(\rho\right)=0
