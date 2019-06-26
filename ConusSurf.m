@@ -11,8 +11,8 @@ LED_source = paraxialSpot([0 0 -1],[0.5]);
 [  rays_out ] = quadIntersect( detector, rays_out);
 
 fig_handler=figure(1);
-axis vis3d 
-view([0 0])
+axis vis3d ;
+view([0 0]);
 %TODO
 % упаковать всё в общую функцию трейсинга
 DrawElements({Axicon, detector});
