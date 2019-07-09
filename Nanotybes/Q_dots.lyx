@@ -1551,7 +1551,15 @@ r>r_{0},\,\,0
 
 \begin_inset Formula 
 \[
-\Psi_{l,m,e}^{sph}\left(r,\psi,\theta\right)=A_{ml}j_{m}\left(\alpha_{r,e}r\right)Y_{ml}\left(\psi,\theta\right),\,\,\,\alpha_{r,e}=\sqrt{\frac{2m_{e}}{\hbar^{2}}\left(E_{e}-U_{1}\right)}
+\Psi_{l,m,e}^{sph}\left(r,\psi,\theta\right)=A_{ml}j_{m}\left(\alpha_{r,e}r\right)Y_{ml}\left(\psi,\theta\right)+B_{ml}\varUpsilon_{m}\left(\alpha_{r,e}r\right)Y_{ml}\left(\psi,\theta\right),\,\,\,\alpha_{r,e}=\sqrt{\frac{2m_{e}}{\hbar^{2}}\left(E_{e}-U_{1}\right)}
+\]
+
+\end_inset
+
+Здесь:
+\begin_inset Formula 
+\[
+\varUpsilon_{m}=\frac{\partial j_{m}\left(\sqrt{\frac{2m_{e}}{\hbar^{2}}\left(E_{e}-U_{1}\right)}r\right)}{\partial E}
 \]
 
 \end_inset
@@ -1590,7 +1598,7 @@ r>r_{1},\,\,\infty
 Решением такой задачи будет:
 \begin_inset Formula 
 \begin{equation}
-\Psi_{n,m,e}\left(\rho,\phi,z\right)=\frac{1}{\sqrt{2\pi c}}e^{im\phi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)z}\left(B_{m,n,e}J_{m}\left(k_{\rho,n,e}\rho\right)+C_{m,n,e}P_{m}\left(k_{\rho,n,e}\rho\right)\right).
+\Psi_{n,m,e}\left(\rho,\phi,z\right)=\frac{D_{m,n,e}}{\sqrt{2\pi c}}e^{im\phi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)z}\left(J_{m}\left(k_{\rho,n,e}\rho\right)\right)=C_{m,n,e}e^{im\phi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)z}\left(J_{m}\left(k_{\rho,n,e}\rho\right)\right).
 \end{equation}
 
 \end_inset
@@ -1607,24 +1615,7 @@ r>r_{1},\,\,\infty
 \uwave off
 \noun off
 \color none
-Напоминаю, что в уравнении 27 
-\begin_inset Formula $P_{m}$
-\end_inset
-
--такая функция, которая не стримится к бесконечности в нуле и при увеличении
- 
-\begin_inset Formula $r$
-\end_inset
-
-, а так же 
-\begin_inset Formula 
-\[
-\int_{D}P_{m}\left(k_{\rho,n,e}\rho\right)J_{m}\left(k'_{\rho,n,e}\rho\right)rdr=\alpha_{me}\delta\left(k_{\rho,n,e}\rho-k'_{\rho,n,e}\rho\right).
-\]
-
-\end_inset
-
-
+Для перехода к сферическим координатам необходимо сделать замену
 \end_layout
 
 \begin_layout Standard
@@ -1639,140 +1630,48 @@ z=rsin\left(\theta\right)
 
 \end_inset
 
+Для цилиндрического поля получим:
+\begin_inset Formula 
+\[
+\Psi_{n,m,e}\left(\rho,\phi,z\right)=\frac{D_{m,n,e}}{\sqrt{2\pi c}}e^{im\psi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)rsin\left(\theta\right)}\left(J_{m}\left(k_{\rho,n,e}rcos\left(\theta\right)\right)\right)=C_{m,n,e}e^{im\psi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)rsin\left(\theta\right)}\left(J_{m}\left(k_{\rho,n,e}rcos\left(\theta\right)\right)\right).
+\]
+
+\end_inset
+
 Имеем задачу для сшивки:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{cases}
 \left.\Psi_{n,m,e}^{cyl}\left(rcos\left(\theta\right),\psi,rsin\left(\theta\right)\right)=\Psi_{l,m,e}^{sph}\left(r,\psi,\theta\right)\right|_{r=r_{0}}\\
 \left.\frac{\partial\Psi_{n,m,e}^{cyl}\left(rcos\left(\theta\right),\psi,rsin\left(\theta\right)\right)}{\partial\left(rcos\left(\theta\right)\right)}=\frac{\partial\Psi_{l,m,e}^{sph}\left(r,\psi,\theta\right)}{\partial r}\right|_{r=r_{0}}\\
 \left.\Psi_{n,m,e}^{cyl}\left(\rho,\phi,z\right)=0\right|_{\rho=r_{1}}
 \end{cases}
-\]
-
-\end_inset
-
-Рассмотрим детальнее второе уравнение
-\begin_inset Formula 
-\[
-\Psi_{n,m,e}\left(0,\phi,z\right)=\frac{1}{\sqrt{2\pi c}}e^{im\phi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)z}\left(B_{m,n,e}J_{m}\left(k_{\rho,n,e}r_{1}\right)+C_{m,n,e}P_{m}\left(k_{\rho,n,e}r_{1}\right)\right)=0
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-C_{m,n,e}=-\frac{B_{m,n,e}J_{m}\left(k_{\rho,n,e}r_{1}\right)}{P_{m}\left(k_{\rho,n,e}r_{1}\right)}.
 \end{equation}
 
 \end_inset
 
-Вернёмся к двум первым уравнениям системы:
-\begin_inset Formula 
-\[
-\begin{cases}
-\left.\frac{1}{\sqrt{2\pi c}}e^{im\psi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)rsin\left(\theta\right)}\left(B_{m,n,e}J_{m}\left(k_{\rho,n,e}rcos\left(\theta\right)\right)+C_{m,n,e}P_{m}\left(k_{\rho,n,e}rcos\left(\theta\right)\right)\right)=A_{ml}j_{m}\left(\alpha_{r,e}r\right)Y_{ml}\left(\psi,\theta\right)\right|_{r=r_{0}}\\
-\left.\frac{1}{\sqrt{2\pi c}}e^{im\psi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)rsin\left(\theta\right)}\left(B_{m,n,e}\frac{\partial J_{m}\left(k_{\rho,n,e}rcos\left(\theta\right)\right)}{\partial\left(rcos\left(\theta\right)\right)}+C_{m,n,e}\frac{\partial P_{m}\left(k_{\rho,n,e}rcos\left(\theta\right)\right)}{\partial\left(rcos\left(\theta\right)\right)}\right)=A_{ml}\frac{\partial j_{m}\left(\alpha_{r,e}r\right)}{\partial r}Y_{ml}\left(\psi,\theta\right)\right|_{r=r_{0}}
-\end{cases}
-\]
-
-\end_inset
-
-С учётом 28:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\begin{cases}
-\left.\frac{1}{\sqrt{2\pi c}}e^{im\psi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)rsin\left(\theta\right)}\left(B_{m,n,e}J_{m}\left(k_{\rho,n,e}rcos\left(\theta\right)\right)-\frac{B_{m,n,e}J_{m}\left(k_{\rho,n,e}r_{1}\right)}{P_{m}\left(k_{\rho,n,e}r_{1}\right)}P_{m}\left(k_{\rho,n,e}rcos\left(\theta\right)\right)\right)=A_{ml}j_{m}\left(\alpha_{r,e}r\right)Y_{ml}\left(\psi,\theta\right)\right|_{r=r_{0}}\\
-\left.\frac{1}{\sqrt{2\pi c}}e^{im\psi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)rsin\left(\theta\right)}\left(B_{m,n,e}\frac{\partial J_{m}\left(k_{\rho,n,e}rcos\left(\theta\right)\right)}{\partial\left(rcos\left(\theta\right)\right)}-\frac{B_{m,n,e}J_{m}\left(k_{\rho,n,e}r_{1}\right)}{P_{m}\left(k_{\rho,n,e}r_{1}\right)}\frac{\partial P_{m}\left(k_{\rho,n,e}rcos\left(\theta\right)\right)}{\partial\left(rcos\left(\theta\right)\right)}\right)=A_{ml}\frac{\partial j_{m}\left(\alpha_{r,e}r\right)}{\partial r}Y_{ml}\left(\psi,\theta\right)\right|_{r=r_{0}}
-\end{cases}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\begin{cases}
-\left.\frac{B_{m,n,e}}{\sqrt{2\pi c}}e^{im\psi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)rsin\left(\theta\right)}\left(J_{m}\left(k_{\rho,n,e}rcos\left(\theta\right)\right)-\frac{J_{m}\left(k_{\rho,n,e}r_{1}\right)}{P_{m}\left(k_{\rho,n,e}r_{1}\right)}P_{m}\left(k_{\rho,n,e}rcos\left(\theta\right)\right)\right)=A_{ml}j_{m}\left(\alpha_{r,e}r\right)Y_{ml}\left(\psi,\theta\right)\right|_{r=r_{0}}\\
-\left.\frac{B_{m,n,e}}{\sqrt{2\pi c}}e^{im\psi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)rsin\left(\theta\right)}\left(\frac{\partial J_{m}\left(k_{\rho,n,e}rcos\left(\theta\right)\right)}{\partial\left(rcos\left(\theta\right)\right)}-\frac{J_{m}\left(k_{\rho,n,e}r_{1}\right)}{P_{m}\left(k_{\rho,n,e}r_{1}\right)}\frac{\partial P_{m}\left(k_{\rho,n,e}rcos\left(\theta\right)\right)}{\partial\left(rcos\left(\theta\right)\right)}\right)=A_{ml}\frac{\partial j_{m}\left(\alpha_{r,e}r\right)}{\partial r}Y_{ml}\left(\psi,\theta\right)\right|_{r=r_{0}}
-\end{cases}
-\]
-
-\end_inset
-
-Пусть 
-\begin_inset Formula $\theta=0,\psi=0$
-\end_inset
-
-,тогда:
-\begin_inset Formula 
-\[
-\begin{cases}
-\frac{B_{m,n,e}}{\sqrt{2\pi c}}\left(J_{m}\left(k_{\rho,n,e}r_{0}\right)-\frac{J_{m}\left(k_{\rho,n,e}r_{1}\right)}{P_{m}\left(k_{\rho,n,e}r_{1}\right)}P_{m}\left(k_{\rho,n,e}r_{0}\right)\right)=A_{ml}j_{m}\left(\alpha_{r,e}r_{0}\right)\\
-\frac{B_{m,n,e}}{\sqrt{2\pi c}}\left(\frac{\partial J_{m}\left(k_{\rho,n,e}r_{0}\right)}{\partial\left(rcos\left(\theta\right)\right)}-\frac{J_{m}\left(k_{\rho,n,e}r_{1}\right)}{P_{m}\left(k_{\rho,n,e}r_{1}\right)}\frac{\partial P_{m}\left(k_{\rho,n,e}r_{0}\right)}{\partial\left(rcos\left(\theta\right)\right)}\right)=A_{ml}\frac{\partial j_{m}\left(\alpha_{r,e}r_{0}\right)}{\partial r}
-\end{cases}
-\]
-
-\end_inset
-
-Окончательно получим систему:
-\begin_inset Formula 
-\[
-\begin{cases}
-\frac{B_{m,n,e}}{\sqrt{2\pi c}}\left(J_{m}\left(k_{\rho,n,e}r_{0}\right)-\frac{J_{m}\left(k_{\rho,n,e}r_{1}\right)}{P_{m}\left(k_{\rho,n,e}r_{1}\right)}P_{m}\left(k_{\rho,n,e}r_{0}\right)\right)-A_{m,l,e}j_{m}\left(\alpha_{r,e}r_{0}\right)=0\\
-\frac{B_{m,n,e}}{\sqrt{2\pi c}}\left(\frac{\partial J_{m}\left(k_{\rho,n,e}r_{0}\right)}{\partial\left(rcos\left(\theta\right)\right)}-\frac{J_{m}\left(k_{\rho,n,e}r_{1}\right)}{P_{m}\left(k_{\rho,n,e}r_{1}\right)}\frac{\partial P_{m}\left(k_{\rho,n,e}r_{0}\right)}{\partial\left(rcos\left(\theta\right)\right)}\right)-A_{m,l,e}\frac{\partial j_{m}\left(\alpha_{r,e}r_{0}\right)}{\partial r}=0
-\end{cases}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
+Рассмотрим детальнее первые уравнения системы и получим:
 \begin_inset Formula 
 \begin{equation}
-\left[\begin{array}{cc}
-\frac{1}{\sqrt{2\pi c}}\left(J_{m}\left(k_{\rho,n,e}r_{0}\right)-\frac{J_{m}\left(k_{\rho,n,e}r_{1}\right)}{P_{m}\left(k_{\rho,n,e}r_{1}\right)}P_{m}\left(k_{\rho,n,e}r_{0}\right)\right)- & j_{m}\left(\alpha_{r,e}r_{0}\right)\\
-\frac{1}{\sqrt{2\pi c}}\left(\frac{\partial J_{m}\left(k_{\rho,n,e}r_{0}\right)}{\partial\left(rcos\left(\theta\right)\right)}-\frac{J_{m}\left(k_{\rho,n,e}r_{1}\right)}{P_{m}\left(k_{\rho,n,e}r_{1}\right)}\frac{\partial P_{m}\left(k_{\rho,n,e}r_{0}\right)}{\partial\left(rcos\left(\theta\right)\right)}\right) & -\frac{\partial j_{m}\left(\alpha_{r,e}r_{0}\right)}{\partial r}
-\end{array}\right]\left[\begin{array}{c}
-B_{m,n,e}\\
-A_{m,l,e}
-\end{array}\right]=\left[\begin{array}{c}
-0\\
-0
-\end{array}\right]
+\begin{cases}
+\left.C_{m,n,e}e^{im\psi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)rsin\left(\theta\right)}J_{m}\left(k_{\rho,n,e}rcos\left(\theta\right)\right)=\left(A_{ml}j_{m}\left(\alpha_{r,e}r\right)+B_{ml}\varUpsilon_{m}\left(\alpha_{r,e}r\right)\right)Y_{ml}\left(\psi,\theta\right)\right|_{r=r_{0}}\\
+\left.C_{m,n,e}e^{im\psi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)rsin\left(\theta\right)}\frac{\partial J_{m}\left(k_{\rho,n,e}rcos\left(\theta\right)\right)}{\partial\left(rcos\left(\theta\right)\right)}=\left(A_{ml}\frac{\partial j_{m}\left(\alpha_{r,e}r\right)}{\partial r}+B_{ml}\frac{\partial\varUpsilon_{m}\left(\alpha_{r,e}r\right)}{\partial r}\right)Y_{ml}\left(\psi,\theta\right)\right|_{r=r_{0}}
+\end{cases}
 \end{equation}
 
 \end_inset
 
-Система 29 может иметь решения, чтолько если
+Из последнего уравнения системы (24) можно получить уравнение для поиска
+ уровней энергии:
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
-det\left|\left[\begin{array}{cc}
-\frac{1}{\sqrt{2\pi c}}\left(J_{m}\left(k_{\rho,n,e}r_{0}\right)-\frac{J_{m}\left(k_{\rho,n,e}r_{1}\right)}{P_{m}\left(k_{\rho,n,e}r_{1}\right)}P_{m}\left(k_{\rho,n,e}r_{0}\right)\right)- & j_{m}\left(\alpha_{r,e}r_{0}\right)\\
-\frac{1}{\sqrt{2\pi c}}\left(\frac{\partial J_{m}\left(k_{\rho,n,e}r_{0}\right)}{\partial\left(rcos\left(\theta\right)\right)}-\frac{J_{m}\left(k_{\rho,n,e}r_{1}\right)}{P_{m}\left(k_{\rho,n,e}r_{1}\right)}\frac{\partial P_{m}\left(k_{\rho,n,e}r_{0}\right)}{\partial\left(rcos\left(\theta\right)\right)}\right) & -\frac{\partial j_{m}\left(\alpha_{r,e}r_{0}\right)}{\partial r}
-\end{array}\right]\right|=
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
--\frac{1}{\sqrt{2\pi c}}\left(J_{m}\left(k_{\rho,n,e}r_{0}\right)-\frac{J_{m}\left(k_{\rho,n,e}r_{1}\right)}{P_{m}\left(k_{\rho,n,e}r_{1}\right)}P_{m}\left(k_{\rho,n,e}r_{0}\right)\right)\frac{\partial j_{m}\left(\alpha_{r,e}r_{0}\right)}{\partial r}+\frac{1}{\sqrt{2\pi c}}\left(\frac{\partial J_{m}\left(k_{\rho,n,e}r_{0}\right)}{\partial\left(rcos\left(\theta\right)\right)}-\frac{J_{m}\left(k_{\rho,n,e}r_{1}\right)}{P_{m}\left(k_{\rho,n,e}r_{1}\right)}\frac{\partial P_{m}\left(k_{\rho,n,e}r_{0}\right)}{\partial\left(rcos\left(\theta\right)\right)}\right)j_{m}\left(\alpha_{r,e}r_{0}\right)=0
+\left.\Psi_{n,m,e}^{cyl}\left(\rho,\phi,z\right)=0\right|_{\rho=r_{1}}
 \]
 
 \end_inset
@@ -1782,16 +1681,13 @@ det\left|\left[\begin{array}{cc}
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{equation}
-\left(\frac{\partial J_{m}\left(k_{\rho,n,e}r_{0}\right)}{\partial\left(rcos\left(\theta\right)\right)}-\frac{J_{m}\left(k_{\rho,n,e}r_{1}\right)}{P_{m}\left(k_{\rho,n,e}r_{1}\right)}\frac{\partial P_{m}\left(k_{\rho,n,e}r_{0}\right)}{\partial\left(rcos\left(\theta\right)\right)}\right)j_{m}\left(\alpha_{r,e}r_{0}\right)-\left(J_{m}\left(k_{\rho,n,e}r_{0}\right)-\frac{J_{m}\left(k_{\rho,n,e}r_{1}\right)}{P_{m}\left(k_{\rho,n,e}r_{1}\right)}P_{m}\left(k_{\rho,n,e}r_{0}\right)\right)\frac{\partial j_{m}\left(\alpha_{r,e}r_{0}\right)}{\partial r}=0
-\end{equation}
+\[
+J_{m}\left(k_{\rho,n,e}r_{1}cos\left(\theta\right)\right)=0
+\]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
+Окончательно уравнение относительно энергии:
 \begin_inset Formula 
 \[
 k_{\rho,n,e}=\sqrt{\frac{2m_{e}}{\hbar^{2}}E_{e}-\left(\frac{2\pi}{c}n+k_{c}\right)^{2}}
@@ -1800,19 +1696,62 @@ k_{\rho,n,e}=\sqrt{\frac{2m_{e}}{\hbar^{2}}E_{e}-\left(\frac{2\pi}{c}n+k_{c}\rig
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
-\alpha_{r,e}=\sqrt{\frac{2m_{e}}{\hbar^{2}}\left(E-U_{sph}\right)}
+J_{m}\left(\sqrt{\frac{2m_{e}}{\hbar^{2}}E_{e}-\left(\frac{2\pi}{c}n+k_{c}\right)^{2}}r_{1}cos\left(\theta\right)\right)=0
+\]
+
+\end_inset
+
+Вернёмся к системе 25.
+ Вспомним, что сферические функции имеют вид:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Y_{ml}\left(\psi,\theta\right)=\frac{1}{\sqrt{2\pi}}e^{im\psi}\Theta_{lm}\left(\theta\right)=\frac{\left(-1\right)^{m}}{\sqrt{2\pi}}e^{im\psi}\sqrt{\frac{2l+1}{2}\frac{\left(l-m\right)!}{\left(l+m\right)!}}P_{lm}\left(cos\left(\theta\right)\right)
+\]
+
+\end_inset
+
+Возьмём первое уравнение системы 25:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C_{m,n,e}e^{im\psi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)r_{0}sin\left(\theta\right)}J_{m}\left(k_{\rho,n,e}r_{0}cos\left(\theta\right)\right)=\left(A_{ml}j_{m}\left(\alpha_{r,e}r_{0}\right)+B_{ml}\varUpsilon_{m}\left(\alpha_{r,e}r_{0}\right)\right)\frac{1}{\sqrt{2\pi}}e^{im\psi}\Theta_{lm}\left(\theta\right)
 \]
 
 \end_inset
 
 
-\series bold
-Вопрос: учтена ли энергия поля цилиндра? 
-\series default
-Уравнение 30 является дисперисонным уравнением задачи, его корни есть значения
- спектра энергии.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{D_{m,n,e}}{\sqrt{2\pi c}}e^{im\psi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)r_{0}sin\left(\theta\right)}J_{m}\left(k_{\rho,n,e}r_{0}cos\left(\theta\right)\right)=\left(A_{ml}j_{m}\left(\alpha_{r,e}r_{0}\right)+B_{ml}\varUpsilon_{m}\left(\alpha_{r,e}r_{0}\right)\right)\frac{1}{\sqrt{2\pi}}e^{im\psi}\Theta_{lm}\left(\theta\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{D_{m,n,e}}{\sqrt{c}}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)r_{0}sin\left(\theta\right)}J_{m}\left(k_{\rho,n,e}r_{0}cos\left(\theta\right)\right)=\left(A_{ml}j_{m}\left(\alpha_{r,e}r_{0}\right)+B_{ml}\varUpsilon_{m}\left(\alpha_{r,e}r_{0}\right)\right)\Theta_{lm}\left(\theta\right)
+\]
+
+\end_inset
+
+
 \end_layout
 
 \end_body
