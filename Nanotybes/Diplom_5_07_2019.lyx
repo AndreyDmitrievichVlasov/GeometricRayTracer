@@ -1,0 +1,3339 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+eqs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language russian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1cm
+\topmargin 2cm
+\rightmargin 1cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Расчет спектров полупроводниковых квантовых точек
+\end_layout
+
+\begin_layout Section*
+Введение
+\end_layout
+
+\begin_layout Standard
+Введение какое то у вас есть
+\end_layout
+
+\begin_layout Section
+Методы изготовления квантовых точек
+\end_layout
+
+\begin_layout Standard
+Эта часть написана у вас в каком то виде
+\end_layout
+
+\begin_layout Section
+Методы расчета квантовых точек
+\end_layout
+
+\begin_layout Subsection
+Расчет простейших квантовых точек
+\end_layout
+
+\begin_layout Standard
+Рассмотрим квантовую точку в виде паралепипеда.
+ Область внутри квантовой точки описывается неравенством
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-\frac{d_{x}}{2}<x<\frac{d_{x}}{2}\,\,\,-\frac{d_{y}}{2}<y<\frac{d_{y}}{2}\,\,\,-\frac{d_{z}}{2}<z<\frac{d_{z}}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Положим, что потенциальная энергия внутри квантовой точки определяется работой
+ выхода для данного вещества, если образец имеет бесконечные размеры.
+ Обозначим величину этой потенциальной энергии 
+\begin_inset Formula $U_{0}$
+\end_inset
+
+ Предположим, что носители заряда не выходят за пределы квантовой точки.
+ Это означает, что квантовая точка помещена в в потенциальную яму с бесконечно
+ высокими стенками и потенциальной энергией внутри ямы равной 
+\begin_inset Formula $U_{0}$
+\end_inset
+
+.
+ В общем случае границы потенциальной ямы описывется неравенствами
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+-\frac{L_{x}}{2}<x<\frac{L_{x}}{2}\,\,\,-\frac{L_{y}}{2}<y<\frac{L_{y}}{2}\,\,\,-\frac{L_{z}}{2}<z<\frac{L_{z}}{2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В нашем случае 
+\begin_inset Formula $L_{x}=d_{x},\,\,\, L_{y}=d_{y},\,\,\, L_{z}=d_{z}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Волновая функция удовлетворяет уравнению Шредингера
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H\Phi=E\Phi
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H=H_{0}+U\left(x,y,z\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $U\left(x,y,z\right)$
+\end_inset
+
+-потенциальная энергия внешнего поля.
+ Гамильтониан 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ получается из дисперсионного уравнения.
+ Дисперсионное уравнение связывает энергию носителя заряда и квазиимпульс.
+ Приближенно можно записать дисперсионное уравнение в виде 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E\left(k\right)=E_{0}+\frac{h^{2}k^{2}}{2m_{e}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $m_{e}$
+\end_inset
+
+ -эфективная масса в зоне.
+ Гамильтониан 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+получается, если мы заменим 
+\begin_inset Formula $k^{2}$
+\end_inset
+
+на -
+\begin_inset Formula $\nabla^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H_{0}=E_{0}-\frac{h^{2}\nabla^{2}}{2m_{e}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Подставляем это уравнение в уравнение Шредингера получаем
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left(E_{0}-\frac{h^{2}\nabla^{2}}{2m_{e}}+U\left(x,y,z\right)\right)\Phi=E\Phi
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Пусть внешнее поле выключено.
+ В этом случае уравнение Шредингера внутри квантовой точки имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial^{2}\Phi}{\partial x^{2}}+\frac{\partial^{2}\Phi}{\partial y^{2}}+\frac{\partial^{2}\Phi}{\partial z^{2}}+\frac{2m}{h^{2}}\left(E-E_{0}\right)\Phi=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Уравнение Шредингера вне квантовой точки имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial^{2}\Phi}{\partial x^{2}}+\frac{\partial^{2}\Phi}{\partial y^{2}}+\frac{\partial^{2}\Phi}{\partial z^{2}}+\frac{2m}{h^{2}}E\Phi=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Последние два уравнения можно записать в виде
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial^{2}\Phi}{\partial x^{2}}+\frac{\partial^{2}\Phi}{\partial y^{2}}+\frac{\partial^{2}\Phi}{\partial z^{2}}+\frac{2m}{h^{2}}\left(E-U_{0}\right)\Phi=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U_{0}=E_{0}\,\,\,\, in\,\,\,\, dot
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U_{0}=0\,\,\,\, out\,\,\,\, dot
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Для точки в виде параллепипеда эту задачу нельзя решить.
+ Но можно решить задачу, где внутри точки уравнение Шредингера имеет вид
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial^{2}\Phi}{\partial x^{2}}+\frac{\partial^{2}\Phi}{\partial y^{2}}+\frac{\partial^{2}\Phi}{\partial z^{2}}+\frac{2m}{h^{2}}\left(E-U_{0}\right)\Phi=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+На границе квантовой точки волновая функция равна нулю.
+ Это означает, что носитель заряда не покидает квантовую точку.
+ Это в свою очередь эквивалентно уравнению Шредингера 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial^{2}\Phi}{\partial x^{2}}+\frac{\partial^{2}\Phi}{\partial y^{2}}+\frac{\partial^{2}\Phi}{\partial z^{2}}+\frac{2m}{h^{2}}\left(E-U_{0}\right)\Phi=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+с потенциальной энергией 
+\begin_inset Formula 
+\[
+U_{0}=E_{0}\,\,\,\, in\,\,\,\, dot
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U_{0}=\infty\,\,\,\, out\,\,\,\, dot
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Представим решение уравнения Шредингера, зависящего от времени
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Phi\left(x,y,z,t\right)=\sum C^{pqs}\Psi_{pqs}exp\left(-\frac{i}{h}E_{pqs}t\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Решая стационарное уравнение Шредингера получаем, что энергия частицы равна
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E_{pqs}=U_{0}+\frac{h^{2}\pi^{2}}{2m}\left(\left(\frac{p}{L_{x}}\right)^{2}+\left(\frac{q}{L_{y}}\right)^{2}+\left(\frac{s}{L_{z}}\right)^{2}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В случае если размеры точки по всем трем координатам равны формула для энергии
+ принимает вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E_{pqs}=U_{0}+\frac{h^{2}\pi^{2}}{2mL^{2}}\left(p^{2}+q^{2}+s^{2}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Эта формула справедлива в случае бесконечного барьера.
+ В случае когда энергия носителя заряда вне точки равна нулю эту формулу
+ можно применять до тех пор пока энергия не становится положительной.
+ Положительная энергия означает, что носитель заряда становится свободным
+ и распространяется в вакууме.
+ На практике полученная формула справедлива только для нескольких уровней
+ лежащих вблизи дна зоны проводимости или вершины валентной зоны.
+ 
+\end_layout
+
+\begin_layout Standard
+Волновые функции квантовой точки в виде параллепипеда имеют вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Psi_{pqs}=A_{lps}sin\left(k_{xp}\left(x+\frac{L_{x}}{2}\right)\right)sin\left(k_{yq}\left(y+\frac{L_{y}}{2}\right)\right)sin\left(k_{zs}\left(z+\frac{L_{z}}{2}\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+k_{xp}=\frac{\pi p}{L_{x}}\,\,\, k_{yq}=\frac{\pi q}{L_{y}}\,\,\, k_{zs}=\frac{\pi s}{L_{z}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Более сложная модель квантовой точки
+\end_layout
+
+\begin_layout Standard
+Рассмотрим квантовую точку в виде паралепипеда.
+ Область внутри квантовой точки описывается неравенством
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+-\frac{d_{x}}{2}<x<\frac{d_{x}}{2}\,\,\,-\frac{d_{y}}{2}<y<\frac{d_{y}}{2}\,\,\,-\frac{d_{z}}{2}<z<\frac{d_{z}}{2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Поместим квантовую точку в потенциальную яму с бесконечно высокими стенками.
+ Границы потенциальной ямы описывется неравенствами
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+-\frac{L_{x}}{2}<x<\frac{L_{x}}{2}\,\,\,-\frac{L_{y}}{2}<y<\frac{L_{y}}{2}\,\,\,-\frac{L_{z}}{2}<z<\frac{L_{z}}{2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Волновая функция удовлетворяет уравнению
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial^{2}\Phi}{\partial x^{2}}+\frac{\partial^{2}\Phi}{\partial y^{2}}+\frac{\partial^{2}\Phi}{\partial z^{2}}+\frac{2m}{h^{2}}\left(E-U\left(x,y,z\right)\right)=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Представим решение уравнения 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Phi\left(x,y,z,t\right)=\sum C^{pqs}\Psi_{pqs}exp\left(-\frac{i}{h}E_{pqs}t\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Psi_{pqs}=A_{lps}sin\left(k_{xp}\left(x+\frac{L_{x}}{2}\right)\right)sin\left(k_{yq}\left(y+\frac{L_{y}}{2}\right)\right)sin\left(k_{zs}\left(z+\frac{L_{z}}{2}\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+k_{xp}=\frac{\pi p}{L_{x}}\,\,\, k_{yq}=\frac{\pi q}{L_{y}}\,\,\, k_{zs}=\frac{\pi s}{L_{z}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Подставляя 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial^{2}\Phi}{\partial x^{2}}+\frac{\partial^{2}\Phi}{\partial y^{2}}+\frac{\partial^{2}\Phi}{\partial z^{2}}+\frac{2m}{h^{2}}\left(E-U\left(x,y,z\right)\right)\Phi=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+-\sum C^{pqs}\left\{ \left(k_{xp}^{2}+k_{yq}^{2}+k_{zs}^{2}\right)\Psi_{pqs}+\frac{2m}{h^{2}}\left(E-U\left(x,y,z\right)\right)\Psi_{pqs}\right\} =0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+-\sum C^{pqs}\left\{ \left(k_{xp}^{2}+k_{yq}^{2}+k_{zs}^{2}\right)\int_{-L/2}^{L/2}\Psi^{p_{1}q_{1}s_{1}}\Psi_{pqs}dv+\frac{2m}{h^{2}}E\int_{-L/2}^{L/2}\Psi^{p_{1}q_{1}s_{1}}\Psi_{pqs}dv\right\} -
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+-\frac{2m}{h^{2}}\int_{-d/2}^{d/2}U\left(x,y,z\right)\Psi^{p_{1}q_{1}s_{1}}\Psi_{pqs}dv=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C^{p_{1}q_{1}s_{1}}\left(k_{xp_{1}}^{2}+k_{yq_{1}}^{2}+k_{zs_{1}}^{2}\right)+\frac{2m}{h^{2}}U_{pqs}^{p_{1}q_{1}s_{1}}C^{pqs}=\frac{2m}{h^{2}}EC^{p_{1}q_{1}s_{1}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Энергетический спектр и 
+\begin_inset Formula $C^{lps}$
+\end_inset
+
+находится из решения системы уравнений на собственные значения
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\{ \left(k_{xp_{1}}^{2}+k_{yq_{1}}^{2}+k_{zs_{1}}^{2}\right)\delta_{pqs}^{p_{1}q_{1}s_{1}}+\frac{2m}{h^{2}}U_{p}^{p_{1}}U_{q}^{q_{1}}U_{s}^{s_{1}}\right\} C^{lps}=\frac{2m}{h^{2}}EC^{l_{1}p_{1}s_{1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+U_{p}^{p_{1}}=UA_{l}A_{l_{1}}\int_{-d_{x}/2}^{d_{x}/2}sin\left(k_{xp_{1}}\left(x+\frac{L_{x}}{2}\right)\right)sin\left(k_{xp}\left(x+\frac{L_{x}}{2}\right)\right)dx
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+sin\left(k_{xp_{1}}\left(x+\frac{L_{x}}{2}\right)\right)sin\left(k_{xp}\left(x+\frac{L_{x}}{2}\right)\right)=\frac{1}{2}\left\{ cos\left(\left(k_{xp_{1}}-k_{xp}\right)\left(x+\frac{L_{x}}{2}\right)\right)-cos\left(\left(k_{xp_{1}}+k_{xp}\right)\left(x+\frac{L_{x}}{2}\right)\right)\right\} 
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Подставляя получаем
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+U_{p}^{p_{1}}=\frac{1}{2}UA_{l}A_{l_{1}}\int_{-d_{x}/2}^{d_{x}/2}\left\{ cos\left(\left(k_{xp_{1}}-k_{xp}\right)\left(x+\frac{L_{x}}{2}\right)\right)dx-\int_{-d_{x}/2}^{d_{x}/2}cos\left(\left(k_{xp_{1}}+k_{xp}\right)\left(x+\frac{L_{x}}{2}\right)\right)\right\} dx
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+U_{p}^{p_{1}}=-\frac{1}{2}UA_{l}A_{l_{1}}\left\{ \frac{sin\left(k_{xp_{1}}-k_{xp}\right)\left(x+\frac{L_{x}}{2}\right)}{\left(k_{xp_{1}}-k_{xp}\right)}\brokenvert_{-d_{x}/2}^{d_{x}/2}-\frac{sin\left(k_{xp_{1}}+k_{xp}\right)\left(x+\frac{L_{x}}{2}\right)}{\left(k_{xp_{1}}+k_{xp}\right)}\brokenvert_{-d_{x}/2}^{d_{x}/2}\right\} 
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+U_{p}^{p_{1}}=-\frac{1}{2}UA_{l}A_{l_{1}}\left\{ \frac{sin\left(k_{xp_{1}}-k_{xp}\right)\left(\frac{d_{x}}{2}+\frac{L_{x}}{2}\right)-sin\left(k_{xp_{1}}-k_{xp}\right)\left(-\frac{d_{x}}{2}+\frac{L_{x}}{2}\right)}{\left(k_{xp_{1}}-k_{xp}\right)}\right\} +
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
++\frac{1}{2}UA_{l}A_{l_{1}}\left\{ \frac{sin\left(k_{xp_{1}}+k_{xp}\right)\left(\frac{d_{x}}{2}+\frac{L_{x}}{2}\right)-sin\left(k_{xp_{1}}+k_{xp}\right)\left(-\frac{d_{x}}{2}+\frac{L_{x}}{2}\right)}{\left(k_{xp_{1}}+k_{xp}\right)}\right\} 
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Расчет сферических квантовых точек
+\end_layout
+
+\begin_layout Subsubsection
+Сферическая точка с бесконечными стенками
+\end_layout
+
+\begin_layout Standard
+Пусть частица движется внутри обрасти, ограниченной сферой 
+\begin_inset Formula $r<R_{\infty}$
+\end_inset
+
+.
+ В этом случае волновая функция удовлетворяет уравнению
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial\Phi_{s}}{\partial r}\right)+\frac{1}{r^{2}sin\theta}\frac{\partial}{\partial\theta}\left(sin\theta\frac{\partial\Phi_{s}}{\partial\theta}\right)+\frac{1}{r^{2}sin^{2}\theta}\frac{\partial^{2}\Phi_{s}}{\partial\varphi^{2}}+\frac{2m_{e}}{h^{2}}\left(E-U_{0}\right)\Phi_{s}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Обозначим 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{sin\theta}\frac{\partial}{\partial\theta}\left(sin\theta\frac{\partial\Phi_{s}}{\partial\theta}\right)+\frac{1}{sin^{2}\theta}\frac{\partial^{2}\Phi_{s}}{\partial\varphi^{2}}=\frac{-L^{2}}{h^{2}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Тогда уравнение Шредингера можно записать
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial\Phi_{s}}{\partial r}\right)-\frac{L^{2}}{h^{2}r^{2}}\Phi_{s}+\frac{2m}{h^{2}}\left(E-U_{0}\right)\Phi_{s}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Далее представим решение уравнения в виде решения с разделенными переменными
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi_{s}\left(r,\varphi,\theta\right)=R_{s}^{lm}\left(r\right)Y_{lm}\left(\varphi,\theta\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Уравнение для функции 
+\begin_inset Formula $R_{s}^{lm}\left(r\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial R_{s}^{lm}\left(r\right)}{\partial r}\right)-l\left(l+1\right)R_{s}^{lm}\left(r\right)+\frac{2m_{e}}{h^{2}}\left(E-U_{0}\right)R_{s}^{lm}\left(r\right)=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial R_{s}^{lm}\left(r\right)}{\partial r}\right)+\left(\frac{2m_{e}}{h^{2}}\left(E-U_{0}\right)-\frac{l\left(l+1\right)}{r^{2}}\right)R_{s}^{lm}\left(r\right)=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Сделаем подстановку 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+F_{s}^{lm}\left(r\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U_{0}\right)}\right)=R_{s}^{lm}\left(r\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{\eta^{2}}\frac{\partial}{\partial\eta}\left(\eta{}^{2}\frac{\partial F_{s}^{lm}\left(\eta\right)}{\partial\eta}\right)+\left(1-\frac{l\left(l+1\right)}{\eta^{2}}\right)F_{s}^{lm}\left(\eta\right)=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где 
+\begin_inset Formula 
+\begin{equation}
+\eta=r\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U_{0}\right)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Решение внутри сферы равно
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Phi_{s}\left(r,\varphi,\theta\right)=j_{l}\left(r\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U_{0}\right)}\right)Y_{lm}\left(\varphi,\theta\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Общее решение равно 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Phi_{s}\left(r,\varphi,\theta\right)=\sum_{lm}B^{lm}j_{l}\left(r\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U_{0}\right)}\right)Y_{lm}\left(\varphi,\theta\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+На поверхности сферы 
+\begin_inset Formula $\Phi_{s}\left(R_{\infty},\varphi,\theta\right)=0.$
+\end_inset
+
+ Из этого условия следует, что 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+j_{l}\left(R_{\infty}\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U_{0}\right)}\right)=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Из этого уравнения следует, что 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+R_{\infty}\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U_{0}\right)}=\nu_{lp}\,\,\,\,\, E=U_{0}+\frac{h^{2}}{2m_{e}}\left(\frac{\nu_{lp}}{R_{\infty}}\right)^{2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Общее решение для уравнения внутри сферы, ограничивающей область движения
+ имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Phi_{s}\left(r,\varphi,\theta\right)=\sum_{lm}B^{plm}j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)Y_{lm}\left(\varphi,\theta\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Энергетический спектр в точке с конечной энергией 
+\end_layout
+
+\begin_layout Standard
+Рассмотрим теперь уравнение для квантовой точки с конечной энергией
+\end_layout
+
+\begin_layout Standard
+В этом случае имеется две области.
+ Первая область -область внутри квантовой точки.
+ Уравнение Шредингера имеет вид 
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial\Phi_{Q}}{\partial r}\right)+\frac{1}{r^{2}sin\theta}\frac{\partial}{\partial\theta}\left(sin\theta\frac{\partial\Phi_{Q}}{\partial\theta}\right)+\frac{1}{r^{2}sin^{2}\theta}\frac{\partial^{2}\Phi_{Q}}{\partial\varphi^{2}}+\frac{2m}{h^{2}}\left(E-U\right)\Phi_{Q}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial\Phi_{Q}}{\partial r}\right)-\frac{L^{2}\Phi_{Q}}{h^{2}r^{2}}+\frac{2m}{h^{2}}\left(E-U\right)\Phi_{Q}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Представим решение в виде 
+\begin_inset Formula 
+\begin{equation}
+\Phi_{Q}=R_{Q}Y_{lm}\left(\varphi,\theta\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Уравнение для радиальной части волновой функции имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial R_{Q}}{\partial r}\right)-\frac{l\left(l+1\right)R_{Q}}{r^{2}}+\frac{2m_{e}}{h^{2}}\left(E-U\right)R_{Q}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Потенциальная энергия отлична от нуля в области 
+\begin_inset Formula $r<r_{0}$
+\end_inset
+
+ и имеет отрицательное значение.
+\end_layout
+
+\begin_layout Standard
+Сделаем замену переменных 
+\begin_inset Formula $\eta=\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U\right)}r$
+\end_inset
+
+.
+ Уравнение в этих координатах имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{\eta^{2}}\frac{\partial}{\partial\eta}\left(\eta{}^{2}\frac{\partial F_{Q}}{\partial\eta}\right)+\left(1-\frac{l\left(l+1\right)}{\eta^{2}}\right)F_{Q}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Это уравнение совпадает с уравнением для сферических функций Бесселя
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{\xi^{2}}\frac{\partial}{\partial\xi}\left(\xi{}^{2}\frac{\partial j_{l}\left(\xi\right)}{\partial\xi}\right)+\left(1-\frac{l\left(l+1\right)}{\xi^{2}}\right)j_{l}\left(\xi\right)=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Вторая область -это область вне квантовой точки.
+ Уравнение Шредингера имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial\Phi}{\partial r}\right)-\frac{L^{2}\Phi}{h^{2}r^{2}}+\frac{2m}{h^{2}}E\Phi=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Phi=RY_{lm}\left(\varphi,\theta\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Уравнение для радиальной части волновой функции имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial R}{\partial r}\right)-\frac{l\left(l+1\right)R}{r^{2}}+\frac{2m}{h^{2}}ER=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Сделаем замену переменных 
+\begin_inset Formula $\eta=\sqrt{-\frac{2m_{0}}{h^{2}}E}r$
+\end_inset
+
+.
+ Уравнение в этих координатах имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{\eta^{2}}\frac{\partial}{\partial\eta}\left(\eta{}^{2}\frac{\partial F_{Q}}{\partial\eta}\right)-\left(1+\frac{l\left(l+1\right)}{\eta^{2}}\right)F_{Q}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{\xi^{2}}\frac{\partial}{\partial\xi}\left(\xi{}^{2}\frac{\partial M_{l}\left(\xi\right)}{\partial\xi}\right)-\left(1+\frac{l\left(l+1\right)}{\xi^{2}}\right)M_{l}\left(\xi\right)=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Это уравнение совпадает с уравнением для модифицированных сферических функций
+ Бесселя
+\end_layout
+
+\begin_layout Standard
+Итого решение в первой области для радиальной части волновой функции 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+R_{Q}^{l}=A_{l}j_{l}\left(\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U\right)}r\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Итого решение во второй области для радиальной части волновой функции 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+R^{l}=B_{l}M_{l}\left(\sqrt{-\frac{2m_{0}}{h^{2}}E}r\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Уравнение сшивки на границе квантовой точки
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+j_{l}\left(\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U\right)}r_{0}\right)A_{l}-M_{l}\left(\sqrt{-\frac{2m_{0}}{h^{2}}E}r_{0}\right)B_{l}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U\right)}j_{l}^{/}\left(\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U\right)}r_{0}\right)\frac{A_{l}}{m_{e}}-M_{l}^{/}\left(\sqrt{-\frac{2m_{0}}{h^{2}}E}r_{0}\right)\frac{B_{l}}{m_{0}}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Уравнение для энергетического спектра имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{m_{0}}\sqrt{-\frac{2m_{0}}{h^{2}}E}j_{l}\left(\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U\right)}r_{0}\right)M_{l}^{/}\left(\sqrt{-\frac{2m_{0}}{h^{2}}E}r_{0}\right)-
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-\frac{1}{m_{e}}\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U\right)}j_{l}^{/}\left(\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U\right)}r_{0}\right)M_{l}\left(\sqrt{-\frac{2m_{0}}{h^{2}}E}r_{0}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Обозначим
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+k_{Q}^{2}=\frac{2m_{e}}{h^{2}}\left(E-U\right)\,\,\,\,\,\,\, k^{2}=-\frac{2m_{0}}{h^{2}}E
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Дисперсионное уравнение принимает простой вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{m_{0}}kj_{l}\left(k_{Q}r_{0}\right)M_{l}^{/}\left(kr_{0}\right)-\frac{1}{m_{0}}k_{Q}j_{l}^{/}\left(k_{Q}r_{0}\right)M_{l}\left(kr_{0}\right)=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где 
+\begin_inset Formula $j_{l}\left(k_{Q}r_{0}\right)$
+\end_inset
+
+-сферическая функция Бесселя первого рода, 
+\begin_inset Formula $M_{l}\left(kr_{0}\right)$
+\end_inset
+
+-модифицированная сферическая функция Бесселя третьего рода.
+\end_layout
+
+\begin_layout Standard
+Связь между коэффициентами 
+\begin_inset Formula $B_{l}$
+\end_inset
+
+ и 
+\begin_inset Formula $A_{l}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+B_{l}=\frac{j_{l}\left(\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U\right)}r_{0}\right)}{M_{l}\left(\sqrt{-\frac{2m_{0}}{h^{2}}E}r_{0}\right)}A_{l}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Производные от функций сферических функций Бесселя
+\end_layout
+
+\begin_layout Standard
+Производная функции Бесселя имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+J_{n}^{/}\left(x\right)=-J_{n+1}\left(x\right)+\frac{n}{x}J_{n}\left(x\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+J_{n}^{/}\left(x\right)=J_{n-1}\left(x\right)-\frac{n}{x}J_{n}\left(x\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Производная модифицированной функции Бесселя
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+I_{n}^{/}\left(x\right)=\frac{1}{2}\left(I_{n+1}\left(x\right)+I_{n-1}\left(x\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Сферические функции Бесселя
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+j_{n}=\sqrt{\frac{\pi}{2x}}J_{n+1/2}\left(x\right)=\sqrt{\frac{\pi}{2}}\left(x^{-1/2}\right)J_{n+1/2}\left(x\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Производная от сферической функции Бесселя
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{dj_{n}\left(x\right)}{dx}=\sqrt{\frac{\pi}{2}}\left(-\frac{1}{2}x^{-3/2}J_{n+1/2}\left(x\right)+x^{-1/2}\frac{dJ_{n+1/2}\left(x\right)}{dx}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{dj_{n}\left(x\right)}{dx}=\sqrt{\frac{\pi}{2}}\left(-\frac{1}{2}x^{-3/2}J_{n+1/2}\left(x\right)+x^{-1/2}\left(-J_{n+3/2}\left(x\right)+\frac{n+1/2}{x}J_{n+1/2}\right)\left(x\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{dj_{n}\left(x\right)}{dx}=\left(-\frac{1}{2}x^{-1}\sqrt{\frac{\pi}{2x}}J_{n+1/2}\left(x\right)+\left(-\sqrt{\frac{\pi}{2x}}J_{n+3/2}\left(x\right)+\frac{n+1/2}{x}\sqrt{\frac{\pi}{2x}}J_{n+1/2}\right)\left(x\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{dj_{n}\left(x\right)}{dx}=-\frac{1}{2x}j_{n}\left(x\right)+\left(-j_{n+1}\left(x\right)+\frac{n+1/2}{x}j_{n}\left(x\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{dj_{n}\left(x\right)}{dx}=+\left(-j_{n+1}\left(x\right)+\frac{n}{x}j_{n}\left(x\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Модифицированная сферическая функция Бесселя первого рода
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+i_{n}=\sqrt{\frac{\pi}{2x}}I_{n+1/2}\left(x\right)=\sqrt{\frac{\pi}{2}}x^{-1/2}I_{n+1/2}\left(x\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Производная от модифицированной сферической функции Бесселя первого рода
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{di_{n}\left(x\right)}{dx}=\sqrt{\frac{\pi}{2}}\left(-\frac{1}{2}x^{-3/2}I_{n+1/2}\left(x\right)+x^{-1/2}\frac{dI_{n+1/2}\left(x\right)}{dx}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{di_{n}\left(x\right)}{dx}=\sqrt{\frac{\pi}{2}}\left(-\frac{1}{2}x^{-3/2}I_{n+1/2}\left(x\right)+x^{-1/2}\frac{1}{2}\left(I_{n-1/2}\left(x\right)+I_{n+1/2}\left(x\right)\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{di_{n}\left(x\right)}{dx}=\left(-\frac{1}{2}x^{-3/2}\sqrt{\frac{\pi}{2}}I_{n+1/2}\left(x\right)+\frac{1}{2}\left(\sqrt{\frac{\pi}{2}}x^{-1/2}I_{n-1/2}\left(x\right)+\sqrt{\frac{\pi}{2}}x^{-1/2}I_{n+1/2}\left(x\right)\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{di_{n}\left(x\right)}{dx}=\left(-\frac{1}{2}x^{-1}i_{n}\left(x\right)+\frac{1}{2}\left(i_{n-1}\left(x\right)+i_{n+1}\left(x\right)\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{di_{n}\left(x\right)}{dx}=-\frac{1}{2}\left(x^{-1}i_{n}\left(x\right)-i_{n-1}\left(x\right)-i_{n+1}\left(x\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Модифицированная сферическая функция Бесселя второго рода
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+i_{-n}=\sqrt{\frac{\pi}{2x}}I_{-n-1/2}\left(x\right)=\sqrt{\frac{\pi}{2}}x^{-1/2}I_{-n-1/2}\left(x\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Производная модифицированной сферической функции Бесселя второго рода
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{di_{-n}\left(x\right)}{dx}=\sqrt{\frac{\pi}{2}}\left(-\frac{1}{2}x^{-3/2}I_{-n-1/2}\left(x\right)+x^{-1/2}\frac{1}{2}\left(I_{-n-1/2-1}\left(x\right)+I_{-n-1/2+1}\left(x\right)\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{di_{-n}\left(x\right)}{dx}=\left(-\frac{1}{2}x^{-1}i_{-n}\left(x\right)+\frac{1}{2}\left(i_{-\left(n+1\right)}\left(x\right)+i_{-\left(n-1\right)}\left(x\right)\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{di_{-n}\left(x\right)}{dx}=-\frac{1}{2}\left(x^{-1}i_{-n}\left(x\right)-i_{-\left(n+1\right)}\left(x\right)-i_{-\left(n-1\right)}\left(x\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Модифицированная сферическая функция Бесселя третьего рода
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+k_{n}=\left(-1\right)^{n+1}\left(\frac{\pi}{2}\right)\left(i_{n}-i_{-n}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Производная модифицированной сферической функции Бесселя третьего рода
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{dk_{n}}{dx}=\left(-1\right)^{n+1}\left(\frac{\pi}{2}\right)\left(\frac{di_{n}}{dx}-\frac{di_{-n}}{dx}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{dk_{n}}{dx}=\left(-1\right)^{n+1}\left(\frac{\pi}{2}\right)\left(\left(-\frac{1}{2}x^{-1}i_{n}\left(x\right)+\frac{1}{2}\left(i_{n-1}\left(x\right)+i_{n+1}\left(x\right)\right)\right)-\left(-\frac{1}{2}x^{-1}i_{-n}\left(x\right)+\frac{1}{2}\left(i_{\left(n+1\right)}\left(x\right)+i_{-\left(n-1\right)}\left(x\right)\right)\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{dk_{n}}{dx}=\left(-1\right)^{n+1}\left(\frac{\pi}{2}\right)\left(-\frac{1}{2}x^{-1}i_{n}\left(x\right)+\frac{1}{2}i_{n-1}\left(x\right)+\frac{1}{2}i_{n+1}\left(x\right)+\frac{1}{2}x^{-1}i_{-n}\left(x\right)-\frac{1}{2}i_{\left(n+1\right)}\left(x\right)-\frac{1}{2}i_{-\left(n-1\right)}\left(x\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{dk_{n}}{dx}=\left(-1\right)^{n+1}\left(\frac{\pi}{2}\right)\left(-\frac{1}{2}x^{-1}i_{n}\left(x\right)+\frac{1}{2}x^{-1}i_{-n}\left(x\right)+\frac{1}{2}i_{n-1}\left(x\right)-\frac{1}{2}i_{-\left(n-1\right)}\left(x\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{dk_{n}}{dx}=\left(-\frac{1}{2}x^{-1}\left(-1\right)^{n+1}\left(\frac{\pi}{2}\right)\left(i_{n}\left(x\right)-i_{-n}\left(x\right)\right)+\frac{1}{2}\left(-1\right)^{n+1}\left(\frac{\pi}{2}\right)\left(-1\right)^{n}\left(-1\right)^{n}\left(i_{n-1}\left(x\right)-i_{-\left(n-1\right)}\left(x\right)\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{dk_{n}}{dx}=\left(-\frac{1}{2}x^{-1}\left(-1\right)^{n+1}\left(\frac{\pi}{2}\right)\left(i_{n}\left(x\right)-i_{-n}\left(x\right)\right)+\frac{1}{2}\left(-1\right)^{2n+1}k_{n-1}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{dk_{n}}{dx}=\left(-\frac{1}{2}x^{-1}k_{n}-\frac{1}{2}k_{n-1}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{dk_{n}}{dx}=-\frac{1}{2}\left(x^{-1}k_{n}+k_{n-1}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Свод формул для дифференцирования сферических функций Бесселя
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{dj_{n}\left(x\right)}{dx}=-j_{n+1}\left(x\right)+\frac{n}{x}j_{n}\left(x\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Производная от модифицированной сферической функции Бесселя первого рода
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+i_{n}=\sqrt{\frac{\pi}{2x}}I_{n+1/2}\left(x\right)=\sqrt{\frac{\pi}{2}}x^{-1/2}I_{n+1/2}\left(x\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{di_{n}\left(x\right)}{dx}=-\frac{1}{2}\left(x^{-1}i_{n}\left(x\right)-i_{n-1}\left(x\right)-i_{n+1}\left(x\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Производная от модифицированной сферической функции Бесселя второго рода
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{di_{-n}\left(x\right)}{dx}=-\frac{1}{2}\left(x^{-1}i_{-n}\left(x\right)-i_{-\left(n+1\right)}\left(x\right)-i_{-\left(n-1\right)}\left(x\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Производная от модифицированной сферической функции Бесселя третьего рода
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{dk_{n}}{dx}=-\frac{1}{2}\left(x^{-1}k_{n}+k_{n-1}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Результаты расчета квантовых точек
+\end_layout
+
+\begin_layout Subsection
+Результат расчета простейших квантовых точек в виде паралепипеда
+\end_layout
+
+\begin_layout Subsubsection
+Формулы для расчета
+\end_layout
+
+\begin_layout Standard
+Энергия частицы
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E_{pqs}=U_{0}+\frac{h^{2}\pi^{2}}{2m}\left(\left(\frac{p}{L_{x}}\right)^{2}+\left(\frac{q}{L_{y}}\right)^{2}+\left(\frac{s}{L_{z}}\right)^{2}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В случае если размеры точки по всем трем координатам равны формула для энергии
+ принимает вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E_{pqs}=U_{0}+\frac{h^{2}\pi^{2}}{2mL^{2}}\left(p^{2}+q^{2}+s^{2}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Для электронов в зоне проводимости 
+\begin_inset Formula $m>0$
+\end_inset
+
+, 
+\begin_inset Formula $U_{0}$
+\end_inset
+
+ -энергия на дне зоны проводимости.
+ Для электронов в валентной зоне 
+\begin_inset Formula $m<0$
+\end_inset
+
+, 
+\begin_inset Formula $U_{0}$
+\end_inset
+
+- энергия на вершине валентной зоны.
+ 
+\begin_inset Formula $U_{0}$
+\end_inset
+
+-отсчитывается от энергии электрона в свободном пространстве, которая полагается
+ равной нулю.
+ Учитываем только уровни энергии (только те 
+\begin_inset Formula $pqs$
+\end_inset
+
+) для которых энергия отрицательна.
+ Это выполняется, если выполняется соотношение
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(p^{2}+q^{2}+s^{2}\right)<-U_{0}\frac{2mL^{2}}{h^{2}\pi^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Количество различных наборов 
+\begin_inset Formula $\left(pqs\right)$
+\end_inset
+
+есть число дискретных энергетических состояний.
+ 
+\end_layout
+
+\begin_layout Standard
+Анализ формулы показывает, что расстояние между энергетическими уровнями
+ уменьшается при увеличении размера квантовой точки.
+ Количество дискретных уровней при увеличении размера квантовой точки увеличивае
+тся
+\end_layout
+
+\begin_layout Standard
+Частоты излучаемого света связаны с энергетическими уровнями следующими
+ соотношениями
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+h\omega_{p_{1}q_{1}s_{1}}^{p_{2}q_{2}s_{2}}=E_{p_{2}q_{2}s_{2}}-E_{p_{1}q_{1}s_{1}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В случае переходов в одной зоне
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+h\omega_{p_{1}q_{1}s_{1}}^{p_{2}q_{2}s_{2}}=\frac{h^{2}\pi^{2}}{2mL^{2}}\left\{ \left(p_{2}^{2}+q_{2}^{2}+s_{2}^{2}\right)-\left(p_{1}^{2}+q_{1}^{2}+s_{1}^{2}\right)\right\} 
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где 
+\begin_inset Formula $m_{e}$
+\end_inset
+
+ эффективная масса электрона в зоне.
+\end_layout
+
+\begin_layout Standard
+В случае переходов между уровнями в разных зонах
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+h\omega_{p_{1}q_{1}s_{1}}^{p_{2}q_{2}s_{2}}=E_{g}+\left\{ \frac{h^{2}\pi^{2}}{2m_{c}L^{2}}\left(p_{2}^{2}+q_{2}^{2}+s_{2}^{2}\right)-\frac{h^{2}\pi^{2}}{2m_{v}L^{2}}\left(p_{1}^{2}+q_{1}^{2}+s_{1}^{2}\right)\right\} 
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E_{g}=E_{c}-E_{v}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где 
+\begin_inset Formula $E_{c}-$
+\end_inset
+
+дно зоны проводимости, 
+\begin_inset Formula $E_{v}-$
+\end_inset
+
+вершина валентной зоны, 
+\begin_inset Formula $m_{c}$
+\end_inset
+
+-эффективная масса в зоне проводимости, 
+\begin_inset Formula $m_{v}$
+\end_inset
+
+-эффективная масса в валентной зоне.
+ Выражение для частот перехода не содержит значений энергий краев зон.
+ Однако эти значения необходимы для расчета количества дискретных квантовых
+ состояний.
+\end_layout
+
+\begin_layout Standard
+При наличии внешнего поля поправка к энергии вычисляется следующим образом
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta E_{pqs}=\int\Psi_{pqs}^{*}U\left(x,y,z\right)\Psi_{pqs}dxdydz
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Волновые функции необходимы, чтобы вычислять вероятности перехода в единицу
+ времени между различными уровнями при наличии внешнего поля.
+ Согласно золотому правилу Ферми вероятность перехода равна
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+P\sim\left|\int\Psi_{p_{1}q_{1}s_{1}}^{*}U\left(x,y,z,t\right)\Psi_{p_{2}q_{2}s_{2}}dxdydz\right|^{2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Волновые функции квантовой точки в виде параллепипеда имеют вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Psi_{pqs}=A_{lps}sin\left(k_{xp}\left(x+\frac{L_{x}}{2}\right)\right)sin\left(k_{yq}\left(y+\frac{L_{y}}{2}\right)\right)sin\left(k_{zs}\left(z+\frac{L_{z}}{2}\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+k_{xp}=\frac{\pi p}{L_{x}}\,\,\, k_{yq}=\frac{\pi q}{L_{y}}\,\,\, k_{zs}=\frac{\pi s}{L_{z}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Результаты расчетов
+\end_layout
+
+\begin_layout Standard
+Рассмотрим случай кубической квантовой точки из атомов лития.
+ Литий не является полупроводником, поэтому рассмотрим только зону проводимости.
+ Примерный размер атома лития 0,3 нм=0,3 10(-9)м.
+ Размер квантовой точки у которой вдоль ребра укладывается 10 атомов (всего
+ 1000) равен 3*10(-9) м.
+ Работа выхода у лития составляет всего 2, 49 эв.
+ Будем считать, что дно зоны проводимости.
+\end_layout
+
+\begin_layout Standard
+Пусть теперь размер потенциальной ямы, которая ограничивает область движения
+ носителей заряда 30*10(-9) м
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\frac{h^{2}\pi^{2}}{2mL^{2}}=\frac{1.054^{2}*10^{-68}*3,14^{2}}{2*9.1*10^{-31}*3^{2}*10^{-16}}=\frac{1.054^{2}*10^{-68}}{2*9.1*10^{-31}*10^{-16}}=\frac{10^{-19}}{2*9.1}=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\frac{1.6*10^{-19}}{2*1.6*9.1*10^{2}}=\frac{1.6*10^{-19}}{3.2*9.1*10^{2}}=0.00034\text{\,эв}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h=1.054*10^{-34}\,\,\, m=9.1*10^{-31}\,\,\,\,\, L=3*10^{-9}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\backslash
+
+\begin_inset Formula 
+\[
+\frac{h^{2}\pi^{2}}{2mL^{2}}=\frac{1.054^{2}*10^{-68}*3,14^{2}}{2*9.1*10^{-31}*3^{2}*10^{-18}}=\frac{1.054^{2}*10^{-68}}{2*9.1*10^{-31}*10^{-18}}=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\frac{10^{-19}}{2*9.1}=\frac{1.6*10^{-19}}{2*1.6*9.1}=\frac{1.6*10^{-19}}{3.2*9.1}=0.034\text{\,эв}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Энергия уровней выражается формулой
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E_{pqs}=U_{0}+\frac{h^{2}\pi^{2}}{2mL^{2}}\left(p^{2}+q^{2}+s^{2}\right)=U_{0}+0.034*\left(p^{2}+q^{2}+s^{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Результаты расчета сферических квантовых точек
+\end_layout
+
+\begin_layout Subsubsection
+Формулы для расчета точек с бесконечым потенциальным барьером
+\end_layout
+
+\begin_layout Standard
+Уровни энергии находятся из решения трансиндентного уравнения.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+j_{l}\left(R_{\infty}\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U_{0}\right)}\right)=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Из этого уравнения следует, что 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+R_{\infty}\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U_{0}\right)}=\nu_{lp}\,
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E_{lp}=U_{0}+\frac{h^{2}}{2m_{e}}\left(\frac{\nu_{lp}}{R_{\infty}}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Для электронов в зоне проводимости 
+\begin_inset Formula $m_{e}>0$
+\end_inset
+
+, 
+\begin_inset Formula $U_{0}$
+\end_inset
+
+ -энергия на дне зоны проводимости.
+ Для электронов в валентной зоне 
+\begin_inset Formula $m_{e}<0$
+\end_inset
+
+, 
+\begin_inset Formula $U_{0}$
+\end_inset
+
+- энергия на вершине валентной зоны.
+ 
+\begin_inset Formula $U_{0}$
+\end_inset
+
+-отсчитывается от энергии электрона в свободном пространстве, которая полагается
+ равной нулю.
+ По аналогии с предыдущим случаем учитываем только те уровни энергии (только
+ те 
+\begin_inset Formula $lp)$
+\end_inset
+
+, для которых энергия отрицательна.
+ Это возможно если
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\nu_{lp}^{2}<U_{0}\frac{2m_{e}R_{\infty}}{h^{2}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nu_{lp}$
+\end_inset
+
+ находится из условия
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+j_{l}\left(\nu_{lp}\right)=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где 
+\begin_inset Formula $l$
+\end_inset
+
+ -орбитальное квантовое число, 
+\begin_inset Formula $p$
+\end_inset
+
+- радиальное квантовое число.
+ Число различных 
+\begin_inset Formula $lp$
+\end_inset
+
+ для которых выполняется соотношение
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\nu_{lp}^{2}<U_{0}\frac{2m_{e}R_{\infty}}{h^{2}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+есть количестсво дискретных уравней в квантовой точке.
+ 
+\end_layout
+
+\begin_layout Standard
+Частоты переходов между уровнями в одной в одной зоне
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+h\omega_{l_{1}p_{1}}^{l_{2}p_{2}}=\frac{h^{2}}{2m_{e}}\left\{ \left(\frac{\nu_{l_{2}p_{2}}}{R_{\infty}}\right)^{2}-\left(\frac{\nu_{l_{1}p_{1}}}{R_{\infty}}\right)^{2}\right\} 
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $m_{e}$
+\end_inset
+
+-эффективная масса носителей заряда в соответствующей зоне.
+ 
+\end_layout
+
+\begin_layout Standard
+Частоты переходов между разными зонами
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+h\omega_{l_{1}p_{1}}^{l_{2}p_{2}}=E_{g}+\left\{ \frac{h^{2}}{2m_{c}}\left(\frac{\nu_{l_{2}p_{2}}}{R_{\infty}}\right)^{2}-\frac{h^{2}}{2m_{v}}\left(\frac{\nu_{l_{1}p_{1}}}{R_{\infty}}\right)^{2}\right\} 
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E_{g}=E_{c}-E_{v}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где 
+\begin_inset Formula $E_{c},E_{v}$
+\end_inset
+
+ энергия края зоны проводимости и валентной зоны.
+ 
+\begin_inset Formula $E_{g}$
+\end_inset
+
+ -ширина запрещенной зоны.
+ 
+\begin_inset Formula $m_{c},m_{v}$
+\end_inset
+
+-эффективная масса электрона в зоне проводимости и валентной зоне.
+\end_layout
+
+\begin_layout Standard
+Выражение для частот перехода не содержит значений энергий краев зон.
+ Однако эти значения необходимы для расчета количества дискретных квантовых
+ состояний.
+\end_layout
+
+\begin_layout Standard
+Волновая функция внутри сферы, ограничивающей область движения имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Phi_{s}\left(r,\varphi,\theta\right)=j_{l}\left(\frac{r}{R_{\infty}}\nu_{lp}\right)Y_{lm}\left(\varphi,\theta\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где 
+\begin_inset Formula $m$
+\end_inset
+
+ азимутальное (магнитное) квантовое число.
+ Энергия уровней не зависит от магнитного квантового числа.
+ Зависимость энергии от магнитного квантового числа наступает, если квантовую
+ точку внести в магнитное или электрическое поле.
+ На практике формула для энергии справедлива в окресности границ энергетических
+ зон.
+\end_layout
+
+\begin_layout Standard
+Волновые функции необходимы для того, чтобы вычислять поправки для энергии
+ уровней в случае наличия внещнего поля и вероятности перехода между этими
+ уровнями.
+\end_layout
+
+\begin_layout Subsubsection
+Численные результаты
+\end_layout
+
+\begin_layout Standard
+ЭТО НУЖНО СДЕЛАТЬ
+\end_layout
+
+\begin_layout Subsubsection
+Формулы для расчета точек с конечным потенциалом
+\end_layout
+
+\begin_layout Standard
+В предыдущих разделах были приведены приближенные формулы для энергетических
+ уровней квантовых точек.
+ Для сферической квантовой точки имеется аналитическое решение задачи для
+ потенциала вида 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U=\begin{cases}
+\begin{array}{cc}
+U_{0} & r<r_{0}\\
+0 & r>r_{0}
+\end{array}\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Это позволяет более точно вычислить энергетический спектр сферической квантовой
+ точки и число дискретных квантовых состояний.
+\end_layout
+
+\begin_layout Standard
+Уравнение для энергетического спектра имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{m_{0}}j_{l}\left(\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U_{0}\right)}r_{0}\right)\frac{d}{dr}\left\{ M_{l}\left(\sqrt{-\frac{2m_{0}}{h^{2}}E}r_{0}\right)\right\} -\frac{1}{m_{e}}\frac{d}{dr}\left\{ j_{l}\left(\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U_{0}\right)}r_{0}\right)\right\} M_{l}\left(\sqrt{-\frac{2m_{0}}{h^{2}}E}r_{0}\right)=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где 
+\begin_inset Formula $r_{0}$
+\end_inset
+
+ -радиус квантовой точки
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{d}{dr}\left\{ j_{l}\left(\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U_{0}\right)}r_{0}\right)\right\} =\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U_{0}\right)}r_{0}j_{l}^{/}\left(\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U_{0}\right)}r_{0}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{d}{dr}\left\{ M_{l}\left(\sqrt{-\frac{2m_{0}}{h^{2}}E}r_{0}\right)\right\} =\sqrt{-\frac{2m_{0}}{h^{2}}E}M_{l}^{/}\left(\sqrt{-\frac{2m_{0}}{h^{2}}E}r_{0}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Обозначим
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+k_{Q}^{2}=\frac{2m_{e}}{h^{2}}\left(E-U_{0}\right)\,\,\,\,\,\,\, k^{2}=-\frac{2m_{0}}{h^{2}}E
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Дисперсионное уравнение принимает простой вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{m_{0}}kj_{l}\left(k_{Q}r_{0}\right)M_{l}^{/}\left(kr_{0}\right)-\frac{1}{m_{e}}k_{Q}j_{l}^{/}\left(k_{Q}r_{0}\right)M_{l}\left(kr_{0}\right)=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где 
+\begin_inset Formula $j_{l}\left(k_{Q}r_{0}\right)$
+\end_inset
+
+-сферическая функция Бесселя первого рода, 
+\begin_inset Formula $M_{l}\left(kr_{0}\right)$
+\end_inset
+
+-модифицированная сферическая функция Бесселя третьего рода
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $m_{0}$
+\end_inset
+
+- масса электрона в вакууме (свободного ) электрона
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $m_{e}$
+\end_inset
+
+- эффективная масса электрона в энергетической зоне (проводимости или валентной).
+ Для валентной зоны эффективная масса электрона отрицательна.
+\end_layout
+
+\begin_layout Standard
+Корни уравнения ищем в интервале 
+\begin_inset Formula $[0.99U_{0},0]$
+\end_inset
+
+ для зоны проводимости, 
+\begin_inset Formula $[10U_{0},0.99U_{0}]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Корни уравнения также обозначаем двумя индексами 
+\begin_inset Formula $l,p$
+\end_inset
+
+.
+ Энергия не зависит от магнитного квантового числа.
+ Число различных пар 
+\begin_inset Formula $l,p$
+\end_inset
+
+ для которых 
+\begin_inset Formula $E_{lp}<0$
+\end_inset
+
+ есть число дискретных квантовых уровней в квантовой точке.
+\end_layout
+
+\begin_layout Standard
+Итого решение внутри точки для радиальной части волновой функции 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+R_{Q}^{l}=A_{l}j_{l}\left(\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U_{0}\right)}r\right)\,\,\,\,\, r<r_{0}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Итого решение вне точки для радиальной части волновой функции 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+R^{l}=B_{l}M_{l}\left(\sqrt{-\frac{2m_{0}}{h^{2}}E}r\right)\,\,\, r>r_{0}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Волновая функция имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Psi_{1}=A_{l}j_{l}\left(\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U_{0}\right)}r\right)Y_{lm}\left(\theta,\varphi\right)\,\,\,\,\, r<r_{0}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Psi_{2}=B_{l}M_{l}\left(\sqrt{-\frac{2m_{0}}{h^{2}}E}r\right)Y_{lm}\left(\theta,\varphi\right)\,\,\,\,\,\, r>r_{0}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Связь между коэфициентами 
+\begin_inset Formula $A_{l}$
+\end_inset
+
+,
+\begin_inset Formula $B_{l}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+B_{l}=\frac{j_{l}\left(\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U_{0}\right)}r_{0}\right)}{M_{l}\left(\sqrt{-\frac{2m_{0}}{h^{2}}E}r_{0}\right)}A_{l}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Для электронов в зоне проводимости 
+\begin_inset Formula $m_{e}>0$
+\end_inset
+
+,
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $E-U_{0}>0$
+\end_inset
+
+,
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang russian
+ 
+\begin_inset Formula $U_{0}$
+\end_inset
+
+ -энергия на дне зоны проводимости.
+ Для электронов в валентной зоне 
+\begin_inset Formula $m_{e}<0$
+\end_inset
+
+,
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $E-U_{0}<0$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang russian
+, 
+\begin_inset Formula $U_{0}$
+\end_inset
+
+ энергия на вершине валентной зоны.
+ 
+\begin_inset Formula $U_{0}$
+\end_inset
+
+-отсчитывается от энергии электрона в свободном пространстве, которая полагается
+ равной нулю.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Численные результаты расчетов
+\end_layout
+
+\begin_layout Standard
+ЭТО НУЖНО СДЕЛАТЬ тогда может получиться диплом
+\end_layout
+
+\begin_layout Section
+Приложение
+\end_layout
+
+\begin_layout Subsection
+Метод присоединенных цилиндрических волн для расчета зонной структуры линейного
+ массива квантовых точек
+\end_layout
+
+\begin_layout Subsubsection
+Поле внутри сферы
+\end_layout
+
+\begin_layout Standard
+Рассмотрим теперь уравнение для квантовой точки с конечной энергией
+\end_layout
+
+\begin_layout Standard
+В этом случае имеется две области.
+ Первая область -область внутри квантовой точки.
+ Уравнение Шредингера имеет вид 
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial\Phi_{Q}}{\partial r}\right)+\frac{1}{r^{2}sin\theta}\frac{\partial}{\partial\theta}\left(sin\theta\frac{\partial\Phi_{Q}}{\partial\theta}\right)+\frac{1}{r^{2}sin^{2}\theta}\frac{\partial^{2}\Phi_{Q}}{\partial\varphi^{2}}+\frac{2m}{h^{2}}\left(E-U\right)\Phi_{Q}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial\Phi_{Q}}{\partial r}\right)-\frac{L^{2}\Phi_{Q}}{h^{2}r^{2}}+\frac{2m}{h^{2}}\left(E-U\right)\Phi_{Q}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Представим решение в виде 
+\begin_inset Formula 
+\begin{equation}
+\Phi_{Q}=R_{Q}Y_{lm}\left(\varphi,\theta\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Уравнение для радиальной части волновой функции имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r{}^{2}\frac{\partial R_{Q}}{\partial r}\right)-\frac{l\left(l+1\right)R_{Q}}{r^{2}}+\frac{2m_{e}}{h^{2}}\left(E-U\right)R_{Q}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Потенциальная энергия отлична от нуля в области 
+\begin_inset Formula $r<r_{0}$
+\end_inset
+
+ и имеет отрицательное значение.
+\end_layout
+
+\begin_layout Standard
+Сделаем замену переменных 
+\begin_inset Formula $\eta=\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U\right)}r$
+\end_inset
+
+.
+ Уравнение в этих координатах имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{\eta^{2}}\frac{\partial}{\partial\eta}\left(\eta{}^{2}\frac{\partial F_{Q}}{\partial\eta}\right)+\left(1-\frac{l\left(l+1\right)}{\eta^{2}}\right)F_{Q}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Это уравнение совпадает с уравнением для сферических функций Бесселя
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{\xi^{2}}\frac{\partial}{\partial\xi}\left(\xi{}^{2}\frac{\partial j_{l}\left(\xi\right)}{\partial\xi}\right)+\left(1-\frac{l\left(l+1\right)}{\xi^{2}}\right)j_{l}\left(\xi\right)=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Итого решение в первой области для радиальной части волновой функции 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+R_{Q}^{l}=A_{l}j_{l}\left(\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U\right)}r\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Волновая функция(частное решение), зависящая от радиуса и углов имеет вид
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Phi_{Q}\left(r\text{,\varphi,\theta}\right)=j_{l}\left(\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U\right)}r\right)Y_{lm}\left(\varphi,\theta\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Волновая функция (общее решение)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Phi\left(r\text{,\varphi,\theta}\right)=\sum_{m}\sum_{l}C^{lm}j_{l}\left(\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U\right)}r\right)Y_{lm}\left(\varphi,\theta\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Однако для решения задачи в рамках метода присоединенных волн в качестве
+ решения внутри точки используется следующая функция
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Phi_{2}\left(r\text{,\varphi,\theta}\right)=\sum_{m}\sum_{l}\left\{ C^{lm}j_{l}\left(\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U\right)}r\right)+D^{lm}g_{l}\left(\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U\right)}r\right)\right\} Y_{lm}\left(\varphi,\theta\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где функция 
+\begin_inset Formula $g_{l}$
+\end_inset
+
+ имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+g_{l}\left(\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U\right)}r\right)=\frac{d}{dE}j_{l}\left(\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U\right)}r\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Эта функция не удовлетворяет уравнению Шредингера.
+ Уравнению Шредингера удовлетворяет только
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{m}\sum_{l}C^{lm}j_{l}\left(\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U\right)}r\right)Y_{lm}\left(\varphi,\theta\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Поле в вакуумной области
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial\Phi}{\partial r}\right)+\frac{1}{r^{2}}\frac{\partial^{2}\Phi}{\partial\varphi^{2}}+\frac{\partial^{2}\Phi}{\partial z^{2}}+\frac{2m}{h^{2}}E\Phi=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Применим метод разделения переменных для этого уравнения
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Phi\left(\rho,\varphi,z\right)=R\left(\rho\right)exp\left(im\varphi\right)exp\left(i\left(k+k_{p}\right)z\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Радиальная фцнкция удовлетворяет уравнению
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial R\left(\rho\right)}{\partial r}\right)-\frac{m^{2}}{r^{2}}R\left(\rho\right)-\left(k+k_{p}\right)^{2}R\left(\rho\right)+\frac{2m_{0}}{h^{2}}ER\left(\rho\right)=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial R\left(\rho\right)}{\partial r}\right)-\frac{m^{2}}{r^{2}}R\left(\rho\right)+\left(\frac{2m_{0}}{h^{2}}E-\left(k+k_{p}\right)^{2}\right)R\left(\rho\right)=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial R\left(\rho\right)}{\partial r}\right)-\frac{m^{2}}{r^{2}}R\left(\rho\right)+\left(K_{sm}^{2}\right)R\left(\rho\right)=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+K_{smp}^{2}=\frac{2m_{0}}{h^{2}}E-\left(k+k_{p}\right)^{2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Решением радиального уравнения является функция Бесселя
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R\left(\rho\right)=J_{m}\left(K_{sm}\rho\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Итого решение уравнения Шредингера, которое зависит от всех пространственых
+ переменных
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Phi\left(\rho,\varphi,z\right)=C^{sm}J_{m}\left(K_{sm}\rho\right)exp\left(im\varphi\right)exp\left(i\left(k+k_{p}\right)z\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Phi\left(\rho,\varphi,z\right)=A^{sm}J_{m}\left(K_{smp}\rho\right)exp\left(im\varphi\right)exp\left(iK_{p}z\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+K_{p}=\left(k+k_{p}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $K_{smp}$
+\end_inset
+
+ находится из условия
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+J_{m}\left(K_{smp}\rho_{c}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+K_{smp}\rho_{c}=\nu_{sm}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+J_{m}\left(\nu_{sm}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nu_{sm}$
+\end_inset
+
+ -s тый нуль m -той функции Бесселя
+\end_layout
+
+\begin_layout Standard
+Запишем это уравнение в сферической системе координат с центром в центре
+ квантовой точки
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Phi_{1}\left(r,\theta,\varphi\right)=A^{sm}J_{m}\left(K_{smp}rsin\theta\right)exp\left(im\varphi\right)exp\left(iK_{p}rcos\theta\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В отличие от функции внутри сферы эта функция удовлетворяет уравнению Шредингера
+\end_layout
+
+\begin_layout Subsubsection
+Сшивка на границе сферы и вакуумной области
+\end_layout
+
+\begin_layout Standard
+Волновые функции имеют вид 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Phi_{1}\left(r,\theta,\varphi\right)=A^{sm}J_{m}\left(K_{smp}rsin\theta\right)exp\left(im\varphi\right)exp\left(iK_{p}rcos\theta\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Phi_{2}\left(r\text{,\varphi,\theta}\right)=\sum_{m}\sum_{l}\left\{ C^{lm}j_{l}\left(\gamma r\right)+D^{lm}g_{l}\left(\gamma r\right)\right\} Y_{lm}\left(\varphi,\theta\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\gamma=\sqrt{\frac{2m_{e}}{h^{2}}\left(E-U\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Производные волновых функций по радиусу имеют вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{d}{dr}\Phi_{1}\left(r,\theta,\varphi\right)=A^{sm}\frac{d}{dr}\left[J_{m}\left(K_{smp}rsin\theta\right)exp\left(iK_{p}rcos\theta\right)\right]exp\left(im\varphi\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{d}{dr}\Phi_{2}\left(r\text{,\varphi,\theta}\right)=\sum_{m}\sum_{l}\left\{ C^{lm}\frac{d}{dr}\left[j_{l}\left(\gamma r\right)\right]+D^{lm}\frac{d}{dr}\left[g_{l}\left(\gamma r\right)\right]\right\} Y_{lm}\left(\varphi,\theta\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где функция 
+\begin_inset Formula $g_{l}$
+\end_inset
+
+ имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+g_{l}\left(\gamma r\right)=\frac{d}{dE}j_{l}\left(\gamma r\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Функции и ее производные удовлетворяют уравнениям сшивки
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Phi_{1}\left(r_{Q},\theta,\varphi\right)=\Phi_{2}\left(r_{Q},\theta,\varphi\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{d}{dr}\left(\Phi_{1}\left(r_{Q},\theta,\varphi\right)\right)=\frac{d}{dr}\left(\Phi_{2}\left(r_{Q},\theta,\varphi\right)\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Первое уравнение имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+A^{sm}J_{m}\left(K_{smp}rsin\theta\right)exp\left(im\varphi\right)exp\left(iK_{p}rcos\theta\right)=\sum_{l}\left\{ C^{lm}\frac{d}{dr}\left[j_{l}\left(\gamma r\right)\right]+D^{lm}\frac{d}{dr}\left[g_{l}\left(\gamma r\right)\right]\right\} Y_{lm}\left(\varphi,\theta\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Y_{lm}\left(\varphi,\theta\right)$
+\end_inset
+
+ имеют вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Y_{lm}(\theta,\varphi)=N_{lm}P_{l}^{\left|m\right|}\left(\cos\theta\right)e^{im\varphi}\text{,}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+здесь 
+\begin_inset Formula $P_{l}^{\left|m\right|}$
+\end_inset
+
+- присоединенные функции Лежандра,
+\begin_inset Formula $N_{lm}$
+\end_inset
+
+ - нормировка:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+N_{lm}=(-1)^{\frac{m+\left|m\right|}{2}}i^{l}\left[\frac{2l+1}{4\pi}\frac{\left(l-\left|m\right|\right)!}{\left(l+\left|m\right|\right)!}\right]^{1/2}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+A^{sm}J_{m}\left(K_{smp}r_{Q}sin\theta\right)exp\left(im\varphi\right)exp\left(iK_{p}r_{Q}cos\theta\right)=\sum_{l}\left\{ C^{lm}\frac{d}{dr}\left[j_{l}\left(\gamma r_{Q}\right)\right]+D^{lm}\frac{d}{dr}\left[g_{l}\left(\gamma r_{Q}\right)\right]\right\} N_{lm}P_{l}^{\left|m\right|}\left(\cos\theta\right)e^{im\varphi}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Упрощаем и получаем функциональное уравнение
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+A^{sm}J_{m}\left(K_{smp}r_{Q}sin\theta\right)exp\left(iK_{p}r_{Q}cos\theta\right)=\sum_{l}\left\{ C^{lm}\frac{d}{dr}\left[j_{l}\left(\gamma r_{Q}\right)\right]+D^{lm}\frac{d}{dr}\left[g_{l}\left(\gamma r_{Q}\right)\right]\right\} N_{lm}P_{l}^{\left|m\right|}\left(\cos\theta\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Далее умножая левую и правую часть на 
+\begin_inset Formula $P_{l_{1}}^{\left|m\right|}\left(\cos\theta\right)sin\theta$
+\end_inset
+
+ и интегрируя по углу 
+\begin_inset Formula $\theta$
+\end_inset
+
+ получаем систему линейных уравнений 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+A^{sm}\int_{0}^{\pi}J_{m}\left(K_{smp}r_{Q}sin\theta\right)exp\left(iK_{p}r_{Q}cos\theta\right)P_{l_{1}}^{\left|m\right|}\left(\cos\theta\right)sin\theta d\theta=
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+=\sum_{l}\left\{ C^{lm}\frac{d}{dr}\left[j_{l}\left(\gamma r_{Q}\right)\right]+D^{lm}\frac{d}{dr}\left[g_{l}\left(\gamma r_{Q}\right)\right]\right\} N_{lm}\int_{0}^{\pi}P_{l}^{\left|m\right|}\left(\cos\theta\right)P_{l_{1}}^{\left|m\right|}\left(\cos\theta\right)sin\theta d\theta
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Далее учитываем ортогональность полиномов Лежандра
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\int_{0}^{\pi}P_{l}^{\left|m\right|}\left(\cos\theta\right)P_{l_{1}}^{\left|m\right|}\left(\cos\theta\right)sin\theta d\theta=\left[\frac{2}{2l+1}\frac{\left(l+\left|m\right|\right)!}{\left(l-\left|m\right|\right)!}\right]\delta_{ll_{1}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Упрощаем и получаем 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A^{sm}\int_{0}^{\pi}J_{m}\left(K_{smp}r_{Q}sin\theta\right)exp\left(iK_{p}r_{Q}cos\theta\right)P_{l_{1}}^{\left|m\right|}\left(\cos\theta\right)sin\theta d\theta=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+=\left\{ C^{l_{1}m}\frac{d}{dr}\left[j_{l_{1}}\left(\gamma r_{Q}\right)\right]+D^{l_{1}m}\frac{d}{dr}\left[g_{l}\left(\gamma r_{Q}\right)\right]\right\} N_{l_{1}m}\left[\frac{2}{2l+1}\frac{\left(l_{1}+\left|m\right|\right)!}{\left(l_{1}-\left|m\right|\right)!}\right]
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Аналогично проводим выкладки для производных по радиусу
+\end_layout
+
+\end_body
+\end_document

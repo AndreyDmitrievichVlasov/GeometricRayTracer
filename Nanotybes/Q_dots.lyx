@@ -1646,7 +1646,7 @@ z=rsin\left(\theta\right)
 \begin{equation}
 \begin{cases}
 \left.\Psi_{n,m,e}^{cyl}\left(rcos\left(\theta\right),\psi,rsin\left(\theta\right)\right)=\Psi_{l,m,e}^{sph}\left(r,\psi,\theta\right)\right|_{r=r_{0}}\\
-\left.\frac{\partial\Psi_{n,m,e}^{cyl}\left(rcos\left(\theta\right),\psi,rsin\left(\theta\right)\right)}{\partial\left(rcos\left(\theta\right)\right)}=\frac{\partial\Psi_{l,m,e}^{sph}\left(r,\psi,\theta\right)}{\partial r}\right|_{r=r_{0}}\\
+\left.\frac{\partial\Psi_{n,m,e}^{cyl}\left(rcos\left(\theta\right),\psi,rsin\left(\theta\right)\right)}{\partial r}=\frac{\partial\Psi_{l,m,e}^{sph}\left(r,\psi,\theta\right)}{\partial r}\right|_{r=r_{0}}\\
 \left.\Psi_{n,m,e}^{cyl}\left(\rho,\phi,z\right)=0\right|_{\rho=r_{1}}
 \end{cases}
 \end{equation}
@@ -1658,7 +1658,7 @@ z=rsin\left(\theta\right)
 \begin{equation}
 \begin{cases}
 \left.C_{m,n,e}e^{im\psi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)rsin\left(\theta\right)}J_{m}\left(k_{\rho,n,e}rcos\left(\theta\right)\right)=\left(A_{ml}j_{m}\left(\alpha_{r,e}r\right)+B_{ml}\varUpsilon_{m}\left(\alpha_{r,e}r\right)\right)Y_{ml}\left(\psi,\theta\right)\right|_{r=r_{0}}\\
-\left.C_{m,n,e}e^{im\psi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)rsin\left(\theta\right)}\frac{\partial J_{m}\left(k_{\rho,n,e}rcos\left(\theta\right)\right)}{\partial\left(rcos\left(\theta\right)\right)}=\left(A_{ml}\frac{\partial j_{m}\left(\alpha_{r,e}r\right)}{\partial r}+B_{ml}\frac{\partial\varUpsilon_{m}\left(\alpha_{r,e}r\right)}{\partial r}\right)Y_{ml}\left(\psi,\theta\right)\right|_{r=r_{0}}
+\left.C_{m,n,e}e^{im\psi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)rsin\left(\theta\right)}\frac{\partial J_{m}\left(k_{\rho,n,e}rcos\left(\theta\right)\right)}{\partial r}=\left(A_{ml}\frac{\partial j_{m}\left(\alpha_{r,e}r\right)}{\partial r}+B_{ml}\frac{\partial\varUpsilon_{m}\left(\alpha_{r,e}r\right)}{\partial r}\right)Y_{ml}\left(\psi,\theta\right)\right|_{r=r_{0}}
 \end{cases}
 \end{equation}
 
