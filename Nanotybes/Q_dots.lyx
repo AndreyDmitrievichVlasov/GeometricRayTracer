@@ -1827,7 +1827,7 @@ J_{m}\left(\rho\sqrt{\frac{2m_{e}}{\hbar^{2}}E_{e}-K_{n,c}^{2}}\right)=0
 \lang russian
 \begin_inset Formula 
 \[
-\nu_{nm}=\sqrt{\frac{2m_{e}}{\hbar^{2}}E_{e}-K_{n,c}^{2}}
+\nu_{nc}=\sqrt{\frac{2m_{e}}{\hbar^{2}}E-K_{n,c}^{2}}
 \]
 
 \end_inset
@@ -1900,7 +1900,26 @@ z=rsin\left(\theta\right)
 Для цилиндрического поля получим:
 \begin_inset Formula 
 \[
-\Psi_{e,c}^{cyl}\left(\rho,\phi,z,E_{e}\right)=\sum_{m,n}C_{m,n,e}\text{exp}\left\{ im\phi\right\} \text{exp}\left\{ iK_{n,c}rsin\left(\theta\right)\right\} \left(J_{m}\left(rcos\left(\theta\right)\sqrt{\frac{2m_{e}}{\hbar^{2}}E_{e}-K_{n,c}^{2}}\right)\right)
+\Psi_{c}^{cyl}\left(\rho,\phi,z\right)=\sum_{m,n}C_{m,n}\text{exp}\left\{ im\phi\right\} \text{exp}\left\{ iK_{n,c}rsin\left(\theta\right)\right\} J_{m}\left(rcos\left(\theta\right)\nu_{nc}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\text{exp}\left\{ iK_{n,c}rsin\left(\theta\right)\right\} J_{m}\left(rcos\left(\theta\right)\nu_{nc}\right)=F_{m,n,c}\left(r,\theta\right),
+\]
+
+\end_inset
+
+тогда 
+\begin_inset Formula 
+\[
+\Psi_{c}^{cyl}\left(\rho,\phi,z\right)=\sum_{m,n}C_{m,n}\text{exp}\left\{ im\phi\right\} F_{m,n,c}\left(r,\theta\right)
 \]
 
 \end_inset
@@ -1911,7 +1930,26 @@ z=rsin\left(\theta\right)
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\Psi_{e}^{sph}\left(r,\psi,\theta,E_{e}\right)=\sum_{m,l}\left(A_{ml}j_{m}\left(\alpha_{r,e}r\right)+B_{ml}\varUpsilon_{m}\left(\alpha_{r,e}r\right)\right)Y_{ml}\left(\psi,\theta\right)
+\Psi^{sph}\left(r,\psi,\theta\right)=\sum_{m,l}\left(A_{ml}j_{m}\left(\alpha_{r}r\right)+B_{ml}\varUpsilon_{m}\left(\alpha_{r}r\right)\right)Y_{ml}\left(\psi,\theta\right)
+\]
+
+\end_inset
+
+Учитывая функциональную зависимость:
+\begin_inset Formula 
+\[
+\alpha_{r,e}\left(E_{e}\right)=\sqrt{\frac{2m_{e}}{\hbar^{2}}\left(E_{e}-U\right)},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Psi^{sph}\left(r,\psi,\theta\right)=\sum_{m,l}\left(A_{ml}j_{m}\left(r,E\right)+B_{ml}\varUpsilon_{m}\left(r,E\right)\right)Y_{ml}\left(\psi,\theta\right)
 \]
 
 \end_inset
@@ -1932,26 +1970,34 @@ J_{m}\left(\rho\sqrt{\frac{2m_{e}}{\hbar^{2}}E_{e}-K_{n,c}^{2}}\right)=0
 
 \end_inset
 
-Опустим этот индекс, продолжая держать в уме выражение 26, тода для цилиндрическ
-ого и ферического полей, имеем:
+В качестве функции 
+\begin_inset Formula $\varUpsilon_{m}\left(\alpha_{r}r\right)$
+\end_inset
+
+выбрем слежующую:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\varUpsilon_{m}\left(\alpha_{r}r\right)=\frac{\partial j_{m}\left(r,E\right)}{\partial E}
+\]
+
+\end_inset
+
+Так как функция из общего решения не удовлетвоярет условию ограниченности.
+ Опустим индекс энергии, продолжая держать в уме выражение 26, тода для
+ цилиндрического и ферического полей, имеем:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 \begin{cases}
-\Psi_{c}^{cyl}\left(\rho,\phi,z\right)=\sum_{m,n}C_{m,n}\text{exp}\left\{ im\phi\right\} \text{exp}\left\{ iK_{n,c}rsin\left(\theta\right)\right\} J_{m}\left(rcos\left(\theta\right)\sqrt{\frac{2m_{e}}{\hbar^{2}}E-K_{n,c}^{2}}\right)\\
-\Psi^{sph}\left(r,\psi,\theta\right)=\sum_{m,l}\left(A_{ml}j_{m}\left(\alpha_{r}r\right)+B_{ml}\varUpsilon_{m}\left(\alpha_{r}r\right)\right)Y_{ml}\left(\psi,\theta\right)
+\Psi_{c}^{cyl}\left(\rho,\phi,z\right)=\sum_{m,n}C_{m,n}\text{exp}\left\{ im\phi\right\} F_{m,n,c}\left(r,\theta\right)\\
+\Psi^{sph}\left(r,\psi,\theta\right)=\sum_{m,l}\left(A_{ml}j_{m}\left(r,E\right)+B_{ml}\varUpsilon_{m}\left(r,E\right)\right)Y_{ml}\left(\psi,\theta\right)
 \end{cases}
 \end{equation}
-
-\end_inset
-
-Учитывая функциональную зависимость:
-\begin_inset Formula 
-\[
-\alpha_{r,e}\left(E_{e}\right)=\sqrt{\frac{2m_{e}}{\hbar^{2}}\left(E_{e}-U\right)},
-\]
 
 \end_inset
 
@@ -1959,24 +2005,6 @@ J_{m}\left(\rho\sqrt{\frac{2m_{e}}{\hbar^{2}}E_{e}-K_{n,c}^{2}}\right)=0
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\[
-\begin{cases}
-\Psi_{c}^{cyl}\left(r,\psi,\theta\right)=\sum_{m,n}C_{m,n}\text{exp}\left\{ im\phi\right\} \text{exp}\left\{ iK_{n,c}rsin\left(\theta\right)\right\} J_{m}\left(rcos\left(\theta\right)\sqrt{\frac{2m_{e}}{\hbar^{2}}E-K_{n,c}^{2}}\right)\\
-\Psi^{sph}\left(r,\psi,\theta\right)=\sum_{m,l}\left(A_{ml}f_{m}\left(r,E\right)+B_{ml}g_{m}\left(r,E\right)\right)Y_{ml}\left(\psi,\theta\right)
-\end{cases},
-\]
-
-\end_inset
-
-Где:
-\begin_inset Formula 
-\[
-f_{m}\left(r,E\right)=j_{m}\left(r\sqrt{\frac{2m_{e}}{\hbar^{2}}\left(E-U\right)}\right),\,\,\,g_{m}\left(r,E\right)=\frac{\partial f_{m}\left(r,E\right)}{\partial E}
-\]
-
-\end_inset
-
 Имеем задачу для сшивки:
 \end_layout
 
@@ -1992,6 +2020,432 @@ f_{m}\left(r,E\right)=j_{m}\left(r\sqrt{\frac{2m_{e}}{\hbar^{2}}\left(E-U\right)
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Сшивка по значению 
+\end_layout
+
+\begin_layout Standard
+Рассмотрим детальнее первое уравнения системы 28 и получим: 
+\begin_inset Formula 
+\[
+\left.\Psi_{c}^{cyl}\left(r,\psi,\theta\right)=\Psi^{sph}\left(r,\psi,\theta\right)\right|_{r=r_{0}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left.\sum_{m,n}C_{m,n}\text{exp}\left\{ im\phi\right\} F_{m,n,c}\left(r,\theta\right)=\sum_{m,l}\left(A_{ml}j_{m}\left(r,E\right)+B_{ml}\varUpsilon_{m}\left(r,E\right)\right)Y_{ml}\left(\psi,\theta\right)\right|_{r=r_{0}}
+\]
+
+\end_inset
+
+Вспомним, что сферические функции имеют вид:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Y_{ml}\left(\psi,\theta\right)=\frac{1}{\sqrt{2\pi}}\text{exp}\left\{ im\phi\right\} \Theta_{lm}\left(\theta\right)=\frac{\left(-1\right)^{m}}{\sqrt{2\pi}}\text{exp}\left\{ im\phi\right\} \sqrt{\frac{2l+1}{2}\frac{\left(l-\left|m\right|\right)!}{\left(l+\left|m\right|\right)!}}P_{lm}\left(cos\left(\theta\right)\right)=\frac{\left(-1\right)^{m}}{\sqrt{2\pi}}\text{exp}\left\{ im\phi\right\} N_{ml}P_{lm}\left(cos\left(\theta\right)\right)
+\]
+
+\end_inset
+
+Тогда:
+\begin_inset Formula 
+\[
+\left.\sum_{m,n}C_{m,n}\text{exp}\left\{ im\phi\right\} F_{m,n,c}\left(r,\theta\right)=\sum_{m,l}\left(A_{ml}j_{m}\left(r,E\right)+B_{ml}\varUpsilon_{m}\left(r,E\right)\right)\frac{\left(-1\right)^{m}}{\sqrt{2\pi}}\text{exp}\left\{ im\phi\right\} N_{ml}P_{lm}\left(cos\left(\theta\right)\right)\right|_{r=r_{0}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left.\sum_{m,n}C_{m,n}F_{m,n,c}\left(r,\theta\right)=\sum_{m,l}\left(A_{ml}j_{m}\left(r,E\right)+B_{ml}\varUpsilon_{m}\left(r,E\right)\right)\frac{\left(-1\right)^{m}N_{ml}}{\sqrt{2\pi}}P_{lm}\left(cos\left(\theta\right)\right)\right|_{r=r_{0}}
+\]
+
+\end_inset
+
+Убирая знаки суммирования:
+\begin_inset Formula 
+\[
+\left.C_{m,n}F_{m,n,c}\left(r,\theta\right)=\sum_{l}\left(A_{ml}j_{m}\left(r,E\right)+B_{ml}\varUpsilon_{m}\left(r,E\right)\right)\frac{\left(-1\right)^{m}N_{ml}}{\sqrt{2\pi}}P_{lm}\left(cos\left(\theta\right)\right)\right|_{r=r_{0}}
+\]
+
+\end_inset
+
+ Теперь воспользуемся свойством ортогональности сферических функци и умножем
+ правую и левую части на 
+\begin_inset Formula $P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)$
+\end_inset
+
+и проинтегрируем по углу в пределах от 
+\begin_inset Formula $0$
+\end_inset
+
+ до 
+\begin_inset Formula $\pi$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\left.\int_{0}^{\pi}C_{m,n}F_{m,n,c}\left(r,\theta\right)P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta=\sum_{l}\int_{0}^{\pi}\left(A_{ml}j_{m}\left(r,E\right)+B_{ml}\varUpsilon_{m}\left(r,E\right)\right)\frac{\left(-1\right)^{m}N_{ml}}{\sqrt{2\pi}}P_{lm}\left(cos\left(\theta\right)\right)P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta\right|_{r=r_{0}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left.\int_{0}^{\pi}C_{m,n}F_{m,n,c}\left(r,\theta\right)P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta=\sum_{l}\left(A_{ml}j_{m}\left(r,E\right)+B_{ml}\varUpsilon_{m}\left(r,E\right)\right)\frac{\left(-1\right)^{m}N_{ml}}{\sqrt{2\pi}}\int_{0}^{\pi}P_{lm}\left(cos\left(\theta\right)\right)P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta\right|_{r=r_{0}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\int_{0}^{\pi}P_{lm}\left(cos\left(\theta\right)\right)P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta=\frac{2}{2l_{0}+1}\frac{\left(l_{0}+\left|m\right|\right)!}{\left(l_{0}-\left|m\right|\right)!}\delta\left(l_{0}-l\right)=M_{l_{0}m}\delta\left(l_{0}-l\right)
+\]
+
+\end_inset
+
+Тогда интеграл можно переписать в виде:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left.\int_{0}^{\pi}C_{m,n}F_{m,n,c}\left(r,\theta\right)P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta=\left(A_{ml_{0}}j_{m}\left(r,E\right)+B_{ml_{0}}\varUpsilon_{m}\left(r,E\right)\right)\frac{\left(-1\right)^{m}N_{ml_{0}}}{\sqrt{2\pi}}M_{l_{0}m}\right|_{r=r_{0}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+N_{ml_{0}}=\sqrt{\frac{2l+1}{2}\frac{\left(l_{0}-\left|m\right|\right)!}{\left(l_{0}+\left|m\right|\right)!}},\,\,\,M_{l_{0}m}=\frac{2}{2l_{0}+1}\frac{\left(l_{0}+\left|m\right|\right)!}{\left(l_{0}-\left|m\right|\right)!},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+M_{l_{0}m}=N_{ml_{0}}^{-2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left.C_{m,n}\int_{0}^{\pi}F_{m,n,c}\left(r,\theta\right)P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta=\left(A_{ml_{0}}j_{m}\left(r,E\right)+B_{ml_{0}}\varUpsilon_{m}\left(r,E\right)\right)\frac{\left(-1\right)^{m}}{\sqrt{2\pi}}\sqrt{M_{l_{0}m}}\right|_{r=r_{0}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Сшивка решений по производной
+\end_layout
+
+\begin_layout Standard
+Воспользуемся системой уравнений 26 и продифференцируем ее по радиусу:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+\frac{\partial\Psi_{c}^{cyl}\left(r,\phi,z\right)}{\partial r}=\sum_{m,n}C_{m,n}\text{exp}\left\{ im\phi\right\} \frac{\partial F_{m,n,c}\left(r,\theta\right)}{\partial r}\\
+\frac{\partial\Psi^{sph}\left(r,\psi,\theta\right)}{\partial r}=\sum_{m,l}\left(A_{ml}\frac{\partial j_{m}\left(r,E\right)}{\partial r}+B_{ml}\frac{\partial\varUpsilon_{m}\left(r,E\right)}{\partial r}\right)Y_{ml}\left(\psi,\theta\right)
+\end{cases}
+\]
+
+\end_inset
+
+Теперь воспользуемся вторым уравнением системы 27:
+\begin_inset Formula 
+\[
+\left.\sum_{m,n}C_{m,n}\text{exp}\left\{ im\phi\right\} \frac{\partial F_{m,n,c}\left(r,\theta\right)}{\partial r}=\sum_{m,l}\left(A_{ml}\frac{\partial j_{m}\left(r,E\right)}{\partial r}+B_{ml}\frac{\partial\varUpsilon_{m}\left(r,E\right)}{\partial r}\right)Y_{ml}\left(\psi,\theta\right)\right|_{r=r_{0}}
+\]
+
+\end_inset
+
+Опускаем суммирование.
+ Всё аналогично предыдущему подразделу:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left.C_{m,n}\frac{\partial F_{m,n,c}\left(r,\theta\right)}{\partial r}=\sum_{l}\left(A_{ml}\frac{\partial j_{m}\left(r,E\right)}{\partial r}+B_{ml}\frac{\partial\varUpsilon_{m}\left(r,E\right)}{\partial r}\right)N_{ml}P_{lm}\left(cos\left(\theta\right)\right)\right|_{r=r_{0}}
+\]
+
+\end_inset
+
+ Теперь воспользуемся свойством ортогональности сферических функци и умножем
+ правую и левую части на 
+\begin_inset Formula $P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)$
+\end_inset
+
+и проинтегрируем по углу в пределах от 
+\begin_inset Formula $0$
+\end_inset
+
+ до 
+\begin_inset Formula $\pi$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left.\int_{0}^{\pi}C_{m,n}\frac{\partial F_{m,n,c}\left(r,\theta\right)}{\partial r}P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta=\sum_{l}\left(A_{ml}\frac{\partial j_{m}\left(r,E\right)}{\partial r}+B_{ml}\frac{\partial\varUpsilon_{m}\left(r,E\right)}{\partial r}\right)\frac{\left(-1\right)^{m}N_{ml}}{\sqrt{2\pi}}\int_{0}^{\pi}P_{lm}\left(cos\left(\theta\right)\right)P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta\right|_{r=r_{0}}
+\]
+
+\end_inset
+
+Окончательно для производных получим:
+\begin_inset Formula 
+\begin{equation}
+\left.C_{m,n}\int_{0}^{\pi}\frac{\partial F_{m,n,c}\left(r,\theta\right)}{\partial r}P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta=\left(A_{ml_{0}}\frac{\partial j_{m}\left(r,E\right)}{\partial r}+B_{ml_{0}}\frac{\partial\varUpsilon_{m}\left(r,E\right)}{\partial r}\right)\frac{\left(-1\right)^{m}}{\sqrt{2\pi}}\sqrt{M_{l_{0}m}}\right|_{r=r_{0}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Матричное представление
+\end_layout
+
+\begin_layout Standard
+Выпишем формулы 29,30 и объединим их в систему:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C_{m,n}\int_{0}^{\pi}F_{m,n,c}\left(r_{0},\theta\right)P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta=\left(A_{ml_{0}}j_{m}\left(r_{0},E\right)+B_{ml_{0}}\varUpsilon_{m}\left(r_{0},E\right)\right)\frac{\left(-1\right)^{m}}{\sqrt{2\pi}}\sqrt{M_{l_{0}m}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+C_{m,n}\int_{0}^{\pi}\frac{\partial F_{m,n,c}\left(r_{0},\theta\right)}{\partial r}P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta=\left(A_{ml_{0}}\frac{\partial j_{m}\left(r_{0},E\right)}{\partial r}+B_{ml_{0}}\frac{\partial\varUpsilon_{m}\left(r_{0},E\right)}{\partial r}\right)\frac{\left(-1\right)^{m}}{\sqrt{2\pi}}\sqrt{M_{l_{0}m}}
+\]
+
+\end_inset
+
+Система для двух последних уравнений :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+\left(A_{ml_{0}}j_{m}\left(r_{0},E\right)+B_{ml_{0}}\varUpsilon_{m}\left(r_{0},E\right)\right)\frac{\left(-1\right)^{m}}{\sqrt{2\pi}}\sqrt{M_{l_{0}m}}=C_{m,n}\int_{0}^{\pi}F_{m,n,c}\left(r_{0},\theta\right)P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta\\
+\left(A_{ml_{0}}\frac{\partial j_{m}\left(r_{0},E\right)}{\partial r}+B_{ml_{0}}\frac{\partial\varUpsilon_{m}\left(r_{0},E\right)}{\partial r}\right)\frac{\left(-1\right)^{m}}{\sqrt{2\pi}}\sqrt{M_{l_{0}m}}=C_{m,n}\int_{0}^{\pi}\frac{\partial F_{m,n,c}\left(r_{0},\theta\right)}{\partial r}P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta
+\end{cases}\Rightarrow
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+\left(A_{ml_{0}}j_{m}\left(r_{0},E\right)+B_{ml_{0}}\varUpsilon_{m}\left(r_{0},E\right)\right)=\left(-1\right)^{m}\sqrt{2\pi}\frac{C_{m,n}}{\sqrt{M_{l_{0}m}}}\int_{0}^{\pi}F_{m,n,c}\left(r_{0},\theta\right)P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta\\
+\left(A_{ml_{0}}\frac{\partial j_{m}\left(r_{0},E\right)}{\partial r}+B_{ml_{0}}\frac{\partial\varUpsilon_{m}\left(r_{0},E\right)}{\partial r}\right)=\left(-1\right)^{m}\sqrt{2\pi}\frac{C_{m,n}}{\sqrt{M_{l_{0}m}}}\int_{0}^{\pi}\frac{\partial F_{m,n,c}\left(r_{0},\theta\right)}{\partial r}P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta
+\end{cases}
+\]
+
+\end_inset
+
+Теперь легко перейти к матричному виду:
+\begin_inset Formula 
+\[
+\left[\begin{array}{cc}
+j_{m}\left(r_{0},E\right) & \varUpsilon_{m}\left(r_{0},E\right)\\
+\frac{\partial j_{m}\left(r_{0},E\right)}{\partial r} & \frac{\partial\varUpsilon_{m}\left(r_{0},E\right)}{\partial r}
+\end{array}\right]\left[\begin{array}{c}
+A_{ml_{0}}\\
+B_{ml_{0}}
+\end{array}\right]=\left(-1\right)^{m}\sqrt{2\pi}\frac{C_{m,n}}{\sqrt{M_{l_{0}m}}}\left[\begin{array}{c}
+\int_{0}^{\pi}F_{m,n,c}\left(r_{0},\theta\right)P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta\\
+\int_{0}^{\pi}\frac{\partial F_{m,n,c}\left(r_{0},\theta\right)}{\partial r}P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Получается, чтобы найти коэффициенты для решения в сферической области,
+ необходимо:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{c}
+A_{ml_{0}}\\
+B_{ml_{0}}
+\end{array}\right]=\left(-1\right)^{m}\sqrt{2\pi}\frac{C_{m,n}}{\sqrt{M_{l_{0}m}}}\left(\frac{1}{j_{m}\left(r_{0},E\right)\frac{\partial\varUpsilon_{m}\left(r_{0},E\right)}{\partial r}-\varUpsilon_{m}\left(r_{0},E\right)\frac{\partial j_{m}\left(r_{0},E\right)}{\partial r}}\right)\left[\begin{array}{cc}
+\frac{\partial\varUpsilon_{m}\left(r_{0},E\right)}{\partial r} & -\varUpsilon_{m}\left(r_{0},E\right)\\
+-\frac{\partial j_{m}\left(r_{0},E\right)}{\partial r} & j_{m}\left(r_{0},E\right)
+\end{array}\right]\left[\begin{array}{c}
+\int_{0}^{\pi}F_{m,n,c}\left(r_{0},\theta\right)P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta\\
+\int_{0}^{\pi}\frac{\partial F_{m,n,c}\left(r_{0},\theta\right)}{\partial r}P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta
+\end{array}\right]
+\]
+
+\end_inset
+
+или проще:
+\begin_inset Formula 
+\[
+\left[\begin{array}{c}
+A_{ml_{0}}\\
+B_{ml_{0}}
+\end{array}\right]=\left(-1\right)^{m}\sqrt{2\pi}\frac{C_{m,n}}{\sqrt{M_{l_{0}m}}}\left[\begin{array}{cc}
+j_{m}\left(r_{0},E\right) & \varUpsilon_{m}\left(r_{0},E\right)\\
+\frac{\partial j_{m}\left(r_{0},E\right)}{\partial r} & \frac{\partial\varUpsilon_{m}\left(r_{0},E\right)}{\partial r}
+\end{array}\right]^{-1}\left[\begin{array}{c}
+\int_{0}^{\pi}F_{m,n,c}\left(r_{0},\theta\right)P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta\\
+\int_{0}^{\pi}\frac{\partial F_{m,n,c}\left(r_{0},\theta\right)}{\partial r}P_{l_{0}m}\left(cos\left(\theta\right)\right)sin\left(\theta\right)d\theta
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Базисные функции
+\end_layout
+
+\begin_layout Standard
+Выпишем, основываясь на предудущих подразделах, уравнения для базисных функций
+ для сферисекой и цилиндрисеской областей.
+ Запишем эти функции в сферической системе координат.
+ Цилиндрическое поле:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Psi_{c}^{cyl}\left(\rho,\phi,z\right)=C_{m,n}\text{exp}\left\{ im\phi\right\} F_{m,n,c}\left(r,\theta\right)
+\]
+
+\end_inset
+
+Здесь 
+\begin_inset Formula $F_{m,n,c}\left(r,\theta\right)=\text{exp}\left\{ iK_{n,c}rsin\left(\theta\right)\right\} J_{m}\left(rcos\left(\theta\right)\nu_{nc}\right),\,\,$
+\end_inset
+
+
+\begin_inset Formula $K_{n,c}=\left(k_{n}+k_{c}\right),\,\,k_{n}=\frac{2\pi n}{c}.$
+\end_inset
+
+ Значения для 
+\begin_inset Formula $\nu_{nc}$
+\end_inset
+
+находятся из решения уравнения 
+\begin_inset Formula $J_{m}\left(\rho\nu_{nc}\right)=0$
+\end_inset
+
+, параметр 
+\begin_inset Formula $\nu_{nc}$
+\end_inset
+
+ выражается через другие параметры следующим образом
+\begin_inset Formula $\nu_{nc}=\sqrt{\frac{2m_{e}}{\hbar^{2}}E-K_{n,c}^{2}}$
+\end_inset
+
+
+\lang russian
+.Облaсть вне сферы обозначим 
+\begin_inset Formula $\Omega_{1}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\lang russian
+Для поля внутри сферы, т.е.
+ для сферического поля, имеем:
+\end_layout
+
+\begin_layout Standard
+
+\lang russian
+\begin_inset Formula 
+\[
+\Psi^{sph}\left(r,\psi,\theta\right)=\sum_{l}\left(A_{ml}j_{m}\left(r,E\right)+B_{ml}\varUpsilon_{m}\left(r,E\right)\right)Y_{ml}\left(\psi,\theta\right)
+\]
+
+\end_inset
+
+Облaсть вне сферы обозначим 
+\begin_inset Formula $\Omega_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Поиск энергитического спектра
 \end_layout
 
 \begin_layout Subsection
