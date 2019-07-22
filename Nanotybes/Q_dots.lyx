@@ -2448,6 +2448,18 @@ j_{m}\left(r_{0},E\right) & \varUpsilon_{m}\left(r_{0},E\right)\\
 Поиск энергитического спектра
 \end_layout
 
+\begin_layout Standard
+Энергитический спектр является собственными значениями задачи
+\begin_inset Formula 
+\[
+\widehat{H}\Psi=E\widehat{H}
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Сшивка решений по значению
 \end_layout
