@@ -2451,8 +2451,120 @@ j_{m}\left(r_{0},E\right) & \varUpsilon_{m}\left(r_{0},E\right)\\
 \begin_layout Standard
 Энергитический спектр является собственными значениями задачи
 \begin_inset Formula 
+\begin{equation}
+\widehat{H}\Psi=E\Psi.
+\end{equation}
+
+\end_inset
+
+Представим волновую функцию 
+\begin_inset Formula $\Psi$
+\end_inset
+
+в виде: 
+\begin_inset Formula 
+\begin{equation}
+\Psi=\sum_{i,j,k}\frac{\int_{V}u_{i,j,k}\Psi dV}{\int_{V}u_{i,j,k}u_{i,j,k}^{*}dV}u_{i,j,k}
+\end{equation}
+
+\end_inset
+
+Здесь 
+\begin_inset Formula $u_{i,j,k}$
+\end_inset
+
+- ненормироанвные базисные функции.
+ Нормировачный коэффициент определяется, как 
+\begin_inset Formula $c_{i,j,k}^{2}=\int_{D}u_{i,j,k}u_{i,j,k}^{*}dV$
+\end_inset
+
+.
+ Обозначим нормированную функцию разложения, как: 
+\begin_inset Formula $\Phi_{i,j,k}=\frac{u_{i,j,k}}{c_{i,j,k}}$
+\end_inset
+
+ , тогда:
+\begin_inset Formula 
 \[
-\widehat{H}\Psi=E\widehat{H}
+\Psi=\sum_{i,j,k}\int_{V}\Phi_{i,j,k}\Psi dV\Phi_{i,j,k}.
+\]
+
+\end_inset
+
+Обозначим коэффициент разложения волновой функции, как 
+\begin_inset Formula $\int_{V}\Phi_{i,j,k}\Psi dV=F_{i,j,k}$
+\end_inset
+
+, тогда:
+\begin_inset Formula 
+\begin{equation}
+\Psi=\sum_{i,j,k}F_{i,j,k}\Phi_{i,j,k}.
+\end{equation}
+
+\end_inset
+
+Теперь перезапишем задачу 31, учтя 33:
+\begin_inset Formula 
+\[
+\sum_{i,j,k}F_{i,j,k}\widehat{H}\Phi_{i,j,k}=E\sum_{i,j,k}F_{i,j,k}\Phi_{i,j,k}.
+\]
+
+\end_inset
+
+Умножим слева уравнение 34 на комплексносопряжённую функцию 
+\begin_inset Formula $\Phi_{m,n,p}^{*}$
+\end_inset
+
+и проинтегрируем по области 
+\begin_inset Formula $V$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{equation}
+\sum_{i,j,k}F_{i,j,k}\int_{V}\Phi_{m,n,p}^{*}\widehat{H}\Phi_{i,j,k}dV=E\sum_{i,j,k}F_{i,j,k}\int_{V}\Phi_{m,n,p}^{*}\Phi_{i,j,k}dV.
+\end{equation}
+
+\end_inset
+
+Теперь введём следующи матричный элемент:
+\begin_inset Formula 
+\[
+H_{m,n,p}^{i,j,k}=\int_{V}\Phi_{m,n,p}^{*}\widehat{H}\Phi_{i,j,k}dV
+\]
+
+\end_inset
+
+Скалярное произведение собственных функций:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S_{m,n,p}^{i,j,k}=\int_{V}\Phi_{m,n,p}^{*}\Phi_{i,j,k}dV
+\]
+
+\end_inset
+
+В формуле 34 избавляемся от суммирования и сокращаем коэффициенты:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H_{m,n,p}^{i,j,k}-ES_{m,n,p}^{i,j,k}=0
+\end{equation}
+
+\end_inset
+
+Система не должна иметь тривияльных решений, тк она однородная, поэтому,
+ необходимо:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+det\left\Vert H_{m,n,p}^{i,j,k}-ES_{m,n,p}^{i,j,k}\right\Vert =0
 \]
 
 \end_inset
