@@ -2573,6 +2573,217 @@ det\left\Vert H_{m,n,p}^{i,j,k}-ES_{m,n,p}^{i,j,k}\right\Vert =0
 \end_layout
 
 \begin_layout Subsection
+Выражения для матричных элементов 
+\end_layout
+
+\begin_layout Standard
+Первым делом выпишем выражение для 
+\begin_inset Formula $S_{m,n,p}^{i,j,k}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+
+\backslash
+
+\backslash
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+\Psi_{p}^{cyl}\left(\rho,\phi,z\right)=\sum_{m,n}C_{m,n}\text{exp}\left\{ im\phi\right\} \text{exp}\left\{ iK_{n,p}rsin\left(\theta\right)\right\} J_{m}\left(rcos\left(\theta\right)\nu_{np}\right)\\
+\Psi^{sph}\left(r,\psi,\theta\right)=\sum_{l}\left(A_{ml}j_{m}\left(r,E\right)+B_{ml}\varUpsilon_{m}\left(r,E\right)\right)Y_{ml}\left(\psi,\theta\right)
+\end{cases}
+\]
+
+\end_inset
+
+Для чисто цилиндрической системы координат имеем:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S^{cyl}\,\,{}_{m,n,p}^{a,b,c}=\int_{V}\Phi_{m,n,p}^{*}\Phi_{i,j,k}dV=\int_{V}C_{m,n}C_{a,b}\text{exp}\left\{ i\left(m-a\right)\varphi\right\} \text{exp}\left\{ i\left(K_{n,p}-K_{b,c}\right)z\right\} J_{m}\left(\rho\nu_{np}\right)J_{a}\left(\rho\nu_{bc}\right)dV=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=C_{m,n}C_{a,b}\int_{0}^{2\pi}\text{exp}\left\{ i\left(m-a\right)\varphi\right\} d\varphi\int_{0}^{d}\text{exp}\left\{ i\left(K_{n,p}-K_{b,c}\right)z\right\} dz\int_{0}^{r_{0}}J_{m}\left(\rho\nu_{np}\right)J_{a}\left(\rho\nu_{bc}\right)d\rho=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=2\pi dC_{m,n}C_{a,b}\delta(m-a)\delta\left(K_{n,p}-K_{b,c}\right)\int_{0}^{r_{0}}J_{m}\left(\rho\nu_{np}\right)J_{a}\left(\rho\nu_{bc}\right)d\rho=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=2\pi dC_{m,n}^{2}\delta(m-a)\delta\left(n-b\right)\delta\left(p-c\right)\int_{0}^{r_{0}}J_{m}\left(\rho\nu_{np}\right)^{2}d\rho.
+\]
+
+\end_inset
+
+Для цилиндрического поля в сферической системе коордниат:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S2\,\,{}_{m,n,p}^{a,b,c}=\int_{V}C_{m,n}\text{exp}\left\{ im\phi\right\} \text{exp}\left\{ iK_{n,c}rsin\left(\theta\right)\right\} J_{m}\left(rcos\left(\theta\right)\nu_{nc}\right)C_{a,b}\text{exp}\left\{ -ia\phi\right\} \text{exp}\left\{ iK_{b,c}rsin\left(\theta\right)\right\} J_{a}\left(rcos\left(\theta\right)\nu_{bc}\right)dV=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=C_{a,b}C_{m,n}\int_{0}^{2\pi}\text{exp}\left\{ i\left(m-a\right)\phi\right\} d\phi\int_{0}^{d}\text{exp}\left\{ i\left(K_{n,c}-K_{b,c}\right)rsin\left(\theta\right)\right\} d(rsin\left(\theta\right))\int_{0}^{r_{0}}J_{m}\left(rcos\left(\theta\right)\nu_{nc}\right)J_{a}\left(rcos\left(\theta\right)\nu_{bc}\right)r^{2}sin\left(\theta\right)dr=
+\]
+
+\end_inset
+
+Для сферического поля имеем.
+ обозначим коэф-ты 
+\begin_inset Formula $A_{ml},B_{ml}$
+\end_inset
+
+, как 
+\begin_inset Formula $A_{ml}\left(n,p\right),\,B_{ml}\left(n,p\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S3\,\,{}_{m,l}^{m_{1},l_{1}}\left(n,p\right)=\int_{V_{1}}\sum_{l}\sum_{l_{1}}\left(A_{ml}\left(n,p\right)j_{m}\left(r,E\right)+B_{ml}\left(n,p\right)\varUpsilon_{m}\left(r,E\right)\right)\left(A_{m_{1}l_{1}}\left(n,p\right)j_{m_{1}}^{*}\left(r,E\right)+B_{m_{1}l_{1}}\left(n,p\right)\varUpsilon_{m_{1}}^{*}\left(r,E\right)\right)dV_{1}\int_{V_{2}}Y_{ml}\left(\psi,\theta\right)Y_{m_{1}l_{1}}\left(\psi,\theta\right)dV_{2}
+\]
+
+\end_inset
+
+Вычислим отдельно:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\int_{V_{2}}Y_{ml}\left(\psi,\theta\right)Y_{m_{1}l_{1}}\left(\psi,\theta\right)d\psi d\theta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Y_{ml}\left(\psi,\theta\right)=\frac{\left(-1\right)^{m}}{\sqrt{2\pi}}\text{exp}\left\{ im\phi\right\} \sqrt{\frac{2l+1}{2}\frac{\left(l-m\right)!}{\left(l+m\right)!}}P_{lm}\left(cos\left(\theta\right)\right)=\frac{\left(-1\right)^{m}}{\sqrt{2\pi}}\text{exp}\left\{ im\phi\right\} N_{ml}P_{lm}\left(cos\left(\theta\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\int_{V_{2}}Y_{ml}\left(\psi,\theta\right)Y_{m_{1}l_{1}}\left(\psi,\theta\right)d\psi d\theta=\frac{\left(-1\right)^{m+m1}}{2\pi}N_{ml}N_{m_{1}l_{1}}\int_{0}^{2\pi}\text{exp}\left\{ i\left(m-m_{1}\right)\psi\right\} d\psi\int_{0}^{2\pi}P_{lm}\left(cos\left(\theta\right)\right)P_{l_{1}m_{1}}\left(cos\left(\theta\right)\right)d\theta=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\frac{\left(-1\right)^{2m}}{2\pi}N_{ml}N_{ml_{1}}\delta\left(m-m_{1}\right)\int_{0}^{2\pi}P_{lm}\left(cos\left(\theta\right)\right)P_{l_{1}m}\left(cos\left(\theta\right)\right)d\theta=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\frac{1}{2\pi}N_{ml}^{2}\frac{1}{2l+1}\delta\left(l-l_{1}\right)\delta\left(m-m_{1}\right),
+\]
+
+\end_inset
+
+тогда:
+\begin_inset Formula 
+\[
+S3\,\,{}_{m,l}^{m_{1},l_{1}}\left(n,p\right)=\sum_{l}\int_{0}^{r_{0}}\left(A_{ml}j_{m}\left(r,E\right)+B_{ml}\varUpsilon_{m}\left(r,E\right)\right)\left(A_{ml}j_{m}^{*}\left(r,E\right)+B_{ml}\varUpsilon_{m}^{*}\left(r,E\right)\right)r^{2}dr\frac{1}{2\pi}N_{ml}^{2}\frac{1}{2l+1}\delta\left(l-l_{1}\right)\delta\left(m-m_{1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{2\pi}N_{ml}^{2}\frac{1}{2l+1}=\varDelta_{ml}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S3\,\,{}_{m,l}^{m_{1},l_{1}}\left(n,p\right)=\sum_{l}\varDelta_{ml}A_{ml}^{2}\int_{0}^{r_{0}}j_{m}\left(r,E\right)j_{m}^{*}\left(r,E\right)r^{2}dr+\varDelta_{ml}B_{ml}^{2}\int_{0}^{r_{0}}\varUpsilon_{m}\left(r,E\right)\varUpsilon_{m}^{*}\left(r,E\right)r^{2}dr
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 Сшивка решений по значению
 \end_layout
 
