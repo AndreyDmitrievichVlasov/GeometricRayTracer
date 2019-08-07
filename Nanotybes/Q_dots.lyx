@@ -1833,6 +1833,19 @@ J_{m}\left(\rho\sqrt{\frac{2m_{e}}{\hbar^{2}}E_{e}-K_{n,c}^{2}}\right)=0
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+
+\lang russian
+\begin_inset Formula 
+\[
+\nu_{nc}^{2}+K_{n,c}^{2}=\frac{2m_{e}}{\hbar^{2}}E
+\]
+
+\end_inset
+
+
 \begin_inset Formula $\nu_{nm}$
 \end_inset
 

@@ -4,8 +4,9 @@ function Init()
 clear all; close all; clc;
 addpath([cd '\Bessels\']);
 addpath([cd '\FieldSolutions\']);
+addpath([cd '\FieldSolutions\Cylindrical\']);
 addpath([cd '\Utils\']);
-
+addpath([cd '\Y_l_m\']);
 % FieldSolutions
 end
 
