@@ -1,9 +1,6 @@
-function [ field ] = CalcCylField(r_0,energyLevels, d, M, N, P)
-%CALCCYLFIELD Summary of this function goes here
+function [ field ] = CalcCyl2SphField( r_0,energyLevels, d, M, N, P )
+%CALCCYL2SPHFIELD Summary of this function goes here
 %   Detailed explanation goes here
-% searching roots
-% Number_K_C=10;
-
 besselRoots = dlmread('besselRoots_m_1_51_n_roots_100.dat');
 
 if energyLevels>size(besselRoots,1)
@@ -72,9 +69,9 @@ end
              for m=1:M
                 for e=rootsIDX
                        nu=Nu_n_p(n,m,p,e);
-                       C_n_p(n,m,p,e) =  IntPsi_cyl(  r, theta, z,...
-                                                                   nu, m, k_n_p,...
-                                                                   nu, m, k_n_p);
+                       C_n_p(n,m,p,e) =  IntPsi_cyl_sphr(    r, theta, z,...
+                                                                            nu, m, k_n_p,...
+                                                                            nu, m, k_n_p);
                 end
              end
             clc;
@@ -83,9 +80,7 @@ end
     
     field=struct('Nu_n_m_p_e',Nu_n_p,'C_n_m_p_e',C_n_p,'E_n_m_p_e',E_n_p,'Decsription',...
         'n - orbital wave digit, m - radial wave digit, p - parametr index, e - energy spectrum item number');
+
+
 end
-
- 
-
-
 
