@@ -19,6 +19,10 @@ rootsIDX=1:MaxRoots;
 
 k_c=linspace(-2*pi/d,2*pi/d,P);
 
+
+% foreach Energy level we get a set of k_c therefore forech item from k_c
+% set we get Nu_n_m and Coeff_n_m
+
 Nu_n_p = zeros(N,M,P,MaxRoots);
 
 E_n_p = zeros(N,M,P,MaxRoots);

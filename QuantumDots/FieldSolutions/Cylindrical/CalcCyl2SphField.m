@@ -16,10 +16,10 @@ rootsIDX=1:MaxRoots;
 
 k_c=linspace(-2*pi/d,2*pi/d,P);
 
-Nu_n_p = zeros(N,M,P,MaxRoots);
 
-E_n_p = zeros(N,M,P,MaxRoots);
 
+% E_n_p = zeros(N,M,P,MaxRoots);
+E_n_p = cell(N,M);% zeros(N,M,P,MaxRoots);
 C_n_p = zeros(N,M,P,MaxRoots);
 
 % E = linspace(Energy(1), Energy(2),1000);
@@ -31,23 +31,22 @@ progress = 'total progress is ';
 % disp([progress,num2str((Number_K_C*(p-1)*n)/(Number_K_C*N))*100 ' %'])
 
 
-
-for p=1:P
-        for n=1:N
+Nu_n_p = cell(N,M);% zeros(N,M,P,MaxRoots);
+for n=1:N
             disp(statment1);
-            disp([progress,num2str((P*(p-1)+n)/(P*N)*100) ' %'])
-            k_n_p = 2 * pi * n / d + k_c(p);
+%             disp([progress,num2str((P*(p-1)+n)/(P*N)*100) ' %'])
+            k_n_p = 2 * pi * n / d + k_c;
             for m=1:M
-                root = besselRoots(m,rootsIDX);
                 
-                e = root.^2+(k_n_p)^2;       
+                [root,k_n_p] = meshgrid(besselRoots(m,rootsIDX),k_n_p);
                 
-                Nu_n_p(n,m,p,rootsIDX) = root;
+                e = root.^2+(k_n_p).^2;       
                 
-                E_n_p(n,m,p,rootsIDX) = e;
+                Nu_n_p{n,m}=root;
+             
+                E_n_p{n,m} = e;
             end
                clc;
-        end
 end
 
 
@@ -69,16 +68,16 @@ end
              for m=1:M
                 for e=rootsIDX
                        nu=Nu_n_p(n,m,p,e);
-                       C_n_p(n,m,p,e) =  IntPsi_cyl_sphr(    r, theta, z,...
-                                                                            nu, m, k_n_p,...
-                                                                            nu, m, k_n_p);
+                       C_n_p(n,m,p,e) =  IntPsi_cyl_sphr(  r, theta, z,...
+                                                           nu, m, k_n_p,...
+                                                           nu, m, k_n_p);
                 end
              end
             clc;
         end
     end
     
-    field=struct('Nu_n_m_p_e',Nu_n_p,'C_n_m_p_e',C_n_p,'E_n_m_p_e',E_n_p,'Decsription',...
+    field=struct('Nu_n_m_p_e',Nu_n_p,'C_n_m_p_e',C_n_p,'E_n_m_p_e',E_n_p,'Kp',k_c,'Decsription',...
         'n - orbital wave digit, m - radial wave digit, p - parametr index, e - energy spectrum item number');
 
 
