@@ -7,6 +7,7 @@ addpath([cd '\FieldSolutions\']);
 addpath([cd '\FieldSolutions\Cylindrical\']);
 addpath([cd '\Utils\']);
 addpath([cd '\Y_l_m\']);
+addpath([cd '\SVectors\']);%SVectors
 % FieldSolutions
 end
 

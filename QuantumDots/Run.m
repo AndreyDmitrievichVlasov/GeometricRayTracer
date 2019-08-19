@@ -1,5 +1,5 @@
  Init();
- cyl =  CalcCylField(0.1,10, 0.025, 10, 10, 10);
+ [ Nu_n_p, E_n_p, C_n_p] =  CalcCylField(0.1,10, 0.025, 10, 10, 10);
 % 
 % [ f_roots ] = findRoots( @(x)(besselj(0,x)),'N',100,'acc',100);
 % 
