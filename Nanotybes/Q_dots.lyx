@@ -526,7 +526,7 @@ J_{m}\left(k_{\rho,n,e}b\right)Y_{m}\left(k_{\rho,n,e}a\right)-J_{m}\left(k_{\rh
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\Psi_{n,m,e}\left(\rho,\phi,z\right)=A_{n}\left(z\right)B_{m}\left(\phi\right)C_{m,n,e}\left(\rho\right)=\frac{1}{\sqrt{2\pi c}}e^{ik_{\phi}\phi}e^{ik_{z}z}\left(\alpha_{m,n,e}J_{m}\left(k_{\rho,n}\rho\right)+\beta_{m,n}Y_{m}\left(k_{\rho,n,e}\rho\right)\right)
+\Psi_{n,m,e}\left(\rho,\phi,z\right)=A_{n}\left(z\right)B_{m}\left(\phi\right)C_{\left|m\right|,n,e}\left(\rho\right)=\frac{1}{\sqrt{2\pi c}}e^{ik_{\phi}\phi}e^{ik_{z}z}\left(\alpha_{m,n,e}J_{\left|m\right|}\left(k_{\rho,n}\rho\right)+\beta_{m,n}Y_{\left|m\right|}\left(k_{\rho,n,e}\rho\right)\right)
 \]
 
 \end_inset
@@ -537,7 +537,15 @@ J_{m}\left(k_{\rho,n,e}b\right)Y_{m}\left(k_{\rho,n,e}a\right)-J_{m}\left(k_{\rh
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\Psi_{n,m,e}\left(\rho,\phi,z\right)=A_{n}\left(z\right)B_{m}\left(\phi\right)C_{m,n,e}\left(\rho\right)=\frac{1}{\sqrt{2\pi c}}e^{im\phi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)z}\left(\alpha_{m,n,e}J_{m}\left(k_{\rho,n,e}\rho\right)+\beta_{m,n,e}Y_{m}\left(k_{\rho,n,e}\rho\right)\right).
+\Psi_{n,m,e}\left(\rho,\phi,z\right)=A_{n}\left(z\right)B_{m}\left(\phi\right)C_{\left|m\right|,n,e}\left(\rho\right)=\frac{1}{\sqrt{2\pi c}}e^{im\phi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)z}\left(\alpha_{m,n,e}J_{\left|m\right|}\left(k_{\rho,n,e}\rho\right)+\beta_{m,n,e}Y_{\left|m\right|}\left(k_{\rho,n,e}\rho\right)\right).
+\]
+
+\end_inset
+
+Для случая, когда решение проходит точку ноль:
+\begin_inset Formula 
+\[
+\Psi_{n,m,e}\left(\rho,\phi,z\right)=\frac{\alpha_{m,n,e}}{\sqrt{2\pi c}}e^{im\phi}e^{i\left(\frac{2\pi}{c}n+k_{c}\right)z}J_{\left|m\right|}\left(k_{\rho,n,e}\rho\right)
 \]
 
 \end_inset
