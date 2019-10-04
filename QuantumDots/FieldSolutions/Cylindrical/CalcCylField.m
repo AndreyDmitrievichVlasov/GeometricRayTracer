@@ -15,7 +15,7 @@ end
 MaxRoots=energyLevels;
 
 rootsIDX=1:MaxRoots;
-
+    
 k_c=linspace(-2*pi/d,2*pi/d,P);
 
 

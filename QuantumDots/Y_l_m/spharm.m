@@ -58,7 +58,7 @@ if ~isempty(Phi_theta)
       RES=[];
 end;
 
-if isempty(res)
+if isempty(RES)
     [Ymn,THETA,PHI,X,Y,Z] = createMeshAngles(L,M,Phi_theta);
 else
     [Ymn,THETA,PHI,X,Y,Z] = createMesh(L,M,RES);
