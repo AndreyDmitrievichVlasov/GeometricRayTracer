@@ -2,7 +2,7 @@ function [ rays_out, rays_in ] = refractThroughtQuad(quad_, rays_in,material_1,m
 %REFRACTTHROUGHTQUAD Summary of this function goes here
 % %   Detailed explanation goes here
 % rays_out=zeros(size(rays));
-rays_in=quadIntersect(quad_,rays_in);
+rays_in = quadIntersect(quad_,rays_in);
 
     if  strcmp(quad_.extraDataType,'flat')
         normal=@(point)(quad_.ABCD(1:3));

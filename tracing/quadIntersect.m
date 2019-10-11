@@ -72,26 +72,15 @@ function rays=Intersection(quad_,rays)
             
             D=B_coeff.^2-4*A_coeff.*C_coeff;
             
-            
-            
-            
-            
-            
-            
-            
-%             b=sum(ray_pos(:,1:3).*ray_dir(:,1:3),2);
-%             dir=sum(ray_dir(:,1:3).*ray_dir(:,1:3),2);
-%             D=(b).^2 - dir.*(sum(ray_pos(:,1:3).*ray_pos(:,1:3),2)-(quad_.extraData.A*quad_.extraData.B*quad_.extraData.C)^2);
-%  
             t_1=(-B_coeff+sqrt(D))./A_coeff/2;
             t_2=(-B_coeff-sqrt(D))./A_coeff/2;
             
             distance_1 = sqrt((rays(:,1)+rays(:,4).*t_1-quad_.position(1)).^2+...
-                                      (rays(:,2)+rays(:,5).*t_1-quad_.position(2)).^2+...
-                                      (rays(:,3)+rays(:,6).*t_1-quad_.position(3)).^2);
+                               (rays(:,2)+rays(:,5).*t_1-quad_.position(2)).^2+...
+                               (rays(:,3)+rays(:,6).*t_1-quad_.position(3)).^2);
             distance_2 = sqrt((rays(:,1)+rays(:,4).*t_2-quad_.position(1)).^2+...
-                                      (rays(:,2)+rays(:,5).*t_2-quad_.position(2)).^2+...
-                                      (rays(:,3)+rays(:,6).*t_2-quad_.position(3)).^2);
+                               (rays(:,2)+rays(:,5).*t_2-quad_.position(2)).^2+...
+                               (rays(:,3)+rays(:,6).*t_2-quad_.position(3)).^2);
             
             rays(:,8) = (distance_1<distance_2).*t_1+(distance_1>distance_2).*t_2;                     
    
