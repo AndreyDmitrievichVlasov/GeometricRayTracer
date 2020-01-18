@@ -5,7 +5,7 @@ quad_.extraDataType=ellipsoidType();
 
 quad_.apertureData=getAperture(quad_.apertureType, quad_.apertureData,A,B);
 
-apertureMesh = createMesh(quad_.apertureType, quad_.apertureData, A,B,C);
+apertureMesh = createMesh(quad_.apertureType, quad_.apertureData, A,B,-C);
 
 
 

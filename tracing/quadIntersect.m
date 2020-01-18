@@ -3,9 +3,9 @@ function [ rays  ] = quadIntersect( quad_,rays )
 %   Detailed explanation goes here
 
   if startWith(quad_.extraDataType,'flat')||strcmp(quad_.extraDataType,'')
-      rays=flatIntersection(quad_,rays);
+      rays = flatIntersection(quad_,rays);
   else
-        rays=Intersection(quad_,rays);
+        rays = Intersection(quad_,rays);
   end
 end
 

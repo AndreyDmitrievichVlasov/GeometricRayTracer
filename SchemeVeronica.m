@@ -1,6 +1,7 @@
 clear all; close all;clc;initEnvio();
 
-position=3.2589 + 6.007551 + 0.999975 + 2.952076 + 4.740409 ;
+position=3.2589 + 6.007551 + 0.999975 + 2.952076 + 4.740409;
+
 ofsett= 42.1577;
 
 %forward
@@ -82,7 +83,7 @@ zlim([-50 200]);
 % plot2svg('full_schema_.svg');
 % drawRays(fig_1,[rays_in; rays_middle; rays_out_]);
 % 
-[ PSF] = getPSFData( raysOut,schema{9},512,512);
+[ PSF] = getPSFData( raysOut, schema{9},512,512);
 
  
 drawSpotDiagram(PSF,schema{9},'saveSpot2',['spotDiagrammForField [0 ',num2str(field_y),'].svg']);

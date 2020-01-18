@@ -1,4 +1,4 @@
-function drawSpotDiagram(PSFData,quad_, varargin)
+function drawSpotDiagram(PSFData, quad_, varargin)
           %DRAWSPOTDIAGRAM Summary of this function goes here
 %   Detailed explanation goes here
 %     fig_handler=figure('Units', 'centimeters', 'pos',  [0 0 dimension(1) dimension(2)]);

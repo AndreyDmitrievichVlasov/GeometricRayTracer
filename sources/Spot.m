@@ -73,32 +73,49 @@ if isempty(M )
     M =10;
 end
 
+
+RaysPerField = M*N*length(waveLenghts);
+rays = zeros(RaysPerField*length(fields),13);
+
 if L==0
     if strcmp(apertureType,'rect')
         for i=1:length(fields)
-                rays=[rays;getRectSpotParaxial(position,aperture,N,M,[fields{i},L],waveLenghts,xModulation,yModulation)];
+            
+                rays((i-1)*RaysPerField+1:RaysPerField*i,:) =...
+                    getRectSpotParaxial(position,aperture,N,M,[fields{i},L],waveLenghts,xModulation,yModulation);
+%                 rays=[rays;getRectSpotParaxial(position,aperture,N,M,[fields{i},L],waveLenghts,xModulation,yModulation)];
         end
     elseif strcmp(apertureType,'circ')
         for i=1:length(fields)
-                rays=[rays;getCircSpotParaxial(position,aperture,N,M,[fields{i},L],waveLenghts,radialModulation)];
+            rays((i-1)*RaysPerField+1:RaysPerField*i,:) =...
+                getCircSpotParaxial(position,aperture,N,M,[fields{i},L],waveLenghts,radialModulation);
+%                 rays=[rays;getCircSpotParaxial(position,aperture,N,M,[fields{i},L],waveLenghts,radialModulation)];
         end
     else
         for i=1:length(fields)
-                rays=[rays;getRectSpotParaxial(position,aperture,N,M,[fields{i},L],waveLenghts,xModulation,yModulation)];
+             rays((i-1)*RaysPerField+1:RaysPerField*i,:) =...
+                 getRectSpotParaxial(position,aperture,N,M,[fields{i},L],waveLenghts,xModulation,yModulation);
+%                 rays=[rays;getRectSpotParaxial(position,aperture,N,M,[fields{i},L],waveLenghts,xModulation,yModulation)];
         end
     end
 else
     if strcmp(apertureType,'rect')
         for i=1:length(fields)
-                rays=[rays;getRectSpot(position,aperture,N,M,[fields{i},L],waveLenghts,xModulation,yModulation)];
+                rays((i-1)*RaysPerField+1:RaysPerField*i,:) =...
+                    getRectSpot(position,aperture,N,M,[fields{i},L],waveLenghts,xModulation,yModulation);
+%                 rays=[rays;getRectSpot(position,aperture,N,M,[fields{i},L],waveLenghts,xModulation,yModulation)];
         end
     elseif strcmp(apertureType,'circ')
         for i=1:length(fields)
-                rays=[rays;getCircSpot(position,aperture,N,M,[fields{i},L],waveLenghts,radialModulation)];
+             rays((i-1)*RaysPerField+1:RaysPerField*i,:) =...
+                 getCircSpot(position,aperture,N,M,[fields{i},L],waveLenghts,radialModulation);
+%                 rays=[rays;getCircSpot(position,aperture,N,M,[fields{i},L],waveLenghts,radialModulation)];
         end
     else
         for i=1:length(fields)
-                rays=[rays;getRectSpot(position,aperture,N,M,[fields{i},L],waveLenghts,xModulation,yModulation)];
+             rays((i-1)*RaysPerField+1:RaysPerField*i,:) =...
+                 getRectSpot(position,aperture,N,M,[fields{i},L],waveLenghts,xModulation,yModulation);
+%                 rays=[rays;getRectSpot(position,aperture,N,M,[fields{i},L],waveLenghts,xModulation,yModulation)];
         end
     end
 end
@@ -107,97 +124,195 @@ end
 end
 
 function rays=getRectSpot(position,aperture,N,M,field,waveLengths,modFuncX,modFuncY)
-x_s=linspace(-aperture(1)/2,aperture(1)/2,N);
-y_s=linspace(-aperture(2)/2,aperture(2)/2,M);
-rays=[];
-% N,M
-intensity=1;%1/N/M;
+
+dx = aperture(1)/(N - 1); 
+
+dy = aperture(2)/(M - 1); 
+
+raysPerWL = N*M;
+    
+rays = zeros(raysPerWL * length(waveLengths),13);
+
+intensity=1;
+
 for k=1:length(waveLengths)
+   
     color_= getWLColor( waveLengths(k) );
+    
+    xs = -aperture(1)/2;
+       
     for i=1:N
-        for j=1:M
-        p = [x_s(i) y_s(j) 0];
-        e = p - field; t = norm(e); e=e/t;
-        intence= modFuncX(x_s(i))*modFuncY(y_s(i))*intensity;
-        rays=[rays; [position-field,-e,0,t,waveLengths(k),intence,  getTrueColor(intence,color_)]];
+         
+          idx = (i-1)*N;
+         
+         ys = -aperture(2)/2;
+      
+         for j = 1:M
+                idx = idx + 1;
+                p = [xs ys 0];
+                e = p - field; t = norm(e); e=e/t;
+               intence= modFuncX(xs)*modFuncY(ys)*intensity;
+                rays(raysPerWL*(k-1) + idx,1:3) = position-field;
+                rays(raysPerWL*(k-1) + idx,4:6) = -e;
+                rays(raysPerWL*(k-1) + idx, 7) = 0;
+                rays(raysPerWL*(k-1) + idx, 8) = 1;
+                rays(raysPerWL*(k-1) + idx, 9) = waveLengths(k);
+                rays(raysPerWL*(k-1) + idx, 10) = intence;
+                rays(raysPerWL*(k-1) + idx, 11:13) = getTrueColor(intence,color_);
+                ys=ys+dy;
         end
+        xs = xs + dx;
     end
 end
 
 end
-
 
 function rays=getCircSpot(position,aperture,N,M,field,waveLengths,modFunc)
-    r_s=linspace(aperture(1),aperture(2),N);
-    phi_s=linspace(0,2*pi,M);
-    rays=[];
-    intensity=1;%1/N/M/max(aperture);
+%     r_s = linspace(aperture(1),aperture(2),N);
+%     
+%     phi_s = linspace(0,2*pi,M);
+
+    dphi = 2*pi/(M-1); 
+    
+    dr = (aperture(2)-aperture(1))/(N-1);
+    
+    intensity = 1;%1/N/M/max(aperture);
+    
+    raysPerWL = N*M;
+    
+    rays = zeros(raysPerWL * length(waveLengths),13);
+
+    %     raysPerWL*(k-1) +
+    
     for k=1:length(waveLengths)
+        
         color_= getWLColor( waveLengths(k) );
-        for i=1:N
-            for j=1:M
-            p_ = [r_s(i)*cos(phi_s(j)) r_s(i)*sin(phi_s(j)) 0];
-%             p = p_;
-            e = p_ - field;t=norm(e); e=e/t;
-             intence= modFunc(phi_s(j))*intensity*norm(p_)/max(aperture);
-             rays=[rays; [position-field,-e,0,t,waveLengths(k),intence,  getTrueColor(intence,color_)]];
+        
+        rs = aperture(1);
+             
+        for i = 1:N
+            
+            phis = 0;
+            
+            idx = (i-1)*N;
+            
+            for j = 1:M
+                idx = idx + 1;
+                p_ = [rs*cos(phis) rs*sin(phis) 0];
+                e = p_ - field;t=norm(e); e=e/t;
+                intence= modFunc(phis)*intensity*norm(p_)/max(aperture);
+                rays(raysPerWL*(k-1) + idx,1:3) = position-field;
+                rays(raysPerWL*(k-1) + idx,4:6) = -e;
+                rays(raysPerWL*(k-1) + idx, 7) = 0;
+                rays(raysPerWL*(k-1) + idx, 8) = 1;
+                rays(raysPerWL*(k-1) + idx, 9) = waveLengths(k);
+                rays(raysPerWL*(k-1) + idx, 10) = intence;
+                rays(raysPerWL*(k-1) + idx, 11:13) = getTrueColor(intence,color_);
+                phis=phis + dphi;
             end
+            rs=rs+dr;
         end
     end
 end
 
+function rays = getRectSpotParaxial(position,aperture,N,M,field,waveLengths,modFuncX,modFuncY)
+% x_s=linspace(-aperture(1)/2,aperture(1)/2,N);
+% y_s=linspace(-aperture(2)/2,aperture(2)/2,M);
 
-%%%%
+dx = aperture(1)/(N - 1); 
 
+dy = aperture(2)/(M - 1); 
 
+raysPerWL = N*M;
+    
+rays = zeros(raysPerWL * length(waveLengths),13);
 
-function rays=getRectSpotParaxial(position,aperture,N,M,field,waveLengths,modFuncX,modFuncY)
-x_s=linspace(-aperture(1)/2,aperture(1)/2,N);
-y_s=linspace(-aperture(2)/2,aperture(2)/2,M);
-rays=[];
-% N,M
-intensity=1;%1/N/M;
+intensity=1;
+
 for k=1:length(waveLengths)
+  
     color_= getWLColor( waveLengths(k) );
+    
+    xs = -aperture(1)/2;
+     
     for i=1:N
-        for j=1:M
-        p = [x_s(i) y_s(j) 0]+ [field(1) field(2) 0];
-        e=[0 0 1];
-        intence= modFuncX(x_s(i))*modFuncY(y_s(i))*intensity;
-        rays=[rays; [position + p,e,0,1,waveLengths(k), intence,  getTrueColor(intence,color_)]];
+         
+          idx = (i-1)*N;
+         
+          ys = -aperture(2)/2;
+         
+        for j = 1:M
+                idx = idx + 1;
+                p = [xs ys 0]+ [field(1) field(2) 0];
+                e=[0 0 1];
+                intence= modFuncX(xs)*modFuncY(ys)*intensity;
+                rays( raysPerWL*(k-1) + idx,1:3) =position + p;
+                rays( raysPerWL*(k-1) + idx,4:6) = e;
+                rays( raysPerWL*(k-1) + idx, 7) = 0;
+                rays( raysPerWL*(k-1) + idx, 8) = 1;
+                rays( raysPerWL*(k-1) + idx, 9) = waveLengths(k);
+                rays( raysPerWL*(k-1) + idx, 10) = intence;
+                rays( raysPerWL*(k-1) + idx, 11:13) = getTrueColor(intence,color_);
+                ys = ys + dy;
         end
+        xs = xs + dx;
     end
 end
 
 end
 
-
-function rays=getCircSpotParaxial(position,aperture,N,M,field,waveLengths,modFunc)
-    r_s=linspace(aperture(1),aperture(2),N);
-    phi_s=linspace(0,2*pi,M);
-    rays=[];
+function rays = getCircSpotParaxial(position,aperture,N,M,field,waveLengths,modFunc)
+%     r_s=linspace(aperture(1),aperture(2),N);
+%     
+%     phi_s=linspace(0,2*pi,M);
+  
+    dphi = 2*pi/(M-1);     
+    
+    dr = (aperture(2)-aperture(1))/(N-1); 
+    
     intensity=1;%1/N/M/max(aperture);
-    for k=1:length(waveLengths)
-        color_= getWLColor( waveLengths(k) );
-        for i=1:N
-            for j=1:M
-            p_ = [r_s(i)*cos(phi_s(j)) r_s(i)*sin(phi_s(j)) 0]+ [field(1) field(2) 0];
-%             p = p_;
-             e=[0 0 1];
-        %     p=p-e*t;
-            intence= modFunc(phi_s(j))*intensity*norm(p_)/max(aperture);
-            rays=[rays; [p_+position,e,0,1,waveLengths(k),intence, getTrueColor(intence,color_)]];
+ 
+    raysPerWL = N*M;
+    
+    rays = zeros(raysPerWL * length(waveLengths),13);
+    
+    for k = 1:length(waveLengths)
+        
+        color_ = getWLColor( waveLengths(k) );
+      
+        rs = aperture(1);
+        
+%         phis = 0;
+           
+        for i = 1:N
+            idx = (i-1)*N;
+            phis = 0;
+            for j = 1:M
+                idx = idx + 1;
+                p_ = [rs*cos(phis) rs*sin(phis) 0]+ [field(1) field(2) 0];
+                e = [0 0 1];
+                intence = modFunc(phis)*intensity*norm(p_)/max(aperture);
+                rays(raysPerWL*(k-1) + idx,1:3) = p_+position;
+                rays(raysPerWL*(k-1) + idx,4:6) = e;
+                rays(raysPerWL*(k-1) + idx, 7) = 0;
+                rays(raysPerWL*(k-1) + idx, 8) = 1;
+                rays(raysPerWL*(k-1) + idx, 9) = waveLengths(k);
+                rays(raysPerWL*(k-1) + idx, 10) = intence;
+                rays(raysPerWL*(k-1) + idx, 11:13) = getTrueColor(intence,color_);
+                phis = phis + dphi;
             end
+            rs = rs + dr;
         end
     end
+    
+    
 end
 
 function col = getTrueColor(intence,col)
-t=1-intence;
-colDir=[1 1 1]-col;%colDir=colDir;%/norm(colDir);
-col=col+colDir*t;
+    t=1-intence;
+    colDir=[1 1 1]-col;%colDir=colDir;%/norm(colDir);
+    col=col+colDir*t;
 
-col=col - (col-1).*(col>1);
-col=col - col.*(col<0);
-
+    col=col - (col-1).*(col>1);
+    col=col - col.*(col<0);
 end
